@@ -1,15 +1,21 @@
-There is a robot starting at the position (0, 0), the origin, on a 2D plane. Given a sequence of its moves, judge if this robot ends up at (0, 0) after it completes its moves.
-You are given a string moves that represents the move sequence of the robot where moves[i] represents its ith move. Valid moves are 'R' (right), 'L' (left), 'U' (up), and 'D' (down).
-Return true if the robot returns to the origin after it finishes all of its moves, or false otherwise.
-Note: The way that the robot is "facing" is irrelevant. 'R' will always make the robot move to the right once, 'L' will always make it move left, etc. Also, assume that the magnitude of the robot's movement is the same for each move.
+You are given a string s and an integer k, a k duplicate removal consists of choosing k adjacent and equal letters from s and removing them, causing the left and the right side of the deleted substring to concatenate together.
+We repeatedly make k duplicate removals on s until we no longer can.
+Return the final string after all such duplicate removals have been made. It is guaranteed that the answer is unique.
   Example 1:
-Input: moves = "UD"
-Output: true
-Explanation: The robot moves up once, and then down once. All moves have the same magnitude, so it ended up at the origin where it started. Therefore, we return true.
+Input: s = "abcd", k = 2
+Output: "abcd"
+Explanation: There's nothing to delete.
 Example 2:
-Input: moves = "LL"
-Output: false
-Explanation: The robot moves left twice. It ends up two "moves" to the left of the origin. We return false because it is not at the origin at the end of its moves.
+Input: s = "deeedbbcccbdaa", k = 3
+Output: "aa"
+Explanation: 
+First delete "eee" and "ccc", get "ddbbbdaa"
+Then delete "bbb", get "dddaa"
+Finally delete "ddd", get "aa"
+Example 3:
+Input: s = "pbbcggttciiippooaais", k = 2
+Output: "ps"
   Constraints:
-1 <= moves.length <= 2 * 104
-moves only contains the characters 'U', 'D', 'L' and 'R'.
+1 <= s.length <= 105
+2 <= k <= 104
+s only contains lowercase English letters.
