@@ -153,5 +153,5 @@ def home():
         results = calc_docs_sorted_order(q_terms)[:10:]
     return render_template('index.html', form=form, results=results)
 
-if __name__ == '__main__':
-    app.run()
+# if __name__ == '__main__':
+#     app.run()
