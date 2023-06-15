@@ -1,12 +1,15 @@
-Given a string s and a string array dictionary, return the longest string in the dictionary that can be formed by deleting some of the given string characters. If there is more than one possible result, return the longest word with the smallest lexicographical order. If there is no possible result, return the empty string.
+You are given an integer array prices representing the prices of various chocolates in a store. You are also given a single integer money, which represents your initial amount of money.
+You must buy exactly two chocolates in such a way that you still have some non-negative leftover money. You would like to minimize the sum of the prices of the two chocolates you buy.
+Return the amount of money you will have leftover after buying the two chocolates. If there is no way for you to buy two chocolates without ending up in debt, return money. Note that the leftover must be non-negative.
   Example 1:
-Input: s = "abpcplea", dictionary = ["ale","apple","monkey","plea"]
-Output: "apple"
+Input: prices = [1,2,2], money = 3
+Output: 0
+Explanation: Purchase the chocolates priced at 1 and 2 units respectively. You will have 3 - 3 = 0 units of money afterwards. Thus, we return 0.
 Example 2:
-Input: s = "abpcplea", dictionary = ["a","b","c"]
-Output: "a"
+Input: prices = [3,2,3], money = 3
+Output: 3
+Explanation: You cannot buy 2 chocolates without going in debt, so we return 3.
   Constraints:
-1 <= s.length <= 1000
-1 <= dictionary.length <= 1000
-1 <= dictionary[i].length <= 1000
-s and dictionary[i] consist of lowercase English letters.
+2 <= prices.length <= 50
+1 <= prices[i] <= 100
+1 <= money <= 100

@@ -1,14 +1,21 @@
-Given an array arr of 4 digits, find the latest 24-hour time that can be made using each digit exactly once.
-24-hour times are formatted as "HH:MM", where HH is between 00 and 23, and MM is between 00 and 59. The earliest 24-hour time is 00:00, and the latest is 23:59.
-Return the latest 24-hour time in "HH:MM" format. If no valid time can be made, return an empty string.
+You are given a map of a server center, represented as a m * n integer matrix grid, where 1 means that on that cell there is a server and 0 means that it is no server. Two servers are said to communicate if they are on the same row or on the same column.
+
+Return the number of servers that communicate with any other server.
   Example 1:
-Input: arr = [1,2,3,4]
-Output: "23:41"
-Explanation: The valid 24-hour times are "12:34", "12:43", "13:24", "13:42", "14:23", "14:32", "21:34", "21:43", "23:14", and "23:41". Of these times, "23:41" is the latest.
+Input: grid = [[1,0],[0,1]]
+Output: 0
+Explanation: No servers can communicate with others.
 Example 2:
-Input: arr = [5,5,5,5]
-Output: ""
-Explanation: There are no valid 24-hour times as "55:55" is not valid.
+Input: grid = [[1,0],[1,1]]
+Output: 3
+Explanation: All three servers can communicate with at least one other server.
+Example 3:
+Input: grid = [[1,1,0,0],[0,0,1,0],[0,0,1,0],[0,0,0,1]]
+Output: 4
+Explanation: The two servers in the first row can communicate with each other. The two servers in the third column can communicate with each other. The server at right bottom corner can't communicate with any other server.
   Constraints:
-arr.length == 4
-0 <= arr[i] <= 9
+m == grid.length
+n == grid[i].length
+1 <= m <= 250
+1 <= n <= 250
+grid[i][j] == 0 or 1

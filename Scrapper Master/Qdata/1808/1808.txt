@@ -1,20 +1,28 @@
-You are given an array of integers nums represents the numbers written on a chalkboard.
-Alice and Bob take turns erasing exactly one number from the chalkboard, with Alice starting first. If erasing a number causes the bitwise XOR of all the elements of the chalkboard to become 0, then that player loses. The bitwise XOR of one element is that element itself, and the bitwise XOR of no elements is 0.
-Also, if any player starts their turn with the bitwise XOR of all the elements of the chalkboard equal to 0, then that player wins.
-Return true if and only if Alice wins the game, assuming both players play optimally.
+Design a data structure that is initialized with a list of different words. Provided a string, you should determine if you can change exactly one character in this string to match any word in the data structure.
+Implement the MagicDictionary class:
+MagicDictionary() Initializes the object.
+void buildDict(String[] dictionary) Sets the data structure with an array of distinct strings dictionary.
+bool search(String searchWord) Returns true if you can change exactly one character in searchWord to match any string in the data structure, otherwise returns false.
   Example 1:
-Input: nums = [1,1,2]
-Output: false
-Explanation: 
-Alice has two choices: erase 1 or erase 2. 
-If she erases 1, the nums array becomes [1, 2]. The bitwise XOR of all the elements of the chalkboard is 1 XOR 2 = 3. Now Bob can remove any element he wants, because Alice will be the one to erase the last element and she will lose. 
-If Alice erases 2 first, now nums become [1, 1]. The bitwise XOR of all the elements of the chalkboard is 1 XOR 1 = 0. Alice will lose.
-Example 2:
-Input: nums = [0,1]
-Output: true
-Example 3:
-Input: nums = [1,2,3]
-Output: true
+Input
+["MagicDictionary", "buildDict", "search", "search", "search", "search"]
+[[], [["hello", "leetcode"]], ["hello"], ["hhllo"], ["hell"], ["leetcoded"]]
+Output
+[null, null, false, true, false, false]
+
+Explanation
+MagicDictionary magicDictionary = new MagicDictionary();
+magicDictionary.buildDict(["hello", "leetcode"]);
+magicDictionary.search("hello"); // return False
+magicDictionary.search("hhllo"); // We can change the second 'h' to 'e' to match "hello" so we return True
+magicDictionary.search("hell"); // return False
+magicDictionary.search("leetcoded"); // return False
   Constraints:
-1 <= nums.length <= 1000
-0 <= nums[i] < 216
+1 <= dictionary.length <= 100
+1 <= dictionary[i].length <= 100
+dictionary[i] consists of only lower-case English letters.
+All the strings in dictionary are distinct.
+1 <= searchWord.length <= 100
+searchWord consists of only lower-case English letters.
+buildDict will be called only once before search.
+At most 100 calls will be made to search.

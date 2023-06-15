@@ -1,22 +1,15 @@
-There is a directed graph of n nodes with each node labeled from 0 to n - 1. The graph is represented by a 0-indexed 2D integer array graph where graph[i] is an integer array of nodes adjacent to node i, meaning there is an edge from node i to each node in graph[i].
-A node is a terminal node if there are no outgoing edges. A node is a safe node if every possible path starting from that node leads to a terminal node (or another safe node).
-Return an array containing all the safe nodes of the graph. The answer should be sorted in ascending order.
+Given n points on a 2D plane where points[i] = [xi, yi], Return the widest vertical area between two points such that no points are inside the area.
+A vertical area is an area of fixed-width extending infinitely along the y-axis (i.e., infinite height). The widest vertical area is the one with the maximum width.
+Note that points on the edge of a vertical area are not considered included in the area.
   Example 1:
-Input: graph = [[1,2],[2,3],[5],[0],[5],[],[]]
-Output: [2,4,5,6]
-Explanation: The given graph is shown above.
-Nodes 5 and 6 are terminal nodes as there are no outgoing edges from either of them.
-Every path starting at nodes 2, 4, 5, and 6 all lead to either node 5 or 6.
+Input: points = [[8,7],[9,9],[7,4],[9,7]]
+Output: 1
+Explanation: Both the red and the blue area are optimal.
 Example 2:
-Input: graph = [[1,2,3,4],[1,2],[3,4],[0,4],[]]
-Output: [4]
-Explanation:
-Only node 4 is a terminal node, and every path starting at node 4 leads to node 4.
+Input: points = [[3,1],[9,0],[1,0],[1,4],[5,3],[8,8]]
+Output: 3
   Constraints:
-n == graph.length
-1 <= n <= 104
-0 <= graph[i].length <= n
-0 <= graph[i][j] <= n - 1
-graph[i] is sorted in a strictly increasing order.
-The graph may contain self-loops.
-The number of edges in the graph will be in the range [1, 4 * 104].
+n == points.length
+2 <= n <= 105
+points[i].length == 2
+0 <= xi, yi <= 109

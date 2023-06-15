@@ -1,48 +1,18 @@
-SQL Schema
-Table: Queue
-+-------------+---------+
-| Column Name | Type    |
-+-------------+---------+
-| person_id   | int     |
-| person_name | varchar |
-| weight      | int     |
-| turn        | int     |
-+-------------+---------+
-person_id is the primary key column for this table.
-This table has the information about all people waiting for a bus.
-The person_id and turn columns will contain all numbers from 1 to n, where n is the number of rows in the table.
-turn determines the order of which the people will board the bus, where turn=1 denotes the first person to board and turn=n denotes the last person to board.
-weight is the weight of the person in kilograms.
-  There is a queue of people waiting to board a bus. However, the bus has a weight limit of 1000 kilograms, so there may be some people who cannot board.
-Write an SQL query to find the person_name of the last person that can fit on the bus without exceeding the weight limit. The test cases are generated such that the first person does not exceed the weight limit.
-The query result format is in the following example.
+Special binary strings are binary strings with the following two properties:
+The number of 0's is equal to the number of 1's.
+Every prefix of the binary string has at least as many 1's as 0's.
+You are given a special binary string s.
+A move consists of choosing two consecutive, non-empty, special substrings of s, and swapping them. Two strings are consecutive if the last character of the first string is exactly one index before the first character of the second string.
+Return the lexicographically largest resulting string possible after applying the mentioned operations on the string.
   Example 1:
-Input: 
-Queue table:
-+-----------+-------------+--------+------+
-| person_id | person_name | weight | turn |
-+-----------+-------------+--------+------+
-| 5         | Alice       | 250    | 1    |
-| 4         | Bob         | 175    | 5    |
-| 3         | Alex        | 350    | 2    |
-| 6         | John Cena   | 400    | 3    |
-| 1         | Winston     | 500    | 6    |
-| 2         | Marie       | 200    | 4    |
-+-----------+-------------+--------+------+
-Output: 
-+-------------+
-| person_name |
-+-------------+
-| John Cena   |
-+-------------+
-Explanation: The folowing table is ordered by the turn for simplicity.
-+------+----+-----------+--------+--------------+
-| Turn | ID | Name      | Weight | Total Weight |
-+------+----+-----------+--------+--------------+
-| 1    | 5  | Alice     | 250    | 250          |
-| 2    | 3  | Alex      | 350    | 600          |
-| 3    | 6  | John Cena | 400    | 1000         | (last person to board)
-| 4    | 2  | Marie     | 200    | 1200         | (cannot board)
-| 5    | 4  | Bob       | 175    | ___          |
-| 6    | 1  | Winston   | 500    | ___          |
-+------+----+-----------+--------+--------------+
+Input: s = "11011000"
+Output: "11100100"
+Explanation: The strings "10" [occuring at s[1]] and "1100" [at s[3]] are swapped.
+This is the lexicographically largest string possible after some number of swaps.
+Example 2:
+Input: s = "10"
+Output: "10"
+  Constraints:
+1 <= s.length <= 50
+s[i] is either '0' or '1'.
+s is a special binary string.

@@ -1,29 +1,29 @@
-You have n packages that you are trying to place in boxes, one package in each box. There are m suppliers that each produce boxes of different sizes (with infinite supply). A package can be placed in a box if the size of the package is less than or equal to the size of the box.
-The package sizes are given as an integer array packages, where packages[i] is the size of the ith package. The suppliers are given as a 2D integer array boxes, where boxes[j] is an array of box sizes that the jth supplier produces.
-You want to choose a single supplier and use boxes from them such that the total wasted space is minimized. For each package in a box, we define the space wasted to be size of the box - size of the package. The total wasted space is the sum of the space wasted in all the boxes.
-For example, if you have to fit packages with sizes [2,3,5] and the supplier offers boxes of sizes [4,8], you can fit the packages of size-2 and size-3 into two boxes of size-4 and the package with size-5 into a box of size-8. This would result in a waste of (4-2) + (4-3) + (8-5) = 6.
-Return the minimum total wasted space by choosing the box supplier optimally, or -1 if it is impossible to fit all the packages inside boxes. Since the answer may be large, return it modulo 109 + 7.
+You have a water dispenser that can dispense cold, warm, and hot water. Every second, you can either fill up 2 cups with different types of water, or 1 cup of any type of water.
+You are given a 0-indexed integer array amount of length 3 where amount[0], amount[1], and amount[2] denote the number of cold, warm, and hot water cups you need to fill respectively. Return the minimum number of seconds needed to fill up all the cups.
   Example 1:
-Input: packages = [2,3,5], boxes = [[4,8],[2,8]]
-Output: 6
-Explanation: It is optimal to choose the first supplier, using two size-4 boxes and one size-8 box.
-The total waste is (4-2) + (4-3) + (8-5) = 6.
+Input: amount = [1,4,2]
+Output: 4
+Explanation: One way to fill up the cups is:
+Second 1: Fill up a cold cup and a warm cup.
+Second 2: Fill up a warm cup and a hot cup.
+Second 3: Fill up a warm cup and a hot cup.
+Second 4: Fill up a warm cup.
+It can be proven that 4 is the minimum number of seconds needed.
 Example 2:
-Input: packages = [2,3,5], boxes = [[1,4],[2,3],[3,4]]
-Output: -1
-Explanation: There is no box that the package of size 5 can fit in.
+Input: amount = [5,4,4]
+Output: 7
+Explanation: One way to fill up the cups is:
+Second 1: Fill up a cold cup, and a hot cup.
+Second 2: Fill up a cold cup, and a warm cup.
+Second 3: Fill up a cold cup, and a warm cup.
+Second 4: Fill up a warm cup, and a hot cup.
+Second 5: Fill up a cold cup, and a hot cup.
+Second 6: Fill up a cold cup, and a warm cup.
+Second 7: Fill up a hot cup.
 Example 3:
-Input: packages = [3,5,8,10,11,12], boxes = [[12],[11,9],[10,5,14]]
-Output: 9
-Explanation: It is optimal to choose the third supplier, using two size-5 boxes, two size-10 boxes, and two size-14 boxes.
-The total waste is (5-3) + (5-5) + (10-8) + (10-10) + (14-11) + (14-12) = 9.
+Input: amount = [5,0,0]
+Output: 5
+Explanation: Every second, we fill up a cold cup.
   Constraints:
-n == packages.length
-m == boxes.length
-1 <= n <= 105
-1 <= m <= 105
-1 <= packages[i] <= 105
-1 <= boxes[j].length <= 105
-1 <= boxes[j][k] <= 105
-sum(boxes[j].length) <= 105
-The elements in boxes[j] are distinct.
+amount.length == 3
+0 <= amount[i] <= 100

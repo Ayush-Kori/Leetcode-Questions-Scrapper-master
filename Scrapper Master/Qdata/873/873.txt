@@ -1,34 +1,22 @@
-SQL Schema
-Table: ActorDirector
-+-------------+---------+
-| Column Name | Type    |
-+-------------+---------+
-| actor_id    | int     |
-| director_id | int     |
-| timestamp   | int     |
-+-------------+---------+
-timestamp is the primary key column for this table.
-  Write a SQL query for a report that provides the pairs (actor_id, director_id) where the actor has cooperated with the director at least three times.
-Return the result table in any order.
-The query result format is in the following example.
+You are given an integer array nums. You need to create a 2D array from nums satisfying the following conditions:
+The 2D array should contain only the elements of the array nums.
+Each row in the 2D array contains distinct integers.
+The number of rows in the 2D array should be minimal.
+Return the resulting array. If there are multiple answers, return any of them.
+Note that the 2D array can have a different number of elements on each row.
   Example 1:
-Input: 
-ActorDirector table:
-+-------------+-------------+-------------+
-| actor_id    | director_id | timestamp   |
-+-------------+-------------+-------------+
-| 1           | 1           | 0           |
-| 1           | 1           | 1           |
-| 1           | 1           | 2           |
-| 1           | 2           | 3           |
-| 1           | 2           | 4           |
-| 2           | 1           | 5           |
-| 2           | 1           | 6           |
-+-------------+-------------+-------------+
-Output: 
-+-------------+-------------+
-| actor_id    | director_id |
-+-------------+-------------+
-| 1           | 1           |
-+-------------+-------------+
-Explanation: The only pair is (1, 1) where they cooperated exactly 3 times.
+Input: nums = [1,3,4,1,2,3,1]
+Output: [[1,3,4,2],[1,3],[1]]
+Explanation: We can create a 2D array that contains the following rows:
+- 1,3,4,2
+- 1,3
+- 1
+All elements of nums were used, and each row of the 2D array contains distinct integers, so it is a valid answer.
+It can be shown that we cannot have less than 3 rows in a valid array.
+Example 2:
+Input: nums = [1,2,3,4]
+Output: [[4,3,2,1]]
+Explanation: All elements of the array are distinct, so we can keep all of them in the first row of the 2D array.
+  Constraints:
+1 <= nums.length <= 200
+1 <= nums[i] <= nums.length

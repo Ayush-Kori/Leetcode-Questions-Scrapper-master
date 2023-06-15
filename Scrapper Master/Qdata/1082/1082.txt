@@ -1,24 +1,25 @@
-Given a 0-indexed integer array nums, return true if it can be made strictly increasing after removing exactly one element, or false otherwise. If the array is already strictly increasing, return true.
-The array nums is strictly increasing if nums[i - 1] < nums[i] for each index (1 <= i < nums.length).
+Given two integers num and k, consider a set of positive integers with the following properties:
+The units digit of each integer is k.
+The sum of the integers is num.
+Return the minimum possible size of such a set, or -1 if no such set exists.
+Note:
+The set can contain multiple instances of the same integer, and the sum of an empty set is considered 0.
+The units digit of a number is the rightmost digit of the number.
   Example 1:
-Input: nums = [1,2,10,5,7]
-Output: true
-Explanation: By removing 10 at index 2 from nums, it becomes [1,2,5,7].
-[1,2,5,7] is strictly increasing, so return true.
-Example 2:
-Input: nums = [2,3,1,2]
-Output: false
+Input: num = 58, k = 9
+Output: 2
 Explanation:
-[3,1,2] is the result of removing the element at index 0.
-[2,1,2] is the result of removing the element at index 1.
-[2,3,2] is the result of removing the element at index 2.
-[2,3,1] is the result of removing the element at index 3.
-No resulting array is strictly increasing, so return false.
+One valid set is [9,49], as the sum is 58 and each integer has a units digit of 9.
+Another valid set is [19,39].
+It can be shown that 2 is the minimum possible size of a valid set.
+Example 2:
+Input: num = 37, k = 2
+Output: -1
+Explanation: It is not possible to obtain a sum of 37 using only integers that have a units digit of 2.
 Example 3:
-Input: nums = [1,1,1]
-Output: false
-Explanation: The result of removing any element is [1,1].
-[1,1] is not strictly increasing, so return false.
+Input: num = 0, k = 7
+Output: 0
+Explanation: The sum of an empty set is considered 0.
   Constraints:
-2 <= nums.length <= 1000
-1 <= nums[i] <= 1000
+0 <= num <= 3000
+0 <= k <= 9

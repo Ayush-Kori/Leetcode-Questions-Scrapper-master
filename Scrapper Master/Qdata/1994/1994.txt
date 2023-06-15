@@ -1,14 +1,12 @@
-You are given a positive integer arrivalTime denoting the arrival time of a train in hours, and another positive integer delayedTime denoting the amount of delay in hours.
-Return the time when the train will arrive at the station.
-Note that the time in this problem is in 24-hours format.
+Given two strings a and b, return the minimum number of times you should repeat string a so that string b is a substring of it. If it is impossible for b to be a substring of a after repeating it, return -1.
+Notice: string "abc" repeated 0 times is "", repeated 1 time is "abc" and repeated 2 times is "abcabc".
   Example 1:
-Input: arrivalTime = 15, delayedTime = 5 
-Output: 20 
-Explanation: Arrival time of the train was 15:00 hours. It is delayed by 5 hours. Now it will reach at 15+5 = 20 (20:00 hours).
+Input: a = "abcd", b = "cdabcdab"
+Output: 3
+Explanation: We return 3 because by repeating a three times "abcdabcdabcd", b is a substring of it.
 Example 2:
-Input: arrivalTime = 13, delayedTime = 11
-Output: 0
-Explanation: Arrival time of the train was 13:00 hours. It is delayed by 11 hours. Now it will reach at 13+11=24 (Which is denoted by 00:00 in 24 hours format so return 0).
+Input: a = "a", b = "aa"
+Output: 2
   Constraints:
-1 <= arrivaltime < 24
-1 <= delayedTime <= 24
+1 <= a.length, b.length <= 104
+a and b consist of lowercase English letters.

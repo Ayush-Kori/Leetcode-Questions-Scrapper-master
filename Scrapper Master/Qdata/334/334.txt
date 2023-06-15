@@ -1,14 +1,18 @@
-Given an integer array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]....
-You may assume the input array always has a valid answer.
+You are given an array of events where events[i] = [startDayi, endDayi]. Every event i starts at startDayi and ends at endDayi.
+You can attend an event i at any day d where startTimei <= d <= endTimei. You can only attend one event at any time d.
+Return the maximum number of events you can attend.
   Example 1:
-Input: nums = [1,5,1,1,6,4]
-Output: [1,6,1,5,1,4]
-Explanation: [1,4,1,5,1,6] is also accepted.
+Input: events = [[1,2],[2,3],[3,4]]
+Output: 3
+Explanation: You can attend all the three events.
+One way to attend them all is as shown.
+Attend the first event on day 1.
+Attend the second event on day 2.
+Attend the third event on day 3.
 Example 2:
-Input: nums = [1,3,2,2,3,1]
-Output: [2,3,1,3,1,2]
+Input: events= [[1,2],[2,3],[3,4],[1,2]]
+Output: 4
   Constraints:
-1 <= nums.length <= 5 * 104
-0 <= nums[i] <= 5000
-It is guaranteed that there will be an answer for the given input nums.
-  Follow Up: Can you do it in O(n) time and/or in-place with O(1) extra space?
+1 <= events.length <= 105
+events[i].length == 2
+1 <= startDayi <= endDayi <= 105

@@ -1,21 +1,26 @@
-You have observations of n + m 6-sided dice rolls with each face numbered from 1 to 6. n of the observations went missing, and you only have the observations of m rolls. Fortunately, you have also calculated the average value of the n + m rolls.
-You are given an integer array rolls of length m where rolls[i] is the value of the ith observation. You are also given the two integers mean and n.
-Return an array of length n containing the missing observations such that the average value of the n + m rolls is exactly mean. If there are multiple valid answers, return any of them. If no such array exists, return an empty array.
-The average value of a set of k numbers is the sum of the numbers divided by k.
-Note that mean is an integer, so the sum of the n + m rolls should be divisible by n + m.
+You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
+Merge nums1 and nums2 into a single array sorted in non-decreasing order.
+The final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
   Example 1:
-Input: rolls = [3,2,4,3], mean = 4, n = 2
-Output: [6,6]
-Explanation: The mean of all n + m rolls is (3 + 2 + 4 + 3 + 6 + 6) / 6 = 4.
+Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+Output: [1,2,2,3,5,6]
+Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
+The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
 Example 2:
-Input: rolls = [1,5,6], mean = 3, n = 4
-Output: [2,3,2,2]
-Explanation: The mean of all n + m rolls is (1 + 5 + 6 + 2 + 3 + 2 + 2) / 7 = 3.
+Input: nums1 = [1], m = 1, nums2 = [], n = 0
+Output: [1]
+Explanation: The arrays we are merging are [1] and [].
+The result of the merge is [1].
 Example 3:
-Input: rolls = [1,2,3,4], mean = 6, n = 4
-Output: []
-Explanation: It is impossible for the mean to be 6 no matter what the 4 missing rolls are.
+Input: nums1 = [0], m = 0, nums2 = [1], n = 1
+Output: [1]
+Explanation: The arrays we are merging are [] and [1].
+The result of the merge is [1].
+Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
   Constraints:
-m == rolls.length
-1 <= n, m <= 105
-1 <= rolls[i], mean <= 6
+nums1.length == m + n
+nums2.length == n
+0 <= m, n <= 200
+1 <= m + n <= 200
+-109 <= nums1[i], nums2[j] <= 109
+  Follow up: Can you come up with an algorithm that runs in O(m + n) time?

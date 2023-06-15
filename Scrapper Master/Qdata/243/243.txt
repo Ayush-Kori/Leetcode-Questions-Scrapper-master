@@ -1,12 +1,21 @@
-A self-dividing number is a number that is divisible by every digit it contains.
-For example, 128 is a self-dividing number because 128 % 1 == 0, 128 % 2 == 0, and 128 % 8 == 0.
-A self-dividing number is not allowed to contain the digit zero.
-Given two integers left and right, return a list of all the self-dividing numbers in the range [left, right].
+You are given an integer array nums of size n.
+Consider a non-empty subarray from nums that has the maximum possible bitwise AND.
+In other words, let k be the maximum value of the bitwise AND of any subarray of nums. Then, only subarrays with a bitwise AND equal to k should be considered.
+Return the length of the longest such subarray.
+The bitwise AND of an array is the bitwise AND of all the numbers in it.
+A subarray is a contiguous sequence of elements within an array.
   Example 1:
-Input: left = 1, right = 22
-Output: [1,2,3,4,5,6,7,8,9,11,12,15,22]
+Input: nums = [1,2,3,3,2,2]
+Output: 2
+Explanation:
+The maximum possible bitwise AND of a subarray is 3.
+The longest subarray with that value is [3,3], so we return 2.
 Example 2:
-Input: left = 47, right = 85
-Output: [48,55,66,77]
+Input: nums = [1,2,3,4]
+Output: 1
+Explanation:
+The maximum possible bitwise AND of a subarray is 4.
+The longest subarray with that value is [4], so we return 1.
   Constraints:
-1 <= left <= right <= 104
+1 <= nums.length <= 105
+1 <= nums[i] <= 106

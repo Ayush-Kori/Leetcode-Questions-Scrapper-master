@@ -1,19 +1,24 @@
-You are given an array of integers arr and an integer target.
-You have to find two non-overlapping sub-arrays of arr each with a sum equal target. There can be multiple answers so you have to find an answer where the sum of the lengths of the two sub-arrays is minimum.
-Return the minimum sum of the lengths of the two required sub-arrays, or return -1 if you cannot find such two sub-arrays.
+You are given an array of n strings strs, all of the same length.
+We may choose any deletion indices, and we delete all the characters in those indices for each string.
+For example, if we have strs = ["abcdef","uvwxyz"] and deletion indices {0, 2, 3}, then the final array after deletions is ["bef", "vyz"].
+Suppose we chose a set of deletion indices answer such that after deletions, the final array has every string (row) in lexicographic order. (i.e., (strs[0][0] <= strs[0][1] <= ... <= strs[0][strs[0].length - 1]), and (strs[1][0] <= strs[1][1] <= ... <= strs[1][strs[1].length - 1]), and so on). Return the minimum possible value of answer.length.
   Example 1:
-Input: arr = [3,2,2,4,3], target = 3
-Output: 2
-Explanation: Only two sub-arrays have sum = 3 ([3] and [3]). The sum of their lengths is 2.
+Input: strs = ["babca","bbazb"]
+Output: 3
+Explanation: After deleting columns 0, 1, and 4, the final array is strs = ["bc", "az"].
+Both these rows are individually in lexicographic order (ie. strs[0][0] <= strs[0][1] and strs[1][0] <= strs[1][1]).
+Note that strs[0] > strs[1] - the array strs is not necessarily in lexicographic order.
 Example 2:
-Input: arr = [7,3,4,7], target = 7
-Output: 2
-Explanation: Although we have three non-overlapping sub-arrays of sum = 7 ([7], [3,4] and [7]), but we will choose the first and third sub-arrays as the sum of their lengths is 2.
+Input: strs = ["edcba"]
+Output: 4
+Explanation: If we delete less than 4 columns, the only row will not be lexicographically sorted.
 Example 3:
-Input: arr = [4,3,2,6,2,3,4], target = 6
-Output: -1
-Explanation: We have only one sub-array of sum = 6.
+Input: strs = ["ghi","def","abc"]
+Output: 0
+Explanation: All rows are already lexicographically sorted.
   Constraints:
-1 <= arr.length <= 105
-1 <= arr[i] <= 1000
-1 <= target <= 108
+n == strs.length
+1 <= n <= 100
+1 <= strs[i].length <= 100
+strs[i] consists of lowercase English letters.
+ 

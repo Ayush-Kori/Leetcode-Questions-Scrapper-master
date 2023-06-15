@@ -1,15 +1,24 @@
-Two strings, X and Y, are considered similar if either they are identical or we can make them equivalent by swapping at most two letters (in distinct positions) within the string X.
-For example, "tars" and "rats" are similar (swapping at positions 0 and 2), and "rats" and "arts" are similar, but "star" is not similar to "tars", "rats", or "arts".
-Together, these form two connected groups by similarity: {"tars", "rats", "arts"} and {"star"}.  Notice that "tars" and "arts" are in the same group even though they are not similar.  Formally, each group is such that a word is in the group if and only if it is similar to at least one other word in the group.
-We are given a list strs of strings where every string in strs is an anagram of every other string in strs. How many groups are there?
+There are n cities numbered from 1 to n. You are given an array edges of size n-1, where edges[i] = [ui, vi] represents a bidirectional edge between cities ui and vi. There exists a unique path between each pair of cities. In other words, the cities form a tree.
+A subtree is a subset of cities where every city is reachable from every other city in the subset, where the path between each pair passes through only the cities from the subset. Two subtrees are different if there is a city in one subtree that is not present in the other.
+For each d from 1 to n-1, find the number of subtrees in which the maximum distance between any two cities in the subtree is equal to d.
+Return an array of size n-1 where the dth element (1-indexed) is the number of subtrees in which the maximum distance between any two cities is equal to d.
+Notice that the distance between the two cities is the number of edges in the path between them.
   Example 1:
-Input: strs = ["tars","rats","arts","star"]
-Output: 2
+Input: n = 4, edges = [[1,2],[2,3],[2,4]]
+Output: [3,4,0]
+Explanation:
+The subtrees with subsets {1,2}, {2,3} and {2,4} have a max distance of 1.
+The subtrees with subsets {1,2,3}, {1,2,4}, {2,3,4} and {1,2,3,4} have a max distance of 2.
+No subtree has two nodes where the max distance between them is 3.
 Example 2:
-Input: strs = ["omv","ovm"]
-Output: 1
+Input: n = 2, edges = [[1,2]]
+Output: [1]
+Example 3:
+Input: n = 3, edges = [[1,2],[2,3]]
+Output: [2,1]
   Constraints:
-1 <= strs.length <= 300
-1 <= strs[i].length <= 300
-strs[i] consists of lowercase letters only.
-All words in strs have the same length and are anagrams of each other.
+2 <= n <= 15
+edges.length == n-1
+edges[i].length == 2
+1 <= ui, vi <= n
+All pairs (ui, vi) are distinct.

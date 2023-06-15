@@ -1,18 +1,16 @@
-Note: This is a companion problem to the System Design problem: Design TinyURL.
-TinyURL is a URL shortening service where you enter a URL such as https://leetcode.com/problems/design-tinyurl and it returns a short URL such as http://tinyurl.com/4e9iAk. Design a class to encode a URL and decode a tiny URL.
-There is no restriction on how your encode/decode algorithm should work. You just need to ensure that a URL can be encoded to a tiny URL and the tiny URL can be decoded to the original URL.
-Implement the Solution class:
-Solution() Initializes the object of the system.
-String encode(String longUrl) Returns a tiny URL for the given longUrl.
-String decode(String shortUrl) Returns the original long URL for the given shortUrl. It is guaranteed that the given shortUrl was encoded by the same object.
+A gene string can be represented by an 8-character long string, with choices from 'A', 'C', 'G', and 'T'.
+Suppose we need to investigate a mutation from a gene string startGene to a gene string endGene where one mutation is defined as one single character changed in the gene string.
+For example, "AACCGGTT" --> "AACCGGTA" is one mutation.
+There is also a gene bank bank that records all the valid gene mutations. A gene must be in bank to make it a valid gene string.
+Given the two gene strings startGene and endGene and the gene bank bank, return the minimum number of mutations needed to mutate from startGene to endGene. If there is no such a mutation, return -1.
+Note that the starting point is assumed to be valid, so it might not be included in the bank.
   Example 1:
-Input: url = "https://leetcode.com/problems/design-tinyurl"
-Output: "https://leetcode.com/problems/design-tinyurl"
-
-Explanation:
-Solution obj = new Solution();
-string tiny = obj.encode(url); // returns the encoded tiny url.
-string ans = obj.decode(tiny); // returns the original url after decoding it.
+Input: startGene = "AACCGGTT", endGene = "AACCGGTA", bank = ["AACCGGTA"]
+Output: 1
+Example 2:
+Input: startGene = "AACCGGTT", endGene = "AAACGGTA", bank = ["AACCGGTA","AACCGCTA","AAACGGTA"]
+Output: 2
   Constraints:
-1 <= url.length <= 104
-url is guranteed to be a valid URL.
+0 <= bank.length <= 10
+startGene.length == endGene.length == bank[i].length == 8
+startGene, endGene, and bank[i] consist of only the characters ['A', 'C', 'G', 'T'].

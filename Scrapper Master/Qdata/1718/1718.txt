@@ -1,19 +1,19 @@
-Given an array nums of distinct positive integers, return the number of tuples (a, b, c, d) such that a * b = c * d where a, b, c, and d are elements of nums, and a != b != c != d.
+You are given a string word that consists of digits and lowercase English letters.
+You will replace every non-digit character with a space. For example, "a123bc34d8ef34" will become " 123  34 8  34". Notice that you are left with some integers that are separated by at least one space: "123", "34", "8", and "34".
+Return the number of different integers after performing the replacement operations on word.
+Two integers are considered different if their decimal representations without any leading zeros are different.
   Example 1:
-Input: nums = [2,3,4,6]
-Output: 8
-Explanation: There are 8 valid tuples:
-(2,6,3,4) , (2,6,4,3) , (6,2,3,4) , (6,2,4,3)
-(3,4,2,6) , (4,3,2,6) , (3,4,6,2) , (4,3,6,2)
+Input: word = "a123bc34d8ef34"
+Output: 3
+Explanation: The three different integers are "123", "34", and "8". Notice that "34" is only counted once.
 Example 2:
-Input: nums = [1,2,4,5,10]
-Output: 16
-Explanation: There are 16 valid tuples:
-(1,10,2,5) , (1,10,5,2) , (10,1,2,5) , (10,1,5,2)
-(2,5,1,10) , (2,5,10,1) , (5,2,1,10) , (5,2,10,1)
-(2,10,4,5) , (2,10,5,4) , (10,2,4,5) , (10,2,5,4)
-(4,5,2,10) , (4,5,10,2) , (5,4,2,10) , (5,4,10,2)
+Input: word = "leet1234code234"
+Output: 2
+Example 3:
+Input: word = "a1b01c001"
+Output: 1
+Explanation: The three integers "1", "01", and "001" all represent the same integer because
+the leading zeros are ignored when comparing their decimal values.
   Constraints:
-1 <= nums.length <= 1000
-1 <= nums[i] <= 104
-All elements in nums are distinct.
+1 <= word.length <= 1000
+word consists of digits and lowercase English letters.

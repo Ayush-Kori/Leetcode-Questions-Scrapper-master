@@ -1,16 +1,16 @@
-Given an integer n, return a string array answer (1-indexed) where:
-answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
-answer[i] == "Fizz" if i is divisible by 3.
-answer[i] == "Buzz" if i is divisible by 5.
-answer[i] == i (as a string) if none of the above conditions are true.
+Given the API rand7() that generates a uniform random integer in the range [1, 7], write a function rand10() that generates a uniform random integer in the range [1, 10]. You can only call the API rand7(), and you shouldn't call any other API. Please do not use a language's built-in random API.
+Each test case will have one internal argument n, the number of times that your implemented function rand10() will be called while testing. Note that this is not an argument passed to rand10().
   Example 1:
-Input: n = 3
-Output: ["1","2","Fizz"]
+Input: n = 1
+Output: [2]
 Example 2:
-Input: n = 5
-Output: ["1","2","Fizz","4","Buzz"]
+Input: n = 2
+Output: [2,8]
 Example 3:
-Input: n = 15
-Output: ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz"]
+Input: n = 3
+Output: [3,8,10]
   Constraints:
-1 <= n <= 104
+1 <= n <= 105
+  Follow up:
+What is the expected value for the number of calls to rand7() function?
+Could you minimize the number of calls to rand7()?

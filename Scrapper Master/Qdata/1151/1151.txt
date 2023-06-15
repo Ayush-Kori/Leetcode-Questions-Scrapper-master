@@ -1,31 +1,15 @@
-You are given an array of strings ideas that represents a list of names to be used in the process of naming a company. The process of naming a company is as follows:
-Choose 2 distinct names from ideas, call them ideaA and ideaB.
-Swap the first letters of ideaA and ideaB with each other.
-If both of the new names are not found in the original ideas, then the name ideaA ideaB (the concatenation of ideaA and ideaB, separated by a space) is a valid company name.
-Otherwise, it is not a valid name.
-Return the number of distinct valid names for the company.
+Given an integer array nums, return the number of elements that have both a strictly smaller and a strictly greater element appear in nums.
   Example 1:
-Input: ideas = ["coffee","donuts","time","toffee"]
-Output: 6
-Explanation: The following selections are valid:
-- ("coffee", "donuts"): The company name created is "doffee conuts".
-- ("donuts", "coffee"): The company name created is "conuts doffee".
-- ("donuts", "time"): The company name created is "tonuts dime".
-- ("donuts", "toffee"): The company name created is "tonuts doffee".
-- ("time", "donuts"): The company name created is "dime tonuts".
-- ("toffee", "donuts"): The company name created is "doffee tonuts".
-Therefore, there are a total of 6 distinct company names.
-
-The following are some examples of invalid selections:
-- ("coffee", "time"): The name "toffee" formed after swapping already exists in the original array.
-- ("time", "toffee"): Both names are still the same after swapping and exist in the original array.
-- ("coffee", "toffee"): Both names formed after swapping already exist in the original array.
+Input: nums = [11,7,2,15]
+Output: 2
+Explanation: The element 7 has the element 2 strictly smaller than it and the element 11 strictly greater than it.
+Element 11 has element 7 strictly smaller than it and element 15 strictly greater than it.
+In total there are 2 elements having both a strictly smaller and a strictly greater element appear in nums.
 Example 2:
-Input: ideas = ["lack","back"]
-Output: 0
-Explanation: There are no valid selections. Therefore, 0 is returned.
+Input: nums = [-3,3,3,90]
+Output: 2
+Explanation: The element 3 has the element -3 strictly smaller than it and the element 90 strictly greater than it.
+Since there are two elements with the value 3, in total there are 2 elements having both a strictly smaller and a strictly greater element appear in nums.
   Constraints:
-2 <= ideas.length <= 5 * 104
-1 <= ideas[i].length <= 10
-ideas[i] consists of lowercase English letters.
-All the strings in ideas are unique.
+1 <= nums.length <= 100
+-105 <= nums[i] <= 105

@@ -1,25 +1,24 @@
-You are given an m x n matrix grid consisting of positive integers.
-Perform the following operation until grid becomes empty:
-Delete the element with the greatest value from each row. If multiple such elements exist, delete any of them.
-Add the maximum of deleted elements to the answer.
-Note that the number of columns decreases by one after each operation.
-Return the answer after performing the operations described above.
+Given an integer array nums and an integer k, return true if nums has a good subarray or false otherwise.
+A good subarray is a subarray where:
+its length is at least two, and
+the sum of the elements of the subarray is a multiple of k.
+Note that:
+A subarray is a contiguous part of the array.
+An integer x is a multiple of k if there exists an integer n such that x = n * k. 0 is always a multiple of k.
   Example 1:
-Input: grid = [[1,2,4],[3,3,1]]
-Output: 8
-Explanation: The diagram above shows the removed values in each step.
-- In the first operation, we remove 4 from the first row and 3 from the second row (notice that, there are two cells with value 3 and we can remove any of them). We add 4 to the answer.
-- In the second operation, we remove 2 from the first row and 3 from the second row. We add 3 to the answer.
-- In the third operation, we remove 1 from the first row and 1 from the second row. We add 1 to the answer.
-The final answer = 4 + 3 + 1 = 8.
+Input: nums = [23,2,4,6,7], k = 6
+Output: true
+Explanation: [2, 4] is a continuous subarray of size 2 whose elements sum up to 6.
 Example 2:
-Input: grid = [[10]]
-Output: 10
-Explanation: The diagram above shows the removed values in each step.
-- In the first operation, we remove 10 from the first row. We add 10 to the answer.
-The final answer = 10.
+Input: nums = [23,2,6,4,7], k = 6
+Output: true
+Explanation: [23, 2, 6, 4, 7] is an continuous subarray of size 5 whose elements sum up to 42.
+42 is a multiple of 6 because 42 = 7 * 6 and 7 is an integer.
+Example 3:
+Input: nums = [23,2,6,4,7], k = 13
+Output: false
   Constraints:
-m == grid.length
-n == grid[i].length
-1 <= m, n <= 50
-1 <= grid[i][j] <= 100
+1 <= nums.length <= 105
+0 <= nums[i] <= 109
+0 <= sum(nums[i]) <= 231 - 1
+1 <= k <= 231 - 1

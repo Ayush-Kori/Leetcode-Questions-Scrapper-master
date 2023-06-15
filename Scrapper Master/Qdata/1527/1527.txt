@@ -1,31 +1,27 @@
-You have a browser of one tab where you start on the homepage and you can visit another url, get back in the history number of steps or move forward in the history number of steps.
-Implement the BrowserHistory class:
-BrowserHistory(string homepage) Initializes the object with the homepage of the browser.
-void visit(string url) Visits url from the current page. It clears up all the forward history.
-string back(int steps) Move steps back in history. If you can only return x steps in the history and steps > x, you will return only x steps. Return the current url after moving back in history at most steps.
-string forward(int steps) Move steps forward in history. If you can only forward x steps in the history and steps > x, you will forward only x steps. Return the current url after forwarding in history at most steps.
-  Example:
-Input:
-["BrowserHistory","visit","visit","visit","back","back","forward","visit","forward","back","back"]
-[["leetcode.com"],["google.com"],["facebook.com"],["youtube.com"],[1],[1],[1],["linkedin.com"],[2],[2],[7]]
-Output:
-[null,null,null,null,"facebook.com","google.com","facebook.com",null,"linkedin.com","google.com","leetcode.com"]
-
-Explanation:
-BrowserHistory browserHistory = new BrowserHistory("leetcode.com");
-browserHistory.visit("google.com");       // You are in "leetcode.com". Visit "google.com"
-browserHistory.visit("facebook.com");     // You are in "google.com". Visit "facebook.com"
-browserHistory.visit("youtube.com");      // You are in "facebook.com". Visit "youtube.com"
-browserHistory.back(1);                   // You are in "youtube.com", move back to "facebook.com" return "facebook.com"
-browserHistory.back(1);                   // You are in "facebook.com", move back to "google.com" return "google.com"
-browserHistory.forward(1);                // You are in "google.com", move forward to "facebook.com" return "facebook.com"
-browserHistory.visit("linkedin.com");     // You are in "facebook.com". Visit "linkedin.com"
-browserHistory.forward(2);                // You are in "linkedin.com", you cannot move forward any steps.
-browserHistory.back(2);                   // You are in "linkedin.com", move back two steps to "facebook.com" then to "google.com". return "google.com"
-browserHistory.back(7);                   // You are in "google.com", you can move back only one step to "leetcode.com". return "leetcode.com"
+You are given an m x n integer matrix grid.
+A rhombus sum is the sum of the elements that form the border of a regular rhombus shape in grid. The rhombus must have the shape of a square rotated 45 degrees with each of the corners centered in a grid cell. Below is an image of four valid rhombus shapes with the corresponding colored cells that should be included in each rhombus sum:
+Note that the rhombus can have an area of 0, which is depicted by the purple rhombus in the bottom right corner.
+Return the biggest three distinct rhombus sums in the grid in descending order. If there are less than three distinct values, return all of them.
+  Example 1:
+Input: grid = [[3,4,5,1,3],[3,3,4,2,3],[20,30,200,40,10],[1,5,5,4,1],[4,3,2,2,5]]
+Output: [228,216,211]
+Explanation: The rhombus shapes for the three biggest distinct rhombus sums are depicted above.
+- Blue: 20 + 3 + 200 + 5 = 228
+- Red: 200 + 2 + 10 + 4 = 216
+- Green: 5 + 200 + 4 + 2 = 211
+Example 2:
+Input: grid = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [20,9,8]
+Explanation: The rhombus shapes for the three biggest distinct rhombus sums are depicted above.
+- Blue: 4 + 2 + 6 + 8 = 20
+- Red: 9 (area 0 rhombus in the bottom right corner)
+- Green: 8 (area 0 rhombus in the bottom middle)
+Example 3:
+Input: grid = [[7,7,7]]
+Output: [7]
+Explanation: All three possible rhombus sums are the same, so return [7].
   Constraints:
-1 <= homepage.length <= 20
-1 <= url.length <= 20
-1 <= steps <= 100
-homepage and url consist of  '.' or lower case English letters.
-At most 5000 calls will be made to visit, back, and forward.
+m == grid.length
+n == grid[i].length
+1 <= m, n <= 50
+1 <= grid[i][j] <= 105

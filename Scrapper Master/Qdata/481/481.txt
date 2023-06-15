@@ -1,42 +1,18 @@
-There is a special typewriter with lowercase English letters 'a' to 'z' arranged in a circle with a pointer. A character can only be typed if the pointer is pointing to that character. The pointer is initially pointing to the character 'a'.
-Each second, you may perform one of the following operations:
-Move the pointer one character counterclockwise or clockwise.
-Type the character the pointer is currently on.
-Given a string word, return the minimum number of seconds to type out the characters in word.
+You are given an integer array, nums, and an integer k. nums comprises of only 0's and 1's. In one move, you can choose two adjacent indices and swap their values.
+Return the minimum number of moves required so that nums has k consecutive 1's.
   Example 1:
-Input: word = "abc"
-Output: 5
-Explanation: 
-The characters are printed as follows:
-- Type the character 'a' in 1 second since the pointer is initially on 'a'.
-- Move the pointer clockwise to 'b' in 1 second.
-- Type the character 'b' in 1 second.
-- Move the pointer clockwise to 'c' in 1 second.
-- Type the character 'c' in 1 second.
+Input: nums = [1,0,0,1,0,1], k = 2
+Output: 1
+Explanation: In 1 move, nums could be [1,0,0,0,1,1] and have 2 consecutive 1's.
 Example 2:
-Input: word = "bza"
-Output: 7
-Explanation:
-The characters are printed as follows:
-- Move the pointer clockwise to 'b' in 1 second.
-- Type the character 'b' in 1 second.
-- Move the pointer counterclockwise to 'z' in 2 seconds.
-- Type the character 'z' in 1 second.
-- Move the pointer clockwise to 'a' in 1 second.
-- Type the character 'a' in 1 second.
+Input: nums = [1,0,0,0,0,0,1,1], k = 3
+Output: 5
+Explanation: In 5 moves, the leftmost 1 can be shifted right until nums = [0,0,0,0,0,1,1,1].
 Example 3:
-Input: word = "zjpc"
-Output: 34
-Explanation:
-The characters are printed as follows:
-- Move the pointer counterclockwise to 'z' in 1 second.
-- Type the character 'z' in 1 second.
-- Move the pointer clockwise to 'j' in 10 seconds.
-- Type the character 'j' in 1 second.
-- Move the pointer clockwise to 'p' in 6 seconds.
-- Type the character 'p' in 1 second.
-- Move the pointer counterclockwise to 'c' in 13 seconds.
-- Type the character 'c' in 1 second.
+Input: nums = [1,1,0,1], k = 2
+Output: 0
+Explanation: nums already has 2 consecutive 1's.
   Constraints:
-1 <= word.length <= 100
-word consists of lowercase English letters.
+1 <= nums.length <= 105
+nums[i] is 0 or 1.
+1 <= k <= sum(nums)

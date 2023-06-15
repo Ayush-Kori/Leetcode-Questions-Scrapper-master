@@ -1,18 +1,18 @@
-You are given a string s consisting only of the characters '0' and '1'. In one operation, you can change any '0' to '1' or vice versa.
-The string is called alternating if no two adjacent characters are equal. For example, the string "010" is alternating, while the string "0100" is not.
-Return the minimum number of operations needed to make s alternating.
+Given an array of strings words, return the words that can be typed using letters of the alphabet on only one row of American keyboard like the image below.
+In the American keyboard:
+the first row consists of the characters "qwertyuiop",
+the second row consists of the characters "asdfghjkl", and
+the third row consists of the characters "zxcvbnm".
   Example 1:
-Input: s = "0100"
-Output: 1
-Explanation: If you change the last character to '1', s will be "0101", which is alternating.
+Input: words = ["Hello","Alaska","Dad","Peace"]
+Output: ["Alaska","Dad"]
 Example 2:
-Input: s = "10"
-Output: 0
-Explanation: s is already alternating.
+Input: words = ["omk"]
+Output: []
 Example 3:
-Input: s = "1111"
-Output: 2
-Explanation: You need two operations to reach "0101" or "1010".
+Input: words = ["adsdf","sfd"]
+Output: ["adsdf","sfd"]
   Constraints:
-1 <= s.length <= 104
-s[i] is either '0' or '1'.
+1 <= words.length <= 20
+1 <= words[i].length <= 100
+words[i] consists of English letters (both lowercase and uppercase). 

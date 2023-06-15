@@ -1,16 +1,14 @@
-You are given a non-negative floating point number rounded to two decimal places celsius, that denotes the temperature in Celsius.
-You should convert Celsius into Kelvin and Fahrenheit and return it as an array ans = [kelvin, fahrenheit].
-Return the array ans. Answers within 10-5 of the actual answer will be accepted.
-Note that:
-Kelvin = Celsius + 273.15
-Fahrenheit = Celsius * 1.80 + 32.00
+Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
+The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+You must write an algorithm that runs in O(n) time and without using the division operation.
   Example 1:
-Input: celsius = 36.50
-Output: [309.65000,97.70000]
-Explanation: Temperature at 36.50 Celsius converted in Kelvin is 309.65 and converted in Fahrenheit is 97.70.
+Input: nums = [1,2,3,4]
+Output: [24,12,8,6]
 Example 2:
-Input: celsius = 122.11
-Output: [395.26000,251.79800]
-Explanation: Temperature at 122.11 Celsius converted in Kelvin is 395.26 and converted in Fahrenheit is 251.798.
+Input: nums = [-1,1,0,-3,3]
+Output: [0,0,9,0,0]
   Constraints:
-0 <= celsius <= 1000
+2 <= nums.length <= 105
+-30 <= nums[i] <= 30
+The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+  Follow up: Can you solve the problem in O(1) extra space complexity? (The output array does not count as extra space for space complexity analysis.)

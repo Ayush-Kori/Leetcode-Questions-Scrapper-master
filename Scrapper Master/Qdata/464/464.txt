@@ -1,20 +1,32 @@
-There are two types of soup: type A and type B. Initially, we have n ml of each type of soup. There are four kinds of operations:
-Serve 100 ml of soup A and 0 ml of soup B,
-Serve 75 ml of soup A and 25 ml of soup B,
-Serve 50 ml of soup A and 50 ml of soup B, and
-Serve 25 ml of soup A and 75 ml of soup B.
-When we serve some soup, we give it to someone, and we no longer have it. Each turn, we will choose from the four operations with an equal probability 0.25. If the remaining volume of soup is not enough to complete the operation, we will serve as much as possible. We stop once we no longer have some quantity of both types of soup.
-Note that we do not have an operation where all 100 ml's of soup B are used first.
-Return the probability that soup A will be empty first, plus half the probability that A and B become empty at the same time. Answers within 10-5 of the actual answer will be accepted.
+Design an algorithm that accepts a stream of characters and checks if a suffix of these characters is a string of a given array of strings words.
+For example, if words = ["abc", "xyz"] and the stream added the four characters (one by one) 'a', 'x', 'y', and 'z', your algorithm should detect that the suffix "xyz" of the characters "axyz" matches "xyz" from words.
+Implement the StreamChecker class:
+StreamChecker(String[] words) Initializes the object with the strings array words.
+boolean query(char letter) Accepts a new character from the stream and returns true if any non-empty suffix from the stream forms a word that is in words.
   Example 1:
-Input: n = 50
-Output: 0.62500
-Explanation: If we choose the first two operations, A will become empty first.
-For the third operation, A and B will become empty at the same time.
-For the fourth operation, B will become empty first.
-So the total probability of A becoming empty first plus half the probability that A and B become empty at the same time, is 0.25 * (1 + 1 + 0.5 + 0) = 0.625.
-Example 2:
-Input: n = 100
-Output: 0.71875
+Input
+["StreamChecker", "query", "query", "query", "query", "query", "query", "query", "query", "query", "query", "query", "query"]
+[[["cd", "f", "kl"]], ["a"], ["b"], ["c"], ["d"], ["e"], ["f"], ["g"], ["h"], ["i"], ["j"], ["k"], ["l"]]
+Output
+[null, false, false, false, true, false, true, false, false, false, false, false, true]
+
+Explanation
+StreamChecker streamChecker = new StreamChecker(["cd", "f", "kl"]);
+streamChecker.query("a"); // return False
+streamChecker.query("b"); // return False
+streamChecker.query("c"); // return False
+streamChecker.query("d"); // return True, because 'cd' is in the wordlist
+streamChecker.query("e"); // return False
+streamChecker.query("f"); // return True, because 'f' is in the wordlist
+streamChecker.query("g"); // return False
+streamChecker.query("h"); // return False
+streamChecker.query("i"); // return False
+streamChecker.query("j"); // return False
+streamChecker.query("k"); // return False
+streamChecker.query("l"); // return True, because 'kl' is in the wordlist
   Constraints:
-0 <= n <= 109
+1 <= words.length <= 2000
+1 <= words[i].length <= 200
+words[i] consists of lowercase English letters.
+letter is a lowercase English letter.
+At most 4 * 104 calls will be made to query.

@@ -1,12 +1,17 @@
-Given an m x n matrix, return all elements of the matrix in spiral order.
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+An input string is valid if:
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Every close bracket has a corresponding open bracket of the same type.
   Example 1:
-Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
-Output: [1,2,3,6,9,8,7,4,5]
+Input: s = "()"
+Output: true
 Example 2:
-Input: matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
-Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+Input: s = "()[]{}"
+Output: true
+Example 3:
+Input: s = "(]"
+Output: false
   Constraints:
-m == matrix.length
-n == matrix[i].length
-1 <= m, n <= 10
--100 <= matrix[i][j] <= 100
+1 <= s.length <= 104
+s consists of parentheses only '()[]{}'.

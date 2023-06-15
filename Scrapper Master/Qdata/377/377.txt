@@ -1,26 +1,21 @@
-You are given an array of strings nums and an integer k. Each string in nums represents an integer without leading zeros.
-Return the string that represents the kth largest integer in nums.
-Note: Duplicate numbers should be counted distinctly. For example, if nums is ["1","2","2"], "2" is the first largest integer, "2" is the second-largest integer, and "1" is the third-largest integer.
+There are two kinds of threads: oxygen and hydrogen. Your goal is to group these threads to form water molecules.
+There is a barrier where each thread has to wait until a complete molecule can be formed. Hydrogen and oxygen threads will be given releaseHydrogen and releaseOxygen methods respectively, which will allow them to pass the barrier. These threads should pass the barrier in groups of three, and they must immediately bond with each other to form a water molecule. You must guarantee that all the threads from one molecule bond before any other threads from the next molecule do.
+In other words:
+If an oxygen thread arrives at the barrier when no hydrogen threads are present, it must wait for two hydrogen threads.
+If a hydrogen thread arrives at the barrier when no other threads are present, it must wait for an oxygen thread and another hydrogen thread.
+We do not have to worry about matching the threads up explicitly; the threads do not necessarily know which other threads they are paired up with. The key is that threads pass the barriers in complete sets; thus, if we examine the sequence of threads that bind and divide them into groups of three, each group should contain one oxygen and two hydrogen threads.
+Write synchronization code for oxygen and hydrogen molecules that enforces these constraints.
   Example 1:
-Input: nums = ["3","6","7","10"], k = 4
-Output: "3"
-Explanation:
-The numbers in nums sorted in non-decreasing order are ["3","6","7","10"].
-The 4th largest integer in nums is "3".
+Input: water = "HOH"
+Output: "HHO"
+Explanation: "HOH" and "OHH" are also valid answers.
 Example 2:
-Input: nums = ["2","21","12","1"], k = 3
-Output: "2"
-Explanation:
-The numbers in nums sorted in non-decreasing order are ["1","2","12","21"].
-The 3rd largest integer in nums is "2".
-Example 3:
-Input: nums = ["0","0"], k = 2
-Output: "0"
-Explanation:
-The numbers in nums sorted in non-decreasing order are ["0","0"].
-The 2nd largest integer in nums is "0".
+Input: water = "OOHHHH"
+Output: "HHOHHO"
+Explanation: "HOHHHO", "OHHHHO", "HHOHOH", "HOHHOH", "OHHHOH", "HHOOHH", "HOHOHH" and "OHHOHH" are also valid answers.
   Constraints:
-1 <= k <= nums.length <= 104
-1 <= nums[i].length <= 100
-nums[i] consists of only digits.
-nums[i] will not have any leading zeros.
+3 * n == water.length
+1 <= n <= 20
+water[i] is either 'H' or 'O'.
+There will be exactly 2 * n 'H' in water.
+There will be exactly n 'O' in water.

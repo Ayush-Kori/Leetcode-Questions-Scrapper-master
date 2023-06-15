@@ -1,18 +1,21 @@
-Given the root of a binary tree and an integer targetSum, return all root-to-leaf paths where the sum of the node values in the path equals targetSum. Each path should be returned as a list of the node values, not node references.
-A root-to-leaf path is a path starting from the root and ending at any leaf node. A leaf is a node with no children.
+Given an integer array nums with possible duplicates, randomly output the index of a given target number. You can assume that the given target number must exist in the array.
+Implement the Solution class:
+Solution(int[] nums) Initializes the object with the array nums.
+int pick(int target) Picks a random index i from nums where nums[i] == target. If there are multiple valid i's, then each index should have an equal probability of returning.
   Example 1:
-Input: root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
-Output: [[5,4,11,2],[5,8,4,5]]
-Explanation: There are two paths whose sum equals targetSum:
-5 + 4 + 11 + 2 = 22
-5 + 8 + 4 + 5 = 22
-Example 2:
-Input: root = [1,2,3], targetSum = 5
-Output: []
-Example 3:
-Input: root = [1,2], targetSum = 0
-Output: []
+Input
+["Solution", "pick", "pick", "pick"]
+[[[1, 2, 3, 3, 3]], [3], [1], [3]]
+Output
+[null, 4, 0, 2]
+
+Explanation
+Solution solution = new Solution([1, 2, 3, 3, 3]);
+solution.pick(3); // It should return either index 2, 3, or 4 randomly. Each index should have equal probability of returning.
+solution.pick(1); // It should return 0. Since in the array only nums[0] is equal to 1.
+solution.pick(3); // It should return either index 2, 3, or 4 randomly. Each index should have equal probability of returning.
   Constraints:
-The number of nodes in the tree is in the range [0, 5000].
--1000 <= Node.val <= 1000
--1000 <= targetSum <= 1000
+1 <= nums.length <= 2 * 104
+-231 <= nums[i] <= 231 - 1
+target is an integer from nums.
+At most 104 calls will be made to pick.

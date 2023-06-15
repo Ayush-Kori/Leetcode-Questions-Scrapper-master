@@ -1,19 +1,18 @@
-There are several stones arranged in a row, and each stone has an associated value which is an integer given in the array stoneValue.
-In each round of the game, Alice divides the row into two non-empty rows (i.e. left row and right row), then Bob calculates the value of each row which is the sum of the values of all the stones in this row. Bob throws away the row which has the maximum value, and Alice's score increases by the value of the remaining row. If the value of the two rows are equal, Bob lets Alice decide which row will be thrown away. The next round starts with the remaining row.
-The game ends when there is only one stone remaining. Alice's is initially zero.
-Return the maximum score that Alice can obtain.
+Two players play a turn based game on a binary tree. We are given the root of this binary tree, and the number of nodes n in the tree. n is odd, and each node has a distinct value from 1 to n.
+Initially, the first player names a value x with 1 <= x <= n, and the second player names a value y with 1 <= y <= n and y != x. The first player colors the node with value x red, and the second player colors the node with value y blue.
+Then, the players take turns starting with the first player. In each turn, that player chooses a node of their color (red if player 1, blue if player 2) and colors an uncolored neighbor of the chosen node (either the left child, right child, or parent of the chosen node.)
+If (and only if) a player cannot choose such a node in this way, they must pass their turn. If both players pass their turn, the game ends, and the winner is the player that colored more nodes.
+You are the second player. If it is possible to choose such a y to ensure you win the game, return true. If it is not possible, return false.
   Example 1:
-Input: stoneValue = [6,2,3,4,5,5]
-Output: 18
-Explanation: In the first round, Alice divides the row to [6,2,3], [4,5,5]. The left row has the value 11 and the right row has value 14. Bob throws away the right row and Alice's score is now 11.
-In the second round Alice divides the row to [6], [2,3]. This time Bob throws away the left row and Alice's score becomes 16 (11 + 5).
-The last round Alice has only one choice to divide the row which is [2], [3]. Bob throws away the right row and Alice's score is now 18 (16 + 2). The game ends because only one stone is remaining in the row.
+Input: root = [1,2,3,4,5,6,7,8,9,10,11], n = 11, x = 3
+Output: true
+Explanation: The second player can choose the node with value 2.
 Example 2:
-Input: stoneValue = [7,7,7,7,7,7,7]
-Output: 28
-Example 3:
-Input: stoneValue = [4]
-Output: 0
+Input: root = [1,2,3], n = 3, x = 1
+Output: false
   Constraints:
-1 <= stoneValue.length <= 500
-1 <= stoneValue[i] <= 106
+The number of nodes in the tree is n.
+1 <= x <= n <= 100
+n is odd.
+1 <= Node.val <= n
+All the values of the tree are unique.

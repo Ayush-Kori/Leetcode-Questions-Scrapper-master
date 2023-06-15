@@ -1,22 +1,23 @@
-You are given two 0-indexed arrays nums1 and nums2 and a 2D array queries of queries. There are three types of queries:
-For a query of type 1, queries[i] = [1, l, r]. Flip the values from 0 to 1 and from 1 to 0 in nums1 from index l to index r. Both l and r are 0-indexed.
-For a query of type 2, queries[i] = [2, p, 0]. For every index 0 <= i < n, set nums2[i] = nums2[i] + nums1[i] * p.
-For a query of type 3, queries[i] = [3, 0, 0]. Find the sum of the elements in nums2.
-Return an array containing all the answers to the third type queries.
+You are given a 0-indexed array nums consisting of positive integers, representing targets on a number line. You are also given an integer space.
+You have a machine which can destroy targets. Seeding the machine with some nums[i] allows it to destroy all targets with values that can be represented as nums[i] + c * space, where c is any non-negative integer. You want to destroy the maximum number of targets in nums.
+Return the minimum value of nums[i] you can seed the machine with to destroy the maximum number of targets.
   Example 1:
-Input: nums1 = [1,0,1], nums2 = [0,0,0], queries = [[1,1,1],[2,1,0],[3,0,0]]
-Output: [3]
-Explanation: After the first query nums1 becomes [1,1,1]. After the second query, nums2 becomes [1,1,1], so the answer to the third query is 3. Thus, [3] is returned.
+Input: nums = [3,7,8,1,1,5], space = 2
+Output: 1
+Explanation: If we seed the machine with nums[3], then we destroy all targets equal to 1,3,5,7,9,... 
+In this case, we would destroy 5 total targets (all except for nums[2]). 
+It is impossible to destroy more than 5 targets, so we return nums[3].
 Example 2:
-Input: nums1 = [1], nums2 = [5], queries = [[2,0,0],[3,0,0]]
-Output: [5]
-Explanation: After the first query, nums2 remains [5], so the answer to the second query is 5. Thus, [5] is returned.
+Input: nums = [1,3,5,2,4,6], space = 2
+Output: 1
+Explanation: Seeding the machine with nums[0], or nums[3] destroys 3 targets. 
+It is not possible to destroy more than 3 targets.
+Since nums[0] is the minimal integer that can destroy 3 targets, we return 1.
+Example 3:
+Input: nums = [6,2,5], space = 100
+Output: 2
+Explanation: Whatever initial seed we select, we can only destroy 1 target. The minimal seed is nums[1].
   Constraints:
-1 <= nums1.length,nums2.length <= 105
-nums1.length = nums2.length
-1 <= queries.length <= 105
-queries[i].length = 3
-0 <= l <= r <= nums1.length - 1
-0 <= p <= 106
-0 <= nums1[i] <= 1
-0 <= nums2[i] <= 109
+1 <= nums.length <= 105
+1 <= nums[i] <= 109
+1 <= space <= 109

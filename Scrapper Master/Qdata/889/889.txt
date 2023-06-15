@@ -1,21 +1,17 @@
-You are implementing a program to use as your calendar. We can add a new event if adding the event will not cause a double booking.
-A double booking happens when two events have some non-empty intersection (i.e., some moment is common to both events.).
-The event can be represented as a pair of integers start and end that represents a booking on the half-open interval [start, end), the range of real numbers x such that start <= x < end.
-Implement the MyCalendar class:
-MyCalendar() Initializes the calendar object.
-boolean book(int start, int end) Returns true if the event can be added to the calendar successfully without causing a double booking. Otherwise, return false and do not add the event to the calendar.
+In the universe Earth C-137, Rick discovered a special form of magnetic force between two balls if they are put in his new invented basket. Rick has n empty baskets, the ith basket is at position[i], Morty has m balls and needs to distribute the balls into the baskets such that the minimum magnetic force between any two balls is maximum.
+Rick stated that magnetic force between two different balls at positions x and y is |x - y|.
+Given the integer array position and the integer m. Return the required force.
   Example 1:
-Input
-["MyCalendar", "book", "book", "book"]
-[[], [10, 20], [15, 25], [20, 30]]
-Output
-[null, true, false, true]
-
-Explanation
-MyCalendar myCalendar = new MyCalendar();
-myCalendar.book(10, 20); // return True
-myCalendar.book(15, 25); // return False, It can not be booked because time 15 is already booked by another event.
-myCalendar.book(20, 30); // return True, The event can be booked, as the first event takes every time less than 20, but not including 20.
+Input: position = [1,2,3,4,7], m = 3
+Output: 3
+Explanation: Distributing the 3 balls into baskets 1, 4 and 7 will make the magnetic force between ball pairs [3, 3, 6]. The minimum magnetic force is 3. We cannot achieve a larger minimum magnetic force than 3.
+Example 2:
+Input: position = [5,4,3,2,1,1000000000], m = 2
+Output: 999999999
+Explanation: We can use baskets 1 and 1000000000.
   Constraints:
-0 <= start < end <= 109
-At most 1000 calls will be made to book.
+n == position.length
+2 <= n <= 105
+1 <= position[i] <= 109
+All integers in position are distinct.
+2 <= m <= position.length

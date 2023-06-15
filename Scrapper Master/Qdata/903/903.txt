@@ -1,18 +1,24 @@
-There are some prizes on the X-axis. You are given an integer array prizePositions that is sorted in non-decreasing order, where prizePositions[i] is the position of the ith prize. There could be different prizes at the same position on the line. You are also given an integer k.
-You are allowed to select two segments with integer endpoints. The length of each segment must be k. You will collect all prizes whose position falls within at least one of the two selected segments (including the endpoints of the segments). The two selected segments may intersect.
-For example if k = 2, you can choose segments [1, 3] and [2, 4], and you will win any prize i that satisfies 1 <= prizePositions[i] <= 3 or 2 <= prizePositions[i] <= 4.
-Return the maximum number of prizes you can win if you choose the two segments optimally.
+There are n persons on a social media website. You are given an integer array ages where ages[i] is the age of the ith person.
+A Person x will not send a friend request to a person y (x != y) if any of the following conditions is true:
+age[y] <= 0.5 * age[x] + 7
+age[y] > age[x]
+age[y] > 100 && age[x] < 100
+Otherwise, x will send a friend request to y.
+Note that if x sends a request to y, y will not necessarily send a request to x. Also, a person will not send a friend request to themself.
+Return the total number of friend requests made.
   Example 1:
-Input: prizePositions = [1,1,2,2,3,3,5], k = 2
-Output: 7
-Explanation: In this example, you can win all 7 prizes by selecting two segments [1, 3] and [3, 5].
-Example 2:
-Input: prizePositions = [1,2,3,4], k = 0
+Input: ages = [16,16]
 Output: 2
-Explanation: For this example, one choice for the segments is [3, 3] and [4, 4], and you will be able to get 2 prizes. 
+Explanation: 2 people friend request each other.
+Example 2:
+Input: ages = [16,17,18]
+Output: 2
+Explanation: Friend requests are made 17 -> 16, 18 -> 17.
+Example 3:
+Input: ages = [20,30,100,110,120]
+Output: 3
+Explanation: Friend requests are made 110 -> 100, 120 -> 110, 120 -> 100.
   Constraints:
-1 <= prizePositions.length <= 105
-1 <= prizePositions[i] <= 109
-0 <= k <= 109 
-prizePositions is sorted in non-decreasing order.
- 
+n == ages.length
+1 <= n <= 2 * 104
+1 <= ages[i] <= 120

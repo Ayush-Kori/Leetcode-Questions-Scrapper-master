@@ -1,22 +1,39 @@
-You are given a positive integer n, you can do the following operation any number of times:
-Add or subtract a power of 2 from n.
-Return the minimum number of operations to make n equal to 0.
-A number x is power of 2 if x == 2i where i >= 0.
+SQL Schema
+Table: Employees
++-------------+----------+
+| Column Name | Type     |
++-------------+----------+
+| employee_id | int      |
+| name        | varchar  |
+| manager_id  | int      |
+| salary      | int      |
++-------------+----------+
+employee_id is the primary key for this table.
+This table contains information about the employees, their salary, and the ID of their manager. Some employees do not have a manager (manager_id is null). 
+  Write an SQL query to report the IDs of the employees whose salary is strictly less than $30000 and whose manager left the company. When a manager leaves the company, their information is deleted from the Employees table, but the reports still have their manager_id set to the manager that left.
+Return the result table ordered by employee_id.
+The query result format is in the following example.
   Example 1:
-Input: n = 39
-Output: 3
-Explanation: We can do the following operations:
-- Add 20 = 1 to n, so now n = 40.
-- Subtract 23 = 8 from n, so now n = 32.
-- Subtract 25 = 32 from n, so now n = 0.
-It can be shown that 3 is the minimum number of operations we need to make n equal to 0.
-Example 2:
-Input: n = 54
-Output: 3
-Explanation: We can do the following operations:
-- Add 21 = 2 to n, so now n = 56.
-- Add 23 = 8 to n, so now n = 64.
-- Subtract 26 = 64 from n, so now n = 0.
-So the minimum number of operations is 3.
-  Constraints:
-1 <= n <= 105
+Input:  
+Employees table:
++-------------+-----------+------------+--------+
+| employee_id | name      | manager_id | salary |
++-------------+-----------+------------+--------+
+| 3           | Mila      | 9          | 60301  |
+| 12          | Antonella | null       | 31000  |
+| 13          | Emery     | null       | 67084  |
+| 1           | Kalel     | 11         | 21241  |
+| 9           | Mikaela   | null       | 50937  |
+| 11          | Joziah    | 6          | 28485  |
++-------------+-----------+------------+--------+
+Output: 
++-------------+
+| employee_id |
++-------------+
+| 11          |
++-------------+
+
+Explanation: 
+The employees with a salary less than $30000 are 1 (Kalel) and 11 (Joziah).
+Kalel's manager is employee 11, who is still in the company (Joziah).
+Joziah's manager is employee 6, who left the company because there is no row for employee 6 as it was deleted.

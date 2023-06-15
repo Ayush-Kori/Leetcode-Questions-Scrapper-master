@@ -1,21 +1,17 @@
-Given three integer arrays nums1, nums2, and nums3, return a distinct array containing all the values that are present in at least two out of the three arrays. You may return the values in any order.
+You are given an array of non-overlapping intervals intervals where intervals[i] = [starti, endi] represent the start and the end of the ith interval and intervals is sorted in ascending order by starti. You are also given an interval newInterval = [start, end] that represents the start and end of another interval.
+Insert newInterval into intervals such that intervals is still sorted in ascending order by starti and intervals still does not have any overlapping intervals (merge overlapping intervals if necessary).
+Return intervals after the insertion.
   Example 1:
-Input: nums1 = [1,1,3,2], nums2 = [2,3], nums3 = [3]
-Output: [3,2]
-Explanation: The values that are present in at least two arrays are:
-- 3, in all three arrays.
-- 2, in nums1 and nums2.
+Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
+Output: [[1,5],[6,9]]
 Example 2:
-Input: nums1 = [3,1], nums2 = [2,3], nums3 = [1,2]
-Output: [2,3,1]
-Explanation: The values that are present in at least two arrays are:
-- 2, in nums2 and nums3.
-- 3, in nums1 and nums2.
-- 1, in nums1 and nums3.
-Example 3:
-Input: nums1 = [1,2,2], nums2 = [4,3,3], nums3 = [5]
-Output: []
-Explanation: No value is present in at least two arrays.
+Input: intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]
+Output: [[1,2],[3,10],[12,16]]
+Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
   Constraints:
-1 <= nums1.length, nums2.length, nums3.length <= 100
-1 <= nums1[i], nums2[j], nums3[k] <= 100
+0 <= intervals.length <= 104
+intervals[i].length == 2
+0 <= starti <= endi <= 105
+intervals is sorted by starti in ascending order.
+newInterval.length == 2
+0 <= start <= end <= 105

@@ -1,26 +1,20 @@
-You are given nums, an array of positive integers of size 2 * n. You must perform n operations on this array.
-In the ith operation (1-indexed), you will:
-Choose two elements, x and y.
-Receive a score of i * gcd(x, y).
-Remove x and y from nums.
-Return the maximum score you can receive after performing n operations.
-The function gcd(x, y) is the greatest common divisor of x and y.
+Given an n x n binary matrix image, flip the image horizontally, then invert it, and return the resulting image.
+To flip an image horizontally means that each row of the image is reversed.
+For example, flipping [1,1,0] horizontally results in [0,1,1].
+To invert an image means that each 0 is replaced by 1, and each 1 is replaced by 0.
+For example, inverting [0,1,1] results in [1,0,0].
   Example 1:
-Input: nums = [1,2]
-Output: 1
-Explanation: The optimal choice of operations is:
-(1 * gcd(1, 2)) = 1
+Input: image = [[1,1,0],[1,0,1],[0,0,0]]
+Output: [[1,0,0],[0,1,0],[1,1,1]]
+Explanation: First reverse each row: [[0,1,1],[1,0,1],[0,0,0]].
+Then, invert the image: [[1,0,0],[0,1,0],[1,1,1]]
 Example 2:
-Input: nums = [3,4,6,8]
-Output: 11
-Explanation: The optimal choice of operations is:
-(1 * gcd(3, 6)) + (2 * gcd(4, 8)) = 3 + 8 = 11
-Example 3:
-Input: nums = [1,2,3,4,5,6]
-Output: 14
-Explanation: The optimal choice of operations is:
-(1 * gcd(1, 5)) + (2 * gcd(2, 4)) + (3 * gcd(3, 6)) = 1 + 4 + 9 = 14
+Input: image = [[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]
+Output: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
+Explanation: First reverse each row: [[0,0,1,1],[1,0,0,1],[1,1,1,0],[0,1,0,1]].
+Then invert the image: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
   Constraints:
-1 <= n <= 7
-nums.length == 2 * n
-1 <= nums[i] <= 106
+n == image.length
+n == image[i].length
+1 <= n <= 20
+images[i][j] is either 0 or 1.

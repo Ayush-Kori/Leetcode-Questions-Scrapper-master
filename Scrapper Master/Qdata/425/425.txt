@@ -1,21 +1,53 @@
-There are n people standing in a queue, and they numbered from 0 to n - 1 in left to right order. You are given an array heights of distinct integers where heights[i] represents the height of the ith person.
-A person can see another person to their right in the queue if everybody in between is shorter than both of them. More formally, the ith person can see the jth person if i < j and min(heights[i], heights[j]) > max(heights[i+1], heights[i+2], ..., heights[j-1]).
-Return an array answer of length n where answer[i] is the number of people the ith person can see to their right in the queue.
+SQL Schema
+Table: Employee
++--------------+---------+
+| Column Name  | Type    |
++--------------+---------+
+| id           | int     |
+| name         | varchar |
+| salary       | int     |
+| departmentId | int     |
++--------------+---------+
+id is the primary key column for this table.
+departmentId is a foreign key of the ID from the Department table.
+Each row of this table indicates the ID, name, and salary of an employee. It also contains the ID of their department.
+  Table: Department
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| name        | varchar |
++-------------+---------+
+id is the primary key column for this table. It is guaranteed that department name is not NULL.
+Each row of this table indicates the ID of a department and its name.
+  Write an SQL query to find employees who have the highest salary in each of the departments.
+Return the result table in any order.
+The query result format is in the following example.
   Example 1:
-Input: heights = [10,6,8,5,11,9]
-Output: [3,1,2,1,1,0]
-Explanation:
-Person 0 can see person 1, 2, and 4.
-Person 1 can see person 2.
-Person 2 can see person 3 and 4.
-Person 3 can see person 4.
-Person 4 can see person 5.
-Person 5 can see no one since nobody is to the right of them.
-Example 2:
-Input: heights = [5,1,2,3,10]
-Output: [4,1,1,1,0]
-  Constraints:
-n == heights.length
-1 <= n <= 105
-1 <= heights[i] <= 105
-All the values of heights are unique.
+Input: 
+Employee table:
++----+-------+--------+--------------+
+| id | name  | salary | departmentId |
++----+-------+--------+--------------+
+| 1  | Joe   | 70000  | 1            |
+| 2  | Jim   | 90000  | 1            |
+| 3  | Henry | 80000  | 2            |
+| 4  | Sam   | 60000  | 2            |
+| 5  | Max   | 90000  | 1            |
++----+-------+--------+--------------+
+Department table:
++----+-------+
+| id | name  |
++----+-------+
+| 1  | IT    |
+| 2  | Sales |
++----+-------+
+Output: 
++------------+----------+--------+
+| Department | Employee | Salary |
++------------+----------+--------+
+| IT         | Jim      | 90000  |
+| Sales      | Henry    | 80000  |
+| IT         | Max      | 90000  |
++------------+----------+--------+
+Explanation: Max and Jim both have the highest salary in the IT department and Henry has the highest salary in the Sales department.

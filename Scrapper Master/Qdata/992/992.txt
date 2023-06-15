@@ -1,14 +1,20 @@
-Given the root node of a binary search tree and two integers low and high, return the sum of values of all nodes with a value in the inclusive range [low, high].
+Given head, the head of a linked list, determine if the linked list has a cycle in it.
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
+Return true if there is a cycle in the linked list. Otherwise, return false.
   Example 1:
-Input: root = [10,5,15,3,7,null,18], low = 7, high = 15
-Output: 32
-Explanation: Nodes 7, 10, and 15 are in the range [7, 15]. 7 + 10 + 15 = 32.
+Input: head = [3,2,0,-4], pos = 1
+Output: true
+Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
 Example 2:
-Input: root = [10,5,15,3,7,13,18,1,null,6], low = 6, high = 10
-Output: 23
-Explanation: Nodes 6, 7, and 10 are in the range [6, 10]. 6 + 7 + 10 = 23.
+Input: head = [1,2], pos = 0
+Output: true
+Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
+Example 3:
+Input: head = [1], pos = -1
+Output: false
+Explanation: There is no cycle in the linked list.
   Constraints:
-The number of nodes in the tree is in the range [1, 2 * 104].
-1 <= Node.val <= 105
-1 <= low <= high <= 105
-All Node.val are unique.
+The number of the nodes in the list is in the range [0, 104].
+-105 <= Node.val <= 105
+pos is -1 or a valid index in the linked-list.
+  Follow up: Can you solve it using O(1) (i.e. constant) memory?

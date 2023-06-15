@@ -1,15 +1,57 @@
-You are given an array of integers nums (0-indexed) and an integer k.
-The score of a subarray (i, j) is defined as min(nums[i], nums[i+1], ..., nums[j]) * (j - i + 1). A good subarray is a subarray where i <= k <= j.
-Return the maximum possible score of a good subarray.
+SQL Schema
+Table: Employees
++---------------+---------+
+| Column Name   | Type    |
++---------------+---------+
+| id            | int     |
+| name          | varchar |
++---------------+---------+
+id is the primary key for this table.
+Each row of this table contains the id and the name of an employee in a company.
+  Table: EmployeeUNI
++---------------+---------+
+| Column Name   | Type    |
++---------------+---------+
+| id            | int     |
+| unique_id     | int     |
++---------------+---------+
+(id, unique_id) is the primary key for this table.
+Each row of this table contains the id and the corresponding unique id of an employee in the company.
+  Write an SQL query to show the unique ID of each user, If a user does not have a unique ID replace just show null.
+Return the result table in any order.
+The query result format is in the following example.
   Example 1:
-Input: nums = [1,4,3,7,4,5], k = 3
-Output: 15
-Explanation: The optimal subarray is (1, 5) with a score of min(4,3,7,4,5) * (5-1+1) = 3 * 5 = 15. 
-Example 2:
-Input: nums = [5,5,4,5,4,1,1,1], k = 0
-Output: 20
-Explanation: The optimal subarray is (0, 4) with a score of min(5,5,4,5,4) * (4-0+1) = 4 * 5 = 20.
-  Constraints:
-1 <= nums.length <= 105
-1 <= nums[i] <= 2 * 104
-0 <= k < nums.length
+Input: 
+Employees table:
++----+----------+
+| id | name     |
++----+----------+
+| 1  | Alice    |
+| 7  | Bob      |
+| 11 | Meir     |
+| 90 | Winston  |
+| 3  | Jonathan |
++----+----------+
+EmployeeUNI table:
++----+-----------+
+| id | unique_id |
++----+-----------+
+| 3  | 1         |
+| 11 | 2         |
+| 90 | 3         |
++----+-----------+
+Output: 
++-----------+----------+
+| unique_id | name     |
++-----------+----------+
+| null      | Alice    |
+| null      | Bob      |
+| 2         | Meir     |
+| 3         | Winston  |
+| 1         | Jonathan |
++-----------+----------+
+Explanation: 
+Alice and Bob do not have a unique ID, We will show null instead.
+The unique ID of Meir is 2.
+The unique ID of Winston is 3.
+The unique ID of Jonathan is 1.

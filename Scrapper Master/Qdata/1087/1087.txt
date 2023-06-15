@@ -1,27 +1,27 @@
-Design a number container system that can do the following:
-Insert or Replace a number at the given index in the system.
-Return the smallest index for the given number in the system.
-Implement the NumberContainers class:
-NumberContainers() Initializes the number container system.
-void change(int index, int number) Fills the container at index with the number. If there is already a number at that index, replace it.
-int find(int number) Returns the smallest index for the given number, or -1 if there is no index that is filled by number in the system.
+There are n piles of stones arranged in a row. The ith pile has stones[i] stones.
+A move consists of merging exactly k consecutive piles into one pile, and the cost of this move is equal to the total number of stones in these k piles.
+Return the minimum cost to merge all piles of stones into one pile. If it is impossible, return -1.
   Example 1:
-Input
-["NumberContainers", "find", "change", "change", "change", "change", "find", "change", "find"]
-[[], [10], [2, 10], [1, 10], [3, 10], [5, 10], [10], [1, 20], [10]]
-Output
-[null, -1, null, null, null, null, 1, null, 2]
-
-Explanation
-NumberContainers nc = new NumberContainers();
-nc.find(10); // There is no index that is filled with number 10. Therefore, we return -1.
-nc.change(2, 10); // Your container at index 2 will be filled with number 10.
-nc.change(1, 10); // Your container at index 1 will be filled with number 10.
-nc.change(3, 10); // Your container at index 3 will be filled with number 10.
-nc.change(5, 10); // Your container at index 5 will be filled with number 10.
-nc.find(10); // Number 10 is at the indices 1, 2, 3, and 5. Since the smallest index that is filled with 10 is 1, we return 1.
-nc.change(1, 20); // Your container at index 1 will be filled with number 20. Note that index 1 was filled with 10 and then replaced with 20. 
-nc.find(10); // Number 10 is at the indices 2, 3, and 5. The smallest index that is filled with 10 is 2. Therefore, we return 2.
+Input: stones = [3,2,4,1], k = 2
+Output: 20
+Explanation: We start with [3, 2, 4, 1].
+We merge [3, 2] for a cost of 5, and we are left with [5, 4, 1].
+We merge [4, 1] for a cost of 5, and we are left with [5, 5].
+We merge [5, 5] for a cost of 10, and we are left with [10].
+The total cost was 20, and this is the minimum possible.
+Example 2:
+Input: stones = [3,2,4,1], k = 3
+Output: -1
+Explanation: After any merge operation, there are 2 piles left, and we can't merge anymore.  So the task is impossible.
+Example 3:
+Input: stones = [3,5,1,2,6], k = 3
+Output: 25
+Explanation: We start with [3, 5, 1, 2, 6].
+We merge [5, 1, 2] for a cost of 8, and we are left with [3, 8, 6].
+We merge [3, 8, 6] for a cost of 17, and we are left with [17].
+The total cost was 25, and this is the minimum possible.
   Constraints:
-1 <= index, number <= 109
-At most 105 calls will be made in total to change and find.
+n == stones.length
+1 <= n <= 30
+1 <= stones[i] <= 100
+2 <= k <= 30

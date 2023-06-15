@@ -1,16 +1,19 @@
-Given a positive integer n, find the sum of all integers in the range [1, n] inclusive that are divisible by 3, 5, or 7.
-Return an integer denoting the sum of all numbers in the given range satisfying the constraint.
+You are given a positive integer array grades which represents the grades of students in a university. You would like to enter all these students into a competition in ordered non-empty groups, such that the ordering meets the following conditions:
+The sum of the grades of students in the ith group is less than the sum of the grades of students in the (i + 1)th group, for all groups (except the last).
+The total number of students in the ith group is less than the total number of students in the (i + 1)th group, for all groups (except the last).
+Return the maximum number of groups that can be formed.
   Example 1:
-Input: n = 7
-Output: 21
-Explanation: Numbers in the range [1, 7] that are divisible by 3, 5, or 7 are 3, 5, 6, 7. The sum of these numbers is 21.
+Input: grades = [10,6,12,7,3,5]
+Output: 3
+Explanation: The following is a possible way to form 3 groups of students:
+- 1st group has the students with grades = [12]. Sum of grades: 12. Student count: 1
+- 2nd group has the students with grades = [6,7]. Sum of grades: 6 + 7 = 13. Student count: 2
+- 3rd group has the students with grades = [10,3,5]. Sum of grades: 10 + 3 + 5 = 18. Student count: 3
+It can be shown that it is not possible to form more than 3 groups.
 Example 2:
-Input: n = 10
-Output: 40
-Explanation: Numbers in the range [1, 10] that are divisible by 3, 5, or 7 are 3, 5, 6, 7, 9, 10. The sum of these numbers is 40.
-Example 3:
-Input: n = 9
-Output: 30
-Explanation: Numbers in the range [1, 9] that are divisible by 3, 5, or 7 are 3, 5, 6, 7, 9. The sum of these numbers is 30.
+Input: grades = [8,8]
+Output: 1
+Explanation: We can only form 1 group, since forming 2 groups would lead to an equal number of students in both groups.
   Constraints:
-1 <= n <= 103
+1 <= grades.length <= 105
+1 <= grades[i] <= 105

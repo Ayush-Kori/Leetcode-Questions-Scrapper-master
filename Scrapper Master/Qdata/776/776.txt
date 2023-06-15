@@ -1,25 +1,18 @@
-Given an integer num, return the number of steps to reduce it to zero.
-In one step, if the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.
+You are given two strings s1 and s2 of equal length. A string swap is an operation where you choose two indices in a string (not necessarily different) and swap the characters at these indices.
+Return true if it is possible to make both strings equal by performing at most one string swap on exactly one of the strings. Otherwise, return false.
   Example 1:
-Input: num = 14
-Output: 6
-Explanation: 
-Step 1) 14 is even; divide by 2 and obtain 7. 
-Step 2) 7 is odd; subtract 1 and obtain 6.
-Step 3) 6 is even; divide by 2 and obtain 3. 
-Step 4) 3 is odd; subtract 1 and obtain 2. 
-Step 5) 2 is even; divide by 2 and obtain 1. 
-Step 6) 1 is odd; subtract 1 and obtain 0.
+Input: s1 = "bank", s2 = "kanb"
+Output: true
+Explanation: For example, swap the first character with the last character of s2 to make "bank".
 Example 2:
-Input: num = 8
-Output: 4
-Explanation: 
-Step 1) 8 is even; divide by 2 and obtain 4. 
-Step 2) 4 is even; divide by 2 and obtain 2. 
-Step 3) 2 is even; divide by 2 and obtain 1. 
-Step 4) 1 is odd; subtract 1 and obtain 0.
+Input: s1 = "attack", s2 = "defend"
+Output: false
+Explanation: It is impossible to make them equal with one string swap.
 Example 3:
-Input: num = 123
-Output: 12
+Input: s1 = "kelb", s2 = "kelb"
+Output: true
+Explanation: The two strings are already equal, so no string swap operation is required.
   Constraints:
-0 <= num <= 106
+1 <= s1.length, s2.length <= 100
+s1.length == s2.length
+s1 and s2 consist of only lowercase English letters.

@@ -1,16 +1,18 @@
-There are numBottles water bottles that are initially full of water. You can exchange numExchange empty water bottles from the market with one full water bottle.
-The operation of drinking a full water bottle turns it into an empty bottle.
-Given the two integers numBottles and numExchange, return the maximum number of water bottles you can drink.
+Given four integers sx, sy, tx, and ty, return true if it is possible to convert the point (sx, sy) to the point (tx, ty) through some operations, or false otherwise.
+The allowed operation on some point (x, y) is to convert it to either (x, x + y) or (x + y, y).
   Example 1:
-Input: numBottles = 9, numExchange = 3
-Output: 13
-Explanation: You can exchange 3 empty bottles to get 1 full water bottle.
-Number of water bottles you can drink: 9 + 3 + 1 = 13.
+Input: sx = 1, sy = 1, tx = 3, ty = 5
+Output: true
+Explanation:
+One series of moves that transforms the starting point to the target is:
+(1, 1) -> (1, 2)
+(1, 2) -> (3, 2)
+(3, 2) -> (3, 5)
 Example 2:
-Input: numBottles = 15, numExchange = 4
-Output: 19
-Explanation: You can exchange 4 empty bottles to get 1 full water bottle. 
-Number of water bottles you can drink: 15 + 3 + 1 = 19.
+Input: sx = 1, sy = 1, tx = 2, ty = 2
+Output: false
+Example 3:
+Input: sx = 1, sy = 1, tx = 1, ty = 1
+Output: true
   Constraints:
-1 <= numBottles <= 100
-2 <= numExchange <= 100
+1 <= sx, sy, tx, ty <= 109

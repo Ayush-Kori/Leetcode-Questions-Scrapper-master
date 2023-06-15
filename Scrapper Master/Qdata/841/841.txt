@@ -1,23 +1,16 @@
-Given an array arr and a chunk size size, return a chunked array. A chunked array contains the original elements in arr, but consists of subarrays each of length size. The length of the last subarray may be less than size if arr.length is not evenly divisible by size.
-You may assume the array is the output of JSON.parse. In other words, it is valid JSON.
-Please solve it without using lodash's _.chunk function.
+There is an undirected star graph consisting of n nodes labeled from 1 to n. A star graph is a graph where there is one center node and exactly n - 1 edges that connect the center node with every other node.
+You are given a 2D integer array edges where each edges[i] = [ui, vi] indicates that there is an edge between the nodes ui and vi. Return the center of the given star graph.
   Example 1:
-Input: arr = [1,2,3,4,5], size = 1
-Output: [[1],[2],[3],[4],[5]]
-Explanation: The arr has been split into subarrays each with 1 element.
+Input: edges = [[1,2],[2,3],[4,2]]
+Output: 2
+Explanation: As shown in the figure above, node 2 is connected to every other node, so 2 is the center.
 Example 2:
-Input: arr = [1,9,6,3,2], size = 3
-Output: [[1,9,6],[3,2]]
-Explanation: The arr has been split into subarrays with 3 elements. However, only two elements are left for the 2nd subarray.
-Example 3:
-Input: arr = [8,5,3,2,6], size = 6
-Output: [[8,5,3,2,6]]
-Explanation: Size is greater than arr.length thus all elements are in the first subarray.
-Example 4:
-Input: arr = [], size = 1
-Output: []
-Explanation: There are no elements to be chunked so an empty array is returned.
+Input: edges = [[1,2],[5,1],[1,3],[1,4]]
+Output: 1
   Constraints:
-arr is a valid JSON array
-2 <= JSON.stringify(arr).length <= 105
-1 <= size <= arr.length + 1
+3 <= n <= 105
+edges.length == n - 1
+edges[i].length == 2
+1 <= ui, vi <= n
+ui != vi
+The given edges represent a valid star graph.

@@ -1,37 +1,29 @@
-You are given a 0-indexed array of positive integers tasks, representing tasks that need to be completed in order, where tasks[i] represents the type of the ith task.
-You are also given a positive integer space, which represents the minimum number of days that must pass after the completion of a task before another task of the same type can be performed.
-Each day, until all tasks have been completed, you must either:
-Complete the next task from tasks, or
-Take a break.
-Return the minimum number of days needed to complete all tasks.
+You are given an integer n representing the length of an unknown array that you are trying to recover. You are also given an array sums containing the values of all 2n subset sums of the unknown array (in no particular order).
+Return the array ans of length n representing the unknown array. If multiple answers exist, return any of them.
+An array sub is a subset of an array arr if sub can be obtained from arr by deleting some (possibly zero or all) elements of arr. The sum of the elements in sub is one possible subset sum of arr. The sum of an empty array is considered to be 0.
+Note: Test cases are generated such that there will always be at least one correct answer.
   Example 1:
-Input: tasks = [1,2,1,2,3,1], space = 3
-Output: 9
-Explanation:
-One way to complete all tasks in 9 days is as follows:
-Day 1: Complete the 0th task.
-Day 2: Complete the 1st task.
-Day 3: Take a break.
-Day 4: Take a break.
-Day 5: Complete the 2nd task.
-Day 6: Complete the 3rd task.
-Day 7: Take a break.
-Day 8: Complete the 4th task.
-Day 9: Complete the 5th task.
-It can be shown that the tasks cannot be completed in less than 9 days.
+Input: n = 3, sums = [-3,-2,-1,0,0,1,2,3]
+Output: [1,2,-3]
+Explanation: [1,2,-3] is able to achieve the given subset sums:
+- []: sum is 0
+- [1]: sum is 1
+- [2]: sum is 2
+- [1,2]: sum is 3
+- [-3]: sum is -3
+- [1,-3]: sum is -2
+- [2,-3]: sum is -1
+- [1,2,-3]: sum is 0
+Note that any permutation of [1,2,-3] and also any permutation of [-1,-2,3] will also be accepted.
 Example 2:
-Input: tasks = [5,8,8,5], space = 2
-Output: 6
-Explanation:
-One way to complete all tasks in 6 days is as follows:
-Day 1: Complete the 0th task.
-Day 2: Complete the 1st task.
-Day 3: Take a break.
-Day 4: Take a break.
-Day 5: Complete the 2nd task.
-Day 6: Complete the 3rd task.
-It can be shown that the tasks cannot be completed in less than 6 days.
+Input: n = 2, sums = [0,0,0,0]
+Output: [0,0]
+Explanation: The only correct answer is [0,0].
+Example 3:
+Input: n = 4, sums = [0,0,5,5,4,-1,4,9,9,-1,4,3,4,8,3,8]
+Output: [0,-1,4,5]
+Explanation: [0,-1,4,5] is able to achieve the given subset sums.
   Constraints:
-1 <= tasks.length <= 105
-1 <= tasks[i] <= 109
-1 <= space <= tasks.length
+1 <= n <= 15
+sums.length == 2n
+-104 <= sums[i] <= 104

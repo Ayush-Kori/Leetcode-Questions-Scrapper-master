@@ -1,29 +1,15 @@
-Given the array orders, which represents the orders that customers have done in a restaurant. More specifically orders[i]=[customerNamei,tableNumberi,foodItemi] where customerNamei is the name of the customer, tableNumberi is the table customer sit at, and foodItemi is the item customer orders.
-Return the restaurant's “display table”. The “display table” is a table whose row entries denote how many of each food item each table ordered. The first column is the table number and the remaining columns correspond to each food item in alphabetical order. The first row should be a header whose first column is “Table”, followed by the names of the food items. Note that the customer names are not part of the table. Additionally, the rows should be sorted in numerically increasing order.
+Given an array of integers nums and an integer threshold, we will choose a positive integer divisor, divide all the array by it, and sum the division's result. Find the smallest divisor such that the result mentioned above is less than or equal to threshold.
+Each result of the division is rounded to the nearest integer greater than or equal to that element. (For example: 7/3 = 3 and 10/2 = 5).
+The test cases are generated so that there will be an answer.
   Example 1:
-Input: orders = [["David","3","Ceviche"],["Corina","10","Beef Burrito"],["David","3","Fried Chicken"],["Carla","5","Water"],["Carla","5","Ceviche"],["Rous","3","Ceviche"]]
-Output: [["Table","Beef Burrito","Ceviche","Fried Chicken","Water"],["3","0","2","1","0"],["5","0","1","0","1"],["10","1","0","0","0"]] 
-Explanation:
-The displaying table looks like:
-Table,Beef Burrito,Ceviche,Fried Chicken,Water
-3    ,0           ,2      ,1            ,0
-5    ,0           ,1      ,0            ,1
-10   ,1           ,0      ,0            ,0
-For the table 3: David orders "Ceviche" and "Fried Chicken", and Rous orders "Ceviche".
-For the table 5: Carla orders "Water" and "Ceviche".
-For the table 10: Corina orders "Beef Burrito". 
+Input: nums = [1,2,5,9], threshold = 6
+Output: 5
+Explanation: We can get a sum to 17 (1+2+5+9) if the divisor is 1. 
+If the divisor is 4 we can get a sum of 7 (1+1+2+3) and if the divisor is 5 the sum will be 5 (1+1+1+2). 
 Example 2:
-Input: orders = [["James","12","Fried Chicken"],["Ratesh","12","Fried Chicken"],["Amadeus","12","Fried Chicken"],["Adam","1","Canadian Waffles"],["Brianna","1","Canadian Waffles"]]
-Output: [["Table","Canadian Waffles","Fried Chicken"],["1","2","0"],["12","0","3"]] 
-Explanation: 
-For the table 1: Adam and Brianna order "Canadian Waffles".
-For the table 12: James, Ratesh and Amadeus order "Fried Chicken".
-Example 3:
-Input: orders = [["Laura","2","Bean Burrito"],["Jhon","2","Beef Burrito"],["Melissa","2","Soda"]]
-Output: [["Table","Bean Burrito","Beef Burrito","Soda"],["2","1","1","1"]]
+Input: nums = [44,22,33,11,1], threshold = 5
+Output: 44
   Constraints:
-1 <= orders.length <= 5 * 10^4
-orders[i].length == 3
-1 <= customerNamei.length, foodItemi.length <= 20
-customerNamei and foodItemi consist of lowercase and uppercase English letters and the space character.
-tableNumberi is a valid integer between 1 and 500.
+1 <= nums.length <= 5 * 104
+1 <= nums[i] <= 106
+nums.length <= threshold <= 106

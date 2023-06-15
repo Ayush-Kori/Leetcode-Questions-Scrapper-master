@@ -1,15 +1,21 @@
-Your task is to calculate ab mod 1337 where a is a positive integer and b is an extremely large positive integer given in the form of an array.
+Given a string of digits s, return the number of palindromic subsequences of s having length 5. Since the answer may be very large, return it modulo 109 + 7.
+Note:
+A string is palindromic if it reads the same forward and backward.
+A subsequence is a string that can be derived from another string by deleting some or no characters without changing the order of the remaining characters.
   Example 1:
-Input: a = 2, b = [3]
-Output: 8
+Input: s = "103301"
+Output: 2
+Explanation: 
+There are 6 possible subsequences of length 5: "10330","10331","10301","10301","13301","03301". 
+Two of them (both equal to "10301") are palindromic.
 Example 2:
-Input: a = 2, b = [1,0]
-Output: 1024
+Input: s = "0000000"
+Output: 21
+Explanation: All 21 subsequences are "00000", which is palindromic.
 Example 3:
-Input: a = 1, b = [4,3,3,8,5,2]
-Output: 1
+Input: s = "9999900000"
+Output: 2
+Explanation: The only two palindromic subsequences are "99999" and "00000".
   Constraints:
-1 <= a <= 231 - 1
-1 <= b.length <= 2000
-0 <= b[i] <= 9
-b does not contain leading zeros.
+1 <= s.length <= 104
+s consists of digits.

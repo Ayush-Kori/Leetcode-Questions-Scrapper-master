@@ -1,23 +1,20 @@
-There are some spherical balloons taped onto a flat wall that represents the XY-plane. The balloons are represented as a 2D integer array points where points[i] = [xstart, xend] denotes a balloon whose horizontal diameter stretches between xstart and xend. You do not know the exact y-coordinates of the balloons.
-Arrows can be shot up directly vertically (in the positive y-direction) from different points along the x-axis. A balloon with xstart and xend is burst by an arrow shot at x if xstart <= x <= xend. There is no limit to the number of arrows that can be shot. A shot arrow keeps traveling up infinitely, bursting any balloons in its path.
-Given the array points, return the minimum number of arrows that must be shot to burst all balloons.
+Given an integer array nums (0-indexed) and two integers target and start, find an index i such that nums[i] == target and abs(i - start) is minimized. Note that abs(x) is the absolute value of x.
+Return abs(i - start).
+It is guaranteed that target exists in nums.
   Example 1:
-Input: points = [[10,16],[2,8],[1,6],[7,12]]
-Output: 2
-Explanation: The balloons can be burst by 2 arrows:
-- Shoot an arrow at x = 6, bursting the balloons [2,8] and [1,6].
-- Shoot an arrow at x = 11, bursting the balloons [10,16] and [7,12].
+Input: nums = [1,2,3,4,5], target = 5, start = 3
+Output: 1
+Explanation: nums[4] = 5 is the only value equal to target, so the answer is abs(4 - 3) = 1.
 Example 2:
-Input: points = [[1,2],[3,4],[5,6],[7,8]]
-Output: 4
-Explanation: One arrow needs to be shot for each balloon for a total of 4 arrows.
+Input: nums = [1], target = 1, start = 0
+Output: 0
+Explanation: nums[0] = 1 is the only value equal to target, so the answer is abs(0 - 0) = 0.
 Example 3:
-Input: points = [[1,2],[2,3],[3,4],[4,5]]
-Output: 2
-Explanation: The balloons can be burst by 2 arrows:
-- Shoot an arrow at x = 2, bursting the balloons [1,2] and [2,3].
-- Shoot an arrow at x = 4, bursting the balloons [3,4] and [4,5].
+Input: nums = [1,1,1,1,1,1,1,1,1,1], target = 1, start = 0
+Output: 0
+Explanation: Every value of nums is 1, but nums[0] minimizes abs(i - start), which is abs(0 - 0) = 0.
   Constraints:
-1 <= points.length <= 105
-points[i].length == 2
--231 <= xstart < xend <= 231 - 1
+1 <= nums.length <= 1000
+1 <= nums[i] <= 104
+0 <= start < nums.length
+target is in nums.

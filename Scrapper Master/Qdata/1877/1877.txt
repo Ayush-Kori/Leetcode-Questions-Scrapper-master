@@ -1,24 +1,12 @@
-The Leetcode file system keeps a log each time some user performs a change folder operation.
-The operations are described below:
-"../" : Move to the parent folder of the current folder. (If you are already in the main folder, remain in the same folder).
-"./" : Remain in the same folder.
-"x/" : Move to the child folder named x (This folder is guaranteed to always exist).
-You are given a list of strings logs where logs[i] is the operation performed by the user at the ith step.
-The file system starts in the main folder, then the operations in logs are performed.
-Return the minimum number of operations needed to go back to the main folder after the change folder operations.
+Given an array of integers heights representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.
   Example 1:
-Input: logs = ["d1/","d2/","../","d21/","./"]
-Output: 2
-Explanation: Use this change folder operation "../" 2 times and go back to the main folder.
+Input: heights = [2,1,5,6,2,3]
+Output: 10
+Explanation: The above is a histogram where width of each bar is 1.
+The largest rectangle is shown in the red area, which has an area = 10 units.
 Example 2:
-Input: logs = ["d1/","d2/","./","d3/","../","d31/"]
-Output: 3
-Example 3:
-Input: logs = ["d1/","../","../","../"]
-Output: 0
+Input: heights = [2,4]
+Output: 4
   Constraints:
-1 <= logs.length <= 103
-2 <= logs[i].length <= 10
-logs[i] contains lowercase English letters, digits, '.', and '/'.
-logs[i] follows the format described in the statement.
-Folder names consist of lowercase English letters and digits.
+1 <= heights.length <= 105
+0 <= heights[i] <= 104

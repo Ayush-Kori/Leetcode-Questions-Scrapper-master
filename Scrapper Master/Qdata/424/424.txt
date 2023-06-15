@@ -1,21 +1,23 @@
-The bitwise AND of an array nums is the bitwise AND of all integers in nums.
-For example, for nums = [1, 5, 3], the bitwise AND is equal to 1 & 5 & 3 = 1.
-Also, for nums = [7], the bitwise AND is 7.
-You are given an array of positive integers candidates. Evaluate the bitwise AND of every combination of numbers of candidates. Each number in candidates may only be used once in each combination.
-Return the size of the largest combination of candidates with a bitwise AND greater than 0.
+You are given an array of intervals, where intervals[i] = [starti, endi] and each starti is unique.
+The right interval for an interval i is an interval j such that startj >= endi and startj is minimized. Note that i may equal j.
+Return an array of right interval indices for each interval i. If no right interval exists for interval i, then put -1 at index i.
   Example 1:
-Input: candidates = [16,17,71,62,12,24,14]
-Output: 4
-Explanation: The combination [16,17,62,24] has a bitwise AND of 16 & 17 & 62 & 24 = 16 > 0.
-The size of the combination is 4.
-It can be shown that no combination with a size greater than 4 has a bitwise AND greater than 0.
-Note that more than one combination may have the largest size.
-For example, the combination [62,12,24,14] has a bitwise AND of 62 & 12 & 24 & 14 = 8 > 0.
+Input: intervals = [[1,2]]
+Output: [-1]
+Explanation: There is only one interval in the collection, so it outputs -1.
 Example 2:
-Input: candidates = [8,8]
-Output: 2
-Explanation: The largest combination [8,8] has a bitwise AND of 8 & 8 = 8 > 0.
-The size of the combination is 2, so we return 2.
+Input: intervals = [[3,4],[2,3],[1,2]]
+Output: [-1,0,1]
+Explanation: There is no right interval for [3,4].
+The right interval for [2,3] is [3,4] since start0 = 3 is the smallest start that is >= end1 = 3.
+The right interval for [1,2] is [2,3] since start1 = 2 is the smallest start that is >= end2 = 2.
+Example 3:
+Input: intervals = [[1,4],[2,3],[3,4]]
+Output: [-1,2,-1]
+Explanation: There is no right interval for [1,4] and [3,4].
+The right interval for [2,3] is [3,4] since start2 = 3 is the smallest start that is >= end1 = 3.
   Constraints:
-1 <= candidates.length <= 105
-1 <= candidates[i] <= 107
+1 <= intervals.length <= 2 * 104
+intervals[i].length == 2
+-106 <= starti <= endi <= 106
+The start point of each interval is unique.

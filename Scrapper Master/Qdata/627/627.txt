@@ -1,26 +1,38 @@
-We can use run-length encoding (i.e., RLE) to encode a sequence of integers. In a run-length encoded array of even length encoding (0-indexed), for all even i, encoding[i] tells us the number of times that the non-negative integer value encoding[i + 1] is repeated in the sequence.
-For example, the sequence arr = [8,8,8,5,5] can be encoded to be encoding = [3,8,2,5]. encoding = [3,8,0,9,2,5] and encoding = [2,8,1,8,2,5] are also valid RLE of arr.
-Given a run-length encoded array, design an iterator that iterates through it.
-Implement the RLEIterator class:
-RLEIterator(int[] encoded) Initializes the object with the encoded array encoded.
-int next(int n) Exhausts the next n elements and returns the last element exhausted in this way. If there is no element left to exhaust, return -1 instead.
+Alice is a caretaker of n gardens and she wants to plant flowers to maximize the total beauty of all her gardens.
+You are given a 0-indexed integer array flowers of size n, where flowers[i] is the number of flowers already planted in the ith garden. Flowers that are already planted cannot be removed. You are then given another integer newFlowers, which is the maximum number of flowers that Alice can additionally plant. You are also given the integers target, full, and partial.
+A garden is considered complete if it has at least target flowers. The total beauty of the gardens is then determined as the sum of the following:
+The number of complete gardens multiplied by full.
+The minimum number of flowers in any of the incomplete gardens multiplied by partial. If there are no incomplete gardens, then this value will be 0.
+Return the maximum total beauty that Alice can obtain after planting at most newFlowers flowers.
   Example 1:
-Input
-["RLEIterator", "next", "next", "next", "next"]
-[[[3, 8, 0, 9, 2, 5]], [2], [1], [1], [2]]
-Output
-[null, 8, 8, 5, -1]
-
-Explanation
-RLEIterator rLEIterator = new RLEIterator([3, 8, 0, 9, 2, 5]); // This maps to the sequence [8,8,8,5,5].
-rLEIterator.next(2); // exhausts 2 terms of the sequence, returning 8. The remaining sequence is now [8, 5, 5].
-rLEIterator.next(1); // exhausts 1 term of the sequence, returning 8. The remaining sequence is now [5, 5].
-rLEIterator.next(1); // exhausts 1 term of the sequence, returning 5. The remaining sequence is now [5].
-rLEIterator.next(2); // exhausts 2 terms, returning -1. This is because the first term exhausted was 5,
-but the second term did not exist. Since the last term exhausted does not exist, we return -1.
+Input: flowers = [1,3,1,1], newFlowers = 7, target = 6, full = 12, partial = 1
+Output: 14
+Explanation: Alice can plant
+- 2 flowers in the 0th garden
+- 3 flowers in the 1st garden
+- 1 flower in the 2nd garden
+- 1 flower in the 3rd garden
+The gardens will then be [3,6,2,2]. She planted a total of 2 + 3 + 1 + 1 = 7 flowers.
+There is 1 garden that is complete.
+The minimum number of flowers in the incomplete gardens is 2.
+Thus, the total beauty is 1 * 12 + 2 * 1 = 12 + 2 = 14.
+No other way of planting flowers can obtain a total beauty higher than 14.
+Example 2:
+Input: flowers = [2,4,5,3], newFlowers = 10, target = 5, full = 2, partial = 6
+Output: 30
+Explanation: Alice can plant
+- 3 flowers in the 0th garden
+- 0 flowers in the 1st garden
+- 0 flowers in the 2nd garden
+- 2 flowers in the 3rd garden
+The gardens will then be [5,4,5,5]. She planted a total of 3 + 0 + 0 + 2 = 5 flowers.
+There are 3 gardens that are complete.
+The minimum number of flowers in the incomplete gardens is 4.
+Thus, the total beauty is 3 * 2 + 4 * 6 = 6 + 24 = 30.
+No other way of planting flowers can obtain a total beauty higher than 30.
+Note that Alice could make all the gardens complete but in this case, she would obtain a lower total beauty.
   Constraints:
-2 <= encoding.length <= 1000
-encoding.length is even.
-0 <= encoding[i] <= 109
-1 <= n <= 109
-At most 1000 calls will be made to next.
+1 <= flowers.length <= 105
+1 <= flowers[i], target <= 105
+1 <= newFlowers <= 1010
+1 <= full, partial <= 105

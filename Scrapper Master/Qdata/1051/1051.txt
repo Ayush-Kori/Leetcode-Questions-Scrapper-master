@@ -1,19 +1,23 @@
-Given an integer array arr, remove a subarray (can be empty) from arr such that the remaining elements in arr are non-decreasing.
-Return the length of the shortest subarray to remove.
-A subarray is a contiguous subsequence of the array.
+(This problem is an interactive problem.)
+You may recall that an array arr is a mountain array if and only if:
+arr.length >= 3
+There exists some i with 0 < i < arr.length - 1 such that:
+arr[0] < arr[1] < ... < arr[i - 1] < arr[i]
+arr[i] > arr[i + 1] > ... > arr[arr.length - 1]
+Given a mountain array mountainArr, return the minimum index such that mountainArr.get(index) == target. If such an index does not exist, return -1.
+You cannot access the mountain array directly. You may only access the array using a MountainArray interface:
+MountainArray.get(k) returns the element of the array at index k (0-indexed).
+MountainArray.length() returns the length of the array.
+Submissions making more than 100 calls to MountainArray.get will be judged Wrong Answer. Also, any solutions that attempt to circumvent the judge will result in disqualification.
   Example 1:
-Input: arr = [1,2,3,10,4,2,3,5]
-Output: 3
-Explanation: The shortest subarray we can remove is [10,4,2] of length 3. The remaining elements after that will be [1,2,3,3,5] which are sorted.
-Another correct solution is to remove the subarray [3,10,4].
+Input: array = [1,2,3,4,5,3,1], target = 3
+Output: 2
+Explanation: 3 exists in the array, at index=2 and index=5. Return the minimum index, which is 2.
 Example 2:
-Input: arr = [5,4,3,2,1]
-Output: 4
-Explanation: Since the array is strictly decreasing, we can only keep a single element. Therefore we need to remove a subarray of length 4, either [5,4,3,2] or [4,3,2,1].
-Example 3:
-Input: arr = [1,2,3]
-Output: 0
-Explanation: The array is already non-decreasing. We do not need to remove any elements.
+Input: array = [0,1,2,4,2,1], target = 3
+Output: -1
+Explanation: 3 does not exist in the array, so we return -1.
   Constraints:
-1 <= arr.length <= 105
-0 <= arr[i] <= 109
+3 <= mountain_arr.length() <= 104
+0 <= target <= 109
+0 <= mountain_arr.get(index) <= 109

@@ -1,26 +1,17 @@
-Given an integer array nums, handle multiple queries of the following types:
-Update the value of an element in nums.
-Calculate the sum of the elements of nums between indices left and right inclusive where left <= right.
-Implement the NumArray class:
-NumArray(int[] nums) Initializes the object with the integer array nums.
-void update(int index, int val) Updates the value of nums[index] to be val.
-int sumRange(int left, int right) Returns the sum of the elements of nums between indices left and right inclusive (i.e. nums[left] + nums[left + 1] + ... + nums[right]).
+The product difference between two pairs (a, b) and (c, d) is defined as (a * b) - (c * d).
+For example, the product difference between (5, 6) and (2, 7) is (5 * 6) - (2 * 7) = 16.
+Given an integer array nums, choose four distinct indices w, x, y, and z such that the product difference between pairs (nums[w], nums[x]) and (nums[y], nums[z]) is maximized.
+Return the maximum such product difference.
   Example 1:
-Input
-["NumArray", "sumRange", "update", "sumRange"]
-[[[1, 3, 5]], [0, 2], [1, 2], [0, 2]]
-Output
-[null, 9, null, 8]
-
-Explanation
-NumArray numArray = new NumArray([1, 3, 5]);
-numArray.sumRange(0, 2); // return 1 + 3 + 5 = 9
-numArray.update(1, 2);   // nums = [1, 2, 5]
-numArray.sumRange(0, 2); // return 1 + 2 + 5 = 8
+Input: nums = [5,6,2,7,4]
+Output: 34
+Explanation: We can choose indices 1 and 3 for the first pair (6, 7) and indices 2 and 4 for the second pair (2, 4).
+The product difference is (6 * 7) - (2 * 4) = 34.
+Example 2:
+Input: nums = [4,2,5,9,7,4,8]
+Output: 64
+Explanation: We can choose indices 3 and 6 for the first pair (9, 8) and indices 1 and 5 for the second pair (2, 4).
+The product difference is (9 * 8) - (2 * 4) = 64.
   Constraints:
-1 <= nums.length <= 3 * 104
--100 <= nums[i] <= 100
-0 <= index < nums.length
--100 <= val <= 100
-0 <= left <= right < nums.length
-At most 3 * 104 calls will be made to update and sumRange.
+4 <= nums.length <= 104
+1 <= nums[i] <= 104

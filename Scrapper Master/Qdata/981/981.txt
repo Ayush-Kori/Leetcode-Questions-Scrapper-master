@@ -1,20 +1,19 @@
-Given an array of integers arr, and three integers a, b and c. You need to find the number of good triplets.
-A triplet (arr[i], arr[j], arr[k]) is good if the following conditions are true:
-0 <= i < j < k < arr.length
-|arr[i] - arr[j]| <= a
-|arr[j] - arr[k]| <= b
-|arr[i] - arr[k]| <= c
-Where |x| denotes the absolute value of x.
-Return the number of good triplets.
+You are given an integer array nums with the following properties:
+nums.length == 2 * n.
+nums contains n + 1 unique elements.
+Exactly one element of nums is repeated n times.
+Return the element that is repeated n times.
   Example 1:
-Input: arr = [3,0,1,1,9,7], a = 7, b = 2, c = 3
-Output: 4
-Explanation: There are 4 good triplets: [(3,0,1), (3,0,1), (3,1,1), (0,1,1)].
+Input: nums = [1,2,3,3]
+Output: 3
 Example 2:
-Input: arr = [1,1,2,2,3], a = 0, b = 0, c = 1
-Output: 0
-Explanation: No triplet satisfies all conditions.
+Input: nums = [2,1,2,5,3,2]
+Output: 2
+Example 3:
+Input: nums = [5,1,5,2,5,3,5,4]
+Output: 5
   Constraints:
-3 <= arr.length <= 100
-0 <= arr[i] <= 1000
-0 <= a, b, c <= 1000
+2 <= n <= 5000
+nums.length == 2 * n
+0 <= nums[i] <= 104
+nums contains n + 1 unique elements and one of them is repeated exactly n times.

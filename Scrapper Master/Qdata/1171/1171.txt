@@ -1,19 +1,15 @@
-Given a string s, find the length of the longest
-substring
-without repeating characters.
+Given a palindromic string of lowercase English letters palindrome, replace exactly one character with any lowercase English letter so that the resulting string is not a palindrome and that it is the lexicographically smallest one possible.
+Return the resulting string. If there is no way to replace a character to make it not a palindrome, return an empty string.
+A string a is lexicographically smaller than a string b (of the same length) if in the first position where a and b differ, a has a character strictly smaller than the corresponding character in b. For example, "abcc" is lexicographically smaller than "abcd" because the first position they differ is at the fourth character, and 'c' is smaller than 'd'.
   Example 1:
-Input: s = "abcabcbb"
-Output: 3
-Explanation: The answer is "abc", with the length of 3.
+Input: palindrome = "abccba"
+Output: "aaccba"
+Explanation: There are many ways to make "abccba" not a palindrome, such as "zbccba", "aaccba", and "abacba".
+Of all the ways, "aaccba" is the lexicographically smallest.
 Example 2:
-Input: s = "bbbbb"
-Output: 1
-Explanation: The answer is "b", with the length of 1.
-Example 3:
-Input: s = "pwwkew"
-Output: 3
-Explanation: The answer is "wke", with the length of 3.
-Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+Input: palindrome = "a"
+Output: ""
+Explanation: There is no way to replace a single character to make "a" not a palindrome, so return an empty string.
   Constraints:
-0 <= s.length <= 5 * 104
-s consists of English letters, digits, symbols and spaces.
+1 <= palindrome.length <= 1000
+palindrome consists of only lowercase English letters.

@@ -1,33 +1,21 @@
-You have k servers numbered from 0 to k-1 that are being used to handle multiple requests simultaneously. Each server has infinite computational capacity but cannot handle more than one request at a time. The requests are assigned to servers according to a specific algorithm:
-The ith (0-indexed) request arrives.
-If all servers are busy, the request is dropped (not handled at all).
-If the (i % k)th server is available, assign the request to that server.
-Otherwise, assign the request to the next available server (wrapping around the list of servers and starting from 0 if necessary). For example, if the ith server is busy, try to assign the request to the (i+1)th server, then the (i+2)th server, and so on.
-You are given a strictly increasing array arrival of positive integers, where arrival[i] represents the arrival time of the ith request, and another array load, where load[i] represents the load of the ith request (the time it takes to complete). Your goal is to find the busiest server(s). A server is considered busiest if it handled the most number of requests successfully among all the servers.
-Return a list containing the IDs (0-indexed) of the busiest server(s). You may return the IDs in any order.
+You are given a 0-indexed binary string floor, which represents the colors of tiles on a floor:
+floor[i] = '0' denotes that the ith tile of the floor is colored black.
+On the other hand, floor[i] = '1' denotes that the ith tile of the floor is colored white.
+You are also given numCarpets and carpetLen. You have numCarpets black carpets, each of length carpetLen tiles. Cover the tiles with the given carpets such that the number of white tiles still visible is minimum. Carpets may overlap one another.
+Return the minimum number of white tiles still visible.
   Example 1:
-Input: k = 3, arrival = [1,2,3,4,5], load = [5,2,3,3,3] 
-Output: [1] 
+Input: floor = "10110101", numCarpets = 2, carpetLen = 2
+Output: 2
 Explanation: 
-All of the servers start out available.
-The first 3 requests are handled by the first 3 servers in order.
-Request 3 comes in. Server 0 is busy, so it's assigned to the next available server, which is 1.
-Request 4 comes in. It cannot be handled since all servers are busy, so it is dropped.
-Servers 0 and 2 handled one request each, while server 1 handled two requests. Hence server 1 is the busiest server.
+The figure above shows one way of covering the tiles with the carpets such that only 2 white tiles are visible.
+No other way of covering the tiles with the carpets can leave less than 2 white tiles visible.
 Example 2:
-Input: k = 3, arrival = [1,2,3,4], load = [1,2,1,2]
-Output: [0]
+Input: floor = "11111", numCarpets = 2, carpetLen = 3
+Output: 0
 Explanation: 
-The first 3 requests are handled by first 3 servers.
-Request 3 comes in. It is handled by server 0 since the server is available.
-Server 0 handled two requests, while servers 1 and 2 handled one request each. Hence server 0 is the busiest server.
-Example 3:
-Input: k = 3, arrival = [1,2,3], load = [10,12,11]
-Output: [0,1,2]
-Explanation: Each server handles a single request, so they are all considered the busiest.
+The figure above shows one way of covering the tiles with the carpets such that no white tiles are visible.
+Note that the carpets are able to overlap one another.
   Constraints:
-1 <= k <= 105
-1 <= arrival.length, load.length <= 105
-arrival.length == load.length
-1 <= arrival[i], load[i] <= 109
-arrival is strictly increasing.
+1 <= carpetLen <= floor.length <= 1000
+floor[i] is either '0' or '1'.
+1 <= numCarpets <= 1000

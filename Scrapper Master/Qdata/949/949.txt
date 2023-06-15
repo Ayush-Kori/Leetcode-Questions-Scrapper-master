@@ -1,18 +1,19 @@
-You are given a non-negative integer array nums. In one operation, you must:
-Choose a positive integer x such that x is less than or equal to the smallest non-zero element in nums.
-Subtract x from every positive element in nums.
-Return the minimum number of operations to make every element in nums equal to 0.
+Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
+According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
   Example 1:
-Input: nums = [1,5,0,3,5]
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
 Output: 3
-Explanation:
-In the first operation, choose x = 1. Now, nums = [0,4,0,2,4].
-In the second operation, choose x = 2. Now, nums = [0,2,0,0,2].
-In the third operation, choose x = 2. Now, nums = [0,0,0,0,0].
+Explanation: The LCA of nodes 5 and 1 is 3.
 Example 2:
-Input: nums = [0]
-Output: 0
-Explanation: Each element in nums is already 0 so no operations are needed.
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+Output: 5
+Explanation: The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.
+Example 3:
+Input: root = [1,2], p = 1, q = 2
+Output: 1
   Constraints:
-1 <= nums.length <= 100
-0 <= nums[i] <= 100
+The number of nodes in the tree is in the range [2, 105].
+-109 <= Node.val <= 109
+All Node.val are unique.
+p != q
+p and q will exist in the tree.

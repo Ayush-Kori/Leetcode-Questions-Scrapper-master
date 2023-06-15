@@ -1,17 +1,24 @@
-Given an integer array arr and an integer k, modify the array by repeating it k times.
-For example, if arr = [1, 2] and k = 3 then the modified array will be [1, 2, 1, 2, 1, 2].
-Return the maximum sub-array sum in the modified array. Note that the length of the sub-array can be 0 and its sum in that case is 0.
-As the answer can be very large, return the answer modulo 109 + 7.
+You are given the array paths, where paths[i] = [cityAi, cityBi] means there exists a direct path going from cityAi to cityBi. Return the destination city, that is, the city without any path outgoing to another city.
+It is guaranteed that the graph of paths forms a line without any loop, therefore, there will be exactly one destination city.
   Example 1:
-Input: arr = [1,2], k = 3
-Output: 9
+Input: paths = [["London","New York"],["New York","Lima"],["Lima","Sao Paulo"]]
+Output: "Sao Paulo" 
+Explanation: Starting at "London" city you will reach "Sao Paulo" city which is the destination city. Your trip consist of: "London" -> "New York" -> "Lima" -> "Sao Paulo".
 Example 2:
-Input: arr = [1,-2,1], k = 5
-Output: 2
+Input: paths = [["B","C"],["D","B"],["C","A"]]
+Output: "A"
+Explanation: All possible trips are: 
+"D" -> "B" -> "C" -> "A". 
+"B" -> "C" -> "A". 
+"C" -> "A". 
+"A". 
+Clearly the destination city is "A".
 Example 3:
-Input: arr = [-1,-2], k = 7
-Output: 0
+Input: paths = [["A","Z"]]
+Output: "Z"
   Constraints:
-1 <= arr.length <= 105
-1 <= k <= 105
--104 <= arr[i] <= 104
+1 <= paths.length <= 100
+paths[i].length == 2
+1 <= cityAi.length, cityBi.length <= 10
+cityAi != cityBi
+All strings consist of lowercase and uppercase English letters and the space character.

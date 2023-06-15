@@ -1,20 +1,23 @@
-You are given two integer arrays nums1 and nums2 of length n.
-The XOR sum of the two integer arrays is (nums1[0] XOR nums2[0]) + (nums1[1] XOR nums2[1]) + ... + (nums1[n - 1] XOR nums2[n - 1]) (0-indexed).
-For example, the XOR sum of [1,2,3] and [3,2,1] is equal to (1 XOR 3) + (2 XOR 2) + (3 XOR 1) = 2 + 0 + 2 = 4.
-Rearrange the elements of nums2 such that the resulting XOR sum is minimized.
-Return the XOR sum after the rearrangement.
+You are given an undirected weighted graph of n nodes (0-indexed), represented by an edge list where edges[i] = [a, b] is an undirected edge connecting the nodes a and b with a probability of success of traversing that edge succProb[i].
+Given two nodes start and end, find the path with the maximum probability of success to go from start to end and return its success probability.
+If there is no path from start to end, return 0. Your answer will be accepted if it differs from the correct answer by at most 1e-5.
   Example 1:
-Input: nums1 = [1,2], nums2 = [2,3]
-Output: 2
-Explanation: Rearrange nums2 so that it becomes [3,2].
-The XOR sum is (1 XOR 3) + (2 XOR 2) = 2 + 0 = 2.
+Input: n = 3, edges = [[0,1],[1,2],[0,2]], succProb = [0.5,0.5,0.2], start = 0, end = 2
+Output: 0.25000
+Explanation: There are two paths from start to end, one having a probability of success = 0.2 and the other has 0.5 * 0.5 = 0.25.
 Example 2:
-Input: nums1 = [1,0,3], nums2 = [5,3,4]
-Output: 8
-Explanation: Rearrange nums2 so that it becomes [5,4,3]. 
-The XOR sum is (1 XOR 5) + (0 XOR 4) + (3 XOR 3) = 4 + 4 + 0 = 8.
+Input: n = 3, edges = [[0,1],[1,2],[0,2]], succProb = [0.5,0.5,0.3], start = 0, end = 2
+Output: 0.30000
+Example 3:
+Input: n = 3, edges = [[0,1]], succProb = [0.5], start = 0, end = 2
+Output: 0.00000
+Explanation: There is no path between 0 and 2.
   Constraints:
-n == nums1.length
-n == nums2.length
-1 <= n <= 14
-0 <= nums1[i], nums2[i] <= 107
+2 <= n <= 10^4
+0 <= start, end < n
+start != end
+0 <= a, b < n
+a != b
+0 <= succProb.length == edges.length <= 2*10^4
+0 <= succProb[i] <= 1
+There is at most one edge between every two nodes.

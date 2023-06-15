@@ -1,17 +1,41 @@
-Alice is throwing n darts on a very large wall. You are given an array darts where darts[i] = [xi, yi] is the position of the ith dart that Alice threw on the wall.
-Bob knows the positions of the n darts on the wall. He wants to place a dartboard of radius r on the wall so that the maximum number of darts that Alice throws lies on the dartboard.
-Given the integer r, return the maximum number of darts that can lie on the dartboard.
+Given an integer array nums, a reducer function fn, and an initial value init, return a reduced array.
+A reduced array is created by applying the following operation: val = fn(init, nums[0]), val = fn(val, nums[1]), val = fn(val, nums[2]), ... until every element in the array has been processed. The final value of val is returned.
+If the length of the array is 0, it should return init.
+Please solve it without using the built-in Array.reduce method.
   Example 1:
-Input: darts = [[-2,0],[2,0],[0,2],[0,-2]], r = 2
-Output: 4
-Explanation: Circle dartboard with center in (0,0) and radius = 2 contain all points.
+Input: 
+nums = [1,2,3,4]
+fn = function sum(accum, curr) { return accum + curr; }
+init = 0
+Output: 10
+Explanation:
+initially, the value is init=0.
+(0) + nums[0] = 1
+(1) + nums[1] = 3
+(3) + nums[2] = 6
+(6) + nums[3] = 10
+The final answer is 10.
 Example 2:
-Input: darts = [[-3,0],[3,0],[2,6],[5,4],[0,9],[7,8]], r = 5
-Output: 5
-Explanation: Circle dartboard with center in (0,4) and radius = 5 contain all points except the point (7,8).
+Input: 
+nums = [1,2,3,4]
+fn = function sum(accum, curr) { return accum + curr * curr; }
+init = 100
+Output: 130
+Explanation:
+initially, the value is init=100.
+(100) + nums[0]^2 = 101
+(101) + nums[1]^2 = 105
+(105) + nums[2]^2 = 114
+(114) + nums[3]^2 = 130
+The final answer is 130.
+Example 3:
+Input: 
+nums = []
+fn = function sum(accum, curr) { return 0; }
+init = 25
+Output: 25
+Explanation: For empty arrays, the answer is always init.
   Constraints:
-1 <= darts.length <= 100
-darts[i].length == 2
--104 <= xi, yi <= 104
-All the darts are unique
-1 <= r <= 5000
+0 <= nums.length <= 1000
+0 <= nums[i] <= 1000
+0 <= init <= 1000

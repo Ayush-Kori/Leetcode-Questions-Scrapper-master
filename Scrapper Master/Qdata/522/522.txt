@@ -1,21 +1,21 @@
-You are given a 0-indexed string hamsters where hamsters[i] is either:
-'H' indicating that there is a hamster at index i, or
-'.' indicating that index i is empty.
-You will add some number of food buckets at the empty indices in order to feed the hamsters. A hamster can be fed if there is at least one food bucket to its left or to its right. More formally, a hamster at index i can be fed if you place a food bucket at index i - 1 and/or at index i + 1.
-Return the minimum number of food buckets you should place at empty indices to feed all the hamsters or -1 if it is impossible to feed all of them.
+Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
   Example 1:
-Input: hamsters = "H..H"
-Output: 2
-Explanation: We place two food buckets at indices 1 and 2.
-It can be shown that if we place only one food bucket, one of the hamsters will not be fed.
+Input: nums = [1,2,3,4,5,6,7], k = 3
+Output: [5,6,7,1,2,3,4]
+Explanation:
+rotate 1 steps to the right: [7,1,2,3,4,5,6]
+rotate 2 steps to the right: [6,7,1,2,3,4,5]
+rotate 3 steps to the right: [5,6,7,1,2,3,4]
 Example 2:
-Input: hamsters = ".H.H."
-Output: 1
-Explanation: We place one food bucket at index 2.
-Example 3:
-Input: hamsters = ".HHH."
-Output: -1
-Explanation: If we place a food bucket at every empty index as shown, the hamster at index 2 will not be able to eat.
+Input: nums = [-1,-100,3,99], k = 2
+Output: [3,99,-1,-100]
+Explanation: 
+rotate 1 steps to the right: [99,-1,-100,3]
+rotate 2 steps to the right: [3,99,-1,-100]
   Constraints:
-1 <= hamsters.length <= 105
-hamsters[i] is either'H' or '.'.
+1 <= nums.length <= 105
+-231 <= nums[i] <= 231 - 1
+0 <= k <= 105
+  Follow up:
+Try to come up with as many solutions as you can. There are at least three different ways to solve this problem.
+Could you do it in-place with O(1) extra space?

@@ -1,21 +1,23 @@
-A wiggle sequence is a sequence where the differences between successive numbers strictly alternate between positive and negative. The first difference (if one exists) may be either positive or negative. A sequence with one element and a sequence with two non-equal elements are trivially wiggle sequences.
-For example, [1, 7, 4, 9, 2, 5] is a wiggle sequence because the differences (6, -3, 5, -7, 3) alternate between positive and negative.
-In contrast, [1, 4, 7, 2, 5] and [1, 7, 4, 5, 5] are not wiggle sequences. The first is not because its first two differences are positive, and the second is not because its last difference is zero.
-A subsequence is obtained by deleting some elements (possibly zero) from the original sequence, leaving the remaining elements in their original order.
-Given an integer array nums, return the length of the longest wiggle subsequence of nums.
+There is a special kind of apple tree that grows apples every day for n days. On the ith day, the tree grows apples[i] apples that will rot after days[i] days, that is on day i + days[i] the apples will be rotten and cannot be eaten. On some days, the apple tree does not grow any apples, which are denoted by apples[i] == 0 and days[i] == 0.
+You decided to eat at most one apple a day (to keep the doctors away). Note that you can keep eating after the first n days.
+Given two integer arrays days and apples of length n, return the maximum number of apples you can eat.
   Example 1:
-Input: nums = [1,7,4,9,2,5]
-Output: 6
-Explanation: The entire sequence is a wiggle sequence with differences (6, -3, 5, -7, 3).
-Example 2:
-Input: nums = [1,17,5,10,13,15,10,5,16,8]
+Input: apples = [1,2,3,5,2], days = [3,2,1,4,2]
 Output: 7
-Explanation: There are several subsequences that achieve this length.
-One is [1, 17, 10, 13, 10, 16, 8] with differences (16, -7, 3, -3, 6, -8).
-Example 3:
-Input: nums = [1,2,3,4,5,6,7,8,9]
-Output: 2
+Explanation: You can eat 7 apples:
+- On the first day, you eat an apple that grew on the first day.
+- On the second day, you eat an apple that grew on the second day.
+- On the third day, you eat an apple that grew on the second day. After this day, the apples that grew on the third day rot.
+- On the fourth to the seventh days, you eat apples that grew on the fourth day.
+Example 2:
+Input: apples = [3,0,0,0,0,2], days = [3,0,0,0,0,2]
+Output: 5
+Explanation: You can eat 5 apples:
+- On the first to the third day you eat apples that grew on the first day.
+- Do nothing on the fouth and fifth days.
+- On the sixth and seventh days you eat apples that grew on the sixth day.
   Constraints:
-1 <= nums.length <= 1000
-0 <= nums[i] <= 1000
-  Follow up: Could you solve this in O(n) time?
+n == apples.length == days.length
+1 <= n <= 2 * 104
+0 <= apples[i], days[i] <= 2 * 104
+days[i] = 0 if and only if apples[i] = 0.

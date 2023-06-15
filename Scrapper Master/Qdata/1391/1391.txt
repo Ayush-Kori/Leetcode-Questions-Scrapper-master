@@ -1,14 +1,16 @@
-Given the coordinates of two rectilinear rectangles in a 2D plane, return the total area covered by the two rectangles.
-The first rectangle is defined by its bottom-left corner (ax1, ay1) and its top-right corner (ax2, ay2).
-The second rectangle is defined by its bottom-left corner (bx1, by1) and its top-right corner (bx2, by2).
+You are given an array trees where trees[i] = [xi, yi] represents the location of a tree in the garden.
+Fence the entire garden using the minimum length of rope, as it is expensive. The garden is well-fenced only if all the trees are enclosed.
+Return the coordinates of trees that are exactly located on the fence perimeter. You may return the answer in any order.
   Example 1:
-Input: ax1 = -3, ay1 = 0, ax2 = 3, ay2 = 4, bx1 = 0, by1 = -1, bx2 = 9, by2 = 2
-Output: 45
+Input: trees = [[1,1],[2,2],[2,0],[2,4],[3,3],[4,2]]
+Output: [[1,1],[2,0],[4,2],[3,3],[2,4]]
+Explanation: All the trees will be on the perimeter of the fence except the tree at [2, 2], which will be inside the fence.
 Example 2:
-Input: ax1 = -2, ay1 = -2, ax2 = 2, ay2 = 2, bx1 = -2, by1 = -2, bx2 = 2, by2 = 2
-Output: 16
+Input: trees = [[1,2],[2,2],[4,2]]
+Output: [[4,2],[2,2],[1,2]]
+Explanation: The fence forms a line that passes through all the trees.
   Constraints:
--104 <= ax1 <= ax2 <= 104
--104 <= ay1 <= ay2 <= 104
--104 <= bx1 <= bx2 <= 104
--104 <= by1 <= by2 <= 104
+1 <= trees.length <= 3000
+trees[i].length == 2
+0 <= xi, yi <= 100
+All the given positions are unique.

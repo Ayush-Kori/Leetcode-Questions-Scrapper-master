@@ -1,24 +1,18 @@
-You are given an integer mass, which represents the original mass of a planet. You are further given an integer array asteroids, where asteroids[i] is the mass of the ith asteroid.
-You can arrange for the planet to collide with the asteroids in any arbitrary order. If the mass of the planet is greater than or equal to the mass of the asteroid, the asteroid is destroyed and the planet gains the mass of the asteroid. Otherwise, the planet is destroyed.
-Return true if all asteroids can be destroyed. Otherwise, return false.
+You are given an array of strings equations that represent relationships between variables where each string equations[i] is of length 4 and takes one of two different forms: "xi==yi" or "xi!=yi".Here, xi and yi are lowercase letters (not necessarily different) that represent one-letter variable names.
+Return true if it is possible to assign integers to variable names so as to satisfy all the given equations, or false otherwise.
   Example 1:
-Input: mass = 10, asteroids = [3,9,19,5,21]
-Output: true
-Explanation: One way to order the asteroids is [9,19,5,3,21]:
-- The planet collides with the asteroid with a mass of 9. New planet mass: 10 + 9 = 19
-- The planet collides with the asteroid with a mass of 19. New planet mass: 19 + 19 = 38
-- The planet collides with the asteroid with a mass of 5. New planet mass: 38 + 5 = 43
-- The planet collides with the asteroid with a mass of 3. New planet mass: 43 + 3 = 46
-- The planet collides with the asteroid with a mass of 21. New planet mass: 46 + 21 = 67
-All asteroids are destroyed.
-Example 2:
-Input: mass = 5, asteroids = [4,9,23,4]
+Input: equations = ["a==b","b!=a"]
 Output: false
-Explanation: 
-The planet cannot ever gain enough mass to destroy the asteroid with a mass of 23.
-After the planet destroys the other asteroids, it will have a mass of 5 + 4 + 9 + 4 = 22.
-This is less than 23, so a collision would not destroy the last asteroid.
+Explanation: If we assign say, a = 1 and b = 1, then the first equation is satisfied, but not the second.
+There is no way to assign the variables to satisfy both equations.
+Example 2:
+Input: equations = ["b==a","a==b"]
+Output: true
+Explanation: We could assign a = 1 and b = 1 to satisfy both equations.
   Constraints:
-1 <= mass <= 105
-1 <= asteroids.length <= 105
-1 <= asteroids[i] <= 105
+1 <= equations.length <= 500
+equations[i].length == 4
+equations[i][0] is a lowercase letter.
+equations[i][1] is either '=' or '!'.
+equations[i][2] is '='.
+equations[i][3] is a lowercase letter.

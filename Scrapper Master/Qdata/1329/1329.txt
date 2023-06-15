@@ -1,19 +1,31 @@
-You are given an m x n integer matrix grid, where m and n are both even integers, and an integer k.
-The matrix is composed of several layers, which is shown in the below image, where each color is its own layer:
-A cyclic rotation of the matrix is done by cyclically rotating each layer in the matrix. To cyclically rotate a layer once, each element in the layer will take the place of the adjacent element in the counter-clockwise direction. An example rotation is shown below:
-Return the matrix after applying k cyclic rotations to it.
+Given a m * n matrix seats  that represent seats distributions in a classroom. If a seat is broken, it is denoted by '#' character otherwise it is denoted by a '.' character.
+Students can see the answers of those sitting next to the left, right, upper left and upper right, but he cannot see the answers of the student sitting directly in front or behind him. Return the maximum number of students that can take the exam together without any cheating being possible..
+Students must be placed in seats in good condition.
   Example 1:
-Input: grid = [[40,10],[30,20]], k = 1
-Output: [[10,20],[40,30]]
-Explanation: The figures above represent the grid at every state.
+Input: seats = [["#",".","#","#",".","#"],
+                [".","#","#","#","#","."],
+                ["#",".","#","#",".","#"]]
+Output: 4
+Explanation: Teacher can place 4 students in available seats so they don't cheat on the exam. 
 Example 2:
-Input: grid = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]], k = 2
-Output: [[3,4,8,12],[2,11,10,16],[1,7,6,15],[5,9,13,14]]
-Explanation: The figures above represent the grid at every state.
+Input: seats = [[".","#"],
+                ["#","#"],
+                ["#","."],
+                ["#","#"],
+                [".","#"]]
+Output: 3
+Explanation: Place all students in available seats. 
+Example 3:
+Input: seats = [["#",".",".",".","#"],
+                [".","#",".","#","."],
+                [".",".","#",".","."],
+                [".","#",".","#","."],
+                ["#",".",".",".","#"]]
+Output: 10
+Explanation: Place students in available seats in column 1, 3 and 5.
   Constraints:
-m == grid.length
-n == grid[i].length
-2 <= m, n <= 50
-Both m and n are even integers.
-1 <= grid[i][j] <= 5000
-1 <= k <= 109
+seats contains only characters '.' and'#'.
+m == seats.length
+n == seats[i].length
+1 <= m <= 8
+1 <= n <= 8

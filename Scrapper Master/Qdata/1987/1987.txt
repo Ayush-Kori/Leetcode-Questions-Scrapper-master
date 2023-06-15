@@ -1,25 +1,16 @@
-There is a singly-linked list head and we want to delete a node node in it.
-You are given the node to be deleted node. You will not be given access to the first node of head.
-All the values of the linked list are unique, and it is guaranteed that the given node node is not the last node in the linked list.
-Delete the given node. Note that by deleting the node, we do not mean removing it from memory. We mean:
-The value of the given node should not exist in the linked list.
-The number of nodes in the linked list should decrease by one.
-All the values before node should be in the same order.
-All the values after node should be in the same order.
-Custom testing:
-For the input, you should provide the entire linked list head and the node to be given node. node should not be the last node of the list and should be an actual node in the list.
-We will build the linked list and pass the node to your function.
-The output will be the entire list after calling your function.
+An n x n matrix is valid if every row and every column contains all the integers from 1 to n (inclusive).
+Given an n x n integer matrix matrix, return true if the matrix is valid. Otherwise, return false.
   Example 1:
-Input: head = [4,5,1,9], node = 5
-Output: [4,1,9]
-Explanation: You are given the second node with value 5, the linked list should become 4 -> 1 -> 9 after calling your function.
+Input: matrix = [[1,2,3],[3,1,2],[2,3,1]]
+Output: true
+Explanation: In this case, n = 3, and every row and column contains the numbers 1, 2, and 3.
+Hence, we return true.
 Example 2:
-Input: head = [4,5,1,9], node = 1
-Output: [4,5,9]
-Explanation: You are given the third node with value 1, the linked list should become 4 -> 5 -> 9 after calling your function.
+Input: matrix = [[1,1,1],[1,2,3],[1,2,3]]
+Output: false
+Explanation: In this case, n = 3, but the first row and the first column do not contain the numbers 2 or 3.
+Hence, we return false.
   Constraints:
-The number of the nodes in the given list is in the range [2, 1000].
--1000 <= Node.val <= 1000
-The value of each node in the list is unique.
-The node to be deleted is in the list and is not a tail node.
+n == matrix.length == matrix[i].length
+1 <= n <= 100
+1 <= matrix[i][j] <= n

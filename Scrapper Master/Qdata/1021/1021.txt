@@ -1,24 +1,30 @@
-You are given a 0-indexed string pattern of length n consisting of the characters 'I' meaning increasing and 'D' meaning decreasing.
-A 0-indexed string num of length n + 1 is created using the following conditions:
-num consists of the digits '1' to '9', where each digit is used at most once.
-If pattern[i] == 'I', then num[i] < num[i + 1].
-If pattern[i] == 'D', then num[i] > num[i + 1].
-Return the lexicographically smallest possible string num that meets the conditions.
+Given an integer array nums sorted in non-decreasing order, remove some duplicates in-place such that each unique element appears at most twice. The relative order of the elements should be kept the same.
+Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result. It does not matter what you leave beyond the first k elements.
+Return k after placing the final result in the first k slots of nums.
+Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
+Custom Judge:
+The judge will test your solution with the following code:
+int[] nums = [...]; // Input array
+int[] expectedNums = [...]; // The expected answer with correct length
+
+int k = removeDuplicates(nums); // Calls your implementation
+
+assert k == expectedNums.length;
+for (int i = 0; i < k; i++) {
+    assert nums[i] == expectedNums[i];
+}
+If all assertions pass, then your solution will be accepted.
   Example 1:
-Input: pattern = "IIIDIDDD"
-Output: "123549876"
-Explanation:
-At indices 0, 1, 2, and 4 we must have that num[i] < num[i+1].
-At indices 3, 5, 6, and 7 we must have that num[i] > num[i+1].
-Some possible values of num are "245639871", "135749862", and "123849765".
-It can be proven that "123549876" is the smallest possible num that meets the conditions.
-Note that "123414321" is not possible because the digit '1' is used more than once.
+Input: nums = [1,1,1,2,2,3]
+Output: 5, nums = [1,1,2,2,3,_]
+Explanation: Your function should return k = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
 Example 2:
-Input: pattern = "DDD"
-Output: "4321"
-Explanation:
-Some possible values of num are "9876", "7321", and "8742".
-It can be proven that "4321" is the smallest possible num that meets the conditions.
+Input: nums = [0,0,1,1,1,1,2,3,3]
+Output: 7, nums = [0,0,1,1,2,3,3,_,_]
+Explanation: Your function should return k = 7, with the first seven elements of nums being 0, 0, 1, 1, 2, 3 and 3 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
   Constraints:
-1 <= pattern.length <= 8
-pattern consists of only the letters 'I' and 'D'.
+1 <= nums.length <= 3 * 104
+-104 <= nums[i] <= 104
+nums is sorted in non-decreasing order.

@@ -1,24 +1,22 @@
-There are n persons on a social media website. You are given an integer array ages where ages[i] is the age of the ith person.
-A Person x will not send a friend request to a person y (x != y) if any of the following conditions is true:
-age[y] <= 0.5 * age[x] + 7
-age[y] > age[x]
-age[y] > 100 && age[x] < 100
-Otherwise, x will send a friend request to y.
-Note that if x sends a request to y, y will not necessarily send a request to x. Also, a person will not send a friend request to themself.
-Return the total number of friend requests made.
+You are given a binary string binary consisting of only 0's or 1's. You can apply each of the following operations any number of times:
+Operation 1: If the number contains the substring "00", you can replace it with "10".
+For example, "00010" -> "10010"
+Operation 2: If the number contains the substring "10", you can replace it with "01".
+For example, "00010" -> "00001"
+Return the maximum binary string you can obtain after any number of operations. Binary string x is greater than binary string y if x's decimal representation is greater than y's decimal representation.
   Example 1:
-Input: ages = [16,16]
-Output: 2
-Explanation: 2 people friend request each other.
+Input: binary = "000110"
+Output: "111011"
+Explanation: A valid transformation sequence can be:
+"000110" -> "000101" 
+"000101" -> "100101" 
+"100101" -> "110101" 
+"110101" -> "110011" 
+"110011" -> "111011"
 Example 2:
-Input: ages = [16,17,18]
-Output: 2
-Explanation: Friend requests are made 17 -> 16, 18 -> 17.
-Example 3:
-Input: ages = [20,30,100,110,120]
-Output: 3
-Explanation: Friend requests are made 110 -> 100, 120 -> 110, 120 -> 100.
+Input: binary = "01"
+Output: "01"
+Explanation: "01" cannot be transformed any further.
   Constraints:
-n == ages.length
-1 <= n <= 2 * 104
-1 <= ages[i] <= 120
+1 <= binary.length <= 105
+binary consist of '0' and '1'.

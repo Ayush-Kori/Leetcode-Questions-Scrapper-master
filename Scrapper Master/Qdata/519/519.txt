@@ -1,43 +1,16 @@
-SQL Schema
-Table: Activity
-+---------------+---------+
-| Column Name   | Type    |
-+---------------+---------+
-| user_id       | int     |
-| session_id    | int     |
-| activity_date | date    |
-| activity_type | enum    |
-+---------------+---------+
-There is no primary key for this table, it may have duplicate rows.
-The activity_type column is an ENUM of type ('open_session', 'end_session', 'scroll_down', 'send_message').
-The table shows the user activities for a social media website. 
-Note that each session belongs to exactly one user.
-  Write an SQL query to find the daily active user count for a period of 30 days ending 2019-07-27 inclusively. A user was active on someday if they made at least one activity on that day.
-Return the result table in any order.
-The query result format is in the following example.
+You are given an integer total indicating the amount of money you have. You are also given two integers cost1 and cost2 indicating the price of a pen and pencil respectively. You can spend part or all of your money to buy multiple quantities (or none) of each kind of writing utensil.
+Return the number of distinct ways you can buy some number of pens and pencils.
   Example 1:
-Input: 
-Activity table:
-+---------+------------+---------------+---------------+
-| user_id | session_id | activity_date | activity_type |
-+---------+------------+---------------+---------------+
-| 1       | 1          | 2019-07-20    | open_session  |
-| 1       | 1          | 2019-07-20    | scroll_down   |
-| 1       | 1          | 2019-07-20    | end_session   |
-| 2       | 4          | 2019-07-20    | open_session  |
-| 2       | 4          | 2019-07-21    | send_message  |
-| 2       | 4          | 2019-07-21    | end_session   |
-| 3       | 2          | 2019-07-21    | open_session  |
-| 3       | 2          | 2019-07-21    | send_message  |
-| 3       | 2          | 2019-07-21    | end_session   |
-| 4       | 3          | 2019-06-25    | open_session  |
-| 4       | 3          | 2019-06-25    | end_session   |
-+---------+------------+---------------+---------------+
-Output: 
-+------------+--------------+ 
-| day        | active_users |
-+------------+--------------+ 
-| 2019-07-20 | 2            |
-| 2019-07-21 | 2            |
-+------------+--------------+ 
-Explanation: Note that we do not care about days with zero active users.
+Input: total = 20, cost1 = 10, cost2 = 5
+Output: 9
+Explanation: The price of a pen is 10 and the price of a pencil is 5.
+- If you buy 0 pens, you can buy 0, 1, 2, 3, or 4 pencils.
+- If you buy 1 pen, you can buy 0, 1, or 2 pencils.
+- If you buy 2 pens, you cannot buy any pencils.
+The total number of ways to buy pens and pencils is 5 + 3 + 1 = 9.
+Example 2:
+Input: total = 5, cost1 = 10, cost2 = 10
+Output: 1
+Explanation: The price of both pens and pencils are 10, which cost more than total, so you cannot buy any writing utensils. Therefore, there is only 1 way: buy 0 pens and 0 pencils.
+  Constraints:
+1 <= total, cost1, cost2 <= 106

@@ -1,29 +1,32 @@
-Given an array arr that represents a permutation of numbers from 1 to n.
-You have a binary string of size n that initially has all its bits set to zero. At each step i (assuming both the binary string and arr are 1-indexed) from 1 to n, the bit at position arr[i] is set to 1.
-You are also given an integer m. Find the latest step at which there exists a group of ones of length m. A group of ones is a contiguous substring of 1's such that it cannot be extended in either direction.
-Return the latest step at which there exists a group of ones of length exactly m. If no such group exists, return -1.
+You are given a string num, representing a large integer, and an integer k.
+We call some integer wonderful if it is a permutation of the digits in num and is greater in value than num. There can be many wonderful integers. However, we only care about the smallest-valued ones.
+For example, when num = "5489355142":
+The 1st smallest wonderful integer is "5489355214".
+The 2nd smallest wonderful integer is "5489355241".
+The 3rd smallest wonderful integer is "5489355412".
+The 4th smallest wonderful integer is "5489355421".
+Return the minimum number of adjacent digit swaps that needs to be applied to num to reach the kth smallest wonderful integer.
+The tests are generated in such a way that kth smallest wonderful integer exists.
   Example 1:
-Input: arr = [3,5,1,2,4], m = 1
-Output: 4
-Explanation: 
-Step 1: "00100", groups: ["1"]
-Step 2: "00101", groups: ["1", "1"]
-Step 3: "10101", groups: ["1", "1", "1"]
-Step 4: "11101", groups: ["111", "1"]
-Step 5: "11111", groups: ["11111"]
-The latest step at which there exists a group of size 1 is step 4.
+Input: num = "5489355142", k = 4
+Output: 2
+Explanation: The 4th smallest wonderful number is "5489355421". To get this number:
+- Swap index 7 with index 8: "5489355142" -> "5489355412"
+- Swap index 8 with index 9: "5489355412" -> "5489355421"
 Example 2:
-Input: arr = [3,1,5,4,2], m = 2
-Output: -1
-Explanation: 
-Step 1: "00100", groups: ["1"]
-Step 2: "10100", groups: ["1", "1"]
-Step 3: "10101", groups: ["1", "1", "1"]
-Step 4: "10111", groups: ["1", "111"]
-Step 5: "11111", groups: ["11111"]
-No group of size 2 exists during any step.
+Input: num = "11112", k = 4
+Output: 4
+Explanation: The 4th smallest wonderful number is "21111". To get this number:
+- Swap index 3 with index 4: "11112" -> "11121"
+- Swap index 2 with index 3: "11121" -> "11211"
+- Swap index 1 with index 2: "11211" -> "12111"
+- Swap index 0 with index 1: "12111" -> "21111"
+Example 3:
+Input: num = "00123", k = 1
+Output: 1
+Explanation: The 1st smallest wonderful number is "00132". To get this number:
+- Swap index 3 with index 4: "00123" -> "00132"
   Constraints:
-n == arr.length
-1 <= m <= n <= 105
-1 <= arr[i] <= n
-All integers in arr are distinct.
+2 <= num.length <= 1000
+1 <= k <= 1000
+num only consists of digits.

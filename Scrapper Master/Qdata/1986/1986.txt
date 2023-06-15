@@ -1,23 +1,16 @@
-The value of an alphanumeric string can be defined as:
-The numeric representation of the string in base 10, if it comprises of digits only.
-The length of the string, otherwise.
-Given an array strs of alphanumeric strings, return the maximum value of any string in strs.
+Given a directed acyclic graph (DAG) of n nodes labeled from 0 to n - 1, find all possible paths from node 0 to node n - 1 and return them in any order.
+The graph is given as follows: graph[i] is a list of all nodes you can visit from node i (i.e., there is a directed edge from node i to node graph[i][j]).
   Example 1:
-Input: strs = ["alic3","bob","3","4","00000"]
-Output: 5
-Explanation: 
-- "alic3" consists of both letters and digits, so its value is its length, i.e. 5.
-- "bob" consists only of letters, so its value is also its length, i.e. 3.
-- "3" consists only of digits, so its value is its numeric equivalent, i.e. 3.
-- "4" also consists only of digits, so its value is 4.
-- "00000" consists only of digits, so its value is 0.
-Hence, the maximum value is 5, of "alic3".
+Input: graph = [[1,2],[3],[3],[]]
+Output: [[0,1,3],[0,2,3]]
+Explanation: There are two paths: 0 -> 1 -> 3 and 0 -> 2 -> 3.
 Example 2:
-Input: strs = ["1","01","001","0001"]
-Output: 1
-Explanation: 
-Each string in the array has value 1. Hence, we return 1.
+Input: graph = [[4,3,1],[3,2,4],[3],[4],[]]
+Output: [[0,4],[0,3,4],[0,1,3,4],[0,1,2,3,4],[0,1,4]]
   Constraints:
-1 <= strs.length <= 100
-1 <= strs[i].length <= 9
-strs[i] consists of only lowercase English letters and digits.
+n == graph.length
+2 <= n <= 15
+0 <= graph[i][j] < n
+graph[i][j] != i (i.e., there will be no self-loops).
+All the elements of graph[i] are unique.
+The input graph is guaranteed to be a DAG.

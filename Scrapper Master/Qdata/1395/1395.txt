@@ -1,24 +1,20 @@
-Given two version numbers, version1 and version2, compare them.
-Version numbers consist of one or more revisions joined by a dot '.'. Each revision consists of digits and may contain leading zeros. Every revision contains at least one character. Revisions are 0-indexed from left to right, with the leftmost revision being revision 0, the next revision being revision 1, and so on. For example 2.5.33 and 0.1 are valid version numbers.
-To compare version numbers, compare their revisions in left-to-right order. Revisions are compared using their integer value ignoring any leading zeros. This means that revisions 1 and 001 are considered equal. If a version number does not specify a revision at an index, then treat the revision as 0. For example, version 1.0 is less than version 1.1 because their revision 0s are the same, but their revision 1s are 0 and 1 respectively, and 0 < 1.
-Return the following:
-If version1 < version2, return -1.
-If version1 > version2, return 1.
-Otherwise, return 0.
+You are given two strings current and correct representing two 24-hour times.
+24-hour times are formatted as "HH:MM", where HH is between 00 and 23, and MM is between 00 and 59. The earliest 24-hour time is 00:00, and the latest is 23:59.
+In one operation you can increase the time current by 1, 5, 15, or 60 minutes. You can perform this operation any number of times.
+Return the minimum number of operations needed to convert current to correct.
   Example 1:
-Input: version1 = "1.01", version2 = "1.001"
-Output: 0
-Explanation: Ignoring leading zeroes, both "01" and "001" represent the same integer "1".
+Input: current = "02:30", correct = "04:35"
+Output: 3
+Explanation:
+We can convert current to correct in 3 operations as follows:
+- Add 60 minutes to current. current becomes "03:30".
+- Add 60 minutes to current. current becomes "04:30".
+- Add 5 minutes to current. current becomes "04:35".
+It can be proven that it is not possible to convert current to correct in fewer than 3 operations.
 Example 2:
-Input: version1 = "1.0", version2 = "1.0.0"
-Output: 0
-Explanation: version1 does not specify revision 2, which means it is treated as "0".
-Example 3:
-Input: version1 = "0.1", version2 = "1.1"
-Output: -1
-Explanation: version1's revision 0 is "0", while version2's revision 0 is "1". 0 < 1, so version1 < version2.
+Input: current = "11:00", correct = "11:01"
+Output: 1
+Explanation: We only have to add one minute to current, so the minimum number of operations needed is 1.
   Constraints:
-1 <= version1.length, version2.length <= 500
-version1 and version2 only contain digits and '.'.
-version1 and version2 are valid version numbers.
-All the given revisions in version1 and version2 can be stored in a 32-bit integer.
+current and correct are in the format "HH:MM"
+current <= correct

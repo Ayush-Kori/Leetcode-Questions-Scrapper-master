@@ -1,25 +1,16 @@
-Given two strings s and t, return the number of distinct
-subsequences
-of s which equals t.
-The test cases are generated so that the answer fits on a 32-bit signed integer.
+Let the function f(s) be the frequency of the lexicographically smallest character in a non-empty string s. For example, if s = "dcce" then f(s) = 2 because the lexicographically smallest character is 'c', which has a frequency of 2.
+You are given an array of strings words and another array of query strings queries. For each query queries[i], count the number of words in words such that f(queries[i]) < f(W) for each W in words.
+Return an integer array answer, where each answer[i] is the answer to the ith query.
   Example 1:
-Input: s = "rabbbit", t = "rabbit"
-Output: 3
-Explanation:
-As shown below, there are 3 ways you can generate "rabbit" from s.
-rabbbit
-rabbbit
-rabbbit
+Input: queries = ["cbd"], words = ["zaaaz"]
+Output: [1]
+Explanation: On the first query we have f("cbd") = 1, f("zaaaz") = 3 so f("cbd") < f("zaaaz").
 Example 2:
-Input: s = "babgbag", t = "bag"
-Output: 5
-Explanation:
-As shown below, there are 5 ways you can generate "bag" from s.
-babgbag
-babgbag
-babgbag
-babgbag
-babgbag
+Input: queries = ["bbb","cc"], words = ["a","aa","aaa","aaaa"]
+Output: [1,2]
+Explanation: On the first query only f("bbb") < f("aaaa"). On the second query both f("aaa") and f("aaaa") are both > f("cc").
   Constraints:
-1 <= s.length, t.length <= 1000
-s and t consist of English letters.
+1 <= queries.length <= 2000
+1 <= words.length <= 2000
+1 <= queries[i].length, words[i].length <= 10
+queries[i][j], words[i][j] consist of lowercase English letters.

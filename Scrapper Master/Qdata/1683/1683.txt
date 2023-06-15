@@ -1,38 +1,21 @@
-SQL Schema
-Table: Products
-+-------------+---------+
-| Column Name | Type    |
-+-------------+---------+
-| product_id  | int     |
-| store1      | int     |
-| store2      | int     |
-| store3      | int     |
-+-------------+---------+
-product_id is the primary key for this table.
-Each row in this table indicates the product's price in 3 different stores: store1, store2, and store3.
-If the product is not available in a store, the price will be null in that store's column.
-  Write an SQL query to rearrange the Products table so that each row has (product_id, store, price). If a product is not available in a store, do not include a row with that product_id and store combination in the result table.
-Return the result table in any order.
-The query result format is in the following example.
+You are given a binary matrix matrix of size m x n, and you are allowed to rearrange the columns of the matrix in any order.
+Return the area of the largest submatrix within matrix where every element of the submatrix is 1 after reordering the columns optimally.
   Example 1:
-Input: 
-Products table:
-+------------+--------+--------+--------+
-| product_id | store1 | store2 | store3 |
-+------------+--------+--------+--------+
-| 0          | 95     | 100    | 105    |
-| 1          | 70     | null   | 80     |
-+------------+--------+--------+--------+
-Output: 
-+------------+--------+-------+
-| product_id | store  | price |
-+------------+--------+-------+
-| 0          | store1 | 95    |
-| 0          | store2 | 100   |
-| 0          | store3 | 105   |
-| 1          | store1 | 70    |
-| 1          | store3 | 80    |
-+------------+--------+-------+
-Explanation: 
-Product 0 is available in all three stores with prices 95, 100, and 105 respectively.
-Product 1 is available in store1 with price 70 and store3 with price 80. The product is not available in store2.
+Input: matrix = [[0,0,1],[1,1,1],[1,0,1]]
+Output: 4
+Explanation: You can rearrange the columns as shown above.
+The largest submatrix of 1s, in bold, has an area of 4.
+Example 2:
+Input: matrix = [[1,0,1,0,1]]
+Output: 3
+Explanation: You can rearrange the columns as shown above.
+The largest submatrix of 1s, in bold, has an area of 3.
+Example 3:
+Input: matrix = [[1,1,0],[1,0,1]]
+Output: 2
+Explanation: Notice that you must rearrange entire columns, and there is no way to make a submatrix of 1s larger than an area of 2.
+  Constraints:
+m == matrix.length
+n == matrix[i].length
+1 <= m * n <= 105
+matrix[i][j] is either 0 or 1.

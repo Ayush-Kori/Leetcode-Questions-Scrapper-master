@@ -1,20 +1,15 @@
-You are given an n x n binary matrix grid. You are allowed to change at most one 0 to be 1.
-Return the size of the largest island in grid after applying this operation.
-An island is a 4-directionally connected group of 1s.
+Given a rectangle of size n x m, return the minimum number of integer-sided squares that tile the rectangle.
   Example 1:
-Input: grid = [[1,0],[0,1]]
+Input: n = 2, m = 3
 Output: 3
-Explanation: Change one 0 to 1 and connect two 1s, then we get an island with area = 3.
+Explanation: 3 squares are necessary to cover the rectangle.
+2 (squares of 1x1)
+1 (square of 2x2)
 Example 2:
-Input: grid = [[1,1],[1,0]]
-Output: 4
-Explanation: Change the 0 to 1 and make the island bigger, only one island with area = 4.
+Input: n = 5, m = 8
+Output: 5
 Example 3:
-Input: grid = [[1,1],[1,1]]
-Output: 4
-Explanation: Can't change any 0 to 1, only one island with area = 4.
+Input: n = 11, m = 13
+Output: 6
   Constraints:
-n == grid.length
-n == grid[i].length
-1 <= n <= 500
-grid[i][j] is either 0 or 1.
+1 <= n, m <= 13

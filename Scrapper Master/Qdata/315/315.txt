@@ -1,27 +1,25 @@
-You are given two strings s and p where p is a subsequence of s. You are also given a distinct 0-indexed integer array removable containing a subset of indices of s (s is also 0-indexed).
-You want to choose an integer k (0 <= k <= removable.length) such that, after removing k characters from s using the first k indices in removable, p is still a subsequence of s. More formally, you will mark the character at s[removable[i]] for each 0 <= i < k, then remove all marked characters and check if p is still a subsequence.
-Return the maximum k you can choose such that p is still a subsequence of s after the removals.
-A subsequence of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters.
+You are given a 0-indexed binary string s which represents the types of buildings along a street where:
+s[i] = '0' denotes that the ith building is an office and
+s[i] = '1' denotes that the ith building is a restaurant.
+As a city official, you would like to select 3 buildings for random inspection. However, to ensure variety, no two consecutive buildings out of the selected buildings can be of the same type.
+For example, given s = "001101", we cannot select the 1st, 3rd, and 5th buildings as that would form "011" which is not allowed due to having two consecutive buildings of the same type.
+Return the number of valid ways to select 3 buildings.
   Example 1:
-Input: s = "abcacb", p = "ab", removable = [3,1,0]
-Output: 2
-Explanation: After removing the characters at indices 3 and 1, "abcacb" becomes "accb".
-"ab" is a subsequence of "accb".
-If we remove the characters at indices 3, 1, and 0, "abcacb" becomes "ccb", and "ab" is no longer a subsequence.
-Hence, the maximum k is 2.
+Input: s = "001101"
+Output: 6
+Explanation: 
+The following sets of indices selected are valid:
+- [0,2,4] from "001101" forms "010"
+- [0,3,4] from "001101" forms "010"
+- [1,2,4] from "001101" forms "010"
+- [1,3,4] from "001101" forms "010"
+- [2,4,5] from "001101" forms "101"
+- [3,4,5] from "001101" forms "101"
+No other selection is valid. Thus, there are 6 total ways.
 Example 2:
-Input: s = "abcbddddd", p = "abcd", removable = [3,2,1,4,5,6]
-Output: 1
-Explanation: After removing the character at index 3, "abcbddddd" becomes "abcddddd".
-"abcd" is a subsequence of "abcddddd".
-Example 3:
-Input: s = "abcab", p = "abc", removable = [0,1,2,3,4]
+Input: s = "11100"
 Output: 0
-Explanation: If you remove the first index in the array removable, "abc" is no longer a subsequence.
+Explanation: It can be shown that there are no valid selections.
   Constraints:
-1 <= p.length <= s.length <= 105
-0 <= removable.length < s.length
-0 <= removable[i] < s.length
-p is a subsequence of s.
-s and p both consist of lowercase English letters.
-The elements in removable are distinct.
+3 <= s.length <= 105
+s[i] is either '0' or '1'.

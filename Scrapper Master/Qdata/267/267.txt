@@ -1,18 +1,29 @@
-You are given a 0-indexed string word of length n consisting of digits, and a positive integer m.
-The divisibility array div of word is an integer array of length n such that:
-div[i] = 1 if the numeric value of word[0,...,i] is divisible by m, or
-div[i] = 0 otherwise.
-Return the divisibility array of word.
+Given four integers length, width, height, and mass, representing the dimensions and mass of a box, respectively, return a string representing the category of the box.
+The box is "Bulky" if:
+Any of the dimensions of the box is greater or equal to 104.
+Or, the volume of the box is greater or equal to 109.
+If the mass of the box is greater or equal to 100, it is "Heavy".
+If the box is both "Bulky" and "Heavy", then its category is "Both".
+If the box is neither "Bulky" nor "Heavy", then its category is "Neither".
+If the box is "Bulky" but not "Heavy", then its category is "Bulky".
+If the box is "Heavy" but not "Bulky", then its category is "Heavy".
+Note that the volume of the box is the product of its length, width and height.
   Example 1:
-Input: word = "998244353", m = 3
-Output: [1,1,0,0,0,1,1,0,0]
-Explanation: There are only 4 prefixes that are divisible by 3: "9", "99", "998244", and "9982443".
+Input: length = 1000, width = 35, height = 700, mass = 300
+Output: "Heavy"
+Explanation: 
+None of the dimensions of the box is greater or equal to 104. 
+Its volume = 24500000 <= 109. So it cannot be categorized as "Bulky".
+However mass >= 100, so the box is "Heavy".
+Since the box is not "Bulky" but "Heavy", we return "Heavy".
 Example 2:
-Input: word = "1010", m = 10
-Output: [0,1,0,1]
-Explanation: There are only 2 prefixes that are divisible by 10: "10", and "1010".
+Input: length = 200, width = 50, height = 800, mass = 50
+Output: "Neither"
+Explanation: 
+None of the dimensions of the box is greater or equal to 104.
+Its volume = 8 * 106 <= 109. So it cannot be categorized as "Bulky".
+Its mass is also less than 100, so it cannot be categorized as "Heavy" either. 
+Since its neither of the two above categories, we return "Neither".
   Constraints:
-1 <= n <= 105
-word.length == n
-word consists of digits from 0 to 9
-1 <= m <= 109
+1 <= length, width, height <= 105
+1 <= mass <= 103

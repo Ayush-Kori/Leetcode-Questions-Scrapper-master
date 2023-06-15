@@ -1,24 +1,16 @@
-There are n persons on a social media website. You are given an integer array ages where ages[i] is the age of the ith person.
-A Person x will not send a friend request to a person y (x != y) if any of the following conditions is true:
-age[y] <= 0.5 * age[x] + 7
-age[y] > age[x]
-age[y] > 100 && age[x] < 100
-Otherwise, x will send a friend request to y.
-Note that if x sends a request to y, y will not necessarily send a request to x. Also, a person will not send a friend request to themself.
-Return the total number of friend requests made.
+You are given a string s containing one or more words. Every consecutive pair of words is separated by a single space ' '.
+A string t is an anagram of string s if the ith word of t is a permutation of the ith word of s.
+For example, "acb dfe" is an anagram of "abc def", but "def cab" and "adc bef" are not.
+Return the number of distinct anagrams of s. Since the answer may be very large, return it modulo 109 + 7.
   Example 1:
-Input: ages = [16,16]
-Output: 2
-Explanation: 2 people friend request each other.
+Input: s = "too hot"
+Output: 18
+Explanation: Some of the anagrams of the given string are "too hot", "oot hot", "oto toh", "too toh", and "too oht".
 Example 2:
-Input: ages = [16,17,18]
-Output: 2
-Explanation: Friend requests are made 17 -> 16, 18 -> 17.
-Example 3:
-Input: ages = [20,30,100,110,120]
-Output: 3
-Explanation: Friend requests are made 110 -> 100, 120 -> 110, 120 -> 100.
+Input: s = "aa"
+Output: 1
+Explanation: There is only one anagram possible for the given string.
   Constraints:
-n == ages.length
-1 <= n <= 2 * 104
-1 <= ages[i] <= 120
+1 <= s.length <= 105
+s consists of lowercase English letters and spaces ' '.
+There is single space between consecutive words.

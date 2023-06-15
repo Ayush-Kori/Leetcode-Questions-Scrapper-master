@@ -1,11 +1,19 @@
-Given a text file file.txt that contains a list of phone numbers (one per line), write a one-liner bash script to print all valid phone numbers.
-You may assume that a valid phone number must appear in one of the following two formats: (xxx) xxx-xxxx or xxx-xxx-xxxx. (x means a digit)
-You may also assume each line in the text file must not contain leading or trailing white spaces.
-Example:
-Assume that file.txt has the following content:
-987-123-4567
-123 456 7890
-(123) 456-7890
-Your script should output the following valid phone numbers:
-987-123-4567
-(123) 456-7890
+You are given two strings of the same length s and t. In one step you can choose any character of t and replace it with another character.
+Return the minimum number of steps to make t an anagram of s.
+An Anagram of a string is a string that contains the same characters with a different (or the same) ordering.
+  Example 1:
+Input: s = "bab", t = "aba"
+Output: 1
+Explanation: Replace the first 'a' in t with b, t = "bba" which is anagram of s.
+Example 2:
+Input: s = "leetcode", t = "practice"
+Output: 5
+Explanation: Replace 'p', 'r', 'a', 'i' and 'c' from t with proper characters to make t anagram of s.
+Example 3:
+Input: s = "anagram", t = "mangaar"
+Output: 0
+Explanation: "anagram" and "mangaar" are anagrams. 
+  Constraints:
+1 <= s.length <= 5 * 104
+s.length == t.length
+s and t consist of lowercase English letters only.

@@ -1,15 +1,19 @@
-You are given an integer array nums. In one move, you can pick an index i where 0 <= i < nums.length and increment nums[i] by 1.
-Return the minimum number of moves to make every value in nums unique.
-The test cases are generated so that the answer fits in a 32-bit integer.
+You are given a string s.
+A split is called good if you can split s into two non-empty strings sleft and sright where their concatenation is equal to s (i.e., sleft + sright = s) and the number of distinct letters in sleft and sright is the same.
+Return the number of good splits you can make in s.
   Example 1:
-Input: nums = [1,2,2]
-Output: 1
-Explanation: After 1 move, the array could be [1, 2, 3].
+Input: s = "aacaba"
+Output: 2
+Explanation: There are 5 ways to split "aacaba" and 2 of them are good. 
+("a", "acaba") Left string and right string contains 1 and 3 different letters respectively.
+("aa", "caba") Left string and right string contains 1 and 3 different letters respectively.
+("aac", "aba") Left string and right string contains 2 and 2 different letters respectively (good split).
+("aaca", "ba") Left string and right string contains 2 and 2 different letters respectively (good split).
+("aacab", "a") Left string and right string contains 3 and 1 different letters respectively.
 Example 2:
-Input: nums = [3,2,1,2,1,7]
-Output: 6
-Explanation: After 6 moves, the array could be [3, 4, 1, 2, 5, 7].
-It can be shown with 5 or less moves that it is impossible for the array to have all unique values.
+Input: s = "abcd"
+Output: 1
+Explanation: Split the string as follows ("ab", "cd").
   Constraints:
-1 <= nums.length <= 105
-0 <= nums[i] <= 105
+1 <= s.length <= 105
+s consists of only lowercase English letters.

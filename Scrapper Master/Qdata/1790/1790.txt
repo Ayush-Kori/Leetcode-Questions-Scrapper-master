@@ -1,30 +1,13 @@
-Given an array of integers cost and an integer target, return the maximum integer you can paint under the following rules:
-The cost of painting a digit (i + 1) is given by cost[i] (0-indexed).
-The total cost used must be equal to target.
-The integer does not have 0 digits.
-Since the answer may be very large, return it as a string. If there is no way to paint any integer given the condition, return "0".
+A sequence of numbers is called an arithmetic progression if the difference between any two consecutive elements is the same.
+Given an array of numbers arr, return true if the array can be rearranged to form an arithmetic progression. Otherwise, return false.
   Example 1:
-Input: cost = [4,3,2,5,6,7,2,5,5], target = 9
-Output: "7772"
-Explanation: The cost to paint the digit '7' is 2, and the digit '2' is 3. Then cost("7772") = 2*3+ 3*1 = 9. You could also paint "977", but "7772" is the largest number.
-Digit    cost
-  1  ->   4
-  2  ->   3
-  3  ->   2
-  4  ->   5
-  5  ->   6
-  6  ->   7
-  7  ->   2
-  8  ->   5
-  9  ->   5
+Input: arr = [3,5,1]
+Output: true
+Explanation: We can reorder the elements as [1,3,5] or [5,3,1] with differences 2 and -2 respectively, between each consecutive elements.
 Example 2:
-Input: cost = [7,6,5,5,5,6,8,7,8], target = 12
-Output: "85"
-Explanation: The cost to paint the digit '8' is 7, and the digit '5' is 5. Then cost("85") = 7 + 5 = 12.
-Example 3:
-Input: cost = [2,4,6,2,4,6,4,4,4], target = 5
-Output: "0"
-Explanation: It is impossible to paint any integer with total cost equal to target.
+Input: arr = [1,2,4]
+Output: false
+Explanation: There is no way to reorder the elements to obtain an arithmetic progression.
   Constraints:
-cost.length == 9
-1 <= cost[i], target <= 5000
+2 <= arr.length <= 1000
+-106 <= arr[i] <= 106

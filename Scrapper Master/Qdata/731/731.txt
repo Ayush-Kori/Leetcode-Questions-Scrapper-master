@@ -1,17 +1,15 @@
-Given an array of integers arr, a lucky integer is an integer that has a frequency in the array equal to its value.
-Return the largest lucky integer in the array. If there is no lucky integer return -1.
+Given a positive integer, check whether it has alternating bits: namely, if two adjacent bits will always have different values.
   Example 1:
-Input: arr = [2,2,3,4]
-Output: 2
-Explanation: The only lucky number in the array is 2 because frequency[2] == 2.
+Input: n = 5
+Output: true
+Explanation: The binary representation of 5 is: 101
 Example 2:
-Input: arr = [1,2,2,3,3,3]
-Output: 3
-Explanation: 1, 2 and 3 are all lucky numbers, return the largest of them.
+Input: n = 7
+Output: false
+Explanation: The binary representation of 7 is: 111.
 Example 3:
-Input: arr = [2,2,2,3,3]
-Output: -1
-Explanation: There are no lucky numbers in the array.
+Input: n = 11
+Output: false
+Explanation: The binary representation of 11 is: 1011.
   Constraints:
-1 <= arr.length <= 500
-1 <= arr[i] <= 500
+1 <= n <= 231 - 1

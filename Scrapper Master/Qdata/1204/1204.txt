@@ -1,20 +1,14 @@
-Given an array of integers arr, and three integers a, b and c. You need to find the number of good triplets.
-A triplet (arr[i], arr[j], arr[k]) is good if the following conditions are true:
-0 <= i < j < k < arr.length
-|arr[i] - arr[j]| <= a
-|arr[j] - arr[k]| <= b
-|arr[i] - arr[k]| <= c
-Where |x| denotes the absolute value of x.
-Return the number of good triplets.
+Given a string s containing only lowercase English letters and the '?' character, convert all the '?' characters into lowercase letters such that the final string does not contain any consecutive repeating characters. You cannot modify the non '?' characters.
+It is guaranteed that there are no consecutive repeating characters in the given string except for '?'.
+Return the final string after all the conversions (possibly zero) have been made. If there is more than one solution, return any of them. It can be shown that an answer is always possible with the given constraints.
   Example 1:
-Input: arr = [3,0,1,1,9,7], a = 7, b = 2, c = 3
-Output: 4
-Explanation: There are 4 good triplets: [(3,0,1), (3,0,1), (3,1,1), (0,1,1)].
+Input: s = "?zs"
+Output: "azs"
+Explanation: There are 25 solutions for this problem. From "azs" to "yzs", all are valid. Only "z" is an invalid modification as the string will consist of consecutive repeating characters in "zzs".
 Example 2:
-Input: arr = [1,1,2,2,3], a = 0, b = 0, c = 1
-Output: 0
-Explanation: No triplet satisfies all conditions.
+Input: s = "ubv?w"
+Output: "ubvaw"
+Explanation: There are 24 solutions for this problem. Only "v" and "w" are invalid modifications as the strings will consist of consecutive repeating characters in "ubvvw" and "ubvww".
   Constraints:
-3 <= arr.length <= 100
-0 <= arr[i] <= 1000
-0 <= a, b, c <= 1000
+1 <= s.length <= 100
+s consist of lowercase English letters and '?'.

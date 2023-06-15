@@ -1,11 +1,14 @@
-Given an integer array nums, return the maximum result of nums[i] XOR nums[j], where 0 <= i <= j < n.
+Given the root of a binary tree, return the length of the longest path, where each node in the path has the same value. This path may or may not pass through the root.
+The length of the path between two nodes is represented by the number of edges between them.
   Example 1:
-Input: nums = [3,10,5,25,2,8]
-Output: 28
-Explanation: The maximum result is 5 XOR 25 = 28.
+Input: root = [5,4,5,1,1,null,5]
+Output: 2
+Explanation: The shown image shows that the longest path of the same value (i.e. 5).
 Example 2:
-Input: nums = [14,70,53,83,49,91,36,80,92,51,66,70]
-Output: 127
+Input: root = [1,4,5,4,4,null,5]
+Output: 2
+Explanation: The shown image shows that the longest path of the same value (i.e. 4).
   Constraints:
-1 <= nums.length <= 2 * 105
-0 <= nums[i] <= 231 - 1
+The number of nodes in the tree is in the range [0, 104].
+-1000 <= Node.val <= 1000
+The depth of the tree will not exceed 1000.

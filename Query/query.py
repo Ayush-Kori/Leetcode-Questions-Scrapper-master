@@ -30,7 +30,7 @@ for index, line in enumerate(lines):
     for token in tokens:
         if token not in vocab:
             vocab[token]  = 1
-        else
+        else:
             vocab[token] += 1
 
 

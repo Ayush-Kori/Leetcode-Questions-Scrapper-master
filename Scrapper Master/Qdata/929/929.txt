@@ -1,59 +1,34 @@
-SQL Schema
-Table: Users
-+--------------+---------+
-| Column Name  | Type    |
-+--------------+---------+
-| account      | int     |
-| name         | varchar |
-+--------------+---------+
-account is the primary key for this table.
-Each row of this table contains the account number of each user in the bank.
-There will be no two users having the same name in the table.
-  Table: Transactions
-+---------------+---------+
-| Column Name   | Type    |
-+---------------+---------+
-| trans_id      | int     |
-| account       | int     |
-| amount        | int     |
-| transacted_on | date    |
-+---------------+---------+
-trans_id is the primary key for this table.
-Each row of this table contains all changes made to all accounts.
-amount is positive if the user received money and negative if they transferred money.
-All accounts start with a balance of 0.
-  Write an SQL query to report the name and balance of users with a balance higher than 10000. The balance of an account is equal to the sum of the amounts of all transactions involving that account.
-Return the result table in any order.
-The query result format is in the following example.
+You are given a 0-indexed 2D integer array brackets where brackets[i] = [upperi, percenti] means that the ith tax bracket has an upper bound of upperi and is taxed at a rate of percenti. The brackets are sorted by upper bound (i.e. upperi-1 < upperi for 0 < i < brackets.length).
+Tax is calculated as follows:
+The first upper0 dollars earned are taxed at a rate of percent0.
+The next upper1 - upper0 dollars earned are taxed at a rate of percent1.
+The next upper2 - upper1 dollars earned are taxed at a rate of percent2.
+And so on.
+You are given an integer income representing the amount of money you earned. Return the amount of money that you have to pay in taxes. Answers within 10-5 of the actual answer will be accepted.
   Example 1:
-Input: 
-Users table:
-+------------+--------------+
-| account    | name         |
-+------------+--------------+
-| 900001     | Alice        |
-| 900002     | Bob          |
-| 900003     | Charlie      |
-+------------+--------------+
-Transactions table:
-+------------+------------+------------+---------------+
-| trans_id   | account    | amount     | transacted_on |
-+------------+------------+------------+---------------+
-| 1          | 900001     | 7000       |  2020-08-01   |
-| 2          | 900001     | 7000       |  2020-09-01   |
-| 3          | 900001     | -3000      |  2020-09-02   |
-| 4          | 900002     | 1000       |  2020-09-12   |
-| 5          | 900003     | 6000       |  2020-08-07   |
-| 6          | 900003     | 6000       |  2020-09-07   |
-| 7          | 900003     | -4000      |  2020-09-11   |
-+------------+------------+------------+---------------+
-Output: 
-+------------+------------+
-| name       | balance    |
-+------------+------------+
-| Alice      | 11000      |
-+------------+------------+
-Explanation: 
-Alice's balance is (7000 + 7000 - 3000) = 11000.
-Bob's balance is 1000.
-Charlie's balance is (6000 + 6000 - 4000) = 8000.
+Input: brackets = [[3,50],[7,10],[12,25]], income = 10
+Output: 2.65000
+Explanation:
+Based on your income, you have 3 dollars in the 1st tax bracket, 4 dollars in the 2nd tax bracket, and 3 dollars in the 3rd tax bracket.
+The tax rate for the three tax brackets is 50%, 10%, and 25%, respectively.
+In total, you pay $3 * 50% + $4 * 10% + $3 * 25% = $2.65 in taxes.
+Example 2:
+Input: brackets = [[1,0],[4,25],[5,50]], income = 2
+Output: 0.25000
+Explanation:
+Based on your income, you have 1 dollar in the 1st tax bracket and 1 dollar in the 2nd tax bracket.
+The tax rate for the two tax brackets is 0% and 25%, respectively.
+In total, you pay $1 * 0% + $1 * 25% = $0.25 in taxes.
+Example 3:
+Input: brackets = [[2,50]], income = 0
+Output: 0.00000
+Explanation:
+You have no income to tax, so you have to pay a total of $0 in taxes.
+  Constraints:
+1 <= brackets.length <= 100
+1 <= upperi <= 1000
+0 <= percenti <= 100
+0 <= income <= 1000
+upperi is sorted in ascending order.
+All the values of upperi are unique.
+The upper bound of the last tax bracket is greater than or equal to income.

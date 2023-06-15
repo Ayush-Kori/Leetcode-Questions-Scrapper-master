@@ -1,24 +1,22 @@
-You are given a 0-indexed integer array nums of even length consisting of an equal number of positive and negative integers.
-You should rearrange the elements of nums such that the modified array follows the given conditions:
-Every consecutive pair of integers have opposite signs.
-For all integers with the same sign, the order in which they were present in nums is preserved.
-The rearranged array begins with a positive integer.
-Return the modified array after rearranging the elements to satisfy the aforementioned conditions.
+You are given a string s consisting of digits from 1 to 9 and an integer k.
+A partition of a string s is called good if:
+Each digit of s is part of exactly one substring.
+The value of each substring is less than or equal to k.
+Return the minimum number of substrings in a good partition of s. If no good partition of s exists, return -1.
+Note that:
+The value of a string is its result when interpreted as an integer. For example, the value of "123" is 123 and the value of "1" is 1.
+A substring is a contiguous sequence of characters within a string.
   Example 1:
-Input: nums = [3,1,-2,-5,2,-4]
-Output: [3,-2,1,-5,2,-4]
-Explanation:
-The positive integers in nums are [3,1,2]. The negative integers are [-2,-5,-4].
-The only possible way to rearrange them such that they satisfy all conditions is [3,-2,1,-5,2,-4].
-Other ways such as [1,-2,2,-5,3,-4], [3,1,2,-2,-5,-4], [-2,3,-5,1,-4,2] are incorrect because they do not satisfy one or more conditions.  
+Input: s = "165462", k = 60
+Output: 4
+Explanation: We can partition the string into substrings "16", "54", "6", and "2". Each substring has a value less than or equal to k = 60.
+It can be shown that we cannot partition the string into less than 4 substrings.
 Example 2:
-Input: nums = [-1,1]
-Output: [1,-1]
-Explanation:
-1 is the only positive integer and -1 the only negative integer in nums.
-So nums is rearranged to [1,-1].
+Input: s = "238182", k = 5
+Output: -1
+Explanation: There is no good partition for this string.
   Constraints:
-2 <= nums.length <= 2 * 105
-nums.length is even
-1 <= |nums[i]| <= 105
-nums consists of equal number of positive and negative integers.
+1 <= s.length <= 105
+s[i] is a digit from '1' to '9'.
+1 <= k <= 109
+ 

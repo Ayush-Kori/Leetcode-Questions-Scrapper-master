@@ -1,20 +1,22 @@
-You are given a string s of lowercase English letters and an integer array shifts of the same length.
-Call the shift() of a letter, the next letter in the alphabet, (wrapping around so that 'z' becomes 'a').
-For example, shift('a') = 'b', shift('t') = 'u', and shift('z') = 'a'.
-Now for each shifts[i] = x, we want to shift the first i + 1 letters of s, x times.
-Return the final string after all such shifts to s are applied.
+Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:
+'.' Matches any single character.
+'*' Matches zero or more of the preceding element.
+The matching should cover the entire input string (not partial).
   Example 1:
-Input: s = "abc", shifts = [3,5,9]
-Output: "rpl"
-Explanation: We start with "abc".
-After shifting the first 1 letters of s by 3, we have "dbc".
-After shifting the first 2 letters of s by 5, we have "igc".
-After shifting the first 3 letters of s by 9, we have "rpl", the answer.
+Input: s = "aa", p = "a"
+Output: false
+Explanation: "a" does not match the entire string "aa".
 Example 2:
-Input: s = "aaa", shifts = [1,2,3]
-Output: "gfd"
+Input: s = "aa", p = "a*"
+Output: true
+Explanation: '*' means zero or more of the preceding element, 'a'. Therefore, by repeating 'a' once, it becomes "aa".
+Example 3:
+Input: s = "ab", p = ".*"
+Output: true
+Explanation: ".*" means "zero or more (*) of any character (.)".
   Constraints:
-1 <= s.length <= 105
-s consists of lowercase English letters.
-shifts.length == s.length
-0 <= shifts[i] <= 109
+1 <= s.length <= 20
+1 <= p.length <= 20
+s contains only lowercase English letters.
+p contains only lowercase English letters, '.', and '*'.
+It is guaranteed for each appearance of the character '*', there will be a previous valid character to match.

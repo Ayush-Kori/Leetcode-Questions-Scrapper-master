@@ -1,26 +1,39 @@
-Given a string formula representing a chemical formula, return the count of each atom.
-The atomic element always starts with an uppercase character, then zero or more lowercase letters, representing the name.
-One or more digits representing that element's count may follow if the count is greater than 1. If the count is 1, no digits will follow.
-For example, "H2O" and "H2O2" are possible, but "H1O2" is impossible.
-Two formulas are concatenated together to produce another formula.
-For example, "H2O2He3Mg4" is also a formula.
-A formula placed in parentheses, and a count (optionally added) is also a formula.
-For example, "(H2O2)" and "(H2O2)3" are formulas.
-Return the count of all elements as a string in the following form: the first name (in sorted order), followed by its count (if that count is more than 1), followed by the second name (in sorted order), followed by its count (if that count is more than 1), and so on.
-The test cases are generated so that all the values in the output fit in a 32-bit integer.
+You are given a string s of even length consisting of digits from 0 to 9, and two integers a and b.
+You can apply either of the following two operations any number of times and in any order on s:
+Add a to all odd indices of s (0-indexed). Digits post 9 are cycled back to 0. For example, if s = "3456" and a = 5, s becomes "3951".
+Rotate s to the right by b positions. For example, if s = "3456" and b = 1, s becomes "6345".
+Return the lexicographically smallest string you can obtain by applying the above operations any number of times on s.
+A string a is lexicographically smaller than a string b (of the same length) if in the first position where a and b differ, string a has a letter that appears earlier in the alphabet than the corresponding letter in b. For example, "0158" is lexicographically smaller than "0190" because the first position they differ is at the third letter, and '5' comes before '9'.
   Example 1:
-Input: formula = "H2O"
-Output: "H2O"
-Explanation: The count of elements are {'H': 2, 'O': 1}.
+Input: s = "5525", a = 9, b = 2
+Output: "2050"
+Explanation: We can apply the following operations:
+Start:  "5525"
+Rotate: "2555"
+Add:    "2454"
+Add:    "2353"
+Rotate: "5323"
+Add:    "5222"
+Add:    "5121"
+Rotate: "2151"
+Add:    "2050"
+There is no way to obtain a string that is lexicographically smaller then "2050".
 Example 2:
-Input: formula = "Mg(OH)2"
-Output: "H2MgO2"
-Explanation: The count of elements are {'H': 2, 'Mg': 1, 'O': 2}.
+Input: s = "74", a = 5, b = 1
+Output: "24"
+Explanation: We can apply the following operations:
+Start:  "74"
+Rotate: "47"
+Add:    "42"
+Rotate: "24"
+There is no way to obtain a string that is lexicographically smaller then "24".
 Example 3:
-Input: formula = "K4(ON(SO3)2)2"
-Output: "K4N2O14S4"
-Explanation: The count of elements are {'K': 4, 'N': 2, 'O': 14, 'S': 4}.
+Input: s = "0011", a = 4, b = 2
+Output: "0011"
+Explanation: There are no sequence of operations that will give us a lexicographically smaller string than "0011".
   Constraints:
-1 <= formula.length <= 1000
-formula consists of English letters, digits, '(', and ')'.
-formula is always valid.
+2 <= s.length <= 100
+s.length is even.
+s consists of digits from 0 to 9 only.
+1 <= a <= 9
+1 <= b <= s.length - 1

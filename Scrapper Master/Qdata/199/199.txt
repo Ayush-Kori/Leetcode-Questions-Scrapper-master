@@ -1,20 +1,17 @@
-Given the radius and the position of the center of a circle, implement the function randPoint which generates a uniform random point inside the circle.
-Implement the Solution class:
-Solution(double radius, double x_center, double y_center) initializes the object with the radius of the circle radius and the position of the center (x_center, y_center).
-randPoint() returns a random point inside the circle. A point on the circumference of the circle is considered to be in the circle. The answer is returned as an array [x, y].
+Alice and Bob have a different total number of candies. You are given two integer arrays aliceSizes and bobSizes where aliceSizes[i] is the number of candies of the ith box of candy that Alice has and bobSizes[j] is the number of candies of the jth box of candy that Bob has.
+Since they are friends, they would like to exchange one candy box each so that after the exchange, they both have the same total amount of candy. The total amount of candy a person has is the sum of the number of candies in each box they have.
+Return an integer array answer where answer[0] is the number of candies in the box that Alice must exchange, and answer[1] is the number of candies in the box that Bob must exchange. If there are multiple answers, you may return any one of them. It is guaranteed that at least one answer exists.
   Example 1:
-Input
-["Solution", "randPoint", "randPoint", "randPoint"]
-[[1.0, 0.0, 0.0], [], [], []]
-Output
-[null, [-0.02493, -0.38077], [0.82314, 0.38945], [0.36572, 0.17248]]
-
-Explanation
-Solution solution = new Solution(1.0, 0.0, 0.0);
-solution.randPoint(); // return [-0.02493, -0.38077]
-solution.randPoint(); // return [0.82314, 0.38945]
-solution.randPoint(); // return [0.36572, 0.17248]
+Input: aliceSizes = [1,1], bobSizes = [2,2]
+Output: [1,2]
+Example 2:
+Input: aliceSizes = [1,2], bobSizes = [2,3]
+Output: [1,2]
+Example 3:
+Input: aliceSizes = [2], bobSizes = [1,3]
+Output: [2,3]
   Constraints:
-0 < radius <= 108
--107 <= x_center, y_center <= 107
-At most 3 * 104 calls will be made to randPoint.
+1 <= aliceSizes.length, bobSizes.length <= 104
+1 <= aliceSizes[i], bobSizes[j] <= 105
+Alice and Bob have a different total number of candies.
+There will be at least one valid answer for the given input.

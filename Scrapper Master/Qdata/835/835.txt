@@ -1,24 +1,29 @@
-You are given a 0-indexed integer array nums of length n.
-nums contains a valid split at index i if the following are true:
-The sum of the first i + 1 elements is greater than or equal to the sum of the last n - i - 1 elements.
-There is at least one element to the right of i. That is, 0 <= i < n - 1.
-Return the number of valid splits in nums.
+Given an integer array data representing the data, return whether it is a valid UTF-8 encoding (i.e. it translates to a sequence of valid UTF-8 encoded characters).
+A character in UTF8 can be from 1 to 4 bytes long, subjected to the following rules:
+For a 1-byte character, the first bit is a 0, followed by its Unicode code.
+For an n-bytes character, the first n bits are all one's, the n + 1 bit is 0, followed by n - 1 bytes with the most significant 2 bits being 10.
+This is how the UTF-8 encoding would work:
+     Number of Bytes   |        UTF-8 Octet Sequence
+                       |              (binary)
+   --------------------+-----------------------------------------
+            1          |   0xxxxxxx
+            2          |   110xxxxx 10xxxxxx
+            3          |   1110xxxx 10xxxxxx 10xxxxxx
+            4          |   11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+x denotes a bit in the binary form of a byte that may be either 0 or 1.
+Note: The input is an array of integers. Only the least significant 8 bits of each integer is used to store the data. This means each integer represents only 1 byte of data.
   Example 1:
-Input: nums = [10,4,-8,7]
-Output: 2
-Explanation: 
-There are three ways of splitting nums into two non-empty parts:
-- Split nums at index 0. Then, the first part is [10], and its sum is 10. The second part is [4,-8,7], and its sum is 3. Since 10 >= 3, i = 0 is a valid split.
-- Split nums at index 1. Then, the first part is [10,4], and its sum is 14. The second part is [-8,7], and its sum is -1. Since 14 >= -1, i = 1 is a valid split.
-- Split nums at index 2. Then, the first part is [10,4,-8], and its sum is 6. The second part is [7], and its sum is 7. Since 6 < 7, i = 2 is not a valid split.
-Thus, the number of valid splits in nums is 2.
+Input: data = [197,130,1]
+Output: true
+Explanation: data represents the octet sequence: 11000101 10000010 00000001.
+It is a valid utf-8 encoding for a 2-bytes character followed by a 1-byte character.
 Example 2:
-Input: nums = [2,3,1,0]
-Output: 2
-Explanation: 
-There are two valid splits in nums:
-- Split nums at index 1. Then, the first part is [2,3], and its sum is 5. The second part is [1,0], and its sum is 1. Since 5 >= 1, i = 1 is a valid split. 
-- Split nums at index 2. Then, the first part is [2,3,1], and its sum is 6. The second part is [0], and its sum is 0. Since 6 >= 0, i = 2 is a valid split.
+Input: data = [235,140,4]
+Output: false
+Explanation: data represented the octet sequence: 11101011 10001100 00000100.
+The first 3 bits are all one's and the 4th bit is 0 means it is a 3-bytes character.
+The next byte is a continuation byte which starts with 10 and that's correct.
+But the second continuation byte does not start with 10, so it is invalid.
   Constraints:
-2 <= nums.length <= 105
--105 <= nums[i] <= 105
+1 <= data.length <= 2 * 104
+0 <= data[i] <= 255

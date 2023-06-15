@@ -1,20 +1,21 @@
-Given a sentence that consists of some words separated by a single space, and a searchWord, check if searchWord is a prefix of any word in sentence.
-Return the index of the word in sentence (1-indexed) where searchWord is a prefix of this word. If searchWord is a prefix of more than one word, return the index of the first word (minimum index). If there is no such word return -1.
-A prefix of a string s is any leading contiguous substring of s.
+Given an array of integers arr of even length n and an integer k.
+We want to divide the array into exactly n / 2 pairs such that the sum of each pair is divisible by k.
+Return true If you can find a way to do that or false otherwise.
   Example 1:
-Input: sentence = "i love eating burger", searchWord = "burg"
-Output: 4
-Explanation: "burg" is prefix of "burger" which is the 4th word in the sentence.
+Input: arr = [1,2,3,4,5,10,6,7,8,9], k = 5
+Output: true
+Explanation: Pairs are (1,9),(2,8),(3,7),(4,6) and (5,10).
 Example 2:
-Input: sentence = "this problem is an easy problem", searchWord = "pro"
-Output: 2
-Explanation: "pro" is prefix of "problem" which is the 2nd and the 6th word in the sentence, but we return 2 as it's the minimal index.
+Input: arr = [1,2,3,4,5,6], k = 7
+Output: true
+Explanation: Pairs are (1,6),(2,5) and(3,4).
 Example 3:
-Input: sentence = "i am tired", searchWord = "you"
-Output: -1
-Explanation: "you" is not a prefix of any word in the sentence.
+Input: arr = [1,2,3,4,5,6], k = 10
+Output: false
+Explanation: You can try all possible pairs to see that there is no way to divide arr into 3 pairs each with sum divisible by 10.
   Constraints:
-1 <= sentence.length <= 100
-1 <= searchWord.length <= 10
-sentence consists of lowercase English letters and spaces.
-searchWord consists of lowercase English letters.
+arr.length == n
+1 <= n <= 105
+n is even.
+-109 <= arr[i] <= 109
+1 <= k <= 105

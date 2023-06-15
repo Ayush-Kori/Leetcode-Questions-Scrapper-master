@@ -1,21 +1,19 @@
-You are given an integer array nums and an integer goal.
-You want to choose a subsequence of nums such that the sum of its elements is the closest possible to goal. That is, if the sum of the subsequence's elements is sum, then you want to minimize the absolute difference abs(sum - goal).
-Return the minimum possible value of abs(sum - goal).
-Note that a subsequence of an array is an array formed by removing some elements (possibly all or none) of the original array.
+Given two integer arrays startTime and endTime and given an integer queryTime.
+The ith student started doing their homework at the time startTime[i] and finished it at time endTime[i].
+Return the number of students doing their homework at time queryTime. More formally, return the number of students where queryTime lays in the interval [startTime[i], endTime[i]] inclusive.
   Example 1:
-Input: nums = [5,-7,3,5], goal = 6
-Output: 0
-Explanation: Choose the whole array as a subsequence, with a sum of 6.
-This is equal to the goal, so the absolute difference is 0.
-Example 2:
-Input: nums = [7,-9,15,-2], goal = -5
+Input: startTime = [1,2,3], endTime = [3,2,7], queryTime = 4
 Output: 1
-Explanation: Choose the subsequence [7,-9,-2], with a sum of -4.
-The absolute difference is abs(-4 - (-5)) = abs(1) = 1, which is the minimum.
-Example 3:
-Input: nums = [1,2,3], goal = -7
-Output: 7
+Explanation: We have 3 students where:
+The first student started doing homework at time 1 and finished at time 3 and wasn't doing anything at time 4.
+The second student started doing homework at time 2 and finished at time 2 and also wasn't doing anything at time 4.
+The third student started doing homework at time 3 and finished at time 7 and was the only student doing homework at time 4.
+Example 2:
+Input: startTime = [4], endTime = [4], queryTime = 4
+Output: 1
+Explanation: The only student was doing their homework at the queryTime.
   Constraints:
-1 <= nums.length <= 40
--107 <= nums[i] <= 107
--109 <= goal <= 109
+startTime.length == endTime.length
+1 <= startTime.length <= 100
+1 <= startTime[i] <= endTime[i] <= 1000
+1 <= queryTime <= 1000

@@ -1,29 +1,22 @@
-Design a data structure to store the strings' count with the ability to return the strings with minimum and maximum counts.
-Implement the AllOne class:
-AllOne() Initializes the object of the data structure.
-inc(String key) Increments the count of the string key by 1. If key does not exist in the data structure, insert it with count 1.
-dec(String key) Decrements the count of the string key by 1. If the count of key is 0 after the decrement, remove it from the data structure. It is guaranteed that key exists in the data structure before the decrement.
-getMaxKey() Returns one of the keys with the maximal count. If no element exists, return an empty string "".
-getMinKey() Returns one of the keys with the minimum count. If no element exists, return an empty string "".
-Note that each function must run in O(1) average time complexity.
+Given a 0-indexed integer array nums of size n, find the maximum difference between nums[i] and nums[j] (i.e., nums[j] - nums[i]), such that 0 <= i < j < n and nums[i] < nums[j].
+Return the maximum difference. If no such i and j exists, return -1.
   Example 1:
-Input
-["AllOne", "inc", "inc", "getMaxKey", "getMinKey", "inc", "getMaxKey", "getMinKey"]
-[[], ["hello"], ["hello"], [], [], ["leet"], [], []]
-Output
-[null, null, null, "hello", "hello", null, "hello", "leet"]
-
-Explanation
-AllOne allOne = new AllOne();
-allOne.inc("hello");
-allOne.inc("hello");
-allOne.getMaxKey(); // return "hello"
-allOne.getMinKey(); // return "hello"
-allOne.inc("leet");
-allOne.getMaxKey(); // return "hello"
-allOne.getMinKey(); // return "leet"
+Input: nums = [7,1,5,4]
+Output: 4
+Explanation:
+The maximum difference occurs with i = 1 and j = 2, nums[j] - nums[i] = 5 - 1 = 4.
+Note that with i = 1 and j = 0, the difference nums[j] - nums[i] = 7 - 1 = 6, but i > j, so it is not valid.
+Example 2:
+Input: nums = [9,4,3,2]
+Output: -1
+Explanation:
+There is no i and j such that i < j and nums[i] < nums[j].
+Example 3:
+Input: nums = [1,5,2,10]
+Output: 9
+Explanation:
+The maximum difference occurs with i = 0 and j = 3, nums[j] - nums[i] = 10 - 1 = 9.
   Constraints:
-1 <= key.length <= 10
-key consists of lowercase English letters.
-It is guaranteed that for each call to dec, key is existing in the data structure.
-At most 5 * 104 calls will be made to inc, dec, getMaxKey, and getMinKey.
+n == nums.length
+2 <= n <= 1000
+1 <= nums[i] <= 109

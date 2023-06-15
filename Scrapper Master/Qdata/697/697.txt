@@ -1,16 +1,14 @@
-We run a preorder depth-first search (DFS) on the root of a binary tree.
-At each node in this traversal, we output D dashes (where D is the depth of this node), then we output the value of this node.  If the depth of a node is D, the depth of its immediate child is D + 1.  The depth of the root node is 0.
-If a node has only one child, that child is guaranteed to be the left child.
-Given the output traversal of this traversal, recover the tree and return its root.
+Given a string s, return true if s is a good string, or false otherwise.
+A string s is good if all the characters that appear in s have the same number of occurrences (i.e., the same frequency).
   Example 1:
-Input: traversal = "1-2--3--4-5--6--7"
-Output: [1,2,5,3,4,6,7]
+Input: s = "abacbc"
+Output: true
+Explanation: The characters that appear in s are 'a', 'b', and 'c'. All characters occur 2 times in s.
 Example 2:
-Input: traversal = "1-2--3---4-5--6---7"
-Output: [1,2,5,3,null,6,null,4,null,7]
-Example 3:
-Input: traversal = "1-401--349---90--88"
-Output: [1,401,null,349,88,90]
+Input: s = "aaabb"
+Output: false
+Explanation: The characters that appear in s are 'a' and 'b'.
+'a' occurs 3 times while 'b' occurs 2 times, which is not the same number of times.
   Constraints:
-The number of nodes in the original tree is in the range [1, 1000].
-1 <= Node.val <= 109
+1 <= s.length <= 1000
+s consists of lowercase English letters.

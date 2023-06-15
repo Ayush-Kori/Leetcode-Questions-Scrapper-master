@@ -1,13 +1,19 @@
-Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
-You must not use any built-in exponent function or operator.
-For example, do not use pow(x, 0.5) in c++ or x ** 0.5 in python.
+You are given a string s representing an attendance record for a student where each character signifies whether the student was absent, late, or present on that day. The record only contains the following three characters:
+'A': Absent.
+'L': Late.
+'P': Present.
+The student is eligible for an attendance award if they meet both of the following criteria:
+The student was absent ('A') for strictly fewer than 2 days total.
+The student was never late ('L') for 3 or more consecutive days.
+Return true if the student is eligible for an attendance award, or false otherwise.
   Example 1:
-Input: x = 4
-Output: 2
-Explanation: The square root of 4 is 2, so we return 2.
+Input: s = "PPALLP"
+Output: true
+Explanation: The student has fewer than 2 absences and was never late 3 or more consecutive days.
 Example 2:
-Input: x = 8
-Output: 2
-Explanation: The square root of 8 is 2.82842..., and since we round it down to the nearest integer, 2 is returned.
+Input: s = "PPALLL"
+Output: false
+Explanation: The student was late 3 consecutive days in the last 3 days, so is not eligible for the award.
   Constraints:
-0 <= x <= 231 - 1
+1 <= s.length <= 1000
+s[i] is either 'A', 'L', or 'P'.

@@ -1,28 +1,16 @@
-There are n flights that are labeled from 1 to n.
-You are given an array of flight bookings bookings, where bookings[i] = [firsti, lasti, seatsi] represents a booking for flights firsti through lasti (inclusive) with seatsi seats reserved for each flight in the range.
-Return an array answer of length n, where answer[i] is the total number of seats reserved for flight i.
+Given the root of a binary search tree (BST) with duplicates, return all the mode(s) (i.e., the most frequently occurred element) in it.
+If the tree has more than one mode, return them in any order.
+Assume a BST is defined as follows:
+The left subtree of a node contains only nodes with keys less than or equal to the node's key.
+The right subtree of a node contains only nodes with keys greater than or equal to the node's key.
+Both the left and right subtrees must also be binary search trees.
   Example 1:
-Input: bookings = [[1,2,10],[2,3,20],[2,5,25]], n = 5
-Output: [10,55,45,25,25]
-Explanation:
-Flight labels:        1   2   3   4   5
-Booking 1 reserved:  10  10
-Booking 2 reserved:      20  20
-Booking 3 reserved:      25  25  25  25
-Total seats:         10  55  45  25  25
-Hence, answer = [10,55,45,25,25]
+Input: root = [1,null,2,2]
+Output: [2]
 Example 2:
-Input: bookings = [[1,2,10],[2,2,15]], n = 2
-Output: [10,25]
-Explanation:
-Flight labels:        1   2
-Booking 1 reserved:  10  10
-Booking 2 reserved:      15
-Total seats:         10  25
-Hence, answer = [10,25]
+Input: root = [0]
+Output: [0]
   Constraints:
-1 <= n <= 2 * 104
-1 <= bookings.length <= 2 * 104
-bookings[i].length == 3
-1 <= firsti <= lasti <= n
-1 <= seatsi <= 104
+The number of nodes in the tree is in the range [1, 104].
+-105 <= Node.val <= 105
+  Follow up: Could you do that without using any extra space? (Assume that the implicit stack space incurred due to recursion does not count).

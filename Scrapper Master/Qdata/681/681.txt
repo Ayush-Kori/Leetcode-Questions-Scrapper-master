@@ -1,23 +1,24 @@
-You are given a string num representing a large integer. An integer is good if it meets the following conditions:
-It is a substring of num with length 3.
-It consists of only one unique digit.
-Return the maximum good integer as a string or an empty string "" if no such integer exists.
-Note:
-A substring is a contiguous sequence of characters within a string.
-There may be leading zeroes in num or a good integer.
+Given two version numbers, version1 and version2, compare them.
+Version numbers consist of one or more revisions joined by a dot '.'. Each revision consists of digits and may contain leading zeros. Every revision contains at least one character. Revisions are 0-indexed from left to right, with the leftmost revision being revision 0, the next revision being revision 1, and so on. For example 2.5.33 and 0.1 are valid version numbers.
+To compare version numbers, compare their revisions in left-to-right order. Revisions are compared using their integer value ignoring any leading zeros. This means that revisions 1 and 001 are considered equal. If a version number does not specify a revision at an index, then treat the revision as 0. For example, version 1.0 is less than version 1.1 because their revision 0s are the same, but their revision 1s are 0 and 1 respectively, and 0 < 1.
+Return the following:
+If version1 < version2, return -1.
+If version1 > version2, return 1.
+Otherwise, return 0.
   Example 1:
-Input: num = "6777133339"
-Output: "777"
-Explanation: There are two distinct good integers: "777" and "333".
-"777" is the largest, so we return "777".
+Input: version1 = "1.01", version2 = "1.001"
+Output: 0
+Explanation: Ignoring leading zeroes, both "01" and "001" represent the same integer "1".
 Example 2:
-Input: num = "2300019"
-Output: "000"
-Explanation: "000" is the only good integer.
+Input: version1 = "1.0", version2 = "1.0.0"
+Output: 0
+Explanation: version1 does not specify revision 2, which means it is treated as "0".
 Example 3:
-Input: num = "42352338"
-Output: ""
-Explanation: No substring of length 3 consists of only one unique digit. Therefore, there are no good integers.
+Input: version1 = "0.1", version2 = "1.1"
+Output: -1
+Explanation: version1's revision 0 is "0", while version2's revision 0 is "1". 0 < 1, so version1 < version2.
   Constraints:
-3 <= num.length <= 1000
-num only consists of digits.
+1 <= version1.length, version2.length <= 500
+version1 and version2 only contain digits and '.'.
+version1 and version2 are valid version numbers.
+All the given revisions in version1 and version2 can be stored in a 32-bit integer.

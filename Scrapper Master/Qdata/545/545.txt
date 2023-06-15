@@ -1,23 +1,27 @@
-Given the array favoriteCompanies where favoriteCompanies[i] is the list of favorites companies for the ith person (indexed from 0).
-Return the indices of people whose list of favorite companies is not a subset of any other list of favorites companies. You must return the indices in increasing order.
+Tic-tac-toe is played by two players A and B on a 3 x 3 grid. The rules of Tic-Tac-Toe are:
+Players take turns placing characters into empty squares ' '.
+The first player A always places 'X' characters, while the second player B always places 'O' characters.
+'X' and 'O' characters are always placed into empty squares, never on filled ones.
+The game ends when there are three of the same (non-empty) character filling any row, column, or diagonal.
+The game also ends if all squares are non-empty.
+No more moves can be played if the game is over.
+Given a 2D integer array moves where moves[i] = [rowi, coli] indicates that the ith move will be played on grid[rowi][coli]. return the winner of the game if it exists (A or B). In case the game ends in a draw return "Draw". If there are still movements to play return "Pending".
+You can assume that moves is valid (i.e., it follows the rules of Tic-Tac-Toe), the grid is initially empty, and A will play first.
   Example 1:
-Input: favoriteCompanies = [["leetcode","google","facebook"],["google","microsoft"],["google","facebook"],["google"],["amazon"]]
-Output: [0,1,4] 
-Explanation: 
-Person with index=2 has favoriteCompanies[2]=["google","facebook"] which is a subset of favoriteCompanies[0]=["leetcode","google","facebook"] corresponding to the person with index 0. 
-Person with index=3 has favoriteCompanies[3]=["google"] which is a subset of favoriteCompanies[0]=["leetcode","google","facebook"] and favoriteCompanies[1]=["google","microsoft"]. 
-Other lists of favorite companies are not a subset of another list, therefore, the answer is [0,1,4].
+Input: moves = [[0,0],[2,0],[1,1],[2,1],[2,2]]
+Output: "A"
+Explanation: A wins, they always play first.
 Example 2:
-Input: favoriteCompanies = [["leetcode","google","facebook"],["leetcode","amazon"],["facebook","google"]]
-Output: [0,1] 
-Explanation: In this case favoriteCompanies[2]=["facebook","google"] is a subset of favoriteCompanies[0]=["leetcode","google","facebook"], therefore, the answer is [0,1].
+Input: moves = [[0,0],[1,1],[0,1],[0,2],[1,0],[2,0]]
+Output: "B"
+Explanation: B wins.
 Example 3:
-Input: favoriteCompanies = [["leetcode"],["google"],["facebook"],["amazon"]]
-Output: [0,1,2,3]
+Input: moves = [[0,0],[1,1],[2,0],[1,0],[1,2],[2,1],[0,1],[0,2],[2,2]]
+Output: "Draw"
+Explanation: The game ends in a draw since there are no moves to make.
   Constraints:
-1 <= favoriteCompanies.length <= 100
-1 <= favoriteCompanies[i].length <= 500
-1 <= favoriteCompanies[i][j].length <= 20
-All strings in favoriteCompanies[i] are distinct.
-All lists of favorite companies are distinct, that is, If we sort alphabetically each list then favoriteCompanies[i] != favoriteCompanies[j].
-All strings consist of lowercase English letters only.
+1 <= moves.length <= 9
+moves[i].length == 2
+0 <= rowi, coli <= 2
+There are no repeated elements on moves.
+moves follow the rules of tic tac toe.

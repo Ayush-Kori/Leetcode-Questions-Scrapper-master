@@ -1,28 +1,20 @@
-Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty).
-Implement the MyQueue class:
-void push(int x) Pushes element x to the back of the queue.
-int pop() Removes the element from the front of the queue and returns it.
-int peek() Returns the element at the front of the queue.
-boolean empty() Returns true if the queue is empty, false otherwise.
-Notes:
-You must use only standard operations of a stack, which means only push to top, peek/pop from top, size, and is empty operations are valid.
-Depending on your language, the stack may not be supported natively. You may simulate a stack using a list or deque (double-ended queue) as long as you use only a stack's standard operations.
+Given an array nums sorted in non-decreasing order, return the maximum between the number of positive integers and the number of negative integers.
+In other words, if the number of positive integers in nums is pos and the number of negative integers is neg, then return the maximum of pos and neg.
+Note that 0 is neither positive nor negative.
   Example 1:
-Input
-["MyQueue", "push", "push", "peek", "pop", "empty"]
-[[], [1], [2], [], [], []]
-Output
-[null, null, null, 1, 1, false]
-
-Explanation
-MyQueue myQueue = new MyQueue();
-myQueue.push(1); // queue is: [1]
-myQueue.push(2); // queue is: [1, 2] (leftmost is front of the queue)
-myQueue.peek(); // return 1
-myQueue.pop(); // return 1, queue is [2]
-myQueue.empty(); // return false
+Input: nums = [-2,-1,-1,1,2,3]
+Output: 3
+Explanation: There are 3 positive integers and 3 negative integers. The maximum count among them is 3.
+Example 2:
+Input: nums = [-3,-2,-1,0,0,1,2]
+Output: 3
+Explanation: There are 2 positive integers and 3 negative integers. The maximum count among them is 3.
+Example 3:
+Input: nums = [5,20,66,1314]
+Output: 4
+Explanation: There are 4 positive integers and 0 negative integers. The maximum count among them is 4.
   Constraints:
-1 <= x <= 9
-At most 100 calls will be made to push, pop, peek, and empty.
-All the calls to pop and peek are valid.
-  Follow-up: Can you implement the queue such that each operation is amortized O(1) time complexity? In other words, performing n operations will take overall O(n) time even if one of those operations may take longer.
+1 <= nums.length <= 2000
+-2000 <= nums[i] <= 2000
+nums is sorted in a non-decreasing order.
+  Follow up: Can you solve the problem in O(log(n)) time complexity?

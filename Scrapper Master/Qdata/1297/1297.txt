@@ -1,30 +1,24 @@
-You are given an array of positive integers beans, where each integer represents the number of magic beans found in a particular magic bag.
-Remove any number of beans (possibly none) from each bag such that the number of beans in each remaining non-empty bag (still containing at least one bean) is equal. Once a bean has been removed from a bag, you are not allowed to return it to any of the bags.
-Return the minimum number of magic beans that you have to remove.
+You are given a 0-indexed integer array stones sorted in strictly increasing order representing the positions of stones in a river.
+A frog, initially on the first stone, wants to travel to the last stone and then return to the first stone. However, it can jump to any stone at most once.
+The length of a jump is the absolute difference between the position of the stone the frog is currently on and the position of the stone to which the frog jumps.
+More formally, if the frog is at stones[i] and is jumping to stones[j], the length of the jump is |stones[i] - stones[j]|.
+The cost of a path is the maximum length of a jump among all jumps in the path.
+Return the minimum cost of a path for the frog.
   Example 1:
-Input: beans = [4,1,6,5]
-Output: 4
-Explanation: 
-- We remove 1 bean from the bag with only 1 bean.
-  This results in the remaining bags: [4,0,6,5]
-- Then we remove 2 beans from the bag with 6 beans.
-  This results in the remaining bags: [4,0,4,5]
-- Then we remove 1 bean from the bag with 5 beans.
-  This results in the remaining bags: [4,0,4,4]
-We removed a total of 1 + 2 + 1 = 4 beans to make the remaining non-empty bags have an equal number of beans.
-There are no other solutions that remove 4 beans or fewer.
+Input: stones = [0,2,5,6,7]
+Output: 5
+Explanation: The above figure represents one of the optimal paths the frog can take.
+The cost of this path is 5, which is the maximum length of a jump.
+Since it is not possible to achieve a cost of less than 5, we return it.
 Example 2:
-Input: beans = [2,10,3,2]
-Output: 7
-Explanation:
-- We remove 2 beans from one of the bags with 2 beans.
-  This results in the remaining bags: [0,10,3,2]
-- Then we remove 2 beans from the other bag with 2 beans.
-  This results in the remaining bags: [0,10,3,0]
-- Then we remove 3 beans from the bag with 3 beans. 
-  This results in the remaining bags: [0,10,0,0]
-We removed a total of 2 + 2 + 3 = 7 beans to make the remaining non-empty bags have an equal number of beans.
-There are no other solutions that removes 7 beans or fewer.
+Input: stones = [0,3,9]
+Output: 9
+Explanation: 
+The frog can jump directly to the last stone and come back to the first stone. 
+In this case, the length of each jump will be 9. The cost for the path will be max(9, 9) = 9.
+It can be shown that this is the minimum achievable cost.
   Constraints:
-1 <= beans.length <= 105
-1 <= beans[i] <= 105
+2 <= stones.length <= 105
+0 <= stones[i] <= 109
+stones[0] == 0
+stones is sorted in a strictly increasing order.

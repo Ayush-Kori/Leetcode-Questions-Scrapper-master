@@ -1,26 +1,27 @@
-There is a tree (i.e., a connected, undirected graph that has no cycles) consisting of n nodes numbered from 0 to n - 1 and exactly n - 1 edges. Each node has a value associated with it, and the root of the tree is node 0.
-To represent this tree, you are given an integer array nums and a 2D array edges. Each nums[i] represents the ith node's value, and each edges[j] = [uj, vj] represents an edge between nodes uj and vj in the tree.
-Two values x and y are coprime if gcd(x, y) == 1 where gcd(x, y) is the greatest common divisor of x and y.
-An ancestor of a node i is any other node on the shortest path from node i to the root. A node is not considered an ancestor of itself.
-Return an array ans of size n, where ans[i] is the closest ancestor to node i such that nums[i] and nums[ans[i]] are coprime, or -1 if there is no such ancestor.
+Alice and Bob are opponents in an archery competition. The competition has set the following rules:
+Alice first shoots numArrows arrows and then Bob shoots numArrows arrows.
+The points are then calculated as follows:
+The target has integer scoring sections ranging from 0 to 11 inclusive.
+For each section of the target with score k (in between 0 to 11), say Alice and Bob have shot ak and bk arrows on that section respectively. If ak >= bk, then Alice takes k points. If ak < bk, then Bob takes k points.
+However, if ak == bk == 0, then nobody takes k points.
+For example, if Alice and Bob both shot 2 arrows on the section with score 11, then Alice takes 11 points. On the other hand, if Alice shot 0 arrows on the section with score 11 and Bob shot 2 arrows on that same section, then Bob takes 11 points.
+You are given the integer numArrows and an integer array aliceArrows of size 12, which represents the number of arrows Alice shot on each scoring section from 0 to 11. Now, Bob wants to maximize the total number of points he can obtain.
+Return the array bobArrows which represents the number of arrows Bob shot on each scoring section from 0 to 11. The sum of the values in bobArrows should equal numArrows.
+If there are multiple ways for Bob to earn the maximum total points, return any one of them.
   Example 1:
-Input: nums = [2,3,3,2], edges = [[0,1],[1,2],[1,3]]
-Output: [-1,0,0,1]
-Explanation: In the above figure, each node's value is in parentheses.
-- Node 0 has no coprime ancestors.
-- Node 1 has only one ancestor, node 0. Their values are coprime (gcd(2,3) == 1).
-- Node 2 has two ancestors, nodes 1 and 0. Node 1's value is not coprime (gcd(3,3) == 3), but node 0's
-  value is (gcd(2,3) == 1), so node 0 is the closest valid ancestor.
-- Node 3 has two ancestors, nodes 1 and 0. It is coprime with node 1 (gcd(3,2) == 1), so node 1 is its
-  closest valid ancestor.
+Input: numArrows = 9, aliceArrows = [1,1,0,1,0,0,2,1,0,1,2,0]
+Output: [0,0,0,0,1,1,0,0,1,2,3,1]
+Explanation: The table above shows how the competition is scored. 
+Bob earns a total point of 4 + 5 + 8 + 9 + 10 + 11 = 47.
+It can be shown that Bob cannot obtain a score higher than 47 points.
 Example 2:
-Input: nums = [5,6,10,2,3,6,15], edges = [[0,1],[0,2],[1,3],[1,4],[2,5],[2,6]]
-Output: [-1,0,-1,0,0,0,-1]
+Input: numArrows = 3, aliceArrows = [0,0,1,0,0,0,0,0,0,0,0,2]
+Output: [0,0,0,0,0,0,0,0,1,1,1,0]
+Explanation: The table above shows how the competition is scored.
+Bob earns a total point of 8 + 9 + 10 = 27.
+It can be shown that Bob cannot obtain a score higher than 27 points.
   Constraints:
-nums.length == n
-1 <= nums[i] <= 50
-1 <= n <= 105
-edges.length == n - 1
-edges[j].length == 2
-0 <= uj, vj < n
-uj != vj
+1 <= numArrows <= 105
+aliceArrows.length == bobArrows.length == 12
+0 <= aliceArrows[i], bobArrows[i] <= numArrows
+sum(aliceArrows[i]) == numArrows

@@ -1,23 +1,24 @@
-Given two positive integers n and k, the binary string Sn is formed as follows:
-S1 = "0"
-Si = Si - 1 + "1" + reverse(invert(Si - 1)) for i > 1
-Where + denotes the concatenation operation, reverse(x) returns the reversed string x, and invert(x) inverts all the bits in x (0 changes to 1 and 1 changes to 0).
-For example, the first four strings in the above sequence are:
-S1 = "0"
-S2 = "011"
-S3 = "0111001"
-S4 = "011100110110001"
-Return the kth bit in Sn. It is guaranteed that k is valid for the given n.
+You are given a series of video clips from a sporting event that lasted time seconds. These video clips can be overlapping with each other and have varying lengths.
+Each video clip is described by an array clips where clips[i] = [starti, endi] indicates that the ith clip started at starti and ended at endi.
+We can cut these clips into segments freely.
+For example, a clip [0, 7] can be cut into segments [0, 1] + [1, 3] + [3, 7].
+Return the minimum number of clips needed so that we can cut the clips into segments that cover the entire sporting event [0, time]. If the task is impossible, return -1.
   Example 1:
-Input: n = 3, k = 1
-Output: "0"
-Explanation: S3 is "0111001".
-The 1st bit is "0".
+Input: clips = [[0,2],[4,6],[8,10],[1,9],[1,5],[5,9]], time = 10
+Output: 3
+Explanation: We take the clips [0,2], [8,10], [1,9]; a total of 3 clips.
+Then, we can reconstruct the sporting event as follows:
+We cut [1,9] into segments [1,2] + [2,8] + [8,9].
+Now we have segments [0,2] + [2,8] + [8,10] which cover the sporting event [0, 10].
 Example 2:
-Input: n = 4, k = 11
-Output: "1"
-Explanation: S4 is "011100110110001".
-The 11th bit is "1".
+Input: clips = [[0,1],[1,2]], time = 5
+Output: -1
+Explanation: We cannot cover [0,5] with only [0,1] and [1,2].
+Example 3:
+Input: clips = [[0,1],[6,8],[0,2],[5,6],[0,4],[0,3],[6,7],[1,3],[4,7],[1,4],[2,5],[2,6],[3,4],[4,5],[5,7],[6,9]], time = 9
+Output: 3
+Explanation: We can take clips [0,4], [4,7], and [6,9].
   Constraints:
-1 <= n <= 20
-1 <= k <= 2n - 1
+1 <= clips.length <= 100
+0 <= starti <= endi <= 100
+1 <= time <= 100

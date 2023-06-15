@@ -1,20 +1,17 @@
-Given an input string (s) and a pattern (p), implement wildcard pattern matching with support for '?' and '*' where:
-'?' Matches any single character.
-'*' Matches any sequence of characters (including the empty sequence).
-The matching should cover the entire input string (not partial).
+Given an array of integers arr.
+We want to select three indices i, j and k where (0 <= i < j <= k < arr.length).
+Let's define a and b as follows:
+a = arr[i] ^ arr[i + 1] ^ ... ^ arr[j - 1]
+b = arr[j] ^ arr[j + 1] ^ ... ^ arr[k]
+Note that ^ denotes the bitwise-xor operation.
+Return the number of triplets (i, j and k) Where a == b.
   Example 1:
-Input: s = "aa", p = "a"
-Output: false
-Explanation: "a" does not match the entire string "aa".
+Input: arr = [2,3,1,6,7]
+Output: 4
+Explanation: The triplets are (0,1,2), (0,2,2), (2,3,4) and (2,4,4)
 Example 2:
-Input: s = "aa", p = "*"
-Output: true
-Explanation: '*' matches any sequence.
-Example 3:
-Input: s = "cb", p = "?a"
-Output: false
-Explanation: '?' matches 'c', but the second letter is 'a', which does not match 'b'.
+Input: arr = [1,1,1,1,1]
+Output: 10
   Constraints:
-0 <= s.length, p.length <= 2000
-s contains only lowercase English letters.
-p contains only lowercase English letters, '?' or '*'.
+1 <= arr.length <= 300
+1 <= arr[i] <= 108

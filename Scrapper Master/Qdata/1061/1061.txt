@@ -1,23 +1,20 @@
-Write a function that checks if a given value is an instance of a given class or superclass. For this problem, an object is considered an instance of a given class if that object has access to that class's methods.
-There are no constraints on the data types that can be passed to the function. For example, the value or the class could be undefined.
+There are n items each belonging to zero or one of m groups where group[i] is the group that the i-th item belongs to and it's equal to -1 if the i-th item belongs to no group. The items and the groups are zero indexed. A group can have no item belonging to it.
+Return a sorted list of the items such that:
+The items that belong to the same group are next to each other in the sorted list.
+There are some relations between these items where beforeItems[i] is a list containing all the items that should come before the i-th item in the sorted array (to the left of the i-th item).
+Return any solution if there is more than one solution and return an empty list if there is no solution.
   Example 1:
-Input: func = () => checkIfInstanceOf(new Date(), Date)
-Output: true
-Explanation: The object returned by the Date constructor is, by definition, an instance of Date.
+Input: n = 8, m = 2, group = [-1,-1,1,0,0,1,0,-1], beforeItems = [[],[6],[5],[6],[3,6],[],[],[]]
+Output: [6,3,4,1,5,2,0,7]
 Example 2:
-Input: func = () => { class Animal {}; class Dog extends Animal {}; return checkIfInstanceOf(new Dog(), Animal); }
-Output: true
-Explanation:
-class Animal {};
-class Dog extends Animal {};
-checkIfInstance(new Dog(), Animal); // true
-
-Dog is a subclass of Animal. Therefore, a Dog object is an instance of both Dog and Animal.
-Example 3:
-Input: func = () => checkIfInstanceOf(Date, Date)
-Output: false
-Explanation: A date constructor cannot logically be an instance of itself.
-Example 4:
-Input: func = () => checkIfInstanceOf(5, Number)
-Output: true
-Explanation: 5 is a Number. Note that the "instanceof" keyword would return false. However, it is still considered an instance of Number because it accesses the Number methods. For example "toFixed()".
+Input: n = 8, m = 2, group = [-1,-1,1,0,0,1,0,-1], beforeItems = [[],[6],[5],[6],[3],[],[4],[]]
+Output: []
+Explanation: This is the same as example 1 except that 4 needs to be before 6 in the sorted list.
+  Constraints:
+1 <= m <= n <= 3 * 104
+group.length == beforeItems.length == n
+-1 <= group[i] <= m - 1
+0 <= beforeItems[i].length <= n - 1
+0 <= beforeItems[i][j] <= n - 1
+i != beforeItems[i][j]
+beforeItems[i] does not contain duplicates elements.

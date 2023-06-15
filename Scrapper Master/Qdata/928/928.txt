@@ -1,31 +1,17 @@
-You are given an array of strings ideas that represents a list of names to be used in the process of naming a company. The process of naming a company is as follows:
-Choose 2 distinct names from ideas, call them ideaA and ideaB.
-Swap the first letters of ideaA and ideaB with each other.
-If both of the new names are not found in the original ideas, then the name ideaA ideaB (the concatenation of ideaA and ideaB, separated by a space) is a valid company name.
-Otherwise, it is not a valid name.
-Return the number of distinct valid names for the company.
+Given a binary string s and an integer k, return true if every binary code of length k is a substring of s. Otherwise, return false.
   Example 1:
-Input: ideas = ["coffee","donuts","time","toffee"]
-Output: 6
-Explanation: The following selections are valid:
-- ("coffee", "donuts"): The company name created is "doffee conuts".
-- ("donuts", "coffee"): The company name created is "conuts doffee".
-- ("donuts", "time"): The company name created is "tonuts dime".
-- ("donuts", "toffee"): The company name created is "tonuts doffee".
-- ("time", "donuts"): The company name created is "dime tonuts".
-- ("toffee", "donuts"): The company name created is "doffee tonuts".
-Therefore, there are a total of 6 distinct company names.
-
-The following are some examples of invalid selections:
-- ("coffee", "time"): The name "toffee" formed after swapping already exists in the original array.
-- ("time", "toffee"): Both names are still the same after swapping and exist in the original array.
-- ("coffee", "toffee"): Both names formed after swapping already exist in the original array.
+Input: s = "00110110", k = 2
+Output: true
+Explanation: The binary codes of length 2 are "00", "01", "10" and "11". They can be all found as substrings at indices 0, 1, 3 and 2 respectively.
 Example 2:
-Input: ideas = ["lack","back"]
-Output: 0
-Explanation: There are no valid selections. Therefore, 0 is returned.
+Input: s = "0110", k = 1
+Output: true
+Explanation: The binary codes of length 1 are "0" and "1", it is clear that both exist as a substring. 
+Example 3:
+Input: s = "0110", k = 2
+Output: false
+Explanation: The binary code "00" is of length 2 and does not exist in the array.
   Constraints:
-2 <= ideas.length <= 5 * 104
-1 <= ideas[i].length <= 10
-ideas[i] consists of lowercase English letters.
-All the strings in ideas are unique.
+1 <= s.length <= 5 * 105
+s[i] is either '0' or '1'.
+1 <= k <= 20

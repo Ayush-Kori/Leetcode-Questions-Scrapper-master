@@ -1,20 +1,26 @@
-You are given two positive integer arrays nums and numsDivide. You can delete any number of elements from nums.
-Return the minimum number of deletions such that the smallest element in nums divides all the elements of numsDivide. If this is not possible, return -1.
-Note that an integer x divides y if y % x == 0.
+You have a set which contains all positive integers [1, 2, 3, 4, 5, ...].
+Implement the SmallestInfiniteSet class:
+SmallestInfiniteSet() Initializes the SmallestInfiniteSet object to contain all positive integers.
+int popSmallest() Removes and returns the smallest integer contained in the infinite set.
+void addBack(int num) Adds a positive integer num back into the infinite set, if it is not already in the infinite set.
   Example 1:
-Input: nums = [2,3,2,4,3], numsDivide = [9,6,9,3,15]
-Output: 2
-Explanation: 
-The smallest element in [2,3,2,4,3] is 2, which does not divide all the elements of numsDivide.
-We use 2 deletions to delete the elements in nums that are equal to 2 which makes nums = [3,4,3].
-The smallest element in [3,4,3] is 3, which divides all the elements of numsDivide.
-It can be shown that 2 is the minimum number of deletions needed.
-Example 2:
-Input: nums = [4,3,6], numsDivide = [8,2,6,10]
-Output: -1
-Explanation: 
-We want the smallest element in nums to divide all the elements of numsDivide.
-There is no way to delete elements from nums to allow this.
+Input
+["SmallestInfiniteSet", "addBack", "popSmallest", "popSmallest", "popSmallest", "addBack", "popSmallest", "popSmallest", "popSmallest"]
+[[], [2], [], [], [], [1], [], [], []]
+Output
+[null, null, 1, 2, 3, null, 1, 4, 5]
+
+Explanation
+SmallestInfiniteSet smallestInfiniteSet = new SmallestInfiniteSet();
+smallestInfiniteSet.addBack(2);    // 2 is already in the set, so no change is made.
+smallestInfiniteSet.popSmallest(); // return 1, since 1 is the smallest number, and remove it from the set.
+smallestInfiniteSet.popSmallest(); // return 2, and remove it from the set.
+smallestInfiniteSet.popSmallest(); // return 3, and remove it from the set.
+smallestInfiniteSet.addBack(1);    // 1 is added back to the set.
+smallestInfiniteSet.popSmallest(); // return 1, since 1 was added back to the set and
+                                   // is the smallest number, and remove it from the set.
+smallestInfiniteSet.popSmallest(); // return 4, and remove it from the set.
+smallestInfiniteSet.popSmallest(); // return 5, and remove it from the set.
   Constraints:
-1 <= nums.length, numsDivide.length <= 105
-1 <= nums[i], numsDivide[i] <= 109
+1 <= num <= 1000
+At most 1000 calls will be made in total to popSmallest and addBack.

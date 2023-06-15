@@ -1,24 +1,21 @@
-Given an array of integers arr and an integer d. In one step you can jump from index i to index:
-i + x where: i + x < arr.length and  0 < x <= d.
-i - x where: i - x >= 0 and  0 < x <= d.
-In addition, you can only jump from index i to index j if arr[i] > arr[j] and arr[i] > arr[k] for all indices k between i and j (More formally min(i, j) < k < max(i, j)).
-You can choose any index of the array and start jumping. Return the maximum number of indices you can visit.
-Notice that you can not jump outside of the array at any time.
+We have n chips, where the position of the ith chip is position[i].
+We need to move all the chips to the same position. In one step, we can change the position of the ith chip from position[i] to:
+position[i] + 2 or position[i] - 2 with cost = 0.
+position[i] + 1 or position[i] - 1 with cost = 1.
+Return the minimum cost needed to move all the chips to the same position.
   Example 1:
-Input: arr = [6,4,14,6,8,13,9,7,10,6,12], d = 2
-Output: 4
-Explanation: You can start at index 10. You can jump 10 --> 8 --> 6 --> 7 as shown.
-Note that if you start at index 6 you can only jump to index 7. You cannot jump to index 5 because 13 > 9. You cannot jump to index 4 because index 5 is between index 4 and 6 and 13 > 9.
-Similarly You cannot jump from index 3 to index 2 or index 1.
-Example 2:
-Input: arr = [3,3,3,3,3], d = 3
+Input: position = [1,2,3]
 Output: 1
-Explanation: You can start at any index. You always cannot jump to any index.
+Explanation: First step: Move the chip at position 3 to position 1 with cost = 0.
+Second step: Move the chip at position 2 to position 1 with cost = 1.
+Total cost is 1.
+Example 2:
+Input: position = [2,2,2,3,3]
+Output: 2
+Explanation: We can move the two chips at position  3 to position 2. Each move has cost = 1. The total cost = 2.
 Example 3:
-Input: arr = [7,6,5,4,3,2,1], d = 1
-Output: 7
-Explanation: Start at index 0. You can visit all the indicies. 
+Input: position = [1,1000000000]
+Output: 1
   Constraints:
-1 <= arr.length <= 1000
-1 <= arr[i] <= 105
-1 <= d <= arr.length
+1 <= position.length <= 100
+1 <= position[i] <= 10^9

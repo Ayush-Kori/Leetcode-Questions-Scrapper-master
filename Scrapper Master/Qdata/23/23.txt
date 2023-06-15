@@ -1,44 +1,26 @@
-An original string, consisting of lowercase English letters, can be encoded by the following steps:
-Arbitrarily split it into a sequence of some number of non-empty substrings.
-Arbitrarily choose some elements (possibly none) of the sequence, and replace each with its length (as a numeric string).
-Concatenate the sequence as the encoded string.
-For example, one way to encode an original string "abcdefghijklmnop" might be:
-Split it as a sequence: ["ab", "cdefghijklmn", "o", "p"].
-Choose the second and third elements to be replaced by their lengths, respectively. The sequence becomes ["ab", "12", "1", "p"].
-Concatenate the elements of the sequence to get the encoded string: "ab121p".
-Given two encoded strings s1 and s2, consisting of lowercase English letters and digits 1-9 (inclusive), return true if there exists an original string that could be encoded as both s1 and s2. Otherwise, return false.
-Note: The test cases are generated such that the number of consecutive digits in s1 and s2 does not exceed 3.
+You are given a 0-indexed string s and a 0-indexed integer array spaces that describes the indices in the original string where spaces will be added. Each space should be inserted before the character at the given index.
+For example, given s = "EnjoyYourCoffee" and spaces = [5, 9], we place spaces before 'Y' and 'C', which are at indices 5 and 9 respectively. Thus, we obtain "Enjoy Your Coffee".
+Return the modified string after the spaces have been added.
   Example 1:
-Input: s1 = "internationalization", s2 = "i18n"
-Output: true
-Explanation: It is possible that "internationalization" was the original string.
-- "internationalization" 
-  -> Split:       ["internationalization"]
-  -> Do not replace any element
-  -> Concatenate:  "internationalization", which is s1.
-- "internationalization"
-  -> Split:       ["i", "nternationalizatio", "n"]
-  -> Replace:     ["i", "18",                 "n"]
-  -> Concatenate:  "i18n", which is s2
+Input: s = "LeetcodeHelpsMeLearn", spaces = [8,13,15]
+Output: "Leetcode Helps Me Learn"
+Explanation: 
+The indices 8, 13, and 15 correspond to the underlined characters in "LeetcodeHelpsMeLearn".
+We then place spaces before those characters.
 Example 2:
-Input: s1 = "l123e", s2 = "44"
-Output: true
-Explanation: It is possible that "leetcode" was the original string.
-- "leetcode" 
-  -> Split:      ["l", "e", "et", "cod", "e"]
-  -> Replace:    ["l", "1", "2",  "3",   "e"]
-  -> Concatenate: "l123e", which is s1.
-- "leetcode" 
-  -> Split:      ["leet", "code"]
-  -> Replace:    ["4",    "4"]
-  -> Concatenate: "44", which is s2.
+Input: s = "icodeinpython", spaces = [1,5,7,9]
+Output: "i code in py thon"
+Explanation:
+The indices 1, 5, 7, and 9 correspond to the underlined characters in "icodeinpython".
+We then place spaces before those characters.
 Example 3:
-Input: s1 = "a5b", s2 = "c5b"
-Output: false
-Explanation: It is impossible.
-- The original string encoded as s1 must start with the letter 'a'.
-- The original string encoded as s2 must start with the letter 'c'.
+Input: s = "spacing", spaces = [0,1,2,3,4,5,6]
+Output: " s p a c i n g"
+Explanation:
+We are also able to place spaces before the first character of the string.
   Constraints:
-1 <= s1.length, s2.length <= 40
-s1 and s2 consist of digits 1-9 (inclusive), and lowercase English letters only.
-The number of consecutive digits in s1 and s2 does not exceed 3.
+1 <= s.length <= 3 * 105
+s consists only of lowercase and uppercase English letters.
+1 <= spaces.length <= 3 * 105
+0 <= spaces[i] <= s.length - 1
+All the values of spaces are strictly increasing.

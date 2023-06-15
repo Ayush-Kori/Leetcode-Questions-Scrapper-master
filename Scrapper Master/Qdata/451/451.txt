@@ -1,22 +1,16 @@
-Given a 0-indexed integer array nums, find the leftmost middleIndex (i.e., the smallest amongst all the possible ones).
-A middleIndex is an index where nums[0] + nums[1] + ... + nums[middleIndex-1] == nums[middleIndex+1] + nums[middleIndex+2] + ... + nums[nums.length-1].
-If middleIndex == 0, the left side sum is considered to be 0. Similarly, if middleIndex == nums.length - 1, the right side sum is considered to be 0.
-Return the leftmost middleIndex that satisfies the condition, or -1 if there is no such index.
+Given the root of a Binary Search Tree (BST), convert it to a Greater Tree such that every key of the original BST is changed to the original key plus the sum of all keys greater than the original key in BST.
+As a reminder, a binary search tree is a tree that satisfies these constraints:
+The left subtree of a node contains only nodes with keys less than the node's key.
+The right subtree of a node contains only nodes with keys greater than the node's key.
+Both the left and right subtrees must also be binary search trees.
   Example 1:
-Input: nums = [2,3,-1,8,4]
-Output: 3
-Explanation: The sum of the numbers before index 3 is: 2 + 3 + -1 = 4
-The sum of the numbers after index 3 is: 4 = 4
+Input: root = [4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
+Output: [30,36,21,36,35,26,15,null,null,null,33,null,null,null,8]
 Example 2:
-Input: nums = [1,-1,4]
-Output: 2
-Explanation: The sum of the numbers before index 2 is: 1 + -1 = 0
-The sum of the numbers after index 2 is: 0
-Example 3:
-Input: nums = [2,5]
-Output: -1
-Explanation: There is no valid middleIndex.
+Input: root = [0,null,1]
+Output: [1,null,1]
   Constraints:
-1 <= nums.length <= 100
--1000 <= nums[i] <= 1000
-  Note: This question is the same as 724: https://leetcode.com/problems/find-pivot-index/
+The number of nodes in the tree is in the range [1, 100].
+0 <= Node.val <= 100
+All the values in the tree are unique.
+  Note: This question is the same as 538: https://leetcode.com/problems/convert-bst-to-greater-tree/

@@ -1,28 +1,18 @@
-You are given two integer arrays persons and times. In an election, the ith vote was cast for persons[i] at time times[i].
-For each query at a time t, find the person that was leading the election at time t. Votes cast at time t will count towards our query. In the case of a tie, the most recent vote (among tied candidates) wins.
-Implement the TopVotedCandidate class:
-TopVotedCandidate(int[] persons, int[] times) Initializes the object with the persons and times arrays.
-int q(int t) Returns the number of the person that was leading the election at time t according to the mentioned rules.
+Given two strings: s1 and s2 with the same size, check if some permutation of string s1 can break some permutation of string s2 or vice-versa. In other words s2 can break s1 or vice-versa.
+A string x can break string y (both of size n) if x[i] >= y[i] (in alphabetical order) for all i between 0 and n-1.
   Example 1:
-Input
-["TopVotedCandidate", "q", "q", "q", "q", "q", "q"]
-[[[0, 1, 1, 0, 0, 1, 0], [0, 5, 10, 15, 20, 25, 30]], [3], [12], [25], [15], [24], [8]]
-Output
-[null, 0, 1, 1, 0, 0, 1]
-
-Explanation
-TopVotedCandidate topVotedCandidate = new TopVotedCandidate([0, 1, 1, 0, 0, 1, 0], [0, 5, 10, 15, 20, 25, 30]);
-topVotedCandidate.q(3); // return 0, At time 3, the votes are [0], and 0 is leading.
-topVotedCandidate.q(12); // return 1, At time 12, the votes are [0,1,1], and 1 is leading.
-topVotedCandidate.q(25); // return 1, At time 25, the votes are [0,1,1,0,0,1], and 1 is leading (as ties go to the most recent vote.)
-topVotedCandidate.q(15); // return 0
-topVotedCandidate.q(24); // return 0
-topVotedCandidate.q(8); // return 1
+Input: s1 = "abc", s2 = "xya"
+Output: true
+Explanation: "ayx" is a permutation of s2="xya" which can break to string "abc" which is a permutation of s1="abc".
+Example 2:
+Input: s1 = "abe", s2 = "acd"
+Output: false 
+Explanation: All permutations for s1="abe" are: "abe", "aeb", "bae", "bea", "eab" and "eba" and all permutation for s2="acd" are: "acd", "adc", "cad", "cda", "dac" and "dca". However, there is not any permutation from s1 which can break some permutation from s2 and vice-versa.
+Example 3:
+Input: s1 = "leetcodee", s2 = "interview"
+Output: true
   Constraints:
-1 <= persons.length <= 5000
-times.length == persons.length
-0 <= persons[i] < persons.length
-0 <= times[i] <= 109
-times is sorted in a strictly increasing order.
-times[0] <= t <= 109
-At most 104 calls will be made to q.
+s1.length == n
+s2.length == n
+1 <= n <= 10^5
+All strings consist of lowercase English letters.

@@ -1,22 +1,16 @@
-You are given an m x n integer matrix grid and an array queries of size k.
-Find an array answer of size k such that for each integer queries[i] you start in the top left cell of the matrix and repeat the following process:
-If queries[i] is strictly greater than the value of the current cell that you are in, then you get one point if it is your first time visiting this cell, and you can move to any adjacent cell in all 4 directions: up, down, left, and right.
-Otherwise, you do not get any points, and you end this process.
-After the process, answer[i] is the maximum number of points you can get. Note that for each query you are allowed to visit the same cell multiple times.
-Return the resulting array answer.
+Given an unsorted array of integers nums, return the length of the longest continuous increasing subsequence (i.e. subarray). The subsequence must be strictly increasing.
+A continuous increasing subsequence is defined by two indices l and r (l < r) such that it is [nums[l], nums[l + 1], ..., nums[r - 1], nums[r]] and for each l <= i < r, nums[i] < nums[i + 1].
   Example 1:
-Input: grid = [[1,2,3],[2,5,7],[3,5,1]], queries = [5,6,2]
-Output: [5,8,1]
-Explanation: The diagrams above show which cells we visit to get points for each query.
+Input: nums = [1,3,5,4,7]
+Output: 3
+Explanation: The longest continuous increasing subsequence is [1,3,5] with length 3.
+Even though [1,3,5,7] is an increasing subsequence, it is not continuous as elements 5 and 7 are separated by element
+4.
 Example 2:
-Input: grid = [[5,2,1],[1,1,2]], queries = [3]
-Output: [0]
-Explanation: We can not get any points because the value of the top left cell is already greater than or equal to 3.
+Input: nums = [2,2,2,2,2]
+Output: 1
+Explanation: The longest continuous increasing subsequence is [2] with length 1. Note that it must be strictly
+increasing.
   Constraints:
-m == grid.length
-n == grid[i].length
-2 <= m, n <= 1000
-4 <= m * n <= 105
-k == queries.length
-1 <= k <= 104
-1 <= grid[i][j], queries[i] <= 106
+1 <= nums.length <= 104
+-109 <= nums[i] <= 109

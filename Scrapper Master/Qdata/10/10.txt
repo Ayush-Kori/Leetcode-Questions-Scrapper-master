@@ -1,19 +1,24 @@
-You are given two strings s1 and s2 of equal length consisting of letters "x" and "y" only. Your task is to make these two strings equal to each other. You can swap any two characters that belong to different strings, which means: swap s1[i] and s2[j].
-Return the minimum number of swaps required to make s1 and s2 equal, or return -1 if it is impossible to do so.
+Given two objects o1 and o2, check if they are deeply equal.
+For two objects to be deeply equal, they must contain the same keys, and the associated values must also be deeply equal. Two objects are also considered deeply equal if they pass the === equality check.
+You may assume both objects are the output of JSON.parse. In other words, they are valid JSON.
+Please solve it without using lodash's _.isEqual() function.
   Example 1:
-Input: s1 = "xx", s2 = "yy"
-Output: 1
-Explanation: Swap s1[0] and s2[1], s1 = "yx", s2 = "yx".
+Input: o1 = {"x":1,"y":2}, o2 = {"x":1,"y":2}
+Output: true
+Explanation: The keys and values match exactly.
 Example 2:
-Input: s1 = "xy", s2 = "yx"
-Output: 2
-Explanation: Swap s1[0] and s2[0], s1 = "yy", s2 = "xx".
-Swap s1[0] and s2[1], s1 = "xy", s2 = "xy".
-Note that you cannot swap s1[0] and s1[1] to make s1 equal to "yx", cause we can only swap chars in different strings.
+Input: o1 = {"y":2,"x":1}, o2 = {"x":1,"y":2}
+Output: true
+Explanation: Although the keys are in a different order, they still match exactly.
 Example 3:
-Input: s1 = "xx", s2 = "xy"
-Output: -1
+Input: o1 = {"x":null,"L":[1,2,3]}, o2 = {"x":null,"L":["1","2","3"]}
+Output: false
+Explanation: The array of numbers is different from the array of strings.
+Example 4:
+Input: o1 = true, o2 = false
+Output: false
+Explanation: true !== false
   Constraints:
-1 <= s1.length, s2.length <= 1000
-s1.length == s2.length
-s1, s2 only contain 'x' or 'y'.
+1 <= JSON.stringify(o1).length <= 105
+1 <= JSON.stringify(o2).length <= 105
+maxNestingDepth <= 1000

@@ -1,16 +1,14 @@
-Given a 2D integer array nums where nums[i] is a non-empty array of distinct positive integers, return the list of integers that are present in each array of nums sorted in ascending order.
+Given two numbers, hour and minutes, return the smaller angle (in degrees) formed between the hour and the minute hand.
+Answers within 10-5 of the actual value will be accepted as correct.
   Example 1:
-Input: nums = [[3,1,2,4,5],[1,2,3,4],[3,4,5,6]]
-Output: [3,4]
-Explanation: 
-The only integers present in each of nums[0] = [3,1,2,4,5], nums[1] = [1,2,3,4], and nums[2] = [3,4,5,6] are 3 and 4, so we return [3,4].
+Input: hour = 12, minutes = 30
+Output: 165
 Example 2:
-Input: nums = [[1,2,3],[4,5,6]]
-Output: []
-Explanation: 
-There does not exist any integer present both in nums[0] and nums[1], so we return an empty list [].
+Input: hour = 3, minutes = 30
+Output: 75
+Example 3:
+Input: hour = 3, minutes = 15
+Output: 7.5
   Constraints:
-1 <= nums.length <= 1000
-1 <= sum(nums[i].length) <= 1000
-1 <= nums[i][j] <= 1000
-All the values of nums[i] are unique.
+1 <= hour <= 12
+0 <= minutes <= 59

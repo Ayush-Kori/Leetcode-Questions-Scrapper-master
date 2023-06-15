@@ -1,33 +1,18 @@
-Design your implementation of the circular double-ended queue (deque).
-Implement the MyCircularDeque class:
-MyCircularDeque(int k) Initializes the deque with a maximum size of k.
-boolean insertFront() Adds an item at the front of Deque. Returns true if the operation is successful, or false otherwise.
-boolean insertLast() Adds an item at the rear of Deque. Returns true if the operation is successful, or false otherwise.
-boolean deleteFront() Deletes an item from the front of Deque. Returns true if the operation is successful, or false otherwise.
-boolean deleteLast() Deletes an item from the rear of Deque. Returns true if the operation is successful, or false otherwise.
-int getFront() Returns the front item from the Deque. Returns -1 if the deque is empty.
-int getRear() Returns the last item from Deque. Returns -1 if the deque is empty.
-boolean isEmpty() Returns true if the deque is empty, or false otherwise.
-boolean isFull() Returns true if the deque is full, or false otherwise.
+You are given two integer arrays of the same length nums1 and nums2. In one operation, you are allowed to swap nums1[i] with nums2[i].
+For example, if nums1 = [1,2,3,8], and nums2 = [5,6,7,4], you can swap the element at i = 3 to obtain nums1 = [1,2,3,4] and nums2 = [5,6,7,8].
+Return the minimum number of needed operations to make nums1 and nums2 strictly increasing. The test cases are generated so that the given input always makes it possible.
+An array arr is strictly increasing if and only if arr[0] < arr[1] < arr[2] < ... < arr[arr.length - 1].
   Example 1:
-Input
-["MyCircularDeque", "insertLast", "insertLast", "insertFront", "insertFront", "getRear", "isFull", "deleteLast", "insertFront", "getFront"]
-[[3], [1], [2], [3], [4], [], [], [], [4], []]
-Output
-[null, true, true, true, false, 2, true, true, true, 4]
-
-Explanation
-MyCircularDeque myCircularDeque = new MyCircularDeque(3);
-myCircularDeque.insertLast(1);  // return True
-myCircularDeque.insertLast(2);  // return True
-myCircularDeque.insertFront(3); // return True
-myCircularDeque.insertFront(4); // return False, the queue is full.
-myCircularDeque.getRear();      // return 2
-myCircularDeque.isFull();       // return True
-myCircularDeque.deleteLast();   // return True
-myCircularDeque.insertFront(4); // return True
-myCircularDeque.getFront();     // return 4
+Input: nums1 = [1,3,5,4], nums2 = [1,2,3,7]
+Output: 1
+Explanation: 
+Swap nums1[3] and nums2[3]. Then the sequences are:
+nums1 = [1, 3, 5, 7] and nums2 = [1, 2, 3, 4]
+which are both strictly increasing.
+Example 2:
+Input: nums1 = [0,3,5,8,9], nums2 = [2,1,4,6,9]
+Output: 1
   Constraints:
-1 <= k <= 1000
-0 <= value <= 1000
-At most 2000 calls will be made to insertFront, insertLast, deleteFront, deleteLast, getFront, getRear, isEmpty, isFull.
+2 <= nums1.length <= 105
+nums2.length == nums1.length
+0 <= nums1[i], nums2[i] <= 2 * 105

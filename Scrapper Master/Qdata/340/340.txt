@@ -1,22 +1,30 @@
-There are n cities numbered from 0 to n - 1 and n - 1 roads such that there is only one way to travel between two different cities (this network form a tree). Last year, The ministry of transport decided to orient the roads in one direction because they are too narrow.
-Roads are represented by connections where connections[i] = [ai, bi] represents a road from city ai to city bi.
-This year, there will be a big event in the capital (city 0), and many people want to travel to this city.
-Your task consists of reorienting some roads such that each city can visit the city 0. Return the minimum number of edges changed.
-It's guaranteed that each city can reach city 0 after reorder.
+Given an array of integers cost and an integer target, return the maximum integer you can paint under the following rules:
+The cost of painting a digit (i + 1) is given by cost[i] (0-indexed).
+The total cost used must be equal to target.
+The integer does not have 0 digits.
+Since the answer may be very large, return it as a string. If there is no way to paint any integer given the condition, return "0".
   Example 1:
-Input: n = 6, connections = [[0,1],[1,3],[2,3],[4,0],[4,5]]
-Output: 3
-Explanation: Change the direction of edges show in red such that each node can reach the node 0 (capital).
+Input: cost = [4,3,2,5,6,7,2,5,5], target = 9
+Output: "7772"
+Explanation: The cost to paint the digit '7' is 2, and the digit '2' is 3. Then cost("7772") = 2*3+ 3*1 = 9. You could also paint "977", but "7772" is the largest number.
+Digit    cost
+  1  ->   4
+  2  ->   3
+  3  ->   2
+  4  ->   5
+  5  ->   6
+  6  ->   7
+  7  ->   2
+  8  ->   5
+  9  ->   5
 Example 2:
-Input: n = 5, connections = [[1,0],[1,2],[3,2],[3,4]]
-Output: 2
-Explanation: Change the direction of edges show in red such that each node can reach the node 0 (capital).
+Input: cost = [7,6,5,5,5,6,8,7,8], target = 12
+Output: "85"
+Explanation: The cost to paint the digit '8' is 7, and the digit '5' is 5. Then cost("85") = 7 + 5 = 12.
 Example 3:
-Input: n = 3, connections = [[1,0],[2,0]]
-Output: 0
+Input: cost = [2,4,6,2,4,6,4,4,4], target = 5
+Output: "0"
+Explanation: It is impossible to paint any integer with total cost equal to target.
   Constraints:
-2 <= n <= 5 * 104
-connections.length == n - 1
-connections[i].length == 2
-0 <= ai, bi <= n - 1
-ai != bi
+cost.length == 9
+1 <= cost[i], target <= 5000

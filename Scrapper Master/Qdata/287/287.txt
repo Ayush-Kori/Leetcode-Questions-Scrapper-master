@@ -1,28 +1,23 @@
-Design a simplified version of Twitter where users can post tweets, follow/unfollow another user, and is able to see the 10 most recent tweets in the user's news feed.
-Implement the Twitter class:
-Twitter() Initializes your twitter object.
-void postTweet(int userId, int tweetId) Composes a new tweet with ID tweetId by the user userId. Each call to this function will be made with a unique tweetId.
-List<Integer> getNewsFeed(int userId) Retrieves the 10 most recent tweet IDs in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user themself. Tweets must be ordered from most recent to least recent.
-void follow(int followerId, int followeeId) The user with ID followerId started following the user with ID followeeId.
-void unfollow(int followerId, int followeeId) The user with ID followerId started unfollowing the user with ID followeeId.
+You are given a 0-indexed array of strings words and a 2D array of integers queries.
+Each query queries[i] = [li, ri] asks us to find the number of strings present in the range li to ri (both inclusive) of words that start and end with a vowel.
+Return an array ans of size queries.length, where ans[i] is the answer to the ith query.
+Note that the vowel letters are 'a', 'e', 'i', 'o', and 'u'.
   Example 1:
-Input
-["Twitter", "postTweet", "getNewsFeed", "follow", "postTweet", "getNewsFeed", "unfollow", "getNewsFeed"]
-[[], [1, 5], [1], [1, 2], [2, 6], [1], [1, 2], [1]]
-Output
-[null, null, [5], null, null, [6, 5], null, [5]]
-
-Explanation
-Twitter twitter = new Twitter();
-twitter.postTweet(1, 5); // User 1 posts a new tweet (id = 5).
-twitter.getNewsFeed(1);  // User 1's news feed should return a list with 1 tweet id -> [5]. return [5]
-twitter.follow(1, 2);    // User 1 follows user 2.
-twitter.postTweet(2, 6); // User 2 posts a new tweet (id = 6).
-twitter.getNewsFeed(1);  // User 1's news feed should return a list with 2 tweet ids -> [6, 5]. Tweet id 6 should precede tweet id 5 because it is posted after tweet id 5.
-twitter.unfollow(1, 2);  // User 1 unfollows user 2.
-twitter.getNewsFeed(1);  // User 1's news feed should return a list with 1 tweet id -> [5], since user 1 is no longer following user 2.
+Input: words = ["aba","bcb","ece","aa","e"], queries = [[0,2],[1,4],[1,1]]
+Output: [2,3,0]
+Explanation: The strings starting and ending with a vowel are "aba", "ece", "aa" and "e".
+The answer to the query [0,2] is 2 (strings "aba" and "ece").
+to query [1,4] is 3 (strings "ece", "aa", "e").
+to query [1,1] is 0.
+We return [2,3,0].
+Example 2:
+Input: words = ["a","e","i"], queries = [[0,2],[0,1],[2,2]]
+Output: [3,2,1]
+Explanation: Every string satisfies the conditions, so we return [3,2,1].
   Constraints:
-1 <= userId, followerId, followeeId <= 500
-0 <= tweetId <= 104
-All the tweets have unique IDs.
-At most 3 * 104 calls will be made to postTweet, getNewsFeed, follow, and unfollow.
+1 <= words.length <= 105
+1 <= words[i].length <= 40
+words[i] consists only of lowercase English letters.
+sum(words[i].length) <= 3 * 105
+1 <= queries.length <= 105
+0 <= li <= ri < words.length

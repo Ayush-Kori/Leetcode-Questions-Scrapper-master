@@ -1,29 +1,16 @@
-Design your implementation of the linked list. You can choose to use a singly or doubly linked list.
-A node in a singly linked list should have two attributes: val and next. val is the value of the current node, and next is a pointer/reference to the next node.
-If you want to use the doubly linked list, you will need one more attribute prev to indicate the previous node in the linked list. Assume all nodes in the linked list are 0-indexed.
-Implement the MyLinkedList class:
-MyLinkedList() Initializes the MyLinkedList object.
-int get(int index) Get the value of the indexth node in the linked list. If the index is invalid, return -1.
-void addAtHead(int val) Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list.
-void addAtTail(int val) Append a node of value val as the last element of the linked list.
-void addAtIndex(int index, int val) Add a node of value val before the indexth node in the linked list. If index equals the length of the linked list, the node will be appended to the end of the linked list. If index is greater than the length, the node will not be inserted.
-void deleteAtIndex(int index) Delete the indexth node in the linked list, if the index is valid.
+Given the root of a binary tree and an integer limit, delete all insufficient nodes in the tree simultaneously, and return the root of the resulting binary tree.
+A node is insufficient if every root to leaf path intersecting this node has a sum strictly less than limit.
+A leaf is a node with no children.
   Example 1:
-Input
-["MyLinkedList", "addAtHead", "addAtTail", "addAtIndex", "get", "deleteAtIndex", "get"]
-[[], [1], [3], [1, 2], [1], [1], [1]]
-Output
-[null, null, null, null, 2, null, 3]
-
-Explanation
-MyLinkedList myLinkedList = new MyLinkedList();
-myLinkedList.addAtHead(1);
-myLinkedList.addAtTail(3);
-myLinkedList.addAtIndex(1, 2);    // linked list becomes 1->2->3
-myLinkedList.get(1);              // return 2
-myLinkedList.deleteAtIndex(1);    // now the linked list is 1->3
-myLinkedList.get(1);              // return 3
+Input: root = [1,2,3,4,-99,-99,7,8,9,-99,-99,12,13,-99,14], limit = 1
+Output: [1,2,3,4,null,null,7,8,9,null,14]
+Example 2:
+Input: root = [5,4,8,11,null,17,4,7,1,null,null,5,3], limit = 22
+Output: [5,4,8,11,null,17,4,7,null,null,null,5]
+Example 3:
+Input: root = [1,2,-3,-5,null,4,null], limit = -1
+Output: [1,null,-3,4]
   Constraints:
-0 <= index, val <= 1000
-Please do not use the built-in LinkedList library.
-At most 2000 calls will be made to get, addAtHead, addAtTail, addAtIndex and deleteAtIndex.
+The number of nodes in the tree is in the range [1, 5000].
+-105 <= Node.val <= 105
+-109 <= limit <= 109

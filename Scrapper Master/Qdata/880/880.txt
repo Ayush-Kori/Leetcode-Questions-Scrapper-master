@@ -1,19 +1,17 @@
-You are given an array of non-negative integers nums and an integer k. In one operation, you may choose any element from nums and increment it by 1.
-Return the maximum product of nums after at most k operations. Since the answer may be very large, return it modulo 109 + 7. Note that you should maximize the product before taking the modulo. 
+An axis-aligned rectangle is represented as a list [x1, y1, x2, y2], where (x1, y1) is the coordinate of its bottom-left corner, and (x2, y2) is the coordinate of its top-right corner. Its top and bottom edges are parallel to the X-axis, and its left and right edges are parallel to the Y-axis.
+Two rectangles overlap if the area of their intersection is positive. To be clear, two rectangles that only touch at the corner or edges do not overlap.
+Given two axis-aligned rectangles rec1 and rec2, return true if they overlap, otherwise return false.
   Example 1:
-Input: nums = [0,4], k = 5
-Output: 20
-Explanation: Increment the first number 5 times.
-Now nums = [5, 4], with a product of 5 * 4 = 20.
-It can be shown that 20 is maximum product possible, so we return 20.
-Note that there may be other ways to increment nums to have the maximum product.
+Input: rec1 = [0,0,2,2], rec2 = [1,1,3,3]
+Output: true
 Example 2:
-Input: nums = [6,3,3,2], k = 2
-Output: 216
-Explanation: Increment the second number 1 time and increment the fourth number 1 time.
-Now nums = [6, 4, 3, 3], with a product of 6 * 4 * 3 * 3 = 216.
-It can be shown that 216 is maximum product possible, so we return 216.
-Note that there may be other ways to increment nums to have the maximum product.
+Input: rec1 = [0,0,1,1], rec2 = [1,0,2,1]
+Output: false
+Example 3:
+Input: rec1 = [0,0,1,1], rec2 = [2,2,3,3]
+Output: false
   Constraints:
-1 <= nums.length, k <= 105
-0 <= nums[i] <= 106
+rec1.length == 4
+rec2.length == 4
+-109 <= rec1[i], rec2[i] <= 109
+rec1 and rec2 represent a valid rectangle with a non-zero area.

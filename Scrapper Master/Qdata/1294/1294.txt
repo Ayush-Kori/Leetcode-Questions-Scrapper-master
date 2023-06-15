@@ -1,16 +1,17 @@
-Given an integer array nums, you need to find one continuous subarray such that if you only sort this subarray in non-decreasing order, then the whole array will be sorted in non-decreasing order.
-Return the shortest such subarray and output its length.
+Given an integer array nums, return the length of the longest strictly increasing
+subsequence
+.
   Example 1:
-Input: nums = [2,6,4,8,10,9,15]
-Output: 5
-Explanation: You need to sort [6, 4, 8, 10, 9] in ascending order to make the whole array sorted in ascending order.
+Input: nums = [10,9,2,5,3,7,101,18]
+Output: 4
+Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.
 Example 2:
-Input: nums = [1,2,3,4]
-Output: 0
+Input: nums = [0,1,0,3,2,3]
+Output: 4
 Example 3:
-Input: nums = [1]
-Output: 0
+Input: nums = [7,7,7,7,7,7,7]
+Output: 1
   Constraints:
-1 <= nums.length <= 104
--105 <= nums[i] <= 105
-  Follow up: Can you solve it in O(n) time complexity?
+1 <= nums.length <= 2500
+-104 <= nums[i] <= 104
+  Follow up: Can you come up with an algorithm that runs in O(n log(n)) time complexity?

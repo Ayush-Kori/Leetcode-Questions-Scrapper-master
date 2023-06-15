@@ -1,15 +1,17 @@
-Solve a given equation and return the value of 'x' in the form of a string "x=#value". The equation contains only '+', '-' operation, the variable 'x' and its coefficient. You should return "No solution" if there is no solution for the equation, or "Infinite solutions" if there are infinite solutions for the equation.
-If there is exactly one solution for the equation, we ensure that the value of 'x' is an integer.
+Given the array houses where houses[i] is the location of the ith house along a street and an integer k, allocate k mailboxes in the street.
+Return the minimum total distance between each house and its nearest mailbox.
+The test cases are generated so that the answer fits in a 32-bit integer.
   Example 1:
-Input: equation = "x+5-3+x=6+x-2"
-Output: "x=2"
+Input: houses = [1,4,8,10,20], k = 3
+Output: 5
+Explanation: Allocate mailboxes in position 3, 9 and 20.
+Minimum total distance from each houses to nearest mailboxes is |3-1| + |4-3| + |9-8| + |10-9| + |20-20| = 5 
 Example 2:
-Input: equation = "x=x"
-Output: "Infinite solutions"
-Example 3:
-Input: equation = "2x=x"
-Output: "x=0"
+Input: houses = [2,3,5,12,18], k = 2
+Output: 9
+Explanation: Allocate mailboxes in position 3 and 14.
+Minimum total distance from each houses to nearest mailboxes is |2-3| + |3-3| + |5-3| + |12-14| + |18-14| = 9.
   Constraints:
-3 <= equation.length <= 1000
-equation has exactly one '='.
-equation consists of integers with an absolute value in the range [0, 100] without any leading zeros, and the variable 'x'.
+1 <= k <= houses.length <= 100
+1 <= houses[i] <= 104
+All the integers of houses are unique.

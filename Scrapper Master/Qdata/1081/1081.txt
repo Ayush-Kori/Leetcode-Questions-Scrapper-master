@@ -1,30 +1,23 @@
-Given an array of functions [f1, f2, f3, ..., fn], return a new function fn that is the function composition of the array of functions.
-The function composition of [f(x), g(x), h(x)] is fn(x) = f(g(h(x))).
-The function composition of an empty list of functions is the identity function f(x) = x.
-You may assume each function in the array accepts one integer as input and returns one integer as output.
+You are given two strings s and t.
+You are allowed to remove any number of characters from the string t.
+The score of the string is 0 if no characters are removed from the string t, otherwise:
+Let left be the minimum index among all removed characters.
+Let right be the maximum index among all removed characters.
+Then the score of the string is right - left + 1.
+Return the minimum possible score to make t a subsequence of s.
+A subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., "ace" is a subsequence of "abcde" while "aec" is not).
   Example 1:
-Input: functions = [x => x + 1, x => x * x, x => 2 * x], x = 4
-Output: 65
-Explanation:
-Evaluating from right to left ...
-Starting with x = 4.
-2 * (4) = 8
-(8) * (8) = 64
-(64) + 1 = 65
+Input: s = "abacaba", t = "bzaa"
+Output: 1
+Explanation: In this example, we remove the character "z" at index 1 (0-indexed).
+The string t becomes "baa" which is a subsequence of the string "abacaba" and the score is 1 - 1 + 1 = 1.
+It can be proven that 1 is the minimum score that we can achieve.
 Example 2:
-Input: functions = [x => 10 * x, x => 10 * x, x => 10 * x], x = 1
-Output: 1000
-Explanation:
-Evaluating from right to left ...
-10 * (1) = 10
-10 * (10) = 100
-10 * (100) = 1000
-Example 3:
-Input: functions = [], x = 42
-Output: 42
-Explanation:
-The composition of zero functions is the identity function
+Input: s = "cde", t = "xyz"
+Output: 3
+Explanation: In this example, we remove characters "x", "y" and "z" at indices 0, 1, and 2 (0-indexed).
+The string t becomes "" which is a subsequence of the string "cde" and the score is 2 - 0 + 1 = 3.
+It can be proven that 3 is the minimum score that we can achieve.
   Constraints:
--1000 <= x <= 1000
-0 <= functions.length <= 1000
-all functions accept and return a single integer
+1 <= s.length, t.length <= 105
+s and t consist of only lowercase English letters.

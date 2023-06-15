@@ -1,19 +1,21 @@
-You are given a 0-indexed integer array nums. In one operation, select any non-negative integer x and an index i, then update nums[i] to be equal to nums[i] AND (nums[i] XOR x).
-Note that AND is the bitwise AND operation and XOR is the bitwise XOR operation.
-Return the maximum possible bitwise XOR of all elements of nums after applying the operation any number of times.
+An image smoother is a filter of the size 3 x 3 that can be applied to each cell of an image by rounding down the average of the cell and the eight surrounding cells (i.e., the average of the nine cells in the blue smoother). If one or more of the surrounding cells of a cell is not present, we do not consider it in the average (i.e., the average of the four cells in the red smoother).
+Given an m x n integer matrix img representing the grayscale of an image, return the image after applying the smoother on each cell of it.
   Example 1:
-Input: nums = [3,2,4,6]
-Output: 7
-Explanation: Apply the operation with x = 4 and i = 3, num[3] = 6 AND (6 XOR 4) = 6 AND 2 = 2.
-Now, nums = [3, 2, 4, 2] and the bitwise XOR of all the elements = 3 XOR 2 XOR 4 XOR 2 = 7.
-It can be shown that 7 is the maximum possible bitwise XOR.
-Note that other operations may be used to achieve a bitwise XOR of 7.
+Input: img = [[1,1,1],[1,0,1],[1,1,1]]
+Output: [[0,0,0],[0,0,0],[0,0,0]]
+Explanation:
+For the points (0,0), (0,2), (2,0), (2,2): floor(3/4) = floor(0.75) = 0
+For the points (0,1), (1,0), (1,2), (2,1): floor(5/6) = floor(0.83333333) = 0
+For the point (1,1): floor(8/9) = floor(0.88888889) = 0
 Example 2:
-Input: nums = [1,2,3,9,2]
-Output: 11
-Explanation: Apply the operation zero times.
-The bitwise XOR of all the elements = 1 XOR 2 XOR 3 XOR 9 XOR 2 = 11.
-It can be shown that 11 is the maximum possible bitwise XOR.
+Input: img = [[100,200,100],[200,50,200],[100,200,100]]
+Output: [[137,141,137],[141,138,141],[137,141,137]]
+Explanation:
+For the points (0,0), (0,2), (2,0), (2,2): floor((100+200+200+50)/4) = floor(137.5) = 137
+For the points (0,1), (1,0), (1,2), (2,1): floor((200+200+50+200+100+100)/6) = floor(141.666667) = 141
+For the point (1,1): floor((50+200+200+200+200+100+100+100+100)/9) = floor(138.888889) = 138
   Constraints:
-1 <= nums.length <= 105
-0 <= nums[i] <= 108
+m == img.length
+n == img[i].length
+1 <= m, n <= 200
+0 <= img[i][j] <= 255

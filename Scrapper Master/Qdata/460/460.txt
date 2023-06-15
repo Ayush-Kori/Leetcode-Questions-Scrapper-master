@@ -1,18 +1,77 @@
-A sentence is a list of words that are separated by a single space with no leading or trailing spaces. Each word consists of lowercase and uppercase English letters.
-A sentence can be shuffled by appending the 1-indexed word position to each word then rearranging the words in the sentence.
-For example, the sentence "This is a sentence" can be shuffled as "sentence4 a3 is2 This1" or "is2 sentence4 This1 a3".
-Given a shuffled sentence s containing no more than 9 words, reconstruct and return the original sentence.
+SQL Schema
+Table: Movies
++---------------+---------+
+| Column Name   | Type    |
++---------------+---------+
+| movie_id      | int     |
+| title         | varchar |
++---------------+---------+
+movie_id is the primary key for this table.
+title is the name of the movie.
+  Table: Users
++---------------+---------+
+| Column Name   | Type    |
++---------------+---------+
+| user_id       | int     |
+| name          | varchar |
++---------------+---------+
+user_id is the primary key for this table.
+  Table: MovieRating
++---------------+---------+
+| Column Name   | Type    |
++---------------+---------+
+| movie_id      | int     |
+| user_id       | int     |
+| rating        | int     |
+| created_at    | date    |
++---------------+---------+
+(movie_id, user_id) is the primary key for this table.
+This table contains the rating of a movie by a user in their review.
+created_at is the user's review date. 
+  Write an SQL query to:
+Find the name of the user who has rated the greatest number of movies. In case of a tie, return the lexicographically smaller user name.
+Find the movie name with the highest average rating in February 2020. In case of a tie, return the lexicographically smaller movie name.
+The query result format is in the following example.
   Example 1:
-Input: s = "is2 sentence4 This1 a3"
-Output: "This is a sentence"
-Explanation: Sort the words in s to their original positions "This1 is2 a3 sentence4", then remove the numbers.
-Example 2:
-Input: s = "Myself2 Me1 I4 and3"
-Output: "Me Myself and I"
-Explanation: Sort the words in s to their original positions "Me1 Myself2 and3 I4", then remove the numbers.
-  Constraints:
-2 <= s.length <= 200
-s consists of lowercase and uppercase English letters, spaces, and digits from 1 to 9.
-The number of words in s is between 1 and 9.
-The words in s are separated by a single space.
-s contains no leading or trailing spaces.
+Input: 
+Movies table:
++-------------+--------------+
+| movie_id    |  title       |
++-------------+--------------+
+| 1           | Avengers     |
+| 2           | Frozen 2     |
+| 3           | Joker        |
++-------------+--------------+
+Users table:
++-------------+--------------+
+| user_id     |  name        |
++-------------+--------------+
+| 1           | Daniel       |
+| 2           | Monica       |
+| 3           | Maria        |
+| 4           | James        |
++-------------+--------------+
+MovieRating table:
++-------------+--------------+--------------+-------------+
+| movie_id    | user_id      | rating       | created_at  |
++-------------+--------------+--------------+-------------+
+| 1           | 1            | 3            | 2020-01-12  |
+| 1           | 2            | 4            | 2020-02-11  |
+| 1           | 3            | 2            | 2020-02-12  |
+| 1           | 4            | 1            | 2020-01-01  |
+| 2           | 1            | 5            | 2020-02-17  | 
+| 2           | 2            | 2            | 2020-02-01  | 
+| 2           | 3            | 2            | 2020-03-01  |
+| 3           | 1            | 3            | 2020-02-22  | 
+| 3           | 2            | 4            | 2020-02-25  | 
++-------------+--------------+--------------+-------------+
+Output: 
++--------------+
+| results      |
++--------------+
+| Daniel       |
+| Frozen 2     |
++--------------+
+Explanation: 
+Daniel and Monica have rated 3 movies ("Avengers", "Frozen 2" and "Joker") but Daniel is smaller lexicographically.
+Frozen 2 and Joker have a rating average of 3.5 in February but Frozen 2 is smaller lexicographically.

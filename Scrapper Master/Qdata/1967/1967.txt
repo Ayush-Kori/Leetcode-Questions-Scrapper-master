@@ -1,19 +1,24 @@
-You are playing a game that contains multiple characters, and each of the characters has two main properties: attack and defense. You are given a 2D integer array properties where properties[i] = [attacki, defensei] represents the properties of the ith character in the game.
-A character is said to be weak if any other character has both attack and defense levels strictly greater than this character's attack and defense levels. More formally, a character i is said to be weak if there exists another character j where attackj > attacki and defensej > defensei.
-Return the number of weak characters.
+The Leetcode file system keeps a log each time some user performs a change folder operation.
+The operations are described below:
+"../" : Move to the parent folder of the current folder. (If you are already in the main folder, remain in the same folder).
+"./" : Remain in the same folder.
+"x/" : Move to the child folder named x (This folder is guaranteed to always exist).
+You are given a list of strings logs where logs[i] is the operation performed by the user at the ith step.
+The file system starts in the main folder, then the operations in logs are performed.
+Return the minimum number of operations needed to go back to the main folder after the change folder operations.
   Example 1:
-Input: properties = [[5,5],[6,3],[3,6]]
-Output: 0
-Explanation: No character has strictly greater attack and defense than the other.
+Input: logs = ["d1/","d2/","../","d21/","./"]
+Output: 2
+Explanation: Use this change folder operation "../" 2 times and go back to the main folder.
 Example 2:
-Input: properties = [[2,2],[3,3]]
-Output: 1
-Explanation: The first character is weak because the second character has a strictly greater attack and defense.
+Input: logs = ["d1/","d2/","./","d3/","../","d31/"]
+Output: 3
 Example 3:
-Input: properties = [[1,5],[10,4],[4,3]]
-Output: 1
-Explanation: The third character is weak because the second character has a strictly greater attack and defense.
+Input: logs = ["d1/","../","../","../"]
+Output: 0
   Constraints:
-2 <= properties.length <= 105
-properties[i].length == 2
-1 <= attacki, defensei <= 105
+1 <= logs.length <= 103
+2 <= logs[i].length <= 10
+logs[i] contains lowercase English letters, digits, '.', and '/'.
+logs[i] follows the format described in the statement.
+Folder names consist of lowercase English letters and digits.

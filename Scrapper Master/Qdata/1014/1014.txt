@@ -1,18 +1,16 @@
-You are given an array of strings equations that represent relationships between variables where each string equations[i] is of length 4 and takes one of two different forms: "xi==yi" or "xi!=yi".Here, xi and yi are lowercase letters (not necessarily different) that represent one-letter variable names.
-Return true if it is possible to assign integers to variable names so as to satisfy all the given equations, or false otherwise.
+Given an integer array arr, return the mean of the remaining integers after removing the smallest 5% and the largest 5% of the elements.
+Answers within 10-5 of the actual answer will be considered accepted.
   Example 1:
-Input: equations = ["a==b","b!=a"]
-Output: false
-Explanation: If we assign say, a = 1 and b = 1, then the first equation is satisfied, but not the second.
-There is no way to assign the variables to satisfy both equations.
+Input: arr = [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3]
+Output: 2.00000
+Explanation: After erasing the minimum and the maximum values of this array, all elements are equal to 2, so the mean is 2.
 Example 2:
-Input: equations = ["b==a","a==b"]
-Output: true
-Explanation: We could assign a = 1 and b = 1 to satisfy both equations.
+Input: arr = [6,2,7,5,1,2,0,3,10,2,5,0,5,5,0,8,7,6,8,0]
+Output: 4.00000
+Example 3:
+Input: arr = [6,0,7,0,7,5,7,8,3,4,0,7,8,1,6,8,1,1,2,4,8,1,9,5,4,3,8,5,10,8,6,6,1,0,6,10,8,2,3,4]
+Output: 4.77778
   Constraints:
-1 <= equations.length <= 500
-equations[i].length == 4
-equations[i][0] is a lowercase letter.
-equations[i][1] is either '=' or '!'.
-equations[i][2] is '='.
-equations[i][3] is a lowercase letter.
+20 <= arr.length <= 1000
+arr.length is a multiple of 20.
+0 <= arr[i] <= 105

@@ -1,18 +1,20 @@
-Given two n x n binary matrices mat and target, return true if it is possible to make mat equal to target by rotating mat in 90-degree increments, or false otherwise.
+Given a string s of '(' , ')' and lowercase English characters.
+Your task is to remove the minimum number of parentheses ( '(' or ')', in any positions ) so that the resulting parentheses string is valid and return any valid string.
+Formally, a parentheses string is valid if and only if:
+It is the empty string, contains only lowercase characters, or
+It can be written as AB (A concatenated with B), where A and B are valid strings, or
+It can be written as (A), where A is a valid string.
   Example 1:
-Input: mat = [[0,1],[1,0]], target = [[1,0],[0,1]]
-Output: true
-Explanation: We can rotate mat 90 degrees clockwise to make mat equal target.
+Input: s = "lee(t(c)o)de)"
+Output: "lee(t(c)o)de"
+Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
 Example 2:
-Input: mat = [[0,1],[1,1]], target = [[1,0],[0,1]]
-Output: false
-Explanation: It is impossible to make mat equal to target by rotating mat.
+Input: s = "a)b(c)d"
+Output: "ab(c)d"
 Example 3:
-Input: mat = [[0,0,0],[0,1,0],[1,1,1]], target = [[1,1,1],[0,1,0],[0,0,0]]
-Output: true
-Explanation: We can rotate mat 90 degrees clockwise two times to make mat equal target.
+Input: s = "))(("
+Output: ""
+Explanation: An empty string is also valid.
   Constraints:
-n == mat.length == target.length
-n == mat[i].length == target[i].length
-1 <= n <= 10
-mat[i][j] and target[i][j] are either 0 or 1.
+1 <= s.length <= 105
+s[i] is either'(' , ')', or lowercase English letter.

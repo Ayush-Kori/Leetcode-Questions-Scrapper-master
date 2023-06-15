@@ -1,27 +1,23 @@
-You are asked to cut off all the trees in a forest for a golf event. The forest is represented as an m x n matrix. In this matrix:
-0 means the cell cannot be walked through.
-1 represents an empty cell that can be walked through.
-A number greater than 1 represents a tree in a cell that can be walked through, and this number is the tree's height.
-In one step, you can walk in any of the four directions: north, east, south, and west. If you are standing in a cell with a tree, you can choose whether to cut it off.
-You must cut off the trees in order from shortest to tallest. When you cut off a tree, the value at its cell becomes 1 (an empty cell).
-Starting from the point (0, 0), return the minimum steps you need to walk to cut off all the trees. If you cannot cut off all the trees, return -1.
-Note: The input is generated such that no two trees have the same height, and there is at least one tree needs to be cut off.
+On a 2D plane, there are n points with integer coordinates points[i] = [xi, yi]. Return the minimum time in seconds to visit all the points in the order given by points.
+You can move according to these rules:
+In 1 second, you can either:
+move vertically by one unit,
+move horizontally by one unit, or
+move diagonally sqrt(2) units (in other words, move one unit vertically then one unit horizontally in 1 second).
+You have to visit the points in the same order as they appear in the array.
+You are allowed to pass through points that appear later in the order, but these do not count as visits.
   Example 1:
-Input: forest = [[1,2,3],[0,0,4],[7,6,5]]
-Output: 6
-Explanation: Following the path above allows you to cut off the trees from shortest to tallest in 6 steps.
+Input: points = [[1,1],[3,4],[-1,0]]
+Output: 7
+Explanation: One optimal path is [1,1] -> [2,2] -> [3,3] -> [3,4] -> [2,3] -> [1,2] -> [0,1] -> [-1,0]   
+Time from [1,1] to [3,4] = 3 seconds 
+Time from [3,4] to [-1,0] = 4 seconds
+Total time = 7 seconds
 Example 2:
-Input: forest = [[1,2,3],[0,0,0],[7,6,5]]
-Output: -1
-Explanation: The trees in the bottom row cannot be accessed as the middle row is blocked.
-Example 3:
-Input: forest = [[2,3,4],[0,0,5],[8,7,6]]
-Output: 6
-Explanation: You can follow the same path as Example 1 to cut off all the trees.
-Note that you can cut off the first tree at (0, 0) before making any steps.
+Input: points = [[3,2],[-2,2]]
+Output: 5
   Constraints:
-m == forest.length
-n == forest[i].length
-1 <= m, n <= 50
-0 <= forest[i][j] <= 109
-Heights of all trees are distinct.
+points.length == n
+1 <= n <= 100
+points[i].length == 2
+-1000 <= points[i][0], points[i][1] <= 1000

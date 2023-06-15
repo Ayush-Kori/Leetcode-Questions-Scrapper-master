@@ -1,17 +1,20 @@
-Given an m x n board of characters and a list of strings words, return all words on the board.
-Each word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.
+You are given an n x n binary matrix grid. You are allowed to change at most one 0 to be 1.
+Return the size of the largest island in grid after applying this operation.
+An island is a 4-directionally connected group of 1s.
   Example 1:
-Input: board = [["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]], words = ["oath","pea","eat","rain"]
-Output: ["eat","oath"]
+Input: grid = [[1,0],[0,1]]
+Output: 3
+Explanation: Change one 0 to 1 and connect two 1s, then we get an island with area = 3.
 Example 2:
-Input: board = [["a","b"],["c","d"]], words = ["abcb"]
-Output: []
+Input: grid = [[1,1],[1,0]]
+Output: 4
+Explanation: Change the 0 to 1 and make the island bigger, only one island with area = 4.
+Example 3:
+Input: grid = [[1,1],[1,1]]
+Output: 4
+Explanation: Can't change any 0 to 1, only one island with area = 4.
   Constraints:
-m == board.length
-n == board[i].length
-1 <= m, n <= 12
-board[i][j] is a lowercase English letter.
-1 <= words.length <= 3 * 104
-1 <= words[i].length <= 10
-words[i] consists of lowercase English letters.
-All the strings of words are unique.
+n == grid.length
+n == grid[i].length
+1 <= n <= 500
+grid[i][j] is either 0 or 1.

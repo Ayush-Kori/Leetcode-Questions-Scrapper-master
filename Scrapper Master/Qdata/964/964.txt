@@ -1,22 +1,38 @@
-Given an integer array nums, handle multiple queries of the following type:
-Calculate the sum of the elements of nums between indices left and right inclusive where left <= right.
-Implement the NumArray class:
-NumArray(int[] nums) Initializes the object with the integer array nums.
-int sumRange(int left, int right) Returns the sum of the elements of nums between indices left and right inclusive (i.e. nums[left] + nums[left + 1] + ... + nums[right]).
+You are given an integer array target and an integer n.
+You have an empty stack with the two following operations:
+"Push": pushes an integer to the top of the stack.
+"Pop": removes the integer on the top of the stack.
+You also have a stream of the integers in the range [1, n].
+Use the two stack operations to make the numbers in the stack (from the bottom to the top) equal to target. You should follow the following rules:
+If the stream of the integers is not empty, pick the next integer from the stream and push it to the top of the stack.
+If the stack is not empty, pop the integer at the top of the stack.
+If, at any moment, the elements in the stack (from the bottom to the top) are equal to target, do not read new integers from the stream and do not do more operations on the stack.
+Return the stack operations needed to build target following the mentioned rules. If there are multiple valid answers, return any of them.
   Example 1:
-Input
-["NumArray", "sumRange", "sumRange", "sumRange"]
-[[[-2, 0, 3, -5, 2, -1]], [0, 2], [2, 5], [0, 5]]
-Output
-[null, 1, -1, -3]
-
-Explanation
-NumArray numArray = new NumArray([-2, 0, 3, -5, 2, -1]);
-numArray.sumRange(0, 2); // return (-2) + 0 + 3 = 1
-numArray.sumRange(2, 5); // return 3 + (-5) + 2 + (-1) = -1
-numArray.sumRange(0, 5); // return (-2) + 0 + 3 + (-5) + 2 + (-1) = -3
+Input: target = [1,3], n = 3
+Output: ["Push","Push","Pop","Push"]
+Explanation: Initially the stack s is empty. The last element is the top of the stack.
+Read 1 from the stream and push it to the stack. s = [1].
+Read 2 from the stream and push it to the stack. s = [1,2].
+Pop the integer on the top of the stack. s = [1].
+Read 3 from the stream and push it to the stack. s = [1,3].
+Example 2:
+Input: target = [1,2,3], n = 3
+Output: ["Push","Push","Push"]
+Explanation: Initially the stack s is empty. The last element is the top of the stack.
+Read 1 from the stream and push it to the stack. s = [1].
+Read 2 from the stream and push it to the stack. s = [1,2].
+Read 3 from the stream and push it to the stack. s = [1,2,3].
+Example 3:
+Input: target = [1,2], n = 4
+Output: ["Push","Push"]
+Explanation: Initially the stack s is empty. The last element is the top of the stack.
+Read 1 from the stream and push it to the stack. s = [1].
+Read 2 from the stream and push it to the stack. s = [1,2].
+Since the stack (from the bottom to the top) is equal to target, we stop the stack operations.
+The answers that read integer 3 from the stream are not accepted.
   Constraints:
-1 <= nums.length <= 104
--105 <= nums[i] <= 105
-0 <= left <= right < nums.length
-At most 104 calls will be made to sumRange.
+1 <= target.length <= 100
+1 <= n <= 100
+1 <= target[i] <= n
+target is strictly increasing.

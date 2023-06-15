@@ -1,21 +1,14 @@
-You are given k identical eggs and you have access to a building with n floors labeled from 1 to n.
-You know that there exists a floor f where 0 <= f <= n such that any egg dropped at a floor higher than f will break, and any egg dropped at or below floor f will not break.
-Each move, you may take an unbroken egg and drop it from any floor x (where 1 <= x <= n). If the egg breaks, you can no longer use it. However, if the egg does not break, you may reuse it in future moves.
-Return the minimum number of moves that you need to determine with certainty what the value of f is.
+Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.
   Example 1:
-Input: k = 1, n = 2
+Input: num = 38
 Output: 2
-Explanation: 
-Drop the egg from floor 1. If it breaks, we know that f = 0.
-Otherwise, drop the egg from floor 2. If it breaks, we know that f = 1.
-If it does not break, then we know f = 2.
-Hence, we need at minimum 2 moves to determine with certainty what the value of f is.
+Explanation: The process is
+38 --> 3 + 8 --> 11
+11 --> 1 + 1 --> 2 
+Since 2 has only one digit, return it.
 Example 2:
-Input: k = 2, n = 6
-Output: 3
-Example 3:
-Input: k = 3, n = 14
-Output: 4
+Input: num = 0
+Output: 0
   Constraints:
-1 <= k <= 100
-1 <= n <= 104
+0 <= num <= 231 - 1
+  Follow up: Could you do it without any loop/recursion in O(1) runtime?

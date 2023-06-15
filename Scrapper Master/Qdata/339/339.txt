@@ -1,23 +1,13 @@
-You are given an integer array nums and two integers indexDiff and valueDiff.
-Find a pair of indices (i, j) such that:
-i != j,
-abs(i - j) <= indexDiff.
-abs(nums[i] - nums[j]) <= valueDiff, and
-Return true if such pair exists or false otherwise.
+You are given an integer array matchsticks where matchsticks[i] is the length of the ith matchstick. You want to use all the matchsticks to make one square. You should not break any stick, but you can link them up, and each matchstick must be used exactly one time.
+Return true if you can make this square and false otherwise.
   Example 1:
-Input: nums = [1,2,3,1], indexDiff = 3, valueDiff = 0
+Input: matchsticks = [1,1,2,2,2]
 Output: true
-Explanation: We can choose (i, j) = (0, 3).
-We satisfy the three conditions:
-i != j --> 0 != 3
-abs(i - j) <= indexDiff --> abs(0 - 3) <= 3
-abs(nums[i] - nums[j]) <= valueDiff --> abs(1 - 1) <= 0
+Explanation: You can form a square with length 2, one side of the square came two sticks with length 1.
 Example 2:
-Input: nums = [1,5,9,1,5,9], indexDiff = 2, valueDiff = 3
+Input: matchsticks = [3,3,3,3,4]
 Output: false
-Explanation: After trying all the possible pairs (i, j), we cannot satisfy the three conditions, so we return false.
+Explanation: You cannot find a way to form a square with all the matchsticks.
   Constraints:
-2 <= nums.length <= 105
--109 <= nums[i] <= 109
-1 <= indexDiff <= nums.length
-0 <= valueDiff <= 109
+1 <= matchsticks.length <= 15
+1 <= matchsticks[i] <= 108

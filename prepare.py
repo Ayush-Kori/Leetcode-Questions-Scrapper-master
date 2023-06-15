@@ -49,7 +49,7 @@ vocab = dict( sorted(vocab.items(), key = lambda item : item[1], reverse = True)
 
 print("No of documents : ", len(documents))
 print("Size of vocab : ", len(vocab))
-print("Sample document: ", documents[100])
+print("Sample document: ", documents[101])
 
 # keys of vocab thus is a set of distinct words across all docs
 # save them in file vocab

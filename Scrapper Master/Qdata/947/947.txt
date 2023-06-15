@@ -1,15 +1,19 @@
-A binary watch has 4 LEDs on the top to represent the hours (0-11), and 6 LEDs on the bottom to represent the minutes (0-59). Each LED represents a zero or one, with the least significant bit on the right.
-For example, the below binary watch reads "4:51".
-Given an integer turnedOn which represents the number of LEDs that are currently on (ignoring the PM), return all possible times the watch could represent. You may return the answer in any order.
-The hour must not contain a leading zero.
-For example, "01:00" is not valid. It should be "1:00".
-The minute must be consist of two digits and may contain a leading zero.
-For example, "10:2" is not valid. It should be "10:02".
+You are given an array items, where each items[i] = [typei, colori, namei] describes the type, color, and name of the ith item. You are also given a rule represented by two strings, ruleKey and ruleValue.
+The ith item is said to match the rule if one of the following is true:
+ruleKey == "type" and ruleValue == typei.
+ruleKey == "color" and ruleValue == colori.
+ruleKey == "name" and ruleValue == namei.
+Return the number of items that match the given rule.
   Example 1:
-Input: turnedOn = 1
-Output: ["0:01","0:02","0:04","0:08","0:16","0:32","1:00","2:00","4:00","8:00"]
+Input: items = [["phone","blue","pixel"],["computer","silver","lenovo"],["phone","gold","iphone"]], ruleKey = "color", ruleValue = "silver"
+Output: 1
+Explanation: There is only one item matching the given rule, which is ["computer","silver","lenovo"].
 Example 2:
-Input: turnedOn = 9
-Output: []
+Input: items = [["phone","blue","pixel"],["computer","silver","phone"],["phone","gold","iphone"]], ruleKey = "type", ruleValue = "phone"
+Output: 2
+Explanation: There are only two items matching the given rule, which are ["phone","blue","pixel"] and ["phone","gold","iphone"]. Note that the item ["computer","silver","phone"] does not match.
   Constraints:
-0 <= turnedOn <= 10
+1 <= items.length <= 104
+1 <= typei.length, colori.length, namei.length, ruleValue.length <= 10
+ruleKey is equal to either "type", "color", or "name".
+All strings consist only of lowercase letters.

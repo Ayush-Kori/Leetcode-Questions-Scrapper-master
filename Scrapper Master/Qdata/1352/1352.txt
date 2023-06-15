@@ -1,25 +1,19 @@
-Given two strings s and part, perform the following operation on s until all occurrences of the substring part are removed:
-Find the leftmost occurrence of the substring part and remove it from s.
-Return s after removing all occurrences of part.
-A substring is a contiguous sequence of characters in a string.
+One way to serialize a binary tree is to use preorder traversal. When we encounter a non-null node, we record the node's value. If it is a null node, we record using a sentinel value such as '#'.
+For example, the above binary tree can be serialized to the string "9,3,4,#,#,1,#,#,2,#,6,#,#", where '#' represents a null node.
+Given a string of comma-separated values preorder, return true if it is a correct preorder traversal serialization of a binary tree.
+It is guaranteed that each comma-separated value in the string must be either an integer or a character '#' representing null pointer.
+You may assume that the input format is always valid.
+For example, it could never contain two consecutive commas, such as "1,,3".
+Note: You are not allowed to reconstruct the tree.
   Example 1:
-Input: s = "daabcbaabcbc", part = "abc"
-Output: "dab"
-Explanation: The following operations are done:
-- s = "daabcbaabcbc", remove "abc" starting at index 2, so s = "dabaabcbc".
-- s = "dabaabcbc", remove "abc" starting at index 4, so s = "dababc".
-- s = "dababc", remove "abc" starting at index 3, so s = "dab".
-Now s has no occurrences of "abc".
+Input: preorder = "9,3,4,#,#,1,#,#,2,#,6,#,#"
+Output: true
 Example 2:
-Input: s = "axxxxyyyyb", part = "xy"
-Output: "ab"
-Explanation: The following operations are done:
-- s = "axxxxyyyyb", remove "xy" starting at index 4 so s = "axxxyyyb".
-- s = "axxxyyyb", remove "xy" starting at index 3 so s = "axxyyb".
-- s = "axxyyb", remove "xy" starting at index 2 so s = "axyb".
-- s = "axyb", remove "xy" starting at index 1 so s = "ab".
-Now s has no occurrences of "xy".
+Input: preorder = "1,#"
+Output: false
+Example 3:
+Input: preorder = "9,#,#,1"
+Output: false
   Constraints:
-1 <= s.length <= 1000
-1 <= part.length <= 1000
-s and part consists of lowercase English letters.
+1 <= preorder.length <= 104
+preorder consist of integers in the range [0, 100] and '#' separated by commas ','.

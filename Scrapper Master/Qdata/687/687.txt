@@ -1,18 +1,13 @@
-Given an integer array nums, return an integer array counts where counts[i] is the number of smaller elements to the right of nums[i].
+A ramp in an integer array nums is a pair (i, j) for which i < j and nums[i] <= nums[j]. The width of such a ramp is j - i.
+Given an integer array nums, return the maximum width of a ramp in nums. If there is no ramp in nums, return 0.
   Example 1:
-Input: nums = [5,2,6,1]
-Output: [2,1,1,0]
-Explanation:
-To the right of 5 there are 2 smaller elements (2 and 1).
-To the right of 2 there is only 1 smaller element (1).
-To the right of 6 there is 1 smaller element (1).
-To the right of 1 there is 0 smaller element.
+Input: nums = [6,0,8,2,1,5]
+Output: 4
+Explanation: The maximum width ramp is achieved at (i, j) = (1, 5): nums[1] = 0 and nums[5] = 5.
 Example 2:
-Input: nums = [-1]
-Output: [0]
-Example 3:
-Input: nums = [-1,-1]
-Output: [0,0]
+Input: nums = [9,8,1,0,1,9,4,0,4,1]
+Output: 7
+Explanation: The maximum width ramp is achieved at (i, j) = (2, 9): nums[2] = 1 and nums[9] = 1.
   Constraints:
-1 <= nums.length <= 105
--104 <= nums[i] <= 104
+2 <= nums.length <= 5 * 104
+0 <= nums[i] <= 5 * 104

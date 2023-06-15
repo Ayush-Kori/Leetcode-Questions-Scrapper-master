@@ -1,26 +1,20 @@
-You are given a 0-indexed m x n binary matrix land where a 0 represents a hectare of forested land and a 1 represents a hectare of farmland.
-To keep the land organized, there are designated rectangular areas of hectares that consist entirely of farmland. These rectangular areas are called groups. No two groups are adjacent, meaning farmland in one group is not four-directionally adjacent to another farmland in a different group.
-land can be represented by a coordinate system where the top left corner of land is (0, 0) and the bottom right corner of land is (m-1, n-1). Find the coordinates of the top left and bottom right corner of each group of farmland. A group of farmland with a top left corner at (r1, c1) and a bottom right corner at (r2, c2) is represented by the 4-length array [r1, c1, r2, c2].
-Return a 2D array containing the 4-length arrays described above for each group of farmland in land. If there are no groups of farmland, return an empty array. You may return the answer in any order.
+You are given an array of integers stones where stones[i] is the weight of the ith stone.
+We are playing a game with the stones. On each turn, we choose the heaviest two stones and smash them together. Suppose the heaviest two stones have weights x and y with x <= y. The result of this smash is:
+If x == y, both stones are destroyed, and
+If x != y, the stone of weight x is destroyed, and the stone of weight y has new weight y - x.
+At the end of the game, there is at most one stone left.
+Return the weight of the last remaining stone. If there are no stones left, return 0.
   Example 1:
-Input: land = [[1,0,0],[0,1,1],[0,1,1]]
-Output: [[0,0,0,0],[1,1,2,2]]
-Explanation:
-The first group has a top left corner at land[0][0] and a bottom right corner at land[0][0].
-The second group has a top left corner at land[1][1] and a bottom right corner at land[2][2].
+Input: stones = [2,7,4,1,8,1]
+Output: 1
+Explanation: 
+We combine 7 and 8 to get 1 so the array converts to [2,4,1,1,1] then,
+we combine 2 and 4 to get 2 so the array converts to [2,1,1,1] then,
+we combine 2 and 1 to get 1 so the array converts to [1,1,1] then,
+we combine 1 and 1 to get 0 so the array converts to [1] then that's the value of the last stone.
 Example 2:
-Input: land = [[1,1],[1,1]]
-Output: [[0,0,1,1]]
-Explanation:
-The first group has a top left corner at land[0][0] and a bottom right corner at land[1][1].
-Example 3:
-Input: land = [[0]]
-Output: []
-Explanation:
-There are no groups of farmland.
+Input: stones = [1]
+Output: 1
   Constraints:
-m == land.length
-n == land[i].length
-1 <= m, n <= 300
-land consists of only 0's and 1's.
-Groups of farmland are rectangular in shape.
+1 <= stones.length <= 30
+1 <= stones[i] <= 1000

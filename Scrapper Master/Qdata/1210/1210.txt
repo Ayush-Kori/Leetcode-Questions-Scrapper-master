@@ -1,17 +1,33 @@
-Given the root of a binary tree, find the maximum value v for which there exist different nodes a and b where v = |a.val - b.val| and a is an ancestor of b.
-A node a is an ancestor of b if either: any child of a is equal to b or any child of a is an ancestor of b.
+Design your implementation of the circular double-ended queue (deque).
+Implement the MyCircularDeque class:
+MyCircularDeque(int k) Initializes the deque with a maximum size of k.
+boolean insertFront() Adds an item at the front of Deque. Returns true if the operation is successful, or false otherwise.
+boolean insertLast() Adds an item at the rear of Deque. Returns true if the operation is successful, or false otherwise.
+boolean deleteFront() Deletes an item from the front of Deque. Returns true if the operation is successful, or false otherwise.
+boolean deleteLast() Deletes an item from the rear of Deque. Returns true if the operation is successful, or false otherwise.
+int getFront() Returns the front item from the Deque. Returns -1 if the deque is empty.
+int getRear() Returns the last item from Deque. Returns -1 if the deque is empty.
+boolean isEmpty() Returns true if the deque is empty, or false otherwise.
+boolean isFull() Returns true if the deque is full, or false otherwise.
   Example 1:
-Input: root = [8,3,10,1,6,null,14,null,null,4,7,13]
-Output: 7
-Explanation: We have various ancestor-node differences, some of which are given below :
-|8 - 3| = 5
-|3 - 7| = 4
-|8 - 1| = 7
-|10 - 13| = 3
-Among all possible differences, the maximum value of 7 is obtained by |8 - 1| = 7.
-Example 2:
-Input: root = [1,null,2,null,0,3]
-Output: 3
+Input
+["MyCircularDeque", "insertLast", "insertLast", "insertFront", "insertFront", "getRear", "isFull", "deleteLast", "insertFront", "getFront"]
+[[3], [1], [2], [3], [4], [], [], [], [4], []]
+Output
+[null, true, true, true, false, 2, true, true, true, 4]
+
+Explanation
+MyCircularDeque myCircularDeque = new MyCircularDeque(3);
+myCircularDeque.insertLast(1);  // return True
+myCircularDeque.insertLast(2);  // return True
+myCircularDeque.insertFront(3); // return True
+myCircularDeque.insertFront(4); // return False, the queue is full.
+myCircularDeque.getRear();      // return 2
+myCircularDeque.isFull();       // return True
+myCircularDeque.deleteLast();   // return True
+myCircularDeque.insertFront(4); // return True
+myCircularDeque.getFront();     // return 4
   Constraints:
-The number of nodes in the tree is in the range [2, 5000].
-0 <= Node.val <= 105
+1 <= k <= 1000
+0 <= value <= 1000
+At most 2000 calls will be made to insertFront, insertLast, deleteFront, deleteLast, getFront, getRear, isEmpty, isFull.

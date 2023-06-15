@@ -1,20 +1,20 @@
-Given a string s of '(' , ')' and lowercase English characters.
-Your task is to remove the minimum number of parentheses ( '(' or ')', in any positions ) so that the resulting parentheses string is valid and return any valid string.
-Formally, a parentheses string is valid if and only if:
-It is the empty string, contains only lowercase characters, or
-It can be written as AB (A concatenated with B), where A and B are valid strings, or
-It can be written as (A), where A is a valid string.
+You have a convex n-sided polygon where each vertex has an integer value. You are given an integer array values where values[i] is the value of the ith vertex (i.e., clockwise order).
+You will triangulate the polygon into n - 2 triangles. For each triangle, the value of that triangle is the product of the values of its vertices, and the total score of the triangulation is the sum of these values over all n - 2 triangles in the triangulation.
+Return the smallest possible total score that you can achieve with some triangulation of the polygon.
   Example 1:
-Input: s = "lee(t(c)o)de)"
-Output: "lee(t(c)o)de"
-Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
+Input: values = [1,2,3]
+Output: 6
+Explanation: The polygon is already triangulated, and the score of the only triangle is 6.
 Example 2:
-Input: s = "a)b(c)d"
-Output: "ab(c)d"
+Input: values = [3,7,4,5]
+Output: 144
+Explanation: There are two triangulations, with possible scores: 3*7*5 + 4*5*7 = 245, or 3*4*5 + 3*4*7 = 144.
+The minimum score is 144.
 Example 3:
-Input: s = "))(("
-Output: ""
-Explanation: An empty string is also valid.
+Input: values = [1,3,1,4,1,5]
+Output: 13
+Explanation: The minimum score triangulation has score 1*1*3 + 1*1*4 + 1*1*5 + 1*1*1 = 13.
   Constraints:
-1 <= s.length <= 105
-s[i] is either'(' , ')', or lowercase English letter.
+n == values.length
+3 <= n <= 50
+1 <= values[i] <= 100

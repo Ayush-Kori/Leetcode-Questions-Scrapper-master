@@ -1,19 +1,40 @@
-Given an array nums of integers, return how many of them contain an even number of digits.
+SQL Schema
+Table: Accounts
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| account_id  | int  |
+| income      | int  |
++-------------+------+
+account_id is the primary key for this table.
+Each row contains information about the monthly income for one bank account.
+  Write an SQL query to report the number of bank accounts of each salary category. The salary categories are:
+"Low Salary": All the salaries strictly less than $20000.
+"Average Salary": All the salaries in the inclusive range [$20000, $50000].
+"High Salary": All the salaries strictly greater than $50000.
+The result table must contain all three categories. If there are no accounts in a category, then report 0.
+Return the result table in any order.
+The query result format is in the following example.
   Example 1:
-Input: nums = [12,345,2,6,7896]
-Output: 2
+Input: 
+Accounts table:
++------------+--------+
+| account_id | income |
++------------+--------+
+| 3          | 108939 |
+| 2          | 12747  |
+| 8          | 87709  |
+| 6          | 91796  |
++------------+--------+
+Output: 
++----------------+----------------+
+| category       | accounts_count |
++----------------+----------------+
+| Low Salary     | 1              |
+| Average Salary | 0              |
+| High Salary    | 3              |
++----------------+----------------+
 Explanation: 
-12 contains 2 digits (even number of digits). 
-345 contains 3 digits (odd number of digits). 
-2 contains 1 digit (odd number of digits). 
-6 contains 1 digit (odd number of digits). 
-7896 contains 4 digits (even number of digits). 
-Therefore only 12 and 7896 contain an even number of digits.
-Example 2:
-Input: nums = [555,901,482,1771]
-Output: 1 
-Explanation: 
-Only 1771 contains an even number of digits.
-  Constraints:
-1 <= nums.length <= 500
-1 <= nums[i] <= 105
+Low Salary: Account 2.
+Average Salary: No accounts.
+High Salary: Accounts 3, 6, and 8.

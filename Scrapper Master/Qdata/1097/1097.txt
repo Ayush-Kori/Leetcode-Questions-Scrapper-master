@@ -1,12 +1,14 @@
-Given a string date representing a Gregorian calendar date formatted as YYYY-MM-DD, return the day number of the year.
+We define the usage of capitals in a word to be right when one of the following cases holds:
+All letters in this word are capitals, like "USA".
+All letters in this word are not capitals, like "leetcode".
+Only the first letter in this word is capital, like "Google".
+Given a string word, return true if the usage of capitals in it is right.
   Example 1:
-Input: date = "2019-01-09"
-Output: 9
-Explanation: Given date is the 9th day of the year in 2019.
+Input: word = "USA"
+Output: true
 Example 2:
-Input: date = "2019-02-10"
-Output: 41
+Input: word = "FlaG"
+Output: false
   Constraints:
-date.length == 10
-date[4] == date[7] == '-', and all other date[i]'s are digits
-date represents a calendar date between Jan 1st, 1900 and Dec 31th, 2019.
+1 <= word.length <= 100
+word consists of lowercase and uppercase English letters.

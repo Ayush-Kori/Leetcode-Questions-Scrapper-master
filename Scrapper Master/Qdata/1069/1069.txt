@@ -1,26 +1,20 @@
-You are currently designing a dynamic array. You are given a 0-indexed integer array nums, where nums[i] is the number of elements that will be in the array at time i. In addition, you are given an integer k, the maximum number of times you can resize the array (to any size).
-The size of the array at time t, sizet, must be at least nums[t] because there needs to be enough space in the array to hold all the elements. The space wasted at time t is defined as sizet - nums[t], and the total space wasted is the sum of the space wasted across every time t where 0 <= t < nums.length.
-Return the minimum total space wasted if you can resize the array at most k times.
-Note: The array can have any size at the start and does not count towards the number of resizing operations.
+You are given two integer arrays nums1 and nums2 of length n.
+The XOR sum of the two integer arrays is (nums1[0] XOR nums2[0]) + (nums1[1] XOR nums2[1]) + ... + (nums1[n - 1] XOR nums2[n - 1]) (0-indexed).
+For example, the XOR sum of [1,2,3] and [3,2,1] is equal to (1 XOR 3) + (2 XOR 2) + (3 XOR 1) = 2 + 0 + 2 = 4.
+Rearrange the elements of nums2 such that the resulting XOR sum is minimized.
+Return the XOR sum after the rearrangement.
   Example 1:
-Input: nums = [10,20], k = 0
-Output: 10
-Explanation: size = [20,20].
-We can set the initial size to be 20.
-The total wasted space is (20 - 10) + (20 - 20) = 10.
+Input: nums1 = [1,2], nums2 = [2,3]
+Output: 2
+Explanation: Rearrange nums2 so that it becomes [3,2].
+The XOR sum is (1 XOR 3) + (2 XOR 2) = 2 + 0 = 2.
 Example 2:
-Input: nums = [10,20,30], k = 1
-Output: 10
-Explanation: size = [20,20,30].
-We can set the initial size to be 20 and resize to 30 at time 2. 
-The total wasted space is (20 - 10) + (20 - 20) + (30 - 30) = 10.
-Example 3:
-Input: nums = [10,20,15,30,20], k = 2
-Output: 15
-Explanation: size = [10,20,20,30,30].
-We can set the initial size to 10, resize to 20 at time 1, and resize to 30 at time 3.
-The total wasted space is (10 - 10) + (20 - 20) + (20 - 15) + (30 - 30) + (30 - 20) = 15.
+Input: nums1 = [1,0,3], nums2 = [5,3,4]
+Output: 8
+Explanation: Rearrange nums2 so that it becomes [5,4,3]. 
+The XOR sum is (1 XOR 5) + (0 XOR 4) + (3 XOR 3) = 4 + 4 + 0 = 8.
   Constraints:
-1 <= nums.length <= 200
-1 <= nums[i] <= 106
-0 <= k <= nums.length - 1
+n == nums1.length
+n == nums2.length
+1 <= n <= 14
+0 <= nums1[i], nums2[i] <= 107

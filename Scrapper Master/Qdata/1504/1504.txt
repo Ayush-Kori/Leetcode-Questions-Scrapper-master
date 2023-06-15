@@ -1,24 +1,13 @@
-Given a Tic-Tac-Toe board as a string array board, return true if and only if it is possible to reach this board position during the course of a valid tic-tac-toe game.
-The board is a 3 x 3 array that consists of characters ' ', 'X', and 'O'. The ' ' character represents an empty square.
-Here are the rules of Tic-Tac-Toe:
-Players take turns placing characters into empty squares ' '.
-The first player always places 'X' characters, while the second player always places 'O' characters.
-'X' and 'O' characters are always placed into empty squares, never filled ones.
-The game ends when there are three of the same (non-empty) character filling any row, column, or diagonal.
-The game also ends if all squares are non-empty.
-No more moves can be played if the game is over.
+Given an integer array nums, return the maximum difference between two successive elements in its sorted form. If the array contains less than two elements, return 0.
+You must write an algorithm that runs in linear time and uses linear extra space.
   Example 1:
-Input: board = ["O  ","   ","   "]
-Output: false
-Explanation: The first player always plays "X".
+Input: nums = [3,6,9,1]
+Output: 3
+Explanation: The sorted form of the array is [1,3,6,9], either (3,6) or (6,9) has the maximum difference 3.
 Example 2:
-Input: board = ["XOX"," X ","   "]
-Output: false
-Explanation: Players take turns making moves.
-Example 3:
-Input: board = ["XOX","O O","XOX"]
-Output: true
+Input: nums = [10]
+Output: 0
+Explanation: The array contains less than 2 elements, therefore return 0.
   Constraints:
-board.length == 3
-board[i].length == 3
-board[i][j] is either 'X', 'O', or ' '.
+1 <= nums.length <= 105
+0 <= nums[i] <= 109

@@ -1,12 +1,12 @@
-Given the root of a binary search tree, and an integer k, return the kth smallest value (1-indexed) of all the values of the nodes in the tree.
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
   Example 1:
-Input: root = [3,1,4,null,2], k = 1
-Output: 1
+Input: s = "anagram", t = "nagaram"
+Output: true
 Example 2:
-Input: root = [5,3,6,2,4,null,null,1], k = 3
-Output: 3
+Input: s = "rat", t = "car"
+Output: false
   Constraints:
-The number of nodes in the tree is n.
-1 <= k <= n <= 104
-0 <= Node.val <= 104
-  Follow up: If the BST is modified often (i.e., we can do insert and delete operations) and you need to find the kth smallest frequently, how would you optimize?
+1 <= s.length, t.length <= 5 * 104
+s and t consist of lowercase English letters.
+  Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?

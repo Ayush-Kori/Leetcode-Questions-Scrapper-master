@@ -1,17 +1,14 @@
-You are given an integer array nums. The unique elements of an array are the elements that appear exactly once in the array.
-Return the sum of all the unique elements of nums.
+Given a date, return the corresponding day of the week for that date.
+The input is given as three integers representing the day, month and year respectively.
+Return the answer as one of the following values {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}.
   Example 1:
-Input: nums = [1,2,3,2]
-Output: 4
-Explanation: The unique elements are [1,3], and the sum is 4.
+Input: day = 31, month = 8, year = 2019
+Output: "Saturday"
 Example 2:
-Input: nums = [1,1,1,1,1]
-Output: 0
-Explanation: There are no unique elements, and the sum is 0.
+Input: day = 18, month = 7, year = 1999
+Output: "Sunday"
 Example 3:
-Input: nums = [1,2,3,4,5]
-Output: 15
-Explanation: The unique elements are [1,2,3,4,5], and the sum is 15.
+Input: day = 15, month = 8, year = 1993
+Output: "Sunday"
   Constraints:
-1 <= nums.length <= 100
-1 <= nums[i] <= 100
+The given dates are valid dates between the years 1971 and 2100.

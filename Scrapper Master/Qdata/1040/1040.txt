@@ -1,22 +1,17 @@
-Given a 0-indexed integer array nums of size n, find the maximum difference between nums[i] and nums[j] (i.e., nums[j] - nums[i]), such that 0 <= i < j < n and nums[i] < nums[j].
-Return the maximum difference. If no such i and j exists, return -1.
+Given a string s, return the maximum number of occurrences of any substring under the following rules:
+The number of unique characters in the substring must be less than or equal to maxLetters.
+The substring size must be between minSize and maxSize inclusive.
   Example 1:
-Input: nums = [7,1,5,4]
-Output: 4
-Explanation:
-The maximum difference occurs with i = 1 and j = 2, nums[j] - nums[i] = 5 - 1 = 4.
-Note that with i = 1 and j = 0, the difference nums[j] - nums[i] = 7 - 1 = 6, but i > j, so it is not valid.
+Input: s = "aababcaab", maxLetters = 2, minSize = 3, maxSize = 4
+Output: 2
+Explanation: Substring "aab" has 2 occurrences in the original string.
+It satisfies the conditions, 2 unique letters and size 3 (between minSize and maxSize).
 Example 2:
-Input: nums = [9,4,3,2]
-Output: -1
-Explanation:
-There is no i and j such that i < j and nums[i] < nums[j].
-Example 3:
-Input: nums = [1,5,2,10]
-Output: 9
-Explanation:
-The maximum difference occurs with i = 0 and j = 3, nums[j] - nums[i] = 10 - 1 = 9.
+Input: s = "aaaa", maxLetters = 1, minSize = 3, maxSize = 3
+Output: 2
+Explanation: Substring "aaa" occur 2 times in the string. It can overlap.
   Constraints:
-n == nums.length
-2 <= n <= 1000
-1 <= nums[i] <= 109
+1 <= s.length <= 105
+1 <= maxLetters <= 26
+1 <= minSize <= maxSize <= min(26, s.length)
+s consists of only lowercase English letters.

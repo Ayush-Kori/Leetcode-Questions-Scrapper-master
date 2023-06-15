@@ -1,18 +1,19 @@
-Given an integer n, return the decimal value of the binary string formed by concatenating the binary representations of 1 to n in order, modulo 109 + 7.
+You are playing a game that contains multiple characters, and each of the characters has two main properties: attack and defense. You are given a 2D integer array properties where properties[i] = [attacki, defensei] represents the properties of the ith character in the game.
+A character is said to be weak if any other character has both attack and defense levels strictly greater than this character's attack and defense levels. More formally, a character i is said to be weak if there exists another character j where attackj > attacki and defensej > defensei.
+Return the number of weak characters.
   Example 1:
-Input: n = 1
-Output: 1
-Explanation: "1" in binary corresponds to the decimal value 1. 
+Input: properties = [[5,5],[6,3],[3,6]]
+Output: 0
+Explanation: No character has strictly greater attack and defense than the other.
 Example 2:
-Input: n = 3
-Output: 27
-Explanation: In binary, 1, 2, and 3 corresponds to "1", "10", and "11".
-After concatenating them, we have "11011", which corresponds to the decimal value 27.
+Input: properties = [[2,2],[3,3]]
+Output: 1
+Explanation: The first character is weak because the second character has a strictly greater attack and defense.
 Example 3:
-Input: n = 12
-Output: 505379714
-Explanation: The concatenation results in "1101110010111011110001001101010111100".
-The decimal value of that is 118505380540.
-After modulo 109 + 7, the result is 505379714.
+Input: properties = [[1,5],[10,4],[4,3]]
+Output: 1
+Explanation: The third character is weak because the second character has a strictly greater attack and defense.
   Constraints:
-1 <= n <= 105
+2 <= properties.length <= 105
+properties[i].length == 2
+1 <= attacki, defensei <= 105

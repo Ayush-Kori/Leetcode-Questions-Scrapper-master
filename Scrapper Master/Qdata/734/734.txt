@@ -1,26 +1,15 @@
-Given an integer array nums, return the greatest common divisor of the smallest number and largest number in nums.
-The greatest common divisor of two numbers is the largest positive integer that evenly divides both numbers.
+Alice and Bob continue their games with piles of stones.  There are a number of piles arranged in a row, and each pile has a positive integer number of stones piles[i].  The objective of the game is to end with the most stones. 
+Alice and Bob take turns, with Alice starting first.  Initially, M = 1.
+On each player's turn, that player can take all the stones in the first X remaining piles, where 1 <= X <= 2M.  Then, we set M = max(M, X).
+The game continues until all the stones have been taken.
+Assuming Alice and Bob play optimally, return the maximum number of stones Alice can get.
   Example 1:
-Input: nums = [2,5,6,9,10]
-Output: 2
-Explanation:
-The smallest number in nums is 2.
-The largest number in nums is 10.
-The greatest common divisor of 2 and 10 is 2.
+Input: piles = [2,7,9,4,4]
+Output: 10
+Explanation:  If Alice takes one pile at the beginning, Bob takes two piles, then Alice takes 2 piles again. Alice can get 2 + 4 + 4 = 10 piles in total. If Alice takes two piles at the beginning, then Bob can take all three piles left. In this case, Alice get 2 + 7 = 9 piles in total. So we return 10 since it's larger. 
 Example 2:
-Input: nums = [7,5,6,8,3]
-Output: 1
-Explanation:
-The smallest number in nums is 3.
-The largest number in nums is 8.
-The greatest common divisor of 3 and 8 is 1.
-Example 3:
-Input: nums = [3,3]
-Output: 3
-Explanation:
-The smallest number in nums is 3.
-The largest number in nums is 3.
-The greatest common divisor of 3 and 3 is 3.
+Input: piles = [1,2,3,4,5,100]
+Output: 104
   Constraints:
-2 <= nums.length <= 1000
-1 <= nums[i] <= 1000
+1 <= piles.length <= 100
+1 <= piles[i] <= 104

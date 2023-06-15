@@ -1,26 +1,20 @@
-A valid number can be split up into these components (in order):
-A decimal number or an integer.
-(Optional) An 'e' or 'E', followed by an integer.
-A decimal number can be split up into these components (in order):
-(Optional) A sign character (either '+' or '-').
-One of the following formats:
-One or more digits, followed by a dot '.'.
-One or more digits, followed by a dot '.', followed by one or more digits.
-A dot '.', followed by one or more digits.
-An integer can be split up into these components (in order):
-(Optional) A sign character (either '+' or '-').
-One or more digits.
-For example, all the following are valid numbers: ["2", "0089", "-0.1", "+3.14", "4.", "-.9", "2e10", "-90E3", "3e+7", "+6e-1", "53.5e93", "-123.456e789"], while the following are not valid numbers: ["abc", "1a", "1e", "e3", "99e2.5", "--6", "-+3", "95a54e53"].
-Given a string s, return true if s is a valid number.
+You are given two 0-indexed binary strings s and target of the same length n. You can do the following operation on s any number of times:
+Choose two different indices i and j where 0 <= i, j < n.
+Simultaneously, replace s[i] with (s[i] OR s[j]) and s[j] with (s[i] XOR s[j]).
+For example, if s = "0110", you can choose i = 0 and j = 2, then simultaneously replace s[0] with (s[0] OR s[2] = 0 OR 1 = 1), and s[2] with (s[0] XOR s[2] = 0 XOR 1 = 1), so we will have s = "1110".
+Return true if you can make the string s equal to target, or false otherwise.
   Example 1:
-Input: s = "0"
+Input: s = "1010", target = "0110"
 Output: true
+Explanation: We can do the following operations:
+- Choose i = 2 and j = 0. We have now s = "0010".
+- Choose i = 2 and j = 1. We have now s = "0110".
+Since we can make s equal to target, we return true.
 Example 2:
-Input: s = "e"
+Input: s = "11", target = "00"
 Output: false
-Example 3:
-Input: s = "."
-Output: false
+Explanation: It is not possible to make s equal to target with any number of operations.
   Constraints:
-1 <= s.length <= 20
-s consists of only English letters (both uppercase and lowercase), digits (0-9), plus '+', minus '-', or dot '.'.
+n == s.length == target.length
+2 <= n <= 105
+s and target consist of only the digits 0 and 1.

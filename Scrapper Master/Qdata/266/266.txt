@@ -1,27 +1,14 @@
-Given a string word, return the sum of the number of vowels ('a', 'e', 'i', 'o', and 'u') in every substring of word.
-A substring is a contiguous (non-empty) sequence of characters within a string.
-Note: Due to the large constraints, the answer may not fit in a signed 32-bit integer. Please be careful during the calculations.
+We are given hours, a list of the number of hours worked per day for a given employee.
+A day is considered to be a tiring day if and only if the number of hours worked is (strictly) greater than 8.
+A well-performing interval is an interval of days for which the number of tiring days is strictly larger than the number of non-tiring days.
+Return the length of the longest well-performing interval.
   Example 1:
-Input: word = "aba"
-Output: 6
-Explanation: 
-All possible substrings are: "a", "ab", "aba", "b", "ba", and "a".
-- "b" has 0 vowels in it
-- "a", "ab", "ba", and "a" have 1 vowel each
-- "aba" has 2 vowels in it
-Hence, the total sum of vowels = 0 + 1 + 1 + 1 + 1 + 2 = 6. 
-Example 2:
-Input: word = "abc"
+Input: hours = [9,9,6,0,6,6,9]
 Output: 3
-Explanation: 
-All possible substrings are: "a", "ab", "abc", "b", "bc", and "c".
-- "a", "ab", and "abc" have 1 vowel each
-- "b", "bc", and "c" have 0 vowels each
-Hence, the total sum of vowels = 1 + 1 + 1 + 0 + 0 + 0 = 3.
-Example 3:
-Input: word = "ltcd"
+Explanation: The longest well-performing interval is [9,9,6].
+Example 2:
+Input: hours = [6,6,6]
 Output: 0
-Explanation: There are no vowels in any substring of "ltcd".
   Constraints:
-1 <= word.length <= 105
-word consists of lowercase English letters.
+1 <= hours.length <= 104
+0 <= hours[i] <= 16

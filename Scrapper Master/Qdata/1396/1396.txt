@@ -1,19 +1,14 @@
-There are n bulbs that are initially off. You first turn on all the bulbs, then you turn off every second bulb.
-On the third round, you toggle every third bulb (turning on if it's off or turning off if it's on). For the ith round, you toggle every i bulb. For the nth round, you only toggle the last bulb.
-Return the number of bulbs that are on after n rounds.
+Given two strings first and second, consider occurrences in some text of the form "first second third", where second comes immediately after first, and third comes immediately after second.
+Return an array of all the words third for each occurrence of "first second third".
   Example 1:
-Input: n = 3
-Output: 1
-Explanation: At first, the three bulbs are [off, off, off].
-After the first round, the three bulbs are [on, on, on].
-After the second round, the three bulbs are [on, off, on].
-After the third round, the three bulbs are [on, off, off]. 
-So you should return 1 because there is only one bulb is on.
+Input: text = "alice is a good girl she is a good student", first = "a", second = "good"
+Output: ["girl","student"]
 Example 2:
-Input: n = 0
-Output: 0
-Example 3:
-Input: n = 1
-Output: 1
+Input: text = "we will we will rock you", first = "we", second = "will"
+Output: ["we","rock"]
   Constraints:
-0 <= n <= 109
+1 <= text.length <= 1000
+text consists of lowercase English letters and spaces.
+All the words in text a separated by a single space.
+1 <= first.length, second.length <= 10
+first and second consist of lowercase English letters.

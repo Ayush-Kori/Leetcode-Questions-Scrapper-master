@@ -1,24 +1,21 @@
-You are given two arrays of integers nums1 and nums2, possibly of different lengths. The values in the arrays are between 1 and 6, inclusive.
-In one operation, you can change any integer's value in any of the arrays to any value between 1 and 6, inclusive.
-Return the minimum number of operations required to make the sum of values in nums1 equal to the sum of values in nums2. Return -1 if it is not possible to make the sum of the two arrays equal.
+A linked list of length n is given such that each node contains an additional random pointer, which could point to any node in the list, or null.
+Construct a deep copy of the list. The deep copy should consist of exactly n brand new nodes, where each new node has its value set to the value of its corresponding original node. Both the next and random pointer of the new nodes should point to new nodes in the copied list such that the pointers in the original list and copied list represent the same list state. None of the pointers in the new list should point to nodes in the original list.
+For example, if there are two nodes X and Y in the original list, where X.random --> Y, then for the corresponding two nodes x and y in the copied list, x.random --> y.
+Return the head of the copied linked list.
+The linked list is represented in the input/output as a list of n nodes. Each node is represented as a pair of [val, random_index] where:
+val: an integer representing Node.val
+random_index: the index of the node (range from 0 to n-1) that the random pointer points to, or null if it does not point to any node.
+Your code will only be given the head of the original linked list.
   Example 1:
-Input: nums1 = [1,2,3,4,5,6], nums2 = [1,1,2,2,2,2]
-Output: 3
-Explanation: You can make the sums of nums1 and nums2 equal with 3 operations. All indices are 0-indexed.
-- Change nums2[0] to 6. nums1 = [1,2,3,4,5,6], nums2 = [6,1,2,2,2,2].
-- Change nums1[5] to 1. nums1 = [1,2,3,4,5,1], nums2 = [6,1,2,2,2,2].
-- Change nums1[2] to 2. nums1 = [1,2,2,4,5,1], nums2 = [6,1,2,2,2,2].
+Input: head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
+Output: [[7,null],[13,0],[11,4],[10,2],[1,0]]
 Example 2:
-Input: nums1 = [1,1,1,1,1,1,1], nums2 = [6]
-Output: -1
-Explanation: There is no way to decrease the sum of nums1 or to increase the sum of nums2 to make them equal.
+Input: head = [[1,1],[2,1]]
+Output: [[1,1],[2,1]]
 Example 3:
-Input: nums1 = [6,6], nums2 = [1]
-Output: 3
-Explanation: You can make the sums of nums1 and nums2 equal with 3 operations. All indices are 0-indexed. 
-- Change nums1[0] to 2. nums1 = [2,6], nums2 = [1].
-- Change nums1[1] to 2. nums1 = [2,2], nums2 = [1].
-- Change nums2[0] to 4. nums1 = [2,2], nums2 = [4].
+Input: head = [[3,null],[3,0],[3,null]]
+Output: [[3,null],[3,0],[3,null]]
   Constraints:
-1 <= nums1.length, nums2.length <= 105
-1 <= nums1[i], nums2[i] <= 6
+0 <= n <= 1000
+-104 <= Node.val <= 104
+Node.random is null or is pointing to some node in the linked list.

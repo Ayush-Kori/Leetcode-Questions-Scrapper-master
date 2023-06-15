@@ -1,25 +1,20 @@
-The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
-P   A   H   N
-A P L S I I G
-Y   I   R
-And then read line by line: "PAHNAPLSIIGYIR"
-Write the code that will take a string and make this conversion given a number of rows:
-string convert(string s, int numRows);
+We are playing the Guess Game. The game is as follows:
+I pick a number from 1 to n. You have to guess which number I picked.
+Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess.
+You call a pre-defined API int guess(int num), which returns three possible results:
+-1: Your guess is higher than the number I picked (i.e. num > pick).
+1: Your guess is lower than the number I picked (i.e. num < pick).
+0: your guess is equal to the number I picked (i.e. num == pick).
+Return the number that I picked.
   Example 1:
-Input: s = "PAYPALISHIRING", numRows = 3
-Output: "PAHNAPLSIIGYIR"
+Input: n = 10, pick = 6
+Output: 6
 Example 2:
-Input: s = "PAYPALISHIRING", numRows = 4
-Output: "PINALSIGYAHRPI"
-Explanation:
-P     I    N
-A   L S  I G
-Y A   H R
-P     I
+Input: n = 1, pick = 1
+Output: 1
 Example 3:
-Input: s = "A", numRows = 1
-Output: "A"
+Input: n = 2, pick = 1
+Output: 1
   Constraints:
-1 <= s.length <= 1000
-s consists of English letters (lower-case and upper-case), ',' and '.'.
-1 <= numRows <= 1000
+1 <= n <= 231 - 1
+1 <= pick <= n

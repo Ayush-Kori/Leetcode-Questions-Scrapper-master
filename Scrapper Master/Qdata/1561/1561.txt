@@ -1,10 +1,13 @@
-Given two integers n and k, return the kth lexicographically smallest integer in the range [1, n].
+You are given a 0-indexed integer array nums representing the score of students in an exam. The teacher would like to form one non-empty group of students with maximal strength, where the strength of a group of students of indices i0, i1, i2, ... , ik is defined as nums[i0] * nums[i1] * nums[i2] * ... * nums[ik].
+Return the maximum strength of a group the teacher can create.
   Example 1:
-Input: n = 13, k = 2
-Output: 10
-Explanation: The lexicographical order is [1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9], so the second smallest number is 10.
+Input: nums = [3,-1,-5,2,5,-9]
+Output: 1350
+Explanation: One way to form a group of maximal strength is to group the students at indices [0,2,3,4,5]. Their strength is 3 * (-5) * 2 * 5 * (-9) = 1350, which we can show is optimal.
 Example 2:
-Input: n = 1, k = 1
-Output: 1
+Input: nums = [-4,-5,-4]
+Output: 20
+Explanation: Group the students at indices [0, 1] . Then, we’ll have a resulting strength of 20. We cannot achieve greater strength.
   Constraints:
-1 <= k <= n <= 109
+1 <= nums.length <= 13
+-9 <= nums[i] <= 9

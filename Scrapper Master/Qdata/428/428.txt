@@ -1,25 +1,27 @@
-Given a sentence text (A sentence is a string of space-separated words) in the following format:
-First letter is in upper case.
-Each word in text are separated by a single space.
-Your task is to rearrange the words in text such that all words are rearranged in an increasing order of their lengths. If two words have the same length, arrange them in their original order.
-Return the new text following the format shown above.
+Design an iterator that supports the peek operation on an existing iterator in addition to the hasNext and the next operations.
+Implement the PeekingIterator class:
+PeekingIterator(Iterator<int> nums) Initializes the object with the given integer iterator iterator.
+int next() Returns the next element in the array and moves the pointer to the next element.
+boolean hasNext() Returns true if there are still elements in the array.
+int peek() Returns the next element in the array without moving the pointer.
+Note: Each language may have a different implementation of the constructor and Iterator, but they all support the int next() and boolean hasNext() functions.
   Example 1:
-Input: text = "Leetcode is cool"
-Output: "Is cool leetcode"
-Explanation: There are 3 words, "Leetcode" of length 8, "is" of length 2 and "cool" of length 4.
-Output is ordered by length and the new first word starts with capital letter.
-Example 2:
-Input: text = "Keep calm and code on"
-Output: "On and keep calm code"
-Explanation: Output is ordered as follows:
-"On" 2 letters.
-"and" 3 letters.
-"keep" 4 letters in case of tie order by position in original text.
-"calm" 4 letters.
-"code" 4 letters.
-Example 3:
-Input: text = "To be or not to be"
-Output: "To be or to be not"
+Input
+["PeekingIterator", "next", "peek", "next", "next", "hasNext"]
+[[[1, 2, 3]], [], [], [], [], []]
+Output
+[null, 1, 2, 2, 3, false]
+
+Explanation
+PeekingIterator peekingIterator = new PeekingIterator([1, 2, 3]); // [1,2,3]
+peekingIterator.next();    // return 1, the pointer moves to the next element [1,2,3].
+peekingIterator.peek();    // return 2, the pointer does not move [1,2,3].
+peekingIterator.next();    // return 2, the pointer moves to the next element [1,2,3]
+peekingIterator.next();    // return 3, the pointer moves to the next element [1,2,3]
+peekingIterator.hasNext(); // return False
   Constraints:
-text begins with a capital letter and then contains lowercase letters and single space between words.
-1 <= text.length <= 10^5
+1 <= nums.length <= 1000
+1 <= nums[i] <= 1000
+All the calls to next and peek are valid.
+At most 1000 calls will be made to next, hasNext, and peek.
+  Follow up: How would you extend your design to be generic and work with all types, not just integer?

@@ -1,26 +1,15 @@
-A string s can be partitioned into groups of size k using the following procedure:
-The first group consists of the first k characters of the string, the second group consists of the next k characters of the string, and so on. Each character can be a part of exactly one group.
-For the last group, if the string does not have k characters remaining, a character fill is used to complete the group.
-Note that the partition is done so that after removing the fill character from the last group (if it exists) and concatenating all the groups in order, the resultant string should be s.
-Given the string s, the size of each group k and the character fill, return a string array denoting the composition of every group s has been divided into, using the above procedure.
+A binary watch has 4 LEDs on the top to represent the hours (0-11), and 6 LEDs on the bottom to represent the minutes (0-59). Each LED represents a zero or one, with the least significant bit on the right.
+For example, the below binary watch reads "4:51".
+Given an integer turnedOn which represents the number of LEDs that are currently on (ignoring the PM), return all possible times the watch could represent. You may return the answer in any order.
+The hour must not contain a leading zero.
+For example, "01:00" is not valid. It should be "1:00".
+The minute must be consist of two digits and may contain a leading zero.
+For example, "10:2" is not valid. It should be "10:02".
   Example 1:
-Input: s = "abcdefghi", k = 3, fill = "x"
-Output: ["abc","def","ghi"]
-Explanation:
-The first 3 characters "abc" form the first group.
-The next 3 characters "def" form the second group.
-The last 3 characters "ghi" form the third group.
-Since all groups can be completely filled by characters from the string, we do not need to use fill.
-Thus, the groups formed are "abc", "def", and "ghi".
+Input: turnedOn = 1
+Output: ["0:01","0:02","0:04","0:08","0:16","0:32","1:00","2:00","4:00","8:00"]
 Example 2:
-Input: s = "abcdefghij", k = 3, fill = "x"
-Output: ["abc","def","ghi","jxx"]
-Explanation:
-Similar to the previous example, we are forming the first three groups "abc", "def", and "ghi".
-For the last group, we can only use the character 'j' from the string. To complete this group, we add 'x' twice.
-Thus, the 4 groups formed are "abc", "def", "ghi", and "jxx".
+Input: turnedOn = 9
+Output: []
   Constraints:
-1 <= s.length <= 100
-s consists of lowercase English letters only.
-1 <= k <= 100
-fill is a lowercase English letter.
+0 <= turnedOn <= 10

@@ -1,21 +1,18 @@
-You are given an array of strings products and a string searchWord.
-Design a system that suggests at most three product names from products after each character of searchWord is typed. Suggested products should have common prefix with searchWord. If there are more than three products with a common prefix return the three lexicographically minimums products.
-Return a list of lists of the suggested products after each character of searchWord is typed.
+Given a string s, return the maximum number of unique substrings that the given string can be split into.
+You can split string s into any list of non-empty substrings, where the concatenation of the substrings forms the original string. However, you must split the substrings such that all of them are unique.
+A substring is a contiguous sequence of characters within a string.
   Example 1:
-Input: products = ["mobile","mouse","moneypot","monitor","mousepad"], searchWord = "mouse"
-Output: [["mobile","moneypot","monitor"],["mobile","moneypot","monitor"],["mouse","mousepad"],["mouse","mousepad"],["mouse","mousepad"]]
-Explanation: products sorted lexicographically = ["mobile","moneypot","monitor","mouse","mousepad"].
-After typing m and mo all products match and we show user ["mobile","moneypot","monitor"].
-After typing mou, mous and mouse the system suggests ["mouse","mousepad"].
+Input: s = "ababccc"
+Output: 5
+Explanation: One way to split maximally is ['a', 'b', 'ab', 'c', 'cc']. Splitting like ['a', 'b', 'a', 'b', 'c', 'cc'] is not valid as you have 'a' and 'b' multiple times.
 Example 2:
-Input: products = ["havana"], searchWord = "havana"
-Output: [["havana"],["havana"],["havana"],["havana"],["havana"],["havana"]]
-Explanation: The only word "havana" will be always suggested while typing the search word.
+Input: s = "aba"
+Output: 2
+Explanation: One way to split maximally is ['a', 'ba'].
+Example 3:
+Input: s = "aa"
+Output: 1
+Explanation: It is impossible to split the string any further.
   Constraints:
-1 <= products.length <= 1000
-1 <= products[i].length <= 3000
-1 <= sum(products[i].length) <= 2 * 104
-All the strings of products are unique.
-products[i] consists of lowercase English letters.
-1 <= searchWord.length <= 1000
-searchWord consists of lowercase English letters.
+1 <= s.length <= 16
+s contains only lower case English letters.

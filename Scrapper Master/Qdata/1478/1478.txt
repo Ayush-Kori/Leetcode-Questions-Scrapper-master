@@ -1,23 +1,35 @@
-You are given a 0-indexed integer array nums of length n.
-You can perform the following operation as many times as you want:
-Pick an index i that you haven’t picked before, and pick a prime p strictly less than nums[i], then subtract p from nums[i].
-Return true if you can make nums a strictly increasing array using the above operation and false otherwise.
-A strictly increasing array is an array whose each element is strictly greater than its preceding element.
+As the ruler of a kingdom, you have an army of wizards at your command.
+You are given a 0-indexed integer array strength, where strength[i] denotes the strength of the ith wizard. For a contiguous group of wizards (i.e. the wizards' strengths form a subarray of strength), the total strength is defined as the product of the following two values:
+The strength of the weakest wizard in the group.
+The total of all the individual strengths of the wizards in the group.
+Return the sum of the total strengths of all contiguous groups of wizards. Since the answer may be very large, return it modulo 109 + 7.
+A subarray is a contiguous non-empty sequence of elements within an array.
   Example 1:
-Input: nums = [4,9,6,10]
-Output: true
-Explanation: In the first operation: Pick i = 0 and p = 3, and then subtract 3 from nums[0], so that nums becomes [1,9,6,10].
-In the second operation: i = 1, p = 7, subtract 7 from nums[1], so nums becomes equal to [1,2,6,10].
-After the second operation, nums is sorted in strictly increasing order, so the answer is true.
+Input: strength = [1,3,1,2]
+Output: 44
+Explanation: The following are all the contiguous groups of wizards:
+- [1] from [1,3,1,2] has a total strength of min([1]) * sum([1]) = 1 * 1 = 1
+- [3] from [1,3,1,2] has a total strength of min([3]) * sum([3]) = 3 * 3 = 9
+- [1] from [1,3,1,2] has a total strength of min([1]) * sum([1]) = 1 * 1 = 1
+- [2] from [1,3,1,2] has a total strength of min([2]) * sum([2]) = 2 * 2 = 4
+- [1,3] from [1,3,1,2] has a total strength of min([1,3]) * sum([1,3]) = 1 * 4 = 4
+- [3,1] from [1,3,1,2] has a total strength of min([3,1]) * sum([3,1]) = 1 * 4 = 4
+- [1,2] from [1,3,1,2] has a total strength of min([1,2]) * sum([1,2]) = 1 * 3 = 3
+- [1,3,1] from [1,3,1,2] has a total strength of min([1,3,1]) * sum([1,3,1]) = 1 * 5 = 5
+- [3,1,2] from [1,3,1,2] has a total strength of min([3,1,2]) * sum([3,1,2]) = 1 * 6 = 6
+- [1,3,1,2] from [1,3,1,2] has a total strength of min([1,3,1,2]) * sum([1,3,1,2]) = 1 * 7 = 7
+The sum of all the total strengths is 1 + 9 + 1 + 4 + 4 + 4 + 3 + 5 + 6 + 7 = 44.
 Example 2:
-Input: nums = [6,8,11,12]
-Output: true
-Explanation: Initially nums is sorted in strictly increasing order, so we don't need to make any operations.
-Example 3:
-Input: nums = [5,8,3]
-Output: false
-Explanation: It can be proven that there is no way to perform operations to make nums sorted in strictly increasing order, so the answer is false.
+Input: strength = [5,4,6]
+Output: 213
+Explanation: The following are all the contiguous groups of wizards: 
+- [5] from [5,4,6] has a total strength of min([5]) * sum([5]) = 5 * 5 = 25
+- [4] from [5,4,6] has a total strength of min([4]) * sum([4]) = 4 * 4 = 16
+- [6] from [5,4,6] has a total strength of min([6]) * sum([6]) = 6 * 6 = 36
+- [5,4] from [5,4,6] has a total strength of min([5,4]) * sum([5,4]) = 4 * 9 = 36
+- [4,6] from [5,4,6] has a total strength of min([4,6]) * sum([4,6]) = 4 * 10 = 40
+- [5,4,6] from [5,4,6] has a total strength of min([5,4,6]) * sum([5,4,6]) = 4 * 15 = 60
+The sum of all the total strengths is 25 + 16 + 36 + 36 + 40 + 60 = 213.
   Constraints:
-1 <= nums.length <= 1000
-1 <= nums[i] <= 1000
-nums.length == n
+1 <= strength.length <= 105
+1 <= strength[i] <= 109

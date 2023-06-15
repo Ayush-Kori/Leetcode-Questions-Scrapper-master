@@ -1,20 +1,30 @@
-You are given an array of integers stones where stones[i] is the weight of the ith stone.
-We are playing a game with the stones. On each turn, we choose the heaviest two stones and smash them together. Suppose the heaviest two stones have weights x and y with x <= y. The result of this smash is:
-If x == y, both stones are destroyed, and
-If x != y, the stone of weight x is destroyed, and the stone of weight y has new weight y - x.
-At the end of the game, there is at most one stone left.
-Return the weight of the last remaining stone. If there are no stones left, return 0.
+You are playing a game with integers. You start with the integer 1 and you want to reach the integer target.
+In one move, you can either:
+Increment the current integer by one (i.e., x = x + 1).
+Double the current integer (i.e., x = 2 * x).
+You can use the increment operation any number of times, however, you can only use the double operation at most maxDoubles times.
+Given the two integers target and maxDoubles, return the minimum number of moves needed to reach target starting with 1.
   Example 1:
-Input: stones = [2,7,4,1,8,1]
-Output: 1
-Explanation: 
-We combine 7 and 8 to get 1 so the array converts to [2,4,1,1,1] then,
-we combine 2 and 4 to get 2 so the array converts to [2,1,1,1] then,
-we combine 2 and 1 to get 1 so the array converts to [1,1,1] then,
-we combine 1 and 1 to get 0 so the array converts to [1] then that's the value of the last stone.
+Input: target = 5, maxDoubles = 0
+Output: 4
+Explanation: Keep incrementing by 1 until you reach target.
 Example 2:
-Input: stones = [1]
-Output: 1
+Input: target = 19, maxDoubles = 2
+Output: 7
+Explanation: Initially, x = 1
+Increment 3 times so x = 4
+Double once so x = 8
+Increment once so x = 9
+Double again so x = 18
+Increment once so x = 19
+Example 3:
+Input: target = 10, maxDoubles = 4
+Output: 4
+Explanation: Initially, x = 1
+Increment once so x = 2
+Double once so x = 4
+Increment once so x = 5
+Double again so x = 10
   Constraints:
-1 <= stones.length <= 30
-1 <= stones[i] <= 1000
+1 <= target <= 109
+0 <= maxDoubles <= 100

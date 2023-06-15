@@ -1,24 +1,23 @@
-Given the root of a binary tree, replace the value of each node in the tree with the sum of all its cousins' values.
-Two nodes of a binary tree are cousins if they have the same depth with different parents.
-Return the root of the modified tree.
-Note that the depth of a node is the number of edges in the path from the root node to it.
+Given a string licensePlate and an array of strings words, find the shortest completing word in words.
+A completing word is a word that contains all the letters in licensePlate. Ignore numbers and spaces in licensePlate, and treat letters as case insensitive. If a letter appears more than once in licensePlate, then it must appear in the word the same number of times or more.
+For example, if licensePlate = "aBc 12c", then it contains letters 'a', 'b' (ignoring case), and 'c' twice. Possible completing words are "abccdef", "caaacab", and "cbca".
+Return the shortest completing word in words. It is guaranteed an answer exists. If there are multiple shortest completing words, return the first one that occurs in words.
   Example 1:
-Input: root = [5,4,9,1,10,null,7]
-Output: [0,0,0,7,7,null,11]
-Explanation: The diagram above shows the initial binary tree and the binary tree after changing the value of each node.
-- Node with value 5 does not have any cousins so its sum is 0.
-- Node with value 4 does not have any cousins so its sum is 0.
-- Node with value 9 does not have any cousins so its sum is 0.
-- Node with value 1 has a cousin with value 7 so its sum is 7.
-- Node with value 10 has a cousin with value 7 so its sum is 7.
-- Node with value 7 has cousins with values 1 and 10 so its sum is 11.
+Input: licensePlate = "1s3 PSt", words = ["step","steps","stripe","stepple"]
+Output: "steps"
+Explanation: licensePlate contains letters 's', 'p', 's' (ignoring case), and 't'.
+"step" contains 't' and 'p', but only contains 1 's'.
+"steps" contains 't', 'p', and both 's' characters.
+"stripe" is missing an 's'.
+"stepple" is missing an 's'.
+Since "steps" is the only word containing all the letters, that is the answer.
 Example 2:
-Input: root = [3,1,2]
-Output: [0,0,0]
-Explanation: The diagram above shows the initial binary tree and the binary tree after changing the value of each node.
-- Node with value 3 does not have any cousins so its sum is 0.
-- Node with value 1 does not have any cousins so its sum is 0.
-- Node with value 2 does not have any cousins so its sum is 0.
+Input: licensePlate = "1s3 456", words = ["looks","pest","stew","show"]
+Output: "pest"
+Explanation: licensePlate only contains the letter 's'. All the words contain 's', but among these "pest", "stew", and "show" are shortest. The answer is "pest" because it is the word that appears earliest of the 3.
   Constraints:
-The number of nodes in the tree is in the range [1, 105].
-1 <= Node.val <= 104
+1 <= licensePlate.length <= 7
+licensePlate contains digits, letters (uppercase or lowercase), or space ' '.
+1 <= words.length <= 1000
+1 <= words[i].length <= 15
+words[i] consists of lower case English letters.

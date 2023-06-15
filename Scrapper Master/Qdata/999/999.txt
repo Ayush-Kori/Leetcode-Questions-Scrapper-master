@@ -1,33 +1,42 @@
-You are given an integer array nums. The range of a subarray of nums is the difference between the largest and smallest element in the subarray.
-Return the sum of all subarray ranges of nums.
-A subarray is a contiguous non-empty sequence of elements within an array.
+There is a special typewriter with lowercase English letters 'a' to 'z' arranged in a circle with a pointer. A character can only be typed if the pointer is pointing to that character. The pointer is initially pointing to the character 'a'.
+Each second, you may perform one of the following operations:
+Move the pointer one character counterclockwise or clockwise.
+Type the character the pointer is currently on.
+Given a string word, return the minimum number of seconds to type out the characters in word.
   Example 1:
-Input: nums = [1,2,3]
-Output: 4
-Explanation: The 6 subarrays of nums are the following:
-[1], range = largest - smallest = 1 - 1 = 0 
-[2], range = 2 - 2 = 0
-[3], range = 3 - 3 = 0
-[1,2], range = 2 - 1 = 1
-[2,3], range = 3 - 2 = 1
-[1,2,3], range = 3 - 1 = 2
-So the sum of all ranges is 0 + 0 + 0 + 1 + 1 + 2 = 4.
+Input: word = "abc"
+Output: 5
+Explanation: 
+The characters are printed as follows:
+- Type the character 'a' in 1 second since the pointer is initially on 'a'.
+- Move the pointer clockwise to 'b' in 1 second.
+- Type the character 'b' in 1 second.
+- Move the pointer clockwise to 'c' in 1 second.
+- Type the character 'c' in 1 second.
 Example 2:
-Input: nums = [1,3,3]
-Output: 4
-Explanation: The 6 subarrays of nums are the following:
-[1], range = largest - smallest = 1 - 1 = 0
-[3], range = 3 - 3 = 0
-[3], range = 3 - 3 = 0
-[1,3], range = 3 - 1 = 2
-[3,3], range = 3 - 3 = 0
-[1,3,3], range = 3 - 1 = 2
-So the sum of all ranges is 0 + 0 + 0 + 2 + 0 + 2 = 4.
+Input: word = "bza"
+Output: 7
+Explanation:
+The characters are printed as follows:
+- Move the pointer clockwise to 'b' in 1 second.
+- Type the character 'b' in 1 second.
+- Move the pointer counterclockwise to 'z' in 2 seconds.
+- Type the character 'z' in 1 second.
+- Move the pointer clockwise to 'a' in 1 second.
+- Type the character 'a' in 1 second.
 Example 3:
-Input: nums = [4,-2,-3,4,1]
-Output: 59
-Explanation: The sum of all subarray ranges of nums is 59.
+Input: word = "zjpc"
+Output: 34
+Explanation:
+The characters are printed as follows:
+- Move the pointer counterclockwise to 'z' in 1 second.
+- Type the character 'z' in 1 second.
+- Move the pointer clockwise to 'j' in 10 seconds.
+- Type the character 'j' in 1 second.
+- Move the pointer clockwise to 'p' in 6 seconds.
+- Type the character 'p' in 1 second.
+- Move the pointer counterclockwise to 'c' in 13 seconds.
+- Type the character 'c' in 1 second.
   Constraints:
-1 <= nums.length <= 1000
--109 <= nums[i] <= 109
-  Follow-up: Could you find a solution with O(n) time complexity?
+1 <= word.length <= 100
+word consists of lowercase English letters.

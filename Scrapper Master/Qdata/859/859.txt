@@ -1,23 +1,19 @@
-Given the root of a binary tree, construct a 0-indexed m x n string matrix res that represents a formatted layout of the tree. The formatted layout matrix should be constructed using the following rules:
-The height of the tree is height and the number of rows m should be equal to height + 1.
-The number of columns n should be equal to 2height+1 - 1.
-Place the root node in the middle of the top row (more formally, at location res[0][(n-1)/2]).
-For each node that has been placed in the matrix at position res[r][c], place its left child at res[r+1][c-2height-r-1] and its right child at res[r+1][c+2height-r-1].
-Continue this process until all the nodes in the tree have been placed.
-Any empty cells should contain the empty string "".
-Return the constructed matrix res.
+Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
   Example 1:
-Input: root = [1,2]
-Output: 
-[["","1",""],
- ["2","",""]]
+Input: nums = [3,0,1]
+Output: 2
+Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.
 Example 2:
-Input: root = [1,2,3,null,4]
-Output: 
-[["","","","1","","",""],
- ["","2","","","","3",""],
- ["","","4","","","",""]]
+Input: nums = [0,1]
+Output: 2
+Explanation: n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 2 is the missing number in the range since it does not appear in nums.
+Example 3:
+Input: nums = [9,6,4,2,3,5,7,0,1]
+Output: 8
+Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.
   Constraints:
-The number of nodes in the tree is in the range [1, 210].
--99 <= Node.val <= 99
-The depth of the tree will be in the range [1, 10].
+n == nums.length
+1 <= n <= 104
+0 <= nums[i] <= n
+All the numbers of nums are unique.
+  Follow up: Could you implement a solution using only O(1) extra space complexity and O(n) runtime complexity?

@@ -1,22 +1,26 @@
-At a lemonade stand, each lemonade costs $5. Customers are standing in a queue to buy from you and order one at a time (in the order specified by bills). Each customer will only buy one lemonade and pay with either a $5, $10, or $20 bill. You must provide the correct change to each customer so that the net transaction is that the customer pays $5.
-Note that you do not have any change in hand at first.
-Given an integer array bills where bills[i] is the bill the ith customer pays, return true if you can provide every customer with the correct change, or false otherwise.
+You are given an integer array nums. In one operation, you can replace any element in nums with any integer.
+nums is considered continuous if both of the following conditions are fulfilled:
+All elements in nums are unique.
+The difference between the maximum element and the minimum element in nums equals nums.length - 1.
+For example, nums = [4, 2, 5, 3] is continuous, but nums = [1, 2, 3, 5, 6] is not continuous.
+Return the minimum number of operations to make nums continuous.
   Example 1:
-Input: bills = [5,5,5,10,20]
-Output: true
-Explanation: 
-From the first 3 customers, we collect three $5 bills in order.
-From the fourth customer, we collect a $10 bill and give back a $5.
-From the fifth customer, we give a $10 bill and a $5 bill.
-Since all customers got correct change, we output true.
+Input: nums = [4,2,5,3]
+Output: 0
+Explanation: nums is already continuous.
 Example 2:
-Input: bills = [5,5,10,10,20]
-Output: false
-Explanation: 
-From the first two customers in order, we collect two $5 bills.
-For the next two customers in order, we collect a $10 bill and give back a $5 bill.
-For the last customer, we can not give the change of $15 back because we only have two $10 bills.
-Since not every customer received the correct change, the answer is false.
+Input: nums = [1,2,3,5,6]
+Output: 1
+Explanation: One possible solution is to change the last element to 4.
+The resulting array is [1,2,3,5,4], which is continuous.
+Example 3:
+Input: nums = [1,10,100,1000]
+Output: 3
+Explanation: One possible solution is to:
+- Change the second element to 2.
+- Change the third element to 3.
+- Change the fourth element to 4.
+The resulting array is [1,2,3,4], which is continuous.
   Constraints:
-1 <= bills.length <= 105
-bills[i] is either 5, 10, or 20.
+1 <= nums.length <= 105
+1 <= nums[i] <= 109

@@ -1,24 +1,25 @@
-Alice and Bob continue their games with piles of stones. There are several stones arranged in a row, and each stone has an associated value which is an integer given in the array stoneValue.
-Alice and Bob take turns, with Alice starting first. On each player's turn, that player can take 1, 2, or 3 stones from the first remaining stones in the row.
-The score of each player is the sum of the values of the stones taken. The score of each player is 0 initially.
-The objective of the game is to end with the highest score, and the winner is the player with the highest score and there could be a tie. The game continues until all the stones have been taken.
-Assume Alice and Bob play optimally.
-Return "Alice" if Alice will win, "Bob" if Bob will win, or "Tie" if they will end the game with the same score.
+A virus is spreading rapidly, and your task is to quarantine the infected area by installing walls.
+The world is modeled as an m x n binary grid isInfected, where isInfected[i][j] == 0 represents uninfected cells, and isInfected[i][j] == 1 represents cells contaminated with the virus. A wall (and only one wall) can be installed between any two 4-directionally adjacent cells, on the shared boundary.
+Every night, the virus spreads to all neighboring cells in all four directions unless blocked by a wall. Resources are limited. Each day, you can install walls around only one region (i.e., the affected area (continuous block of infected cells) that threatens the most uninfected cells the following night). There will never be a tie.
+Return the number of walls used to quarantine all the infected regions. If the world will become fully infected, return the number of walls used.
   Example 1:
-Input: values = [1,2,3,7]
-Output: "Bob"
-Explanation: Alice will always lose. Her best move will be to take three piles and the score become 6. Now the score of Bob is 7 and Bob wins.
+Input: isInfected = [[0,1,0,0,0,0,0,1],[0,1,0,0,0,0,0,1],[0,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,0]]
+Output: 10
+Explanation: There are 2 contaminated regions.
+On the first day, add 5 walls to quarantine the viral region on the left. The board after the virus spreads is:
+On the second day, add 5 walls to quarantine the viral region on the right. The virus is fully contained.
 Example 2:
-Input: values = [1,2,3,-9]
-Output: "Alice"
-Explanation: Alice must choose all the three piles at the first move to win and leave Bob with negative score.
-If Alice chooses one pile her score will be 1 and the next move Bob's score becomes 5. In the next move, Alice will take the pile with value = -9 and lose.
-If Alice chooses two piles her score will be 3 and the next move Bob's score becomes 3. In the next move, Alice will take the pile with value = -9 and also lose.
-Remember that both play optimally so here Alice will choose the scenario that makes her win.
+Input: isInfected = [[1,1,1],[1,0,1],[1,1,1]]
+Output: 4
+Explanation: Even though there is only one cell saved, there are 4 walls built.
+Notice that walls are only built on the shared boundary of two different cells.
 Example 3:
-Input: values = [1,2,3,6]
-Output: "Tie"
-Explanation: Alice cannot win this game. She can end the game in a draw if she decided to choose all the first three piles, otherwise she will lose.
+Input: isInfected = [[1,1,1,0,0,0,0,0,0],[1,0,1,0,1,1,1,1,1],[1,1,1,0,0,0,0,0,0]]
+Output: 13
+Explanation: The region on the left only builds two new walls.
   Constraints:
-1 <= stoneValue.length <= 5 * 104
--1000 <= stoneValue[i] <= 1000
+m == isInfected.length
+n == isInfected[i].length
+1 <= m, n <= 50
+isInfected[i][j] is either 0 or 1.
+There is always a contiguous viral region throughout the described process that will infect strictly more uncontaminated squares in the next round.

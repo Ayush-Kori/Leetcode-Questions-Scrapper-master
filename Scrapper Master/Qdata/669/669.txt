@@ -1,28 +1,18 @@
-Given a (0-indexed) integer array nums and two integers low and high, return the number of nice pairs.
-A nice pair is a pair (i, j) where 0 <= i < j < nums.length and low <= (nums[i] XOR nums[j]) <= high.
+There are n children standing in a line. Each child is assigned a rating value given in the integer array ratings.
+You are giving candies to these children subjected to the following requirements:
+Each child must have at least one candy.
+Children with a higher rating get more candies than their neighbors.
+Return the minimum number of candies you need to have to distribute the candies to the children.
   Example 1:
-Input: nums = [1,4,2,7], low = 2, high = 6
-Output: 6
-Explanation: All nice pairs (i, j) are as follows:
-    - (0, 1): nums[0] XOR nums[1] = 5 
-    - (0, 2): nums[0] XOR nums[2] = 3
-    - (0, 3): nums[0] XOR nums[3] = 6
-    - (1, 2): nums[1] XOR nums[2] = 6
-    - (1, 3): nums[1] XOR nums[3] = 3
-    - (2, 3): nums[2] XOR nums[3] = 5
+Input: ratings = [1,0,2]
+Output: 5
+Explanation: You can allocate to the first, second and third child with 2, 1, 2 candies respectively.
 Example 2:
-Input: nums = [9,8,4,2,1], low = 5, high = 14
-Output: 8
-Explanation: All nice pairs (i, j) are as follows:
-    - (0, 2): nums[0] XOR nums[2] = 13
-    - (0, 3): nums[0] XOR nums[3] = 11
-    - (0, 4): nums[0] XOR nums[4] = 8
-    - (1, 2): nums[1] XOR nums[2] = 12
-    - (1, 3): nums[1] XOR nums[3] = 10
-    - (1, 4): nums[1] XOR nums[4] = 9
-    - (2, 3): nums[2] XOR nums[3] = 6
-    - (2, 4): nums[2] XOR nums[4] = 5
+Input: ratings = [1,2,2]
+Output: 4
+Explanation: You can allocate to the first, second and third child with 1, 2, 1 candies respectively.
+The third child gets 1 candy because it satisfies the above two conditions.
   Constraints:
-1 <= nums.length <= 2 * 104
-1 <= nums[i] <= 2 * 104
-1 <= low <= high <= 2 * 104
+n == ratings.length
+1 <= n <= 2 * 104
+0 <= ratings[i] <= 2 * 104

@@ -1,20 +1,27 @@
-Given an m x n matrix of distinct numbers, return all lucky numbers in the matrix in any order.
-A lucky number is an element of the matrix such that it is the minimum element in its row and maximum in its column.
+Create a class ArrayWrapper that accepts an array of integers in it's constructor. This class should have two features:
+When two instances of this class are added together with the + operator, the resulting value is the sum of all the elements in both arrays.
+When the String() function is called on the instance, it will return a comma separated string surrounded by brackets. For example, [1,2,3].
   Example 1:
-Input: matrix = [[3,7,8],[9,11,13],[15,16,17]]
-Output: [15]
-Explanation: 15 is the only lucky number since it is the minimum in its row and the maximum in its column.
+Input: nums = [[1,2],[3,4]], operation = "Add"
+Output: 10
+Explanation:
+const obj1 = new ArrayWrapper([1,2]);
+const obj2 = new ArrayWrapper([3,4]);
+obj1 + obj2; // 10
 Example 2:
-Input: matrix = [[1,10,4,2],[9,3,8,7],[15,16,17,12]]
-Output: [12]
-Explanation: 12 is the only lucky number since it is the minimum in its row and the maximum in its column.
+Input: nums = [[23,98,42,70]], operation = "String"
+Output: "[23,98,42,70]"
+Explanation:
+const obj = new ArrayWrapper([23,98,42,70]);
+String(obj); // "[23,98,42,70]"
 Example 3:
-Input: matrix = [[7,8],[1,2]]
-Output: [7]
-Explanation: 7 is the only lucky number since it is the minimum in its row and the maximum in its column.
+Input: nums = [[],[]], operation = "Add"
+Output: 0
+Explanation:
+const obj1 = new ArrayWrapper([]);
+const obj2 = new ArrayWrapper([]);
+obj1 + obj2; // 0
   Constraints:
-m == mat.length
-n == mat[i].length
-1 <= n, m <= 50
-1 <= matrix[i][j] <= 105.
-All elements in the matrix are distinct.
+0 <= nums.length <= 1000
+0 <= nums[i] <= 1000
+Note: nums is the array passed to the constructor

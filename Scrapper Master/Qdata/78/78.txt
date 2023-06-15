@@ -1,22 +1,24 @@
-You are given the root of a binary search tree and an array queries of size n consisting of positive integers.
-Find a 2D array answer of size n where answer[i] = [mini, maxi]:
-mini is the largest value in the tree that is smaller than or equal to queries[i]. If a such value does not exist, add -1 instead.
-maxi is the smallest value in the tree that is greater than or equal to queries[i]. If a such value does not exist, add -1 instead.
-Return the array answer.
+You are implementing a program to use as your calendar. We can add a new event if adding the event will not cause a triple booking.
+A triple booking happens when three events have some non-empty intersection (i.e., some moment is common to all the three events.).
+The event can be represented as a pair of integers start and end that represents a booking on the half-open interval [start, end), the range of real numbers x such that start <= x < end.
+Implement the MyCalendarTwo class:
+MyCalendarTwo() Initializes the calendar object.
+boolean book(int start, int end) Returns true if the event can be added to the calendar successfully without causing a triple booking. Otherwise, return false and do not add the event to the calendar.
   Example 1:
-Input: root = [6,2,13,1,4,9,15,null,null,null,null,null,null,14], queries = [2,5,16]
-Output: [[2,2],[4,6],[15,-1]]
-Explanation: We answer the queries in the following way:
-- The largest number that is smaller or equal than 2 in the tree is 2, and the smallest number that is greater or equal than 2 is still 2. So the answer for the first query is [2,2].
-- The largest number that is smaller or equal than 5 in the tree is 4, and the smallest number that is greater or equal than 5 is 6. So the answer for the second query is [4,6].
-- The largest number that is smaller or equal than 16 in the tree is 15, and the smallest number that is greater or equal than 16 does not exist. So the answer for the third query is [15,-1].
-Example 2:
-Input: root = [4,null,9], queries = [3]
-Output: [[-1,4]]
-Explanation: The largest number that is smaller or equal to 3 in the tree does not exist, and the smallest number that is greater or equal to 3 is 4. So the answer for the query is [-1,4].
+Input
+["MyCalendarTwo", "book", "book", "book", "book", "book", "book"]
+[[], [10, 20], [50, 60], [10, 40], [5, 15], [5, 10], [25, 55]]
+Output
+[null, true, true, true, false, true, true]
+
+Explanation
+MyCalendarTwo myCalendarTwo = new MyCalendarTwo();
+myCalendarTwo.book(10, 20); // return True, The event can be booked. 
+myCalendarTwo.book(50, 60); // return True, The event can be booked. 
+myCalendarTwo.book(10, 40); // return True, The event can be double booked. 
+myCalendarTwo.book(5, 15);  // return False, The event cannot be booked, because it would result in a triple booking.
+myCalendarTwo.book(5, 10); // return True, The event can be booked, as it does not use time 10 which is already double booked.
+myCalendarTwo.book(25, 55); // return True, The event can be booked, as the time in [25, 40) will be double booked with the third event, the time [40, 50) will be single booked, and the time [50, 55) will be double booked with the second event.
   Constraints:
-The number of nodes in the tree is in the range [2, 105].
-1 <= Node.val <= 106
-n == queries.length
-1 <= n <= 105
-1 <= queries[i] <= 106
+0 <= start < end <= 109
+At most 1000 calls will be made to book.

@@ -1,24 +1,26 @@
-You are given a network of n nodes represented as an n x n adjacency matrix graph, where the ith node is directly connected to the jth node if graph[i][j] == 1.
-Some nodes initial are initially infected by malware. Whenever two nodes are directly connected, and at least one of those two nodes is infected by malware, both nodes will be infected by malware. This spread of malware will continue until no more nodes can be infected in this manner.
-Suppose M(initial) is the final number of nodes infected with malware in the entire network after the spread of malware stops. We will remove exactly one node from initial.
-Return the node that, if removed, would minimize M(initial). If multiple nodes could be removed to minimize M(initial), return such a node with the smallest index.
-Note that if a node was removed from the initial list of infected nodes, it might still be infected later due to the malware spread.
+There are 8 prison cells in a row and each cell is either occupied or vacant.
+Each day, whether the cell is occupied or vacant changes according to the following rules:
+If a cell has two adjacent neighbors that are both occupied or both vacant, then the cell becomes occupied.
+Otherwise, it becomes vacant.
+Note that because the prison is a row, the first and the last cells in the row can't have two adjacent neighbors.
+You are given an integer array cells where cells[i] == 1 if the ith cell is occupied and cells[i] == 0 if the ith cell is vacant, and you are given an integer n.
+Return the state of the prison after n days (i.e., n such changes described above).
   Example 1:
-Input: graph = [[1,1,0],[1,1,0],[0,0,1]], initial = [0,1]
-Output: 0
+Input: cells = [0,1,0,1,1,0,0,1], n = 7
+Output: [0,0,1,1,0,0,0,0]
+Explanation: The following table summarizes the state of the prison on each day:
+Day 0: [0, 1, 0, 1, 1, 0, 0, 1]
+Day 1: [0, 1, 1, 0, 0, 0, 0, 0]
+Day 2: [0, 0, 0, 0, 1, 1, 1, 0]
+Day 3: [0, 1, 1, 0, 0, 1, 0, 0]
+Day 4: [0, 0, 0, 0, 0, 1, 0, 0]
+Day 5: [0, 1, 1, 1, 0, 1, 0, 0]
+Day 6: [0, 0, 1, 0, 1, 1, 0, 0]
+Day 7: [0, 0, 1, 1, 0, 0, 0, 0]
 Example 2:
-Input: graph = [[1,0,0],[0,1,0],[0,0,1]], initial = [0,2]
-Output: 0
-Example 3:
-Input: graph = [[1,1,1],[1,1,1],[1,1,1]], initial = [1,2]
-Output: 1
+Input: cells = [1,0,0,1,0,0,1,0], n = 1000000000
+Output: [0,0,1,1,1,1,1,0]
   Constraints:
-n == graph.length
-n == graph[i].length
-2 <= n <= 300
-graph[i][j] is 0 or 1.
-graph[i][j] == graph[j][i]
-graph[i][i] == 1
-1 <= initial.length <= n
-0 <= initial[i] <= n - 1
-All the integers in initial are unique.
+cells.length == 8
+cells[i] is either 0 or 1.
+1 <= n <= 109

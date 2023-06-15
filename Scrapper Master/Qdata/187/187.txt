@@ -1,13 +1,16 @@
-You have a long flowerbed in which some of the plots are planted, and some are not. However, flowers cannot be planted in adjacent plots.
-Given an integer array flowerbed containing 0's and 1's, where 0 means empty and 1 means not empty, and an integer n, return true if n new flowers can be planted in the flowerbed without violating the no-adjacent-flowers rule and false otherwise.
+You are given two integers m and n. Consider an m x n grid where each cell is initially white. You can paint each cell red, green, or blue. All cells must be painted.
+Return the number of ways to color the grid with no two adjacent cells having the same color. Since the answer can be very large, return it modulo 109 + 7.
   Example 1:
-Input: flowerbed = [1,0,0,0,1], n = 1
-Output: true
+Input: m = 1, n = 1
+Output: 3
+Explanation: The three possible colorings are shown in the image above.
 Example 2:
-Input: flowerbed = [1,0,0,0,1], n = 2
-Output: false
+Input: m = 1, n = 2
+Output: 6
+Explanation: The six possible colorings are shown in the image above.
+Example 3:
+Input: m = 5, n = 5
+Output: 580986
   Constraints:
-1 <= flowerbed.length <= 2 * 104
-flowerbed[i] is 0 or 1.
-There are no two adjacent flowers in flowerbed.
-0 <= n <= flowerbed.length
+1 <= m <= 5
+1 <= n <= 1000

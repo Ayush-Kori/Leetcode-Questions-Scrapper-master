@@ -1,28 +1,12 @@
-Given a string s consisting only of characters 'a', 'b', and 'c'. You are asked to apply the following algorithm on the string any number of times:
-Pick a non-empty prefix from the string s where all the characters in the prefix are equal.
-Pick a non-empty suffix from the string s where all the characters in this suffix are equal.
-The prefix and the suffix should not intersect at any index.
-The characters from the prefix and suffix must be the same.
-Delete both the prefix and the suffix.
-Return the minimum length of s after performing the above operation any number of times (possibly zero times).
+Return the number of permutations of 1 to n so that prime numbers are at prime indices (1-indexed.)
+(Recall that an integer is prime if and only if it is greater than 1, and cannot be written as a product of two positive integers both smaller than it.)
+Since the answer may be large, return the answer modulo 10^9 + 7.
   Example 1:
-Input: s = "ca"
-Output: 2
-Explanation: You can't remove any characters, so the string stays as is.
+Input: n = 5
+Output: 12
+Explanation: For example [1,2,5,4,3] is a valid permutation, but [5,2,3,4,1] is not because the prime number 5 is at index 1.
 Example 2:
-Input: s = "cabaabac"
-Output: 0
-Explanation: An optimal sequence of operations is:
-- Take prefix = "c" and suffix = "c" and remove them, s = "abaaba".
-- Take prefix = "a" and suffix = "a" and remove them, s = "baab".
-- Take prefix = "b" and suffix = "b" and remove them, s = "aa".
-- Take prefix = "a" and suffix = "a" and remove them, s = "".
-Example 3:
-Input: s = "aabccabba"
-Output: 3
-Explanation: An optimal sequence of operations is:
-- Take prefix = "aa" and suffix = "a" and remove them, s = "bccabb".
-- Take prefix = "b" and suffix = "bb" and remove them, s = "cca".
+Input: n = 100
+Output: 682289015
   Constraints:
-1 <= s.length <= 105
-s only consists of characters 'a', 'b', and 'c'.
+1 <= n <= 100

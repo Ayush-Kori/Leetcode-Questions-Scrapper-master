@@ -1,21 +1,24 @@
-You are given an array of distinct integers arr and an array of integer arrays pieces, where the integers in pieces are distinct. Your goal is to form arr by concatenating the arrays in pieces in any order. However, you are not allowed to reorder the integers in each array pieces[i].
-Return true if it is possible to form the array arr from pieces. Otherwise, return false.
+Given two strings word1 and word2, return the minimum number of operations required to convert word1 to word2.
+You have the following three operations permitted on a word:
+Insert a character
+Delete a character
+Replace a character
   Example 1:
-Input: arr = [15,88], pieces = [[88],[15]]
-Output: true
-Explanation: Concatenate [15] then [88]
+Input: word1 = "horse", word2 = "ros"
+Output: 3
+Explanation: 
+horse -> rorse (replace 'h' with 'r')
+rorse -> rose (remove 'r')
+rose -> ros (remove 'e')
 Example 2:
-Input: arr = [49,18,16], pieces = [[16,18,49]]
-Output: false
-Explanation: Even though the numbers match, we cannot reorder pieces[0].
-Example 3:
-Input: arr = [91,4,64,78], pieces = [[78],[4,64],[91]]
-Output: true
-Explanation: Concatenate [91] then [4,64] then [78]
+Input: word1 = "intention", word2 = "execution"
+Output: 5
+Explanation: 
+intention -> inention (remove 't')
+inention -> enention (replace 'i' with 'e')
+enention -> exention (replace 'n' with 'x')
+exention -> exection (replace 'n' with 'c')
+exection -> execution (insert 'u')
   Constraints:
-1 <= pieces.length <= arr.length <= 100
-sum(pieces[i].length) == arr.length
-1 <= pieces[i].length <= arr.length
-1 <= arr[i], pieces[i][j] <= 100
-The integers in arr are distinct.
-The integers in pieces are distinct (i.e., If we flatten pieces in a 1D array, all the integers in this array are distinct).
+0 <= word1.length, word2.length <= 500
+word1 and word2 consist of lowercase English letters.

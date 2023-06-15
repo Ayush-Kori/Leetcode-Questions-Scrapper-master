@@ -1,13 +1,12 @@
-Given a string s, remove duplicate letters so that every letter appears once and only once. You must make sure your result is
-the smallest in lexicographical order
-among all possible results.
+Given the root of a binary tree, return the sum of all left leaves.
+A leaf is a node with no children. A left leaf is a leaf that is the left child of another node.
   Example 1:
-Input: s = "bcabc"
-Output: "abc"
+Input: root = [3,9,20,null,null,15,7]
+Output: 24
+Explanation: There are two left leaves in the binary tree, with values 9 and 15 respectively.
 Example 2:
-Input: s = "cbacdcbc"
-Output: "acdb"
+Input: root = [1]
+Output: 0
   Constraints:
-1 <= s.length <= 104
-s consists of lowercase English letters.
-  Note: This question is the same as 1081: https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/
+The number of nodes in the tree is in the range [1, 1000].
+-1000 <= Node.val <= 1000

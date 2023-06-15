@@ -1,27 +1,29 @@
-Given an array of strings names of size n. You will create n folders in your file system such that, at the ith minute, you will create a folder with the name names[i].
-Since two files cannot have the same name, if you enter a folder name that was previously used, the system will have a suffix addition to its name in the form of (k), where, k is the smallest positive integer such that the obtained name remains unique.
-Return an array of strings of length n where ans[i] is the actual name the system will assign to the ith folder when you create it.
+You are given two integers n and maxValue, which are used to describe an ideal array.
+A 0-indexed integer array arr of length n is considered ideal if the following conditions hold:
+Every arr[i] is a value from 1 to maxValue, for 0 <= i < n.
+Every arr[i] is divisible by arr[i - 1], for 0 < i < n.
+Return the number of distinct ideal arrays of length n. Since the answer may be very large, return it modulo 109 + 7.
   Example 1:
-Input: names = ["pes","fifa","gta","pes(2019)"]
-Output: ["pes","fifa","gta","pes(2019)"]
-Explanation: Let's see how the file system creates folder names:
-"pes" --> not assigned before, remains "pes"
-"fifa" --> not assigned before, remains "fifa"
-"gta" --> not assigned before, remains "gta"
-"pes(2019)" --> not assigned before, remains "pes(2019)"
+Input: n = 2, maxValue = 5
+Output: 10
+Explanation: The following are the possible ideal arrays:
+- Arrays starting with the value 1 (5 arrays): [1,1], [1,2], [1,3], [1,4], [1,5]
+- Arrays starting with the value 2 (2 arrays): [2,2], [2,4]
+- Arrays starting with the value 3 (1 array): [3,3]
+- Arrays starting with the value 4 (1 array): [4,4]
+- Arrays starting with the value 5 (1 array): [5,5]
+There are a total of 5 + 2 + 1 + 1 + 1 = 10 distinct ideal arrays.
 Example 2:
-Input: names = ["gta","gta(1)","gta","avalon"]
-Output: ["gta","gta(1)","gta(2)","avalon"]
-Explanation: Let's see how the file system creates folder names:
-"gta" --> not assigned before, remains "gta"
-"gta(1)" --> not assigned before, remains "gta(1)"
-"gta" --> the name is reserved, system adds (k), since "gta(1)" is also reserved, systems put k = 2. it becomes "gta(2)"
-"avalon" --> not assigned before, remains "avalon"
-Example 3:
-Input: names = ["onepiece","onepiece(1)","onepiece(2)","onepiece(3)","onepiece"]
-Output: ["onepiece","onepiece(1)","onepiece(2)","onepiece(3)","onepiece(4)"]
-Explanation: When the last folder is created, the smallest positive valid k is 4, and it becomes "onepiece(4)".
+Input: n = 5, maxValue = 3
+Output: 11
+Explanation: The following are the possible ideal arrays:
+- Arrays starting with the value 1 (9 arrays): 
+   - With no other distinct values (1 array): [1,1,1,1,1] 
+   - With 2nd distinct value 2 (4 arrays): [1,1,1,1,2], [1,1,1,2,2], [1,1,2,2,2], [1,2,2,2,2]
+   - With 2nd distinct value 3 (4 arrays): [1,1,1,1,3], [1,1,1,3,3], [1,1,3,3,3], [1,3,3,3,3]
+- Arrays starting with the value 2 (1 array): [2,2,2,2,2]
+- Arrays starting with the value 3 (1 array): [3,3,3,3,3]
+There are a total of 9 + 1 + 1 = 11 distinct ideal arrays.
   Constraints:
-1 <= names.length <= 5 * 104
-1 <= names[i].length <= 20
-names[i] consists of lowercase English letters, digits, and/or round brackets.
+2 <= n <= 104
+1 <= maxValue <= 104

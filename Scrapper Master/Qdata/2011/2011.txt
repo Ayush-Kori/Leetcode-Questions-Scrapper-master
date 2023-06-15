@@ -1,16 +1,25 @@
-Given the root of a Binary Search Tree (BST), convert it to a Greater Tree such that every key of the original BST is changed to the original key plus the sum of all keys greater than the original key in BST.
-As a reminder, a binary search tree is a tree that satisfies these constraints:
-The left subtree of a node contains only nodes with keys less than the node's key.
-The right subtree of a node contains only nodes with keys greater than the node's key.
-Both the left and right subtrees must also be binary search trees.
+You are given a 0-indexed integer array nums. In one operation, you may do the following:
+Choose two integers in nums that are equal.
+Remove both integers from nums, forming a pair.
+The operation is done on nums as many times as possible.
+Return a 0-indexed integer array answer of size 2 where answer[0] is the number of pairs that are formed and answer[1] is the number of leftover integers in nums after doing the operation as many times as possible.
   Example 1:
-Input: root = [4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
-Output: [30,36,21,36,35,26,15,null,null,null,33,null,null,null,8]
+Input: nums = [1,3,2,1,3,2,2]
+Output: [3,1]
+Explanation:
+Form a pair with nums[0] and nums[3] and remove them from nums. Now, nums = [3,2,3,2,2].
+Form a pair with nums[0] and nums[2] and remove them from nums. Now, nums = [2,2,2].
+Form a pair with nums[0] and nums[1] and remove them from nums. Now, nums = [2].
+No more pairs can be formed. A total of 3 pairs have been formed, and there is 1 number leftover in nums.
 Example 2:
-Input: root = [0,null,1]
-Output: [1,null,1]
+Input: nums = [1,1]
+Output: [1,0]
+Explanation: Form a pair with nums[0] and nums[1] and remove them from nums. Now, nums = [].
+No more pairs can be formed. A total of 1 pair has been formed, and there are 0 numbers leftover in nums.
+Example 3:
+Input: nums = [0]
+Output: [0,1]
+Explanation: No pairs can be formed, and there is 1 number leftover in nums.
   Constraints:
-The number of nodes in the tree is in the range [1, 100].
-0 <= Node.val <= 100
-All the values in the tree are unique.
-  Note: This question is the same as 538: https://leetcode.com/problems/convert-bst-to-greater-tree/
+1 <= nums.length <= 100
+0 <= nums[i] <= 100

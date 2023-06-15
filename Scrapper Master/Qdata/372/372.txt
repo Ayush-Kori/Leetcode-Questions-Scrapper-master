@@ -1,26 +1,20 @@
-A game on an undirected graph is played by two players, Mouse and Cat, who alternate turns.
-The graph is given as follows: graph[a] is a list of all nodes b such that ab is an edge of the graph.
-The mouse starts at node 1 and goes first, the cat starts at node 2 and goes second, and there is a hole at node 0.
-During each player's turn, they must travel along one edge of the graph that meets where they are.  For example, if the Mouse is at node 1, it must travel to any node in graph[1].
-Additionally, it is not allowed for the Cat to travel to the Hole (node 0.)
-Then, the game can end in three ways:
-If ever the Cat occupies the same node as the Mouse, the Cat wins.
-If ever the Mouse reaches the Hole, the Mouse wins.
-If ever a position is repeated (i.e., the players are in the same position as a previous turn, and it is the same player's turn to move), the game is a draw.
-Given a graph, and assuming both players play optimally, return
-1 if the mouse wins the game,
-2 if the cat wins the game, or
-0 if the game is a draw.
+A website domain "discuss.leetcode.com" consists of various subdomains. At the top level, we have "com", at the next level, we have "leetcode.com" and at the lowest level, "discuss.leetcode.com". When we visit a domain like "discuss.leetcode.com", we will also visit the parent domains "leetcode.com" and "com" implicitly.
+A count-paired domain is a domain that has one of the two formats "rep d1.d2.d3" or "rep d1.d2" where rep is the number of visits to the domain and d1.d2.d3 is the domain itself.
+For example, "9001 discuss.leetcode.com" is a count-paired domain that indicates that discuss.leetcode.com was visited 9001 times.
+Given an array of count-paired domains cpdomains, return an array of the count-paired domains of each subdomain in the input. You may return the answer in any order.
   Example 1:
-Input: graph = [[2,5],[3],[0,4,5],[1,4,5],[2,3],[0,2,3]]
-Output: 0
+Input: cpdomains = ["9001 discuss.leetcode.com"]
+Output: ["9001 leetcode.com","9001 discuss.leetcode.com","9001 com"]
+Explanation: We only have one website domain: "discuss.leetcode.com".
+As discussed above, the subdomain "leetcode.com" and "com" will also be visited. So they will all be visited 9001 times.
 Example 2:
-Input: graph = [[1,3],[0],[3],[0,2]]
-Output: 1
+Input: cpdomains = ["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]
+Output: ["901 mail.com","50 yahoo.com","900 google.mail.com","5 wiki.org","5 org","1 intel.mail.com","951 com"]
+Explanation: We will visit "google.mail.com" 900 times, "yahoo.com" 50 times, "intel.mail.com" once and "wiki.org" 5 times.
+For the subdomains, we will visit "mail.com" 900 + 1 = 901 times, "com" 900 + 50 + 1 = 951 times, and "org" 5 times.
   Constraints:
-3 <= graph.length <= 50
-1 <= graph[i].length < graph.length
-0 <= graph[i][j] < graph.length
-graph[i][j] != i
-graph[i] is unique.
-The mouse and the cat can always move. 
+1 <= cpdomain.length <= 100
+1 <= cpdomain[i].length <= 100
+cpdomain[i] follows either the "repi d1i.d2i.d3i" format or the "repi d1i.d2i" format.
+repi is an integer in the range [1, 104].
+d1i, d2i, and d3i consist of lowercase English letters.

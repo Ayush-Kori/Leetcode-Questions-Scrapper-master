@@ -1,18 +1,15 @@
-There is a street with n * 2 plots, where there are n plots on each side of the street. The plots on each side are numbered from 1 to n. On each plot, a house can be placed.
-Return the number of ways houses can be placed such that no two houses are adjacent to each other on the same side of the street. Since the answer may be very large, return it modulo 109 + 7.
-Note that if a house is placed on the ith plot on one side of the street, a house can also be placed on the ith plot on the other side of the street.
+There is a car with capacity empty seats. The vehicle only drives east (i.e., it cannot turn around and drive west).
+You are given the integer capacity and an array trips where trips[i] = [numPassengersi, fromi, toi] indicates that the ith trip has numPassengersi passengers and the locations to pick them up and drop them off are fromi and toi respectively. The locations are given as the number of kilometers due east from the car's initial location.
+Return true if it is possible to pick up and drop off all passengers for all the given trips, or false otherwise.
   Example 1:
-Input: n = 1
-Output: 4
-Explanation: 
-Possible arrangements:
-1. All plots are empty.
-2. A house is placed on one side of the street.
-3. A house is placed on the other side of the street.
-4. Two houses are placed, one on each side of the street.
+Input: trips = [[2,1,5],[3,3,7]], capacity = 4
+Output: false
 Example 2:
-Input: n = 2
-Output: 9
-Explanation: The 9 possible arrangements are shown in the diagram above.
+Input: trips = [[2,1,5],[3,3,7]], capacity = 5
+Output: true
   Constraints:
-1 <= n <= 104
+1 <= trips.length <= 1000
+trips[i].length == 3
+1 <= numPassengersi <= 100
+0 <= fromi < toi <= 1000
+1 <= capacity <= 105

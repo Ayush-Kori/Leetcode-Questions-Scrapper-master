@@ -1,24 +1,29 @@
-You are given a 0-indexed integer array nums and two integers key and k. A k-distant index is an index i of nums for which there exists at least one index j such that |i - j| <= k and nums[j] == key.
-Return a list of all k-distant indices sorted in increasing order.
+Design your implementation of the linked list. You can choose to use a singly or doubly linked list.
+A node in a singly linked list should have two attributes: val and next. val is the value of the current node, and next is a pointer/reference to the next node.
+If you want to use the doubly linked list, you will need one more attribute prev to indicate the previous node in the linked list. Assume all nodes in the linked list are 0-indexed.
+Implement the MyLinkedList class:
+MyLinkedList() Initializes the MyLinkedList object.
+int get(int index) Get the value of the indexth node in the linked list. If the index is invalid, return -1.
+void addAtHead(int val) Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list.
+void addAtTail(int val) Append a node of value val as the last element of the linked list.
+void addAtIndex(int index, int val) Add a node of value val before the indexth node in the linked list. If index equals the length of the linked list, the node will be appended to the end of the linked list. If index is greater than the length, the node will not be inserted.
+void deleteAtIndex(int index) Delete the indexth node in the linked list, if the index is valid.
   Example 1:
-Input: nums = [3,4,9,1,3,9,5], key = 9, k = 1
-Output: [1,2,3,4,5,6]
-Explanation: Here, nums[2] == key and nums[5] == key.
-- For index 0, |0 - 2| > k and |0 - 5| > k, so there is no j where |0 - j| <= k and nums[j] == key. Thus, 0 is not a k-distant index.
-- For index 1, |1 - 2| <= k and nums[2] == key, so 1 is a k-distant index.
-- For index 2, |2 - 2| <= k and nums[2] == key, so 2 is a k-distant index.
-- For index 3, |3 - 2| <= k and nums[2] == key, so 3 is a k-distant index.
-- For index 4, |4 - 5| <= k and nums[5] == key, so 4 is a k-distant index.
-- For index 5, |5 - 5| <= k and nums[5] == key, so 5 is a k-distant index.
-- For index 6, |6 - 5| <= k and nums[5] == key, so 6 is a k-distant index.
-Thus, we return [1,2,3,4,5,6] which is sorted in increasing order. 
-Example 2:
-Input: nums = [2,2,2,2,2], key = 2, k = 2
-Output: [0,1,2,3,4]
-Explanation: For all indices i in nums, there exists some index j such that |i - j| <= k and nums[j] == key, so every index is a k-distant index. 
-Hence, we return [0,1,2,3,4].
+Input
+["MyLinkedList", "addAtHead", "addAtTail", "addAtIndex", "get", "deleteAtIndex", "get"]
+[[], [1], [3], [1, 2], [1], [1], [1]]
+Output
+[null, null, null, null, 2, null, 3]
+
+Explanation
+MyLinkedList myLinkedList = new MyLinkedList();
+myLinkedList.addAtHead(1);
+myLinkedList.addAtTail(3);
+myLinkedList.addAtIndex(1, 2);    // linked list becomes 1->2->3
+myLinkedList.get(1);              // return 2
+myLinkedList.deleteAtIndex(1);    // now the linked list is 1->3
+myLinkedList.get(1);              // return 3
   Constraints:
-1 <= nums.length <= 1000
-1 <= nums[i] <= 1000
-key is an integer from the array nums.
-1 <= k <= nums.length
+0 <= index, val <= 1000
+Please do not use the built-in LinkedList library.
+At most 2000 calls will be made to get, addAtHead, addAtTail, addAtIndex and deleteAtIndex.

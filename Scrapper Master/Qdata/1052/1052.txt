@@ -1,22 +1,17 @@
-You are given two string arrays, queries and dictionary. All words in each array comprise of lowercase English letters and have the same length.
-In one edit you can take a word from queries, and change any letter in it to any other letter. Find all words from queries that, after a maximum of two edits, equal some word from dictionary.
-Return a list of all words from queries, that match with some word from dictionary after a maximum of two edits. Return the words in the same order they appear in queries.
+You are given a string num, representing a large integer. Return the largest-valued odd integer (as a string) that is a non-empty substring of num, or an empty string "" if no odd integer exists.
+A substring is a contiguous sequence of characters within a string.
   Example 1:
-Input: queries = ["word","note","ants","wood"], dictionary = ["wood","joke","moat"]
-Output: ["word","note","wood"]
-Explanation:
-- Changing the 'r' in "word" to 'o' allows it to equal the dictionary word "wood".
-- Changing the 'n' to 'j' and the 't' to 'k' in "note" changes it to "joke".
-- It would take more than 2 edits for "ants" to equal a dictionary word.
-- "wood" can remain unchanged (0 edits) and match the corresponding dictionary word.
-Thus, we return ["word","note","wood"].
+Input: num = "52"
+Output: "5"
+Explanation: The only non-empty substrings are "5", "2", and "52". "5" is the only odd number.
 Example 2:
-Input: queries = ["yes"], dictionary = ["not"]
-Output: []
-Explanation:
-Applying any two edits to "yes" cannot make it equal to "not". Thus, we return an empty array.
+Input: num = "4206"
+Output: ""
+Explanation: There are no odd numbers in "4206".
+Example 3:
+Input: num = "35427"
+Output: "35427"
+Explanation: "35427" is already an odd number.
   Constraints:
-1 <= queries.length, dictionary.length <= 100
-n == queries[i].length == dictionary[j].length
-1 <= n <= 100
-All queries[i] and dictionary[j] are composed of lowercase English letters.
+1 <= num.length <= 105
+num only consists of digits and does not contain any leading zeros.

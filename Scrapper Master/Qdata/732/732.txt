@@ -1,20 +1,47 @@
-An image is represented by an m x n integer grid image where image[i][j] represents the pixel value of the image.
-You are also given three integers sr, sc, and color. You should perform a flood fill on the image starting from the pixel image[sr][sc].
-To perform a flood fill, consider the starting pixel, plus any pixels connected 4-directionally to the starting pixel of the same color as the starting pixel, plus any pixels connected 4-directionally to those pixels (also with the same color), and so on. Replace the color of all of the aforementioned pixels with color.
-Return the modified image after performing the flood fill.
+Design a text editor with a cursor that can do the following:
+Add text to where the cursor is.
+Delete text from where the cursor is (simulating the backspace key).
+Move the cursor either left or right.
+When deleting text, only characters to the left of the cursor will be deleted. The cursor will also remain within the actual text and cannot be moved beyond it. More formally, we have that 0 <= cursor.position <= currentText.length always holds.
+Implement the TextEditor class:
+TextEditor() Initializes the object with empty text.
+void addText(string text) Appends text to where the cursor is. The cursor ends to the right of text.
+int deleteText(int k) Deletes k characters to the left of the cursor. Returns the number of characters actually deleted.
+string cursorLeft(int k) Moves the cursor to the left k times. Returns the last min(10, len) characters to the left of the cursor, where len is the number of characters to the left of the cursor.
+string cursorRight(int k) Moves the cursor to the right k times. Returns the last min(10, len) characters to the left of the cursor, where len is the number of characters to the left of the cursor.
   Example 1:
-Input: image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2
-Output: [[2,2,2],[2,2,0],[2,0,1]]
-Explanation: From the center of the image with position (sr, sc) = (1, 1) (i.e., the red pixel), all pixels connected by a path of the same color as the starting pixel (i.e., the blue pixels) are colored with the new color.
-Note the bottom corner is not colored 2, because it is not 4-directionally connected to the starting pixel.
-Example 2:
-Input: image = [[0,0,0],[0,0,0]], sr = 0, sc = 0, color = 0
-Output: [[0,0,0],[0,0,0]]
-Explanation: The starting pixel is already colored 0, so no changes are made to the image.
+Input
+["TextEditor", "addText", "deleteText", "addText", "cursorRight", "cursorLeft", "deleteText", "cursorLeft", "cursorRight"]
+[[], ["leetcode"], [4], ["practice"], [3], [8], [10], [2], [6]]
+Output
+[null, null, 4, null, "etpractice", "leet", 4, "", "practi"]
+
+Explanation
+TextEditor textEditor = new TextEditor(); // The current text is "|". (The '|' character represents the cursor)
+textEditor.addText("leetcode"); // The current text is "leetcode|".
+textEditor.deleteText(4); // return 4
+                          // The current text is "leet|". 
+                          // 4 characters were deleted.
+textEditor.addText("practice"); // The current text is "leetpractice|". 
+textEditor.cursorRight(3); // return "etpractice"
+                           // The current text is "leetpractice|". 
+                           // The cursor cannot be moved beyond the actual text and thus did not move.
+                           // "etpractice" is the last 10 characters to the left of the cursor.
+textEditor.cursorLeft(8); // return "leet"
+                          // The current text is "leet|practice".
+                          // "leet" is the last min(10, 4) = 4 characters to the left of the cursor.
+textEditor.deleteText(10); // return 4
+                           // The current text is "|practice".
+                           // Only 4 characters were deleted.
+textEditor.cursorLeft(2); // return ""
+                          // The current text is "|practice".
+                          // The cursor cannot be moved beyond the actual text and thus did not move. 
+                          // "" is the last min(10, 0) = 0 characters to the left of the cursor.
+textEditor.cursorRight(6); // return "practi"
+                           // The current text is "practi|ce".
+                           // "practi" is the last min(10, 6) = 6 characters to the left of the cursor.
   Constraints:
-m == image.length
-n == image[i].length
-1 <= m, n <= 50
-0 <= image[i][j], color < 216
-0 <= sr < m
-0 <= sc < n
+1 <= text.length, k <= 40
+text consists of lowercase English letters.
+At most 2 * 104 calls in total will be made to addText, deleteText, cursorLeft and cursorRight.
+  Follow-up: Could you find a solution with time complexity of O(k) per call?

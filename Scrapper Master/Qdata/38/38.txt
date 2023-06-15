@@ -1,40 +1,23 @@
-SQL Schema
-Table: Courses
-+-------------+---------+
-| Column Name | Type    |
-+-------------+---------+
-| student     | varchar |
-| class       | varchar |
-+-------------+---------+
-(student, class) is the primary key column for this table.
-Each row of this table indicates the name of a student and the class in which they are enrolled.
-  Write an SQL query to report all the classes that have at least five students.
-Return the result table in any order.
-The query result format is in the following example.
+There are n people in a line queuing to buy tickets, where the 0th person is at the front of the line and the (n - 1)th person is at the back of the line.
+You are given a 0-indexed integer array tickets of length n where the number of tickets that the ith person would like to buy is tickets[i].
+Each person takes exactly 1 second to buy a ticket. A person can only buy 1 ticket at a time and has to go back to the end of the line (which happens instantaneously) in order to buy more tickets. If a person does not have any tickets left to buy, the person will leave the line.
+Return the time taken for the person at position k (0-indexed) to finish buying tickets.
   Example 1:
-Input: 
-Courses table:
-+---------+----------+
-| student | class    |
-+---------+----------+
-| A       | Math     |
-| B       | English  |
-| C       | Math     |
-| D       | Biology  |
-| E       | Math     |
-| F       | Computer |
-| G       | Math     |
-| H       | Math     |
-| I       | Math     |
-+---------+----------+
-Output: 
-+---------+
-| class   |
-+---------+
-| Math    |
-+---------+
+Input: tickets = [2,3,2], k = 2
+Output: 6
 Explanation: 
-- Math has 6 students, so we include it.
-- English has 1 student, so we do not include it.
-- Biology has 1 student, so we do not include it.
-- Computer has 1 student, so we do not include it.
+- In the first pass, everyone in the line buys a ticket and the line becomes [1, 2, 1].
+- In the second pass, everyone in the line buys a ticket and the line becomes [0, 1, 0].
+The person at position 2 has successfully bought 2 tickets and it took 3 + 3 = 6 seconds.
+Example 2:
+Input: tickets = [5,1,1,1], k = 0
+Output: 8
+Explanation:
+- In the first pass, everyone in the line buys a ticket and the line becomes [4, 0, 0, 0].
+- In the next 4 passes, only the person in position 0 is buying tickets.
+The person at position 0 has successfully bought 5 tickets and it took 4 + 1 + 1 + 1 + 1 = 8 seconds.
+  Constraints:
+n == tickets.length
+1 <= n <= 100
+1 <= tickets[i] <= 100
+0 <= k < n

@@ -1,26 +1,19 @@
-You are given a 0-indexed string array words.
-Two strings are similar if they consist of the same characters.
-For example, "abca" and "cba" are similar since both consist of characters 'a', 'b', and 'c'.
-However, "abacba" and "bcfd" are not similar since they do not consist of the same characters.
-Return the number of pairs (i, j) such that 0 <= i < j <= word.length - 1 and the two strings words[i] and words[j] are similar.
+Given a date string in the form Day Month Year, where:
+Day is in the set {"1st", "2nd", "3rd", "4th", ..., "30th", "31st"}.
+Month is in the set {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}.
+Year is in the range [1900, 2100].
+Convert the date string to the format YYYY-MM-DD, where:
+YYYY denotes the 4 digit year.
+MM denotes the 2 digit month.
+DD denotes the 2 digit day.
   Example 1:
-Input: words = ["aba","aabb","abcd","bac","aabc"]
-Output: 2
-Explanation: There are 2 pairs that satisfy the conditions:
-- i = 0 and j = 1 : both words[0] and words[1] only consist of characters 'a' and 'b'. 
-- i = 3 and j = 4 : both words[3] and words[4] only consist of characters 'a', 'b', and 'c'. 
+Input: date = "20th Oct 2052"
+Output: "2052-10-20"
 Example 2:
-Input: words = ["aabb","ab","ba"]
-Output: 3
-Explanation: There are 3 pairs that satisfy the conditions:
-- i = 0 and j = 1 : both words[0] and words[1] only consist of characters 'a' and 'b'. 
-- i = 0 and j = 2 : both words[0] and words[2] only consist of characters 'a' and 'b'.
-- i = 1 and j = 2 : both words[1] and words[2] only consist of characters 'a' and 'b'.
+Input: date = "6th Jun 1933"
+Output: "1933-06-06"
 Example 3:
-Input: words = ["nba","cba","dba"]
-Output: 0
-Explanation: Since there does not exist any pair that satisfies the conditions, we return 0.
+Input: date = "26th May 1960"
+Output: "1960-05-26"
   Constraints:
-1 <= words.length <= 100
-1 <= words[i].length <= 100
-words[i] consist of only lowercase English letters.
+The given dates are guaranteed to be valid, so no error handling is necessary.

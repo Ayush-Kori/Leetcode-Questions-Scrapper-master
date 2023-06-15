@@ -1,17 +1,51 @@
-Given a string s, return the number of distinct non-empty subsequences of s. Since the answer may be very large, return it modulo 109 + 7.
-A subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., "ace" is a subsequence of "abcde" while "aec" is not.
+You have an infinite number of stacks arranged in a row and numbered (left to right) from 0, each of the stacks has the same maximum capacity.
+Implement the DinnerPlates class:
+DinnerPlates(int capacity) Initializes the object with the maximum capacity of the stacks capacity.
+void push(int val) Pushes the given integer val into the leftmost stack with a size less than capacity.
+int pop() Returns the value at the top of the rightmost non-empty stack and removes it from that stack, and returns -1 if all the stacks are empty.
+int popAtStack(int index) Returns the value at the top of the stack with the given index index and removes it from that stack or returns -1 if the stack with that given index is empty.
   Example 1:
-Input: s = "abc"
-Output: 7
-Explanation: The 7 distinct subsequences are "a", "b", "c", "ab", "ac", "bc", and "abc".
-Example 2:
-Input: s = "aba"
-Output: 6
-Explanation: The 6 distinct subsequences are "a", "b", "ab", "aa", "ba", and "aba".
-Example 3:
-Input: s = "aaa"
-Output: 3
-Explanation: The 3 distinct subsequences are "a", "aa" and "aaa".
+Input
+["DinnerPlates", "push", "push", "push", "push", "push", "popAtStack", "push", "push", "popAtStack", "popAtStack", "pop", "pop", "pop", "pop", "pop"]
+[[2], [1], [2], [3], [4], [5], [0], [20], [21], [0], [2], [], [], [], [], []]
+Output
+[null, null, null, null, null, null, 2, null, null, 20, 21, 5, 4, 3, 1, -1]
+
+Explanation: 
+DinnerPlates D = DinnerPlates(2);  // Initialize with capacity = 2
+D.push(1);
+D.push(2);
+D.push(3);
+D.push(4);
+D.push(5);         // The stacks are now:  2  4
+                                           1  3  5
+                                           ﹈ ﹈ ﹈
+D.popAtStack(0);   // Returns 2.  The stacks are now:     4
+                                                       1  3  5
+                                                       ﹈ ﹈ ﹈
+D.push(20);        // The stacks are now: 20  4
+                                           1  3  5
+                                           ﹈ ﹈ ﹈
+D.push(21);        // The stacks are now: 20  4 21
+                                           1  3  5
+                                           ﹈ ﹈ ﹈
+D.popAtStack(0);   // Returns 20.  The stacks are now:     4 21
+                                                        1  3  5
+                                                        ﹈ ﹈ ﹈
+D.popAtStack(2);   // Returns 21.  The stacks are now:     4
+                                                        1  3  5
+                                                        ﹈ ﹈ ﹈ 
+D.pop()            // Returns 5.  The stacks are now:      4
+                                                        1  3 
+                                                        ﹈ ﹈  
+D.pop()            // Returns 4.  The stacks are now:   1  3 
+                                                        ﹈ ﹈   
+D.pop()            // Returns 3.  The stacks are now:   1 
+                                                        ﹈   
+D.pop()            // Returns 1.  There are no stacks.
+D.pop()            // Returns -1.  There are still no stacks.
   Constraints:
-1 <= s.length <= 2000
-s consists of lowercase English letters.
+1 <= capacity <= 2 * 104
+1 <= val <= 2 * 104
+0 <= index <= 105
+At most 2 * 105 calls will be made to push, pop, and popAtStack.

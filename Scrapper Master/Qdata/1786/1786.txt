@@ -1,31 +1,32 @@
-You are given a large sample of integers in the range [0, 255]. Since the sample is so large, it is represented by an array count where count[k] is the number of times that k appears in the sample.
-Calculate the following statistics:
-minimum: The minimum element in the sample.
-maximum: The maximum element in the sample.
-mean: The average of the sample, calculated as the total sum of all elements divided by the total number of elements.
-median:
-If the sample has an odd number of elements, then the median is the middle element once the sample is sorted.
-If the sample has an even number of elements, then the median is the average of the two middle elements once the sample is sorted.
-mode: The number that appears the most in the sample. It is guaranteed to be unique.
-Return the statistics of the sample as an array of floating-point numbers [minimum, maximum, mean, median, mode]. Answers within 10-5 of the actual answer will be accepted.
+You are given an integer array nums and an integer k. You may partition nums into one or more subsequences such that each element in nums appears in exactly one of the subsequences.
+Return the minimum number of subsequences needed such that the difference between the maximum and minimum values in each subsequence is at most k.
+A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.
   Example 1:
-Input: count = [0,1,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-Output: [1.00000,3.00000,2.37500,2.50000,3.00000]
-Explanation: The sample represented by count is [1,2,2,2,3,3,3,3].
-The minimum and maximum are 1 and 3 respectively.
-The mean is (1+2+2+2+3+3+3+3) / 8 = 19 / 8 = 2.375.
-Since the size of the sample is even, the median is the average of the two middle elements 2 and 3, which is 2.5.
-The mode is 3 as it appears the most in the sample.
+Input: nums = [3,6,1,2,5], k = 2
+Output: 2
+Explanation:
+We can partition nums into the two subsequences [3,1,2] and [6,5].
+The difference between the maximum and minimum value in the first subsequence is 3 - 1 = 2.
+The difference between the maximum and minimum value in the second subsequence is 6 - 5 = 1.
+Since two subsequences were created, we return 2. It can be shown that 2 is the minimum number of subsequences needed.
 Example 2:
-Input: count = [0,4,3,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-Output: [1.00000,4.00000,2.18182,2.00000,1.00000]
-Explanation: The sample represented by count is [1,1,1,1,2,2,2,3,3,4,4].
-The minimum and maximum are 1 and 4 respectively.
-The mean is (1+1+1+1+2+2+2+3+3+4+4) / 11 = 24 / 11 = 2.18181818... (for display purposes, the output shows the rounded number 2.18182).
-Since the size of the sample is odd, the median is the middle element 2.
-The mode is 1 as it appears the most in the sample.
+Input: nums = [1,2,3], k = 1
+Output: 2
+Explanation:
+We can partition nums into the two subsequences [1,2] and [3].
+The difference between the maximum and minimum value in the first subsequence is 2 - 1 = 1.
+The difference between the maximum and minimum value in the second subsequence is 3 - 3 = 0.
+Since two subsequences were created, we return 2. Note that another optimal solution is to partition nums into the two subsequences [1] and [2,3].
+Example 3:
+Input: nums = [2,2,4,5], k = 0
+Output: 3
+Explanation:
+We can partition nums into the three subsequences [2,2], [4], and [5].
+The difference between the maximum and minimum value in the first subsequences is 2 - 2 = 0.
+The difference between the maximum and minimum value in the second subsequences is 4 - 4 = 0.
+The difference between the maximum and minimum value in the third subsequences is 5 - 5 = 0.
+Since three subsequences were created, we return 3. It can be shown that 3 is the minimum number of subsequences needed.
   Constraints:
-count.length == 256
-0 <= count[i] <= 109
-1 <= sum(count) <= 109
-The mode of the sample that count represents is unique.
+1 <= nums.length <= 105
+0 <= nums[i] <= 105
+0 <= k <= 105

@@ -1,24 +1,18 @@
-On day 1, one person discovers a secret.
-You are given an integer delay, which means that each person will share the secret with a new person every day, starting from delay days after discovering the secret. You are also given an integer forget, which means that each person will forget the secret forget days after discovering it. A person cannot share the secret on the same day they forgot it, or on any day afterwards.
-Given an integer n, return the number of people who know the secret at the end of day n. Since the answer may be very large, return it modulo 109 + 7.
+There is a street with n * 2 plots, where there are n plots on each side of the street. The plots on each side are numbered from 1 to n. On each plot, a house can be placed.
+Return the number of ways houses can be placed such that no two houses are adjacent to each other on the same side of the street. Since the answer may be very large, return it modulo 109 + 7.
+Note that if a house is placed on the ith plot on one side of the street, a house can also be placed on the ith plot on the other side of the street.
   Example 1:
-Input: n = 6, delay = 2, forget = 4
-Output: 5
-Explanation:
-Day 1: Suppose the first person is named A. (1 person)
-Day 2: A is the only person who knows the secret. (1 person)
-Day 3: A shares the secret with a new person, B. (2 people)
-Day 4: A shares the secret with a new person, C. (3 people)
-Day 5: A forgets the secret, and B shares the secret with a new person, D. (3 people)
-Day 6: B shares the secret with E, and C shares the secret with F. (5 people)
+Input: n = 1
+Output: 4
+Explanation: 
+Possible arrangements:
+1. All plots are empty.
+2. A house is placed on one side of the street.
+3. A house is placed on the other side of the street.
+4. Two houses are placed, one on each side of the street.
 Example 2:
-Input: n = 4, delay = 1, forget = 3
-Output: 6
-Explanation:
-Day 1: The first person is named A. (1 person)
-Day 2: A shares the secret with B. (2 people)
-Day 3: A and B share the secret with 2 new people, C and D. (4 people)
-Day 4: A forgets the secret. B, C, and D share the secret with 3 new people. (6 people)
+Input: n = 2
+Output: 9
+Explanation: The 9 possible arrangements are shown in the diagram above.
   Constraints:
-2 <= n <= 1000
-1 <= delay < forget <= n
+1 <= n <= 104

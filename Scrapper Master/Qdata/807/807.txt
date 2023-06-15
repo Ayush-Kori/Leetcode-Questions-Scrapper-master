@@ -1,26 +1,17 @@
-Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key's value at a certain timestamp.
-Implement the TimeMap class:
-TimeMap() Initializes the object of the data structure.
-void set(String key, String value, int timestamp) Stores the key key with the value value at the given time timestamp.
-String get(String key, int timestamp) Returns a value such that set was called previously, with timestamp_prev <= timestamp. If there are multiple such values, it returns the value associated with the largest timestamp_prev. If there are no values, it returns "".
+Alice is throwing n darts on a very large wall. You are given an array darts where darts[i] = [xi, yi] is the position of the ith dart that Alice threw on the wall.
+Bob knows the positions of the n darts on the wall. He wants to place a dartboard of radius r on the wall so that the maximum number of darts that Alice throws lies on the dartboard.
+Given the integer r, return the maximum number of darts that can lie on the dartboard.
   Example 1:
-Input
-["TimeMap", "set", "get", "get", "set", "get", "get"]
-[[], ["foo", "bar", 1], ["foo", 1], ["foo", 3], ["foo", "bar2", 4], ["foo", 4], ["foo", 5]]
-Output
-[null, null, "bar", "bar", null, "bar2", "bar2"]
-
-Explanation
-TimeMap timeMap = new TimeMap();
-timeMap.set("foo", "bar", 1);  // store the key "foo" and value "bar" along with timestamp = 1.
-timeMap.get("foo", 1);         // return "bar"
-timeMap.get("foo", 3);         // return "bar", since there is no value corresponding to foo at timestamp 3 and timestamp 2, then the only value is at timestamp 1 is "bar".
-timeMap.set("foo", "bar2", 4); // store the key "foo" and value "bar2" along with timestamp = 4.
-timeMap.get("foo", 4);         // return "bar2"
-timeMap.get("foo", 5);         // return "bar2"
+Input: darts = [[-2,0],[2,0],[0,2],[0,-2]], r = 2
+Output: 4
+Explanation: Circle dartboard with center in (0,0) and radius = 2 contain all points.
+Example 2:
+Input: darts = [[-3,0],[3,0],[2,6],[5,4],[0,9],[7,8]], r = 5
+Output: 5
+Explanation: Circle dartboard with center in (0,4) and radius = 5 contain all points except the point (7,8).
   Constraints:
-1 <= key.length, value.length <= 100
-key and value consist of lowercase English letters and digits.
-1 <= timestamp <= 107
-All the timestamps timestamp of set are strictly increasing.
-At most 2 * 105 calls will be made to set and get.
+1 <= darts.length <= 100
+darts[i].length == 2
+-104 <= xi, yi <= 104
+All the darts are unique
+1 <= r <= 5000

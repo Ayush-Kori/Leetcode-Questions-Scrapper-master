@@ -1,20 +1,16 @@
-On an 8 x 8 chessboard, there is exactly one white rook 'R' and some number of white bishops 'B', black pawns 'p', and empty squares '.'.
-When the rook moves, it chooses one of four cardinal directions (north, east, south, or west), then moves in that direction until it chooses to stop, reaches the edge of the board, captures a black pawn, or is blocked by a white bishop. A rook is considered attacking a pawn if the rook can capture the pawn on the rook's turn. The number of available captures for the white rook is the number of pawns that the rook is attacking.
-Return the number of available captures for the white rook.
+You are given a 0-indexed string s and a dictionary of words dictionary. You have to break s into one or more non-overlapping substrings such that each substring is present in dictionary. There may be some extra characters in s which are not present in any of the substrings.
+Return the minimum number of extra characters left over if you break up s optimally.
   Example 1:
-Input: board = [[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","R",".",".",".","p"],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."]]
-Output: 3
-Explanation: In this example, the rook is attacking all the pawns.
+Input: s = "leetscode", dictionary = ["leet","code","leetcode"]
+Output: 1
+Explanation: We can break s in two substrings: "leet" from index 0 to 3 and "code" from index 5 to 8. There is only 1 unused character (at index 4), so we return 1.
 Example 2:
-Input: board = [[".",".",".",".",".",".",".","."],[".","p","p","p","p","p",".","."],[".","p","p","B","p","p",".","."],[".","p","B","R","B","p",".","."],[".","p","p","B","p","p",".","."],[".","p","p","p","p","p",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."]]
-Output: 0
-Explanation: The bishops are blocking the rook from attacking any of the pawns.
-Example 3:
-Input: board = [[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","p",".",".",".","."],["p","p",".","R",".","p","B","."],[".",".",".",".",".",".",".","."],[".",".",".","B",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."]]
+Input: s = "sayhelloworld", dictionary = ["hello","world"]
 Output: 3
-Explanation: The rook is attacking the pawns at positions b5, d6, and f5.
+Explanation: We can break s in two substrings: "hello" from index 3 to 7 and "world" from index 8 to 12. The characters at indices 0, 1, 2 are not used in any substring and thus are considered as extra characters. Hence, we return 3.
   Constraints:
-board.length == 8
-board[i].length == 8
-board[i][j] is either 'R', '.', 'B', or 'p'
-There is exactly one cell with board[i][j] == 'R'
+1 <= s.length <= 50
+1 <= dictionary.length <= 50
+1 <= dictionary[i].length <= 50
+dictionary[i] and s consists of only lowercase English letters
+dictionary contains distinct words

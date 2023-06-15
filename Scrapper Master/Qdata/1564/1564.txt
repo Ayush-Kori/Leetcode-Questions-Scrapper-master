@@ -1,14 +1,13 @@
-Given a string s, return the number of palindromic substrings in it.
-A string is a palindrome when it reads the same backward as forward.
-A substring is a contiguous sequence of characters within the string.
+Given an integer array nums that may contain duplicates, return all possible
+subsets
+(the power set).
+The solution set must not contain duplicate subsets. Return the solution in any order.
   Example 1:
-Input: s = "abc"
-Output: 3
-Explanation: Three palindromic strings: "a", "b", "c".
+Input: nums = [1,2,2]
+Output: [[],[1],[1,2],[1,2,2],[2],[2,2]]
 Example 2:
-Input: s = "aaa"
-Output: 6
-Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
+Input: nums = [0]
+Output: [[],[0]]
   Constraints:
-1 <= s.length <= 1000
-s consists of lowercase English letters.
+1 <= nums.length <= 10
+-10 <= nums[i] <= 10

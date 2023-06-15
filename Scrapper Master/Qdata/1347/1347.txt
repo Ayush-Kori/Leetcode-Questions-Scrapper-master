@@ -1,12 +1,18 @@
-Given the root of a binary tree, return the sum of values of nodes with an even-valued grandparent. If there are no nodes with an even-valued grandparent, return 0.
-A grandparent of a node is the parent of its parent if it exists.
+You are given a 0-indexed 2D integer array flowers, where flowers[i] = [starti, endi] means the ith flower will be in full bloom from starti to endi (inclusive). You are also given a 0-indexed integer array people of size n, where poeple[i] is the time that the ith person will arrive to see the flowers.
+Return an integer array answer of size n, where answer[i] is the number of flowers that are in full bloom when the ith person arrives.
   Example 1:
-Input: root = [6,7,8,2,7,1,3,9,null,1,4,null,null,null,5]
-Output: 18
-Explanation: The red nodes are the nodes with even-value grandparent while the blue nodes are the even-value grandparents.
+Input: flowers = [[1,6],[3,7],[9,12],[4,13]], poeple = [2,3,7,11]
+Output: [1,2,2,2]
+Explanation: The figure above shows the times when the flowers are in full bloom and when the people arrive.
+For each person, we return the number of flowers in full bloom during their arrival.
 Example 2:
-Input: root = [1]
-Output: 0
+Input: flowers = [[1,10],[3,3]], poeple = [3,3,2]
+Output: [2,2,1]
+Explanation: The figure above shows the times when the flowers are in full bloom and when the people arrive.
+For each person, we return the number of flowers in full bloom during their arrival.
   Constraints:
-The number of nodes in the tree is in the range [1, 104].
-1 <= Node.val <= 100
+1 <= flowers.length <= 5 * 104
+flowers[i].length == 2
+1 <= starti <= endi <= 109
+1 <= people.length <= 5 * 104
+1 <= people[i] <= 109

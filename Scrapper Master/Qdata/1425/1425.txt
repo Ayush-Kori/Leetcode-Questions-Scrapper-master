@@ -1,22 +1,26 @@
-Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:
-'.' Matches any single character.
-'*' Matches zero or more of the preceding element.
-The matching should cover the entire input string (not partial).
+You are given nums, an array of positive integers of size 2 * n. You must perform n operations on this array.
+In the ith operation (1-indexed), you will:
+Choose two elements, x and y.
+Receive a score of i * gcd(x, y).
+Remove x and y from nums.
+Return the maximum score you can receive after performing n operations.
+The function gcd(x, y) is the greatest common divisor of x and y.
   Example 1:
-Input: s = "aa", p = "a"
-Output: false
-Explanation: "a" does not match the entire string "aa".
+Input: nums = [1,2]
+Output: 1
+Explanation: The optimal choice of operations is:
+(1 * gcd(1, 2)) = 1
 Example 2:
-Input: s = "aa", p = "a*"
-Output: true
-Explanation: '*' means zero or more of the preceding element, 'a'. Therefore, by repeating 'a' once, it becomes "aa".
+Input: nums = [3,4,6,8]
+Output: 11
+Explanation: The optimal choice of operations is:
+(1 * gcd(3, 6)) + (2 * gcd(4, 8)) = 3 + 8 = 11
 Example 3:
-Input: s = "ab", p = ".*"
-Output: true
-Explanation: ".*" means "zero or more (*) of any character (.)".
+Input: nums = [1,2,3,4,5,6]
+Output: 14
+Explanation: The optimal choice of operations is:
+(1 * gcd(1, 5)) + (2 * gcd(2, 4)) + (3 * gcd(3, 6)) = 1 + 4 + 9 = 14
   Constraints:
-1 <= s.length <= 20
-1 <= p.length <= 20
-s contains only lowercase English letters.
-p contains only lowercase English letters, '.', and '*'.
-It is guaranteed for each appearance of the character '*', there will be a previous valid character to match.
+1 <= n <= 7
+nums.length == 2 * n
+1 <= nums[i] <= 106

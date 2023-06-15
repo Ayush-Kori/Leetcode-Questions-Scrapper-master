@@ -1,23 +1,27 @@
-You are given two 0-indexed integer arrays nums1 and nums2, each of size n, and an integer diff. Find the number of pairs (i, j) such that:
-0 <= i < j <= n - 1 and
-nums1[i] - nums1[j] <= nums2[i] - nums2[j] + diff.
-Return the number of pairs that satisfy the conditions.
+You have a keyboard layout as shown above in the X-Y plane, where each English uppercase letter is located at some coordinate.
+For example, the letter 'A' is located at coordinate (0, 0), the letter 'B' is located at coordinate (0, 1), the letter 'P' is located at coordinate (2, 3) and the letter 'Z' is located at coordinate (4, 1).
+Given the string word, return the minimum total distance to type such string using only two fingers.
+The distance between coordinates (x1, y1) and (x2, y2) is |x1 - x2| + |y1 - y2|.
+Note that the initial positions of your two fingers are considered free so do not count towards your total distance, also your two fingers do not have to start at the first letter or the first two letters.
   Example 1:
-Input: nums1 = [3,2,5], nums2 = [2,2,1], diff = 1
+Input: word = "CAKE"
 Output: 3
-Explanation:
-There are 3 pairs that satisfy the conditions:
-1. i = 0, j = 1: 3 - 2 <= 2 - 2 + 1. Since i < j and 1 <= 1, this pair satisfies the conditions.
-2. i = 0, j = 2: 3 - 5 <= 2 - 1 + 1. Since i < j and -2 <= 2, this pair satisfies the conditions.
-3. i = 1, j = 2: 2 - 5 <= 2 - 1 + 1. Since i < j and -3 <= 2, this pair satisfies the conditions.
-Therefore, we return 3.
+Explanation: Using two fingers, one optimal way to type "CAKE" is: 
+Finger 1 on letter 'C' -> cost = 0 
+Finger 1 on letter 'A' -> cost = Distance from letter 'C' to letter 'A' = 2 
+Finger 2 on letter 'K' -> cost = 0 
+Finger 2 on letter 'E' -> cost = Distance from letter 'K' to letter 'E' = 1 
+Total distance = 3
 Example 2:
-Input: nums1 = [3,-1], nums2 = [-2,2], diff = -1
-Output: 0
-Explanation:
-Since there does not exist any pair that satisfies the conditions, we return 0.
+Input: word = "HAPPY"
+Output: 6
+Explanation: Using two fingers, one optimal way to type "HAPPY" is:
+Finger 1 on letter 'H' -> cost = 0
+Finger 1 on letter 'A' -> cost = Distance from letter 'H' to letter 'A' = 2
+Finger 2 on letter 'P' -> cost = 0
+Finger 2 on letter 'P' -> cost = Distance from letter 'P' to letter 'P' = 0
+Finger 1 on letter 'Y' -> cost = Distance from letter 'A' to letter 'Y' = 4
+Total distance = 6
   Constraints:
-n == nums1.length == nums2.length
-2 <= n <= 105
--104 <= nums1[i], nums2[i] <= 104
--104 <= diff <= 104
+2 <= word.length <= 300
+word consists of uppercase English letters.

@@ -1,21 +1,18 @@
-Given an integer array nums with possible duplicates, randomly output the index of a given target number. You can assume that the given target number must exist in the array.
-Implement the Solution class:
-Solution(int[] nums) Initializes the object with the array nums.
-int pick(int target) Picks a random index i from nums where nums[i] == target. If there are multiple valid i's, then each index should have an equal probability of returning.
+The demons had captured the princess and imprisoned her in the bottom-right corner of a dungeon. The dungeon consists of m x n rooms laid out in a 2D grid. Our valiant knight was initially positioned in the top-left room and must fight his way through dungeon to rescue the princess.
+The knight has an initial health point represented by a positive integer. If at any point his health point drops to 0 or below, he dies immediately.
+Some of the rooms are guarded by demons (represented by negative integers), so the knight loses health upon entering these rooms; other rooms are either empty (represented as 0) or contain magic orbs that increase the knight's health (represented by positive integers).
+To reach the princess as quickly as possible, the knight decides to move only rightward or downward in each step.
+Return the knight's minimum initial health so that he can rescue the princess.
+Note that any room can contain threats or power-ups, even the first room the knight enters and the bottom-right room where the princess is imprisoned.
   Example 1:
-Input
-["Solution", "pick", "pick", "pick"]
-[[[1, 2, 3, 3, 3]], [3], [1], [3]]
-Output
-[null, 4, 0, 2]
-
-Explanation
-Solution solution = new Solution([1, 2, 3, 3, 3]);
-solution.pick(3); // It should return either index 2, 3, or 4 randomly. Each index should have equal probability of returning.
-solution.pick(1); // It should return 0. Since in the array only nums[0] is equal to 1.
-solution.pick(3); // It should return either index 2, 3, or 4 randomly. Each index should have equal probability of returning.
+Input: dungeon = [[-2,-3,3],[-5,-10,1],[10,30,-5]]
+Output: 7
+Explanation: The initial health of the knight must be at least 7 if he follows the optimal path: RIGHT-> RIGHT -> DOWN -> DOWN.
+Example 2:
+Input: dungeon = [[0]]
+Output: 1
   Constraints:
-1 <= nums.length <= 2 * 104
--231 <= nums[i] <= 231 - 1
-target is an integer from nums.
-At most 104 calls will be made to pick.
+m == dungeon.length
+n == dungeon[i].length
+1 <= m, n <= 200
+-1000 <= dungeon[i][j] <= 1000

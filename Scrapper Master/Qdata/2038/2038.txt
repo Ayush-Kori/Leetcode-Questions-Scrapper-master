@@ -1,24 +1,28 @@
-You are given a 0-indexed integer array nums. Rearrange the values of nums according to the following rules:
-Sort the values at odd indices of nums in non-increasing order.
-For example, if nums = [4,1,2,3] before this step, it becomes [4,3,2,1] after. The values at odd indices 1 and 3 are sorted in non-increasing order.
-Sort the values at even indices of nums in non-decreasing order.
-For example, if nums = [4,1,2,3] before this step, it becomes [2,1,4,3] after. The values at even indices 0 and 2 are sorted in non-decreasing order.
-Return the array formed after rearranging the values of nums.
+You are given an integer n and an array of unique integers blacklist. Design an algorithm to pick a random integer in the range [0, n - 1] that is not in blacklist. Any integer that is in the mentioned range and not in blacklist should be equally likely to be returned.
+Optimize your algorithm such that it minimizes the number of calls to the built-in random function of your language.
+Implement the Solution class:
+Solution(int n, int[] blacklist) Initializes the object with the integer n and the blacklisted integers blacklist.
+int pick() Returns a random integer in the range [0, n - 1] and not in blacklist.
   Example 1:
-Input: nums = [4,1,2,3]
-Output: [2,3,4,1]
-Explanation: 
-First, we sort the values present at odd indices (1 and 3) in non-increasing order.
-So, nums changes from [4,1,2,3] to [4,3,2,1].
-Next, we sort the values present at even indices (0 and 2) in non-decreasing order.
-So, nums changes from [4,1,2,3] to [2,3,4,1].
-Thus, the array formed after rearranging the values is [2,3,4,1].
-Example 2:
-Input: nums = [2,1]
-Output: [2,1]
-Explanation: 
-Since there is exactly one odd index and one even index, no rearrangement of values takes place.
-The resultant array formed is [2,1], which is the same as the initial array. 
+Input
+["Solution", "pick", "pick", "pick", "pick", "pick", "pick", "pick"]
+[[7, [2, 3, 5]], [], [], [], [], [], [], []]
+Output
+[null, 0, 4, 1, 6, 1, 0, 4]
+
+Explanation
+Solution solution = new Solution(7, [2, 3, 5]);
+solution.pick(); // return 0, any integer from [0,1,4,6] should be ok. Note that for every call of pick,
+                 // 0, 1, 4, and 6 must be equally likely to be returned (i.e., with probability 1/4).
+solution.pick(); // return 4
+solution.pick(); // return 1
+solution.pick(); // return 6
+solution.pick(); // return 1
+solution.pick(); // return 0
+solution.pick(); // return 4
   Constraints:
-1 <= nums.length <= 100
-1 <= nums[i] <= 100
+1 <= n <= 109
+0 <= blacklist.length <= min(105, n - 1)
+0 <= blacklist[i] < n
+All the values of blacklist are unique.
+At most 2 * 104 calls will be made to pick.

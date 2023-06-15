@@ -1,32 +1,16 @@
-Design an algorithm that accepts a stream of characters and checks if a suffix of these characters is a string of a given array of strings words.
-For example, if words = ["abc", "xyz"] and the stream added the four characters (one by one) 'a', 'x', 'y', and 'z', your algorithm should detect that the suffix "xyz" of the characters "axyz" matches "xyz" from words.
-Implement the StreamChecker class:
-StreamChecker(String[] words) Initializes the object with the strings array words.
-boolean query(char letter) Accepts a new character from the stream and returns true if any non-empty suffix from the stream forms a word that is in words.
+You are given an integer n. You have an n x n binary grid grid with all values initially 1's except for some indices given in the array mines. The ith element of the array mines is defined as mines[i] = [xi, yi] where grid[xi][yi] == 0.
+Return the order of the largest axis-aligned plus sign of 1's contained in grid. If there is none, return 0.
+An axis-aligned plus sign of 1's of order k has some center grid[r][c] == 1 along with four arms of length k - 1 going up, down, left, and right, and made of 1's. Note that there could be 0's or 1's beyond the arms of the plus sign, only the relevant area of the plus sign is checked for 1's.
   Example 1:
-Input
-["StreamChecker", "query", "query", "query", "query", "query", "query", "query", "query", "query", "query", "query", "query"]
-[[["cd", "f", "kl"]], ["a"], ["b"], ["c"], ["d"], ["e"], ["f"], ["g"], ["h"], ["i"], ["j"], ["k"], ["l"]]
-Output
-[null, false, false, false, true, false, true, false, false, false, false, false, true]
-
-Explanation
-StreamChecker streamChecker = new StreamChecker(["cd", "f", "kl"]);
-streamChecker.query("a"); // return False
-streamChecker.query("b"); // return False
-streamChecker.query("c"); // return False
-streamChecker.query("d"); // return True, because 'cd' is in the wordlist
-streamChecker.query("e"); // return False
-streamChecker.query("f"); // return True, because 'f' is in the wordlist
-streamChecker.query("g"); // return False
-streamChecker.query("h"); // return False
-streamChecker.query("i"); // return False
-streamChecker.query("j"); // return False
-streamChecker.query("k"); // return False
-streamChecker.query("l"); // return True, because 'kl' is in the wordlist
+Input: n = 5, mines = [[4,2]]
+Output: 2
+Explanation: In the above grid, the largest plus sign can only be of order 2. One of them is shown.
+Example 2:
+Input: n = 1, mines = [[0,0]]
+Output: 0
+Explanation: There is no plus sign, so return 0.
   Constraints:
-1 <= words.length <= 2000
-1 <= words[i].length <= 200
-words[i] consists of lowercase English letters.
-letter is a lowercase English letter.
-At most 4 * 104 calls will be made to query.
+1 <= n <= 500
+1 <= mines.length <= 5000
+0 <= xi, yi < n
+All the pairs (xi, yi) are unique.

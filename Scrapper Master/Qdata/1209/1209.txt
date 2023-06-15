@@ -1,23 +1,21 @@
-Given two strings s and t, your goal is to convert s into t in k moves or less.
-During the ith (1 <= i <= k) move you can:
-Choose any index j (1-indexed) from s, such that 1 <= j <= s.length and j has not been chosen in any previous move, and shift the character at that index i times.
-Do nothing.
-Shifting a character means replacing it by the next letter in the alphabet (wrapping around so that 'z' becomes 'a'). Shifting a character by i means applying the shift operations i times.
-Remember that any index j can be picked at most once.
-Return true if it's possible to convert s into t in no more than k moves, otherwise return false.
+You are given an integer array nums and an integer goal.
+You want to choose a subsequence of nums such that the sum of its elements is the closest possible to goal. That is, if the sum of the subsequence's elements is sum, then you want to minimize the absolute difference abs(sum - goal).
+Return the minimum possible value of abs(sum - goal).
+Note that a subsequence of an array is an array formed by removing some elements (possibly all or none) of the original array.
   Example 1:
-Input: s = "input", t = "ouput", k = 9
-Output: true
-Explanation: In the 6th move, we shift 'i' 6 times to get 'o'. And in the 7th move we shift 'n' to get 'u'.
+Input: nums = [5,-7,3,5], goal = 6
+Output: 0
+Explanation: Choose the whole array as a subsequence, with a sum of 6.
+This is equal to the goal, so the absolute difference is 0.
 Example 2:
-Input: s = "abc", t = "bcd", k = 10
-Output: false
-Explanation: We need to shift each character in s one time to convert it into t. We can shift 'a' to 'b' during the 1st move. However, there is no way to shift the other characters in the remaining moves to obtain t from s.
+Input: nums = [7,-9,15,-2], goal = -5
+Output: 1
+Explanation: Choose the subsequence [7,-9,-2], with a sum of -4.
+The absolute difference is abs(-4 - (-5)) = abs(1) = 1, which is the minimum.
 Example 3:
-Input: s = "aab", t = "bbb", k = 27
-Output: true
-Explanation: In the 1st move, we shift the first 'a' 1 time to get 'b'. In the 27th move, we shift the second 'a' 27 times to get 'b'.
+Input: nums = [1,2,3], goal = -7
+Output: 7
   Constraints:
-1 <= s.length, t.length <= 10^5
-0 <= k <= 10^9
-s, t contain only lowercase English letters.
+1 <= nums.length <= 40
+-107 <= nums[i] <= 107
+-109 <= goal <= 109

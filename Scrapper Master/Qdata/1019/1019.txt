@@ -1,14 +1,16 @@
-Given a string n representing an integer, return the closest integer (not including itself), which is a palindrome. If there is a tie, return the smaller one.
-The closest is defined as the absolute difference minimized between two integers.
+You are given a string s of even length. Split this string into two halves of equal lengths, and let a be the first half and b be the second half.
+Two strings are alike if they have the same number of vowels ('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'). Notice that s contains uppercase and lowercase letters.
+Return true if a and b are alike. Otherwise, return false.
   Example 1:
-Input: n = "123"
-Output: "121"
+Input: s = "book"
+Output: true
+Explanation: a = "bo" and b = "ok". a has 1 vowel and b has 1 vowel. Therefore, they are alike.
 Example 2:
-Input: n = "1"
-Output: "0"
-Explanation: 0 and 2 are the closest palindromes but we return the smallest which is 0.
+Input: s = "textbook"
+Output: false
+Explanation: a = "text" and b = "book". a has 1 vowel whereas b has 2. Therefore, they are not alike.
+Notice that the vowel o is counted twice.
   Constraints:
-1 <= n.length <= 18
-n consists of only digits.
-n does not have leading zeros.
-n is representing an integer in the range [1, 1018 - 1].
+2 <= s.length <= 1000
+s.length is even.
+s consists of uppercase and lowercase letters.

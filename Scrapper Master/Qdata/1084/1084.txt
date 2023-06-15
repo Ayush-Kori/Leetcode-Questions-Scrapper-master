@@ -1,42 +1,22 @@
-SQL Schema
-Table: Delivery
-+-----------------------------+---------+
-| Column Name                 | Type    |
-+-----------------------------+---------+
-| delivery_id                 | int     |
-| customer_id                 | int     |
-| order_date                  | date    |
-| customer_pref_delivery_date | date    |
-+-----------------------------+---------+
-delivery_id is the primary key of this table.
-The table holds information about food delivery to customers that make orders at some date and specify a preferred delivery date (on the same order date or after it).
-  If the customer's preferred delivery date is the same as the order date, then the order is called immediate; otherwise, it is called scheduled.
-The first order of a customer is the order with the earliest order date that the customer made. It is guaranteed that a customer has precisely one first order.
-Write an SQL query to find the percentage of immediate orders in the first orders of all customers, rounded to 2 decimal places.
-The query result format is in the following example.
+You are given a positive integer num consisting only of digits 6 and 9.
+Return the maximum number you can get by changing at most one digit (6 becomes 9, and 9 becomes 6).
   Example 1:
-Input: 
-Delivery table:
-+-------------+-------------+------------+-----------------------------+
-| delivery_id | customer_id | order_date | customer_pref_delivery_date |
-+-------------+-------------+------------+-----------------------------+
-| 1           | 1           | 2019-08-01 | 2019-08-02                  |
-| 2           | 2           | 2019-08-02 | 2019-08-02                  |
-| 3           | 1           | 2019-08-11 | 2019-08-12                  |
-| 4           | 3           | 2019-08-24 | 2019-08-24                  |
-| 5           | 3           | 2019-08-21 | 2019-08-22                  |
-| 6           | 2           | 2019-08-11 | 2019-08-13                  |
-| 7           | 4           | 2019-08-09 | 2019-08-09                  |
-+-------------+-------------+------------+-----------------------------+
-Output: 
-+----------------------+
-| immediate_percentage |
-+----------------------+
-| 50.00                |
-+----------------------+
+Input: num = 9669
+Output: 9969
 Explanation: 
-The customer id 1 has a first order with delivery id 1 and it is scheduled.
-The customer id 2 has a first order with delivery id 2 and it is immediate.
-The customer id 3 has a first order with delivery id 5 and it is scheduled.
-The customer id 4 has a first order with delivery id 7 and it is immediate.
-Hence, half the customers have immediate first orders.
+Changing the first digit results in 6669.
+Changing the second digit results in 9969.
+Changing the third digit results in 9699.
+Changing the fourth digit results in 9666.
+The maximum number is 9969.
+Example 2:
+Input: num = 9996
+Output: 9999
+Explanation: Changing the last digit 6 to 9 results in the maximum number.
+Example 3:
+Input: num = 9999
+Output: 9999
+Explanation: It is better not to apply any change.
+  Constraints:
+1 <= num <= 104
+num consists of only 6 and 9 digits.

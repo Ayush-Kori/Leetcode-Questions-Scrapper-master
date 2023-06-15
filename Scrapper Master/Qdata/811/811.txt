@@ -1,12 +1,11 @@
-Given a binary string s and a positive integer n, return true if the binary representation of all the integers in the range [1, n] are substrings of s, or false otherwise.
-A substring is a contiguous sequence of characters within a string.
+Given a string s containing an out-of-order English representation of digits 0-9, return the digits in ascending order.
   Example 1:
-Input: s = "0110", n = 3
-Output: true
+Input: s = "owoztneoer"
+Output: "012"
 Example 2:
-Input: s = "0110", n = 4
-Output: false
+Input: s = "fviefuro"
+Output: "45"
   Constraints:
-1 <= s.length <= 1000
-s[i] is either '0' or '1'.
-1 <= n <= 109
+1 <= s.length <= 105
+s[i] is one of the characters ["e","g","f","i","h","o","n","s","r","u","t","w","v","x","z"].
+s is guaranteed to be valid.

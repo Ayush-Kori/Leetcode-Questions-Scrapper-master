@@ -1,22 +1,20 @@
-You are given a binary string s. You are allowed to perform two types of operations on the string in any sequence:
-Type-1: Remove the character at the start of the string s and append it to the end of the string.
-Type-2: Pick any character in s and flip its value, i.e., if its value is '0' it becomes '1' and vice-versa.
-Return the minimum number of type-2 operations you need to perform such that s becomes alternating.
-The string is called alternating if no two adjacent characters are equal.
-For example, the strings "010" and "1010" are alternating, while the string "0100" is not.
+In a garden represented as an infinite 2D grid, there is an apple tree planted at every integer coordinate. The apple tree planted at an integer coordinate (i, j) has |i| + |j| apples growing on it.
+You will buy an axis-aligned square plot of land that is centered at (0, 0).
+Given an integer neededApples, return the minimum perimeter of a plot such that at least neededApples apples are inside or on the perimeter of that plot.
+The value of |x| is defined as:
+x if x >= 0
+-x if x < 0
   Example 1:
-Input: s = "111000"
-Output: 2
-Explanation: Use the first operation two times to make s = "100011".
-Then, use the second operation on the third and sixth elements to make s = "101010".
+Input: neededApples = 1
+Output: 8
+Explanation: A square plot of side length 1 does not contain any apples.
+However, a square plot of side length 2 has 12 apples inside (as depicted in the image above).
+The perimeter is 2 * 4 = 8.
 Example 2:
-Input: s = "010"
-Output: 0
-Explanation: The string is already alternating.
+Input: neededApples = 13
+Output: 16
 Example 3:
-Input: s = "1110"
-Output: 1
-Explanation: Use the second operation on the second element to make s = "1010".
+Input: neededApples = 1000000000
+Output: 5040
   Constraints:
-1 <= s.length <= 105
-s[i] is either '0' or '1'.
+1 <= neededApples <= 1015

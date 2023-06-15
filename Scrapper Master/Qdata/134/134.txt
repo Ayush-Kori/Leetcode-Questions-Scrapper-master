@@ -1,23 +1,24 @@
-On a 2D plane, there are n points with integer coordinates points[i] = [xi, yi]. Return the minimum time in seconds to visit all the points in the order given by points.
-You can move according to these rules:
-In 1 second, you can either:
-move vertically by one unit,
-move horizontally by one unit, or
-move diagonally sqrt(2) units (in other words, move one unit vertically then one unit horizontally in 1 second).
-You have to visit the points in the same order as they appear in the array.
-You are allowed to pass through points that appear later in the order, but these do not count as visits.
+Given the root of a binary tree, replace the value of each node in the tree with the sum of all its cousins' values.
+Two nodes of a binary tree are cousins if they have the same depth with different parents.
+Return the root of the modified tree.
+Note that the depth of a node is the number of edges in the path from the root node to it.
   Example 1:
-Input: points = [[1,1],[3,4],[-1,0]]
-Output: 7
-Explanation: One optimal path is [1,1] -> [2,2] -> [3,3] -> [3,4] -> [2,3] -> [1,2] -> [0,1] -> [-1,0]   
-Time from [1,1] to [3,4] = 3 seconds 
-Time from [3,4] to [-1,0] = 4 seconds
-Total time = 7 seconds
+Input: root = [5,4,9,1,10,null,7]
+Output: [0,0,0,7,7,null,11]
+Explanation: The diagram above shows the initial binary tree and the binary tree after changing the value of each node.
+- Node with value 5 does not have any cousins so its sum is 0.
+- Node with value 4 does not have any cousins so its sum is 0.
+- Node with value 9 does not have any cousins so its sum is 0.
+- Node with value 1 has a cousin with value 7 so its sum is 7.
+- Node with value 10 has a cousin with value 7 so its sum is 7.
+- Node with value 7 has cousins with values 1 and 10 so its sum is 11.
 Example 2:
-Input: points = [[3,2],[-2,2]]
-Output: 5
+Input: root = [3,1,2]
+Output: [0,0,0]
+Explanation: The diagram above shows the initial binary tree and the binary tree after changing the value of each node.
+- Node with value 3 does not have any cousins so its sum is 0.
+- Node with value 1 does not have any cousins so its sum is 0.
+- Node with value 2 does not have any cousins so its sum is 0.
   Constraints:
-points.length == n
-1 <= n <= 100
-points[i].length == 2
--1000 <= points[i][0], points[i][1] <= 1000
+The number of nodes in the tree is in the range [1, 105].
+1 <= Node.val <= 104

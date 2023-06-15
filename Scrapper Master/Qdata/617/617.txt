@@ -1,18 +1,20 @@
-Given an integer array nums and an integer k, return the number of subarrays of nums where the greatest common divisor of the subarray's elements is k.
-A subarray is a contiguous non-empty sequence of elements within an array.
-The greatest common divisor of an array is the largest integer that evenly divides all the array elements.
+Given a string s represents the serialization of a nested list, implement a parser to deserialize it and return the deserialized NestedInteger.
+Each element is either an integer or a list whose elements may also be integers or other lists.
   Example 1:
-Input: nums = [9,3,1,2,6,3], k = 3
-Output: 4
-Explanation: The subarrays of nums where 3 is the greatest common divisor of all the subarray's elements are:
-- [9,3,1,2,6,3]
-- [9,3,1,2,6,3]
-- [9,3,1,2,6,3]
-- [9,3,1,2,6,3]
+Input: s = "324"
+Output: 324
+Explanation: You should return a NestedInteger object which contains a single integer 324.
 Example 2:
-Input: nums = [4], k = 7
-Output: 0
-Explanation: There are no subarrays of nums where 7 is the greatest common divisor of all the subarray's elements.
+Input: s = "[123,[456,[789]]]"
+Output: [123,[456,[789]]]
+Explanation: Return a NestedInteger object containing a nested list with 2 elements:
+1. An integer containing value 123.
+2. A nested list containing two elements:
+    i.  An integer containing value 456.
+    ii. A nested list with one element:
+         a. An integer containing value 789
   Constraints:
-1 <= nums.length <= 1000
-1 <= nums[i], k <= 109
+1 <= s.length <= 5 * 104
+s consists of digits, square brackets "[]", negative sign '-', and commas ','.
+s is the serialization of valid NestedInteger.
+All the values in the input are in the range [-106, 106].

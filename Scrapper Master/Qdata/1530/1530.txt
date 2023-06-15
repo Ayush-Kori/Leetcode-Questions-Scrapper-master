@@ -1,30 +1,20 @@
-You are playing a game with integers. You start with the integer 1 and you want to reach the integer target.
-In one move, you can either:
-Increment the current integer by one (i.e., x = x + 1).
-Double the current integer (i.e., x = 2 * x).
-You can use the increment operation any number of times, however, you can only use the double operation at most maxDoubles times.
-Given the two integers target and maxDoubles, return the minimum number of moves needed to reach target starting with 1.
+On an 8 x 8 chessboard, there is exactly one white rook 'R' and some number of white bishops 'B', black pawns 'p', and empty squares '.'.
+When the rook moves, it chooses one of four cardinal directions (north, east, south, or west), then moves in that direction until it chooses to stop, reaches the edge of the board, captures a black pawn, or is blocked by a white bishop. A rook is considered attacking a pawn if the rook can capture the pawn on the rook's turn. The number of available captures for the white rook is the number of pawns that the rook is attacking.
+Return the number of available captures for the white rook.
   Example 1:
-Input: target = 5, maxDoubles = 0
-Output: 4
-Explanation: Keep incrementing by 1 until you reach target.
+Input: board = [[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","R",".",".",".","p"],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."]]
+Output: 3
+Explanation: In this example, the rook is attacking all the pawns.
 Example 2:
-Input: target = 19, maxDoubles = 2
-Output: 7
-Explanation: Initially, x = 1
-Increment 3 times so x = 4
-Double once so x = 8
-Increment once so x = 9
-Double again so x = 18
-Increment once so x = 19
+Input: board = [[".",".",".",".",".",".",".","."],[".","p","p","p","p","p",".","."],[".","p","p","B","p","p",".","."],[".","p","B","R","B","p",".","."],[".","p","p","B","p","p",".","."],[".","p","p","p","p","p",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."]]
+Output: 0
+Explanation: The bishops are blocking the rook from attacking any of the pawns.
 Example 3:
-Input: target = 10, maxDoubles = 4
-Output: 4
-Explanation: Initially, x = 1
-Increment once so x = 2
-Double once so x = 4
-Increment once so x = 5
-Double again so x = 10
+Input: board = [[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","p",".",".",".","."],["p","p",".","R",".","p","B","."],[".",".",".",".",".",".",".","."],[".",".",".","B",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."]]
+Output: 3
+Explanation: The rook is attacking the pawns at positions b5, d6, and f5.
   Constraints:
-1 <= target <= 109
-0 <= maxDoubles <= 100
+board.length == 8
+board[i].length == 8
+board[i][j] is either 'R', '.', 'B', or 'p'
+There is exactly one cell with board[i][j] == 'R'

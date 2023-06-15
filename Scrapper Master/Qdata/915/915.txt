@@ -1,25 +1,15 @@
-You are given a positive integer n representing n cities numbered from 1 to n. You are also given a 2D array roads where roads[i] = [ai, bi, distancei] indicates that there is a bidirectional road between cities ai and bi with a distance equal to distancei. The cities graph is not necessarily connected.
-The score of a path between two cities is defined as the minimum distance of a road in this path.
-Return the minimum possible score of a path between cities 1 and n.
-Note:
-A path is a sequence of roads between two cities.
-It is allowed for a path to contain the same road multiple times, and you can visit cities 1 and n multiple times along the path.
-The test cases are generated such that there is at least one path between 1 and n.
+There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid[m - 1][n - 1]). The robot can only move either down or right at any point in time.
+Given the two integers m and n, return the number of possible unique paths that the robot can take to reach the bottom-right corner.
+The test cases are generated so that the answer will be less than or equal to 2 * 109.
   Example 1:
-Input: n = 4, roads = [[1,2,9],[2,3,6],[2,4,5],[1,4,7]]
-Output: 5
-Explanation: The path from city 1 to 4 with the minimum score is: 1 -> 2 -> 4. The score of this path is min(9,5) = 5.
-It can be shown that no other path has less score.
+Input: m = 3, n = 7
+Output: 28
 Example 2:
-Input: n = 4, roads = [[1,2,2],[1,3,4],[3,4,7]]
-Output: 2
-Explanation: The path from city 1 to 4 with the minimum score is: 1 -> 2 -> 1 -> 3 -> 4. The score of this path is min(2,2,4,7) = 2.
+Input: m = 3, n = 2
+Output: 3
+Explanation: From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:
+1. Right -> Down -> Down
+2. Down -> Down -> Right
+3. Down -> Right -> Down
   Constraints:
-2 <= n <= 105
-1 <= roads.length <= 105
-roads[i].length == 3
-1 <= ai, bi <= n
-ai != bi
-1 <= distancei <= 104
-There are no repeated edges.
-There is at least one path between 1 and n.
+1 <= m, n <= 100

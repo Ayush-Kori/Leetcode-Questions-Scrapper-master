@@ -1,21 +1,30 @@
-Alice and Bob play a game with piles of stones. There are an even number of piles arranged in a row, and each pile has a positive integer number of stones piles[i].
-The objective of the game is to end with the most stones. The total number of stones across all the piles is odd, so there are no ties.
-Alice and Bob take turns, with Alice starting first. Each turn, a player takes the entire pile of stones either from the beginning or from the end of the row. This continues until there are no more piles left, at which point the person with the most stones wins.
-Assuming Alice and Bob play optimally, return true if Alice wins the game, or false if Bob wins.
+You are given a 0-indexed string s that you must perform k replacement operations on. The replacement operations are given as three 0-indexed parallel arrays, indices, sources, and targets, all of length k.
+To complete the ith replacement operation:
+Check if the substring sources[i] occurs at index indices[i] in the original string s.
+If it does not occur, do nothing.
+Otherwise if it does occur, replace that substring with targets[i].
+For example, if s = "abcd", indices[i] = 0, sources[i] = "ab", and targets[i] = "eee", then the result of this replacement will be "eeecd".
+All replacement operations must occur simultaneously, meaning the replacement operations should not affect the indexing of each other. The testcases will be generated such that the replacements will not overlap.
+For example, a testcase with s = "abc", indices = [0, 1], and sources = ["ab","bc"] will not be generated because the "ab" and "bc" replacements overlap.
+Return the resulting string after performing all replacement operations on s.
+A substring is a contiguous sequence of characters in a string.
   Example 1:
-Input: piles = [5,3,4,5]
-Output: true
-Explanation: 
-Alice starts first, and can only take the first 5 or the last 5.
-Say she takes the first 5, so that the row becomes [3, 4, 5].
-If Bob takes 3, then the board is [4, 5], and Alice takes 5 to win with 10 points.
-If Bob takes the last 5, then the board is [3, 4], and Alice takes 4 to win with 9 points.
-This demonstrated that taking the first 5 was a winning move for Alice, so we return true.
+Input: s = "abcd", indices = [0, 2], sources = ["a", "cd"], targets = ["eee", "ffff"]
+Output: "eeebffff"
+Explanation:
+"a" occurs at index 0 in s, so we replace it with "eee".
+"cd" occurs at index 2 in s, so we replace it with "ffff".
 Example 2:
-Input: piles = [3,7,2,3]
-Output: true
+Input: s = "abcd", indices = [0, 2], sources = ["ab","ec"], targets = ["eee","ffff"]
+Output: "eeecd"
+Explanation:
+"ab" occurs at index 0 in s, so we replace it with "eee".
+"ec" does not occur at index 2 in s, so we do nothing.
   Constraints:
-2 <= piles.length <= 500
-piles.length is even.
-1 <= piles[i] <= 500
-sum(piles[i]) is odd.
+1 <= s.length <= 1000
+k == indices.length == sources.length == targets.length
+1 <= k <= 100
+0 <= indexes[i] < s.length
+1 <= sources[i].length, targets[i].length <= 50
+s consists of only lowercase English letters.
+sources[i] and targets[i] consist of only lowercase English letters.

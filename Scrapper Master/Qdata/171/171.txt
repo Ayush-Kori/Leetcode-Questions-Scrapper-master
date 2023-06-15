@@ -1,17 +1,25 @@
-You are given an integer array nums and an integer x. In one operation, you can either remove the leftmost or the rightmost element from the array nums and subtract its value from x. Note that this modifies the array for future operations.
-Return the minimum number of operations to reduce x to exactly 0 if it is possible, otherwise, return -1.
+You are given a 0-indexed string array words, where words[i] consists of lowercase English letters.
+In one operation, select any index i such that 0 < i < words.length and words[i - 1] and words[i] are anagrams, and delete words[i] from words. Keep performing this operation as long as you can select an index that satisfies the conditions.
+Return words after performing all operations. It can be shown that selecting the indices for each operation in any arbitrary order will lead to the same result.
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase using all the original letters exactly once. For example, "dacb" is an anagram of "abdc".
   Example 1:
-Input: nums = [1,1,4,2,3], x = 5
-Output: 2
-Explanation: The optimal solution is to remove the last two elements to reduce x to zero.
+Input: words = ["abba","baba","bbaa","cd","cd"]
+Output: ["abba","cd"]
+Explanation:
+One of the ways we can obtain the resultant array is by using the following operations:
+- Since words[2] = "bbaa" and words[1] = "baba" are anagrams, we choose index 2 and delete words[2].
+  Now words = ["abba","baba","cd","cd"].
+- Since words[1] = "baba" and words[0] = "abba" are anagrams, we choose index 1 and delete words[1].
+  Now words = ["abba","cd","cd"].
+- Since words[2] = "cd" and words[1] = "cd" are anagrams, we choose index 2 and delete words[2].
+  Now words = ["abba","cd"].
+We can no longer perform any operations, so ["abba","cd"] is the final answer.
 Example 2:
-Input: nums = [5,6,7,8,9], x = 4
-Output: -1
-Example 3:
-Input: nums = [3,2,20,1,1,3], x = 10
-Output: 5
-Explanation: The optimal solution is to remove the last three elements and the first two elements (5 operations in total) to reduce x to zero.
+Input: words = ["a","b","c","d","e"]
+Output: ["a","b","c","d","e"]
+Explanation:
+No two adjacent strings in words are anagrams of each other, so no operations are performed.
   Constraints:
-1 <= nums.length <= 105
-1 <= nums[i] <= 104
-1 <= x <= 109
+1 <= words.length <= 100
+1 <= words[i].length <= 10
+words[i] consists of lowercase English letters.

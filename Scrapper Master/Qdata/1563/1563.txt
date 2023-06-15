@@ -1,16 +1,18 @@
-Given the head of a linked list, we repeatedly delete consecutive sequences of nodes that sum to 0 until there are no such sequences.
-After doing so, return the head of the final linked list.  You may return any such answer.
-  (Note that in the examples below, all sequences are serializations of ListNode objects.)
-Example 1:
-Input: head = [1,2,-3,3,1]
-Output: [3,1]
-Note: The answer [1,2,1] would also be accepted.
-Example 2:
-Input: head = [1,2,3,-3,4]
-Output: [1,2,4]
-Example 3:
-Input: head = [1,2,3,-3,-2]
-Output: [1]
+Note: This is a companion problem to the System Design problem: Design TinyURL.
+TinyURL is a URL shortening service where you enter a URL such as https://leetcode.com/problems/design-tinyurl and it returns a short URL such as http://tinyurl.com/4e9iAk. Design a class to encode a URL and decode a tiny URL.
+There is no restriction on how your encode/decode algorithm should work. You just need to ensure that a URL can be encoded to a tiny URL and the tiny URL can be decoded to the original URL.
+Implement the Solution class:
+Solution() Initializes the object of the system.
+String encode(String longUrl) Returns a tiny URL for the given longUrl.
+String decode(String shortUrl) Returns the original long URL for the given shortUrl. It is guaranteed that the given shortUrl was encoded by the same object.
+  Example 1:
+Input: url = "https://leetcode.com/problems/design-tinyurl"
+Output: "https://leetcode.com/problems/design-tinyurl"
+
+Explanation:
+Solution obj = new Solution();
+string tiny = obj.encode(url); // returns the encoded tiny url.
+string ans = obj.decode(tiny); // returns the original url after decoding it.
   Constraints:
-The given linked list will contain between 1 and 1000 nodes.
-Each node in the linked list has -1000 <= node.val <= 1000.
+1 <= url.length <= 104
+url is guranteed to be a valid URL.

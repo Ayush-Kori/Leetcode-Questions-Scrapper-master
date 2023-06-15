@@ -1,13 +1,32 @@
-You are given an integer array cards where cards[i] represents the value of the ith card. A pair of cards are matching if the cards have the same value.
-Return the minimum number of consecutive cards you have to pick up to have a pair of matching cards among the picked cards. If it is impossible to have matching cards, return -1.
+You are given a list of strings of the same length words and a string target.
+Your task is to form target using the given words under the following rules:
+target should be formed from left to right.
+To form the ith character (0-indexed) of target, you can choose the kth character of the jth string in words if target[i] = words[j][k].
+Once you use the kth character of the jth string of words, you can no longer use the xth character of any string in words where x <= k. In other words, all characters to the left of or at index k become unusuable for every string.
+Repeat the process until you form the string target.
+Notice that you can use multiple characters from the same string in words provided the conditions above are met.
+Return the number of ways to form target from words. Since the answer may be too large, return it modulo 109 + 7.
   Example 1:
-Input: cards = [3,4,2,3,4,7]
-Output: 4
-Explanation: We can pick up the cards [3,4,2,3] which contain a matching pair of cards with value 3. Note that picking up the cards [4,2,3,4] is also optimal.
+Input: words = ["acca","bbbb","caca"], target = "aba"
+Output: 6
+Explanation: There are 6 ways to form target.
+"aba" -> index 0 ("acca"), index 1 ("bbbb"), index 3 ("caca")
+"aba" -> index 0 ("acca"), index 2 ("bbbb"), index 3 ("caca")
+"aba" -> index 0 ("acca"), index 1 ("bbbb"), index 3 ("acca")
+"aba" -> index 0 ("acca"), index 2 ("bbbb"), index 3 ("acca")
+"aba" -> index 1 ("caca"), index 2 ("bbbb"), index 3 ("acca")
+"aba" -> index 1 ("caca"), index 2 ("bbbb"), index 3 ("caca")
 Example 2:
-Input: cards = [1,0,5,3]
-Output: -1
-Explanation: There is no way to pick up a set of consecutive cards that contain a pair of matching cards.
+Input: words = ["abba","baab"], target = "bab"
+Output: 4
+Explanation: There are 4 ways to form target.
+"bab" -> index 0 ("baab"), index 1 ("baab"), index 2 ("abba")
+"bab" -> index 0 ("baab"), index 1 ("baab"), index 3 ("baab")
+"bab" -> index 0 ("baab"), index 2 ("baab"), index 3 ("baab")
+"bab" -> index 1 ("abba"), index 2 ("baab"), index 3 ("baab")
   Constraints:
-1 <= cards.length <= 105
-0 <= cards[i] <= 106
+1 <= words.length <= 1000
+1 <= words[i].length <= 1000
+All strings in words have the same length.
+1 <= target.length <= 1000
+words[i] and target contain only lowercase English letters.
