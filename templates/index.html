@@ -1,21 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Search Page</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LeetCode Search</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-image: url("background-image.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      html {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      .search-results {
+        overflow-y: auto;
+        flex-grow: 1;
+      }
+    </style>
   </head>
-  <body>
-    <div class="form">
-      <form method="POST">
-        {{ form.hidden_tag() }} {{ form.search.label }} {{ form.search() }} {{
-        form.submit() }}
-      </form>
+  <body class="bg-gray-900">
+    <header class="py-4 px-8 bg-gray-800">
+      <h1 class="text-2xl font-bold text-white">Leetcode Search</h1>
+    </header>
+
+    <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto mt-8">
+      <div class="p-8 bg-gray-800 rounded-lg">
+        <form method="POST" class="space-y-4">
+          {{ form.hidden_tag() }}
+          <label for="search" class="text-white">Search:</label>
+          <div class="flex">
+            <input
+              type="text"
+              id="search"
+              name="search"
+              class="flex-grow border border-gray-300 bg-gray-700 text-white p-2 rounded-l"
+              placeholder="Enter your search query"
+            />
+            <button
+              type="submit"
+              class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-r transition-colors duration-300"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="search-results">
+        {% for result in results %}
+        <div class="bg-gray-800 p-4 mb-4 shadow">
+          <a href="{{ result['Question Link'] }}" class="text-blue-500 hover:underline">{{ result['Question Link'] }}</a>
+          <!-- <p class="text-gray-400">Score: {{ result['Score'] }}</p> -->
+        </div>
+        {% endfor %}
+      </div>
     </div>
-    <div>
-      {% for result in results %}
-      <a href="{{ result['Question Link'] }}">{{ result['Question Link'] }}</a>
-      <p>Score: {{ result['Score'] }}</p>
-      {% endfor %}
-    </div>
+
+    <footer class="py-4 px-8 bg-gray-800 text-white text-center">
+      <p>This project is made by Ayush Kori</p>
+    </footer>
   </body>
 </html>
