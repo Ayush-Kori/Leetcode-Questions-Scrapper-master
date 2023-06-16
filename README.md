@@ -8,16 +8,23 @@ To run the search engine locally, follow these steps:
 
 * Install Flask: Open a terminal or command prompt and run the following command to install Flask:
 
+```python
 pip install flask
+```
+
 * Install Flask-WTF: Flask-WTF is used for form handling in Flask applications. Install it by running the following command:
 
+```python
 pip install flask-wtf
+```
 Download the project: Clone or download the project from the repository.
 
 * Run the application: Navigate to the project directory in the terminal or command prompt and execute the following command:
 
-
+```python
 python app.py
+```
+
 * Access the application: Open a web browser and enter the following URL:
 
 http://localhost:5000
@@ -30,6 +37,11 @@ http://localhost:5000
 * View Results: The search engine will retrieve the top 10 relevant links based on the TF-IDF algorithm and display them on the results page.
 
 * Click on a Result: You can click on any of the links to navigate to the corresponding webpage and view the full content.
+
+
+## Live Demo
+You can try out a live demo of the search engine by visiting the following link:
+https://leetcode-search.onrender.com/
 
 ## Project Structure
 The project has the following structure:
